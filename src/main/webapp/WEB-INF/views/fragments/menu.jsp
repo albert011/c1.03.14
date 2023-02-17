@@ -20,6 +20,7 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.gonsanmar2.favourite-link" action="https://open.spotify.com/playlist/37i9dQZF1DX2apWzyECwyZ?si=892688190c8e455f"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
