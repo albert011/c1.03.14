@@ -18,11 +18,9 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	
-	<name>Acme One</name>
+	<name>Acme-L3-D01</name>
 	<description>This is my first project in Design &amp; Testing.</description>
-
-	<groupId>Acme</groupId>	
-	<artifactId>Acme-One-23.1</artifactId>
+	
 	<version>23.1</version>
 	<packaging>war</packaging>
 
@@ -253,4 +251,6 @@
 
 	</dependencies>
 
+	<groupId>Acme-L3-D01</groupId>
+	<artifactId>Acme-L3-D01</artifactId>
 </project>
