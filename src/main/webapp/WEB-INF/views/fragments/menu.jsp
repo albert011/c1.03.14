@@ -24,6 +24,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.ferbarbar1.favourite-link" action="https://www.instagram.com/duki/?hl=es"/>
 			<acme:menu-suboption code="master.menu.anonymous.alvsanflo1.favourite-link" action="https://www.realmadrid.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.student3.favourite-link" action="https://www.shodan.io/"/>
+			<acme:menu-suboption code="master.menu.anonymous.gonsanmar2.favourite-link" action="https://open.spotify.com/playlist/37i9dQZF1DX2apWzyECwyZ?si=892688190c8e455f"/>
 		</acme:menu-option>
 		
 
