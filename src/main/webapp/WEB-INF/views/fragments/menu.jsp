@@ -21,6 +21,7 @@
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.alvsanflo1.favourite-link" action="https://www.realmadrid.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.student3.favourite-link" action="https://www.shodan.io/"/>
 		</acme:menu-option>
 		
 
