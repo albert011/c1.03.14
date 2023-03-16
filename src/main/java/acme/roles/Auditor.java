@@ -2,13 +2,11 @@
 package acme.roles;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.course.Course;
 import acme.framework.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,25 +14,23 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Lecturer extends AbstractRole {
+public class Auditor extends AbstractRole {
 
 	protected static final long	serialVersionUID	= 1L;
 
 	@NotBlank
 	@Length(max = 75)
-	private String				almaMater;
+	protected String			firm;
 
 	@NotBlank
-	@Length(max = 75)
-	private String				resume;
+	@Length(max = 25)
+	protected String			professionalId;
 
 	@NotBlank
 	@Length(max = 100)
-	private String				listOfQualifications;
+	protected String			certificationList;
 
 	@URL
-	private String				link;
+	protected String			moreInfo;
 
-	@ManyToOne()
-	protected Course			courses;
 }
