@@ -20,25 +20,27 @@ import lombok.Setter;
 @Setter
 public class course extends AbstractEntity {
 
+	protected static final long	serialVersionUID	= 1L;
+
 	@NotBlank
 	@Column(unique = true)
 	@Pattern(regexp = "“[A-Z]{1,3} [0-9]{3}”")
-	private String	code;
+	private String				code;
 
 	@NotBlank
 	@Length(max = 75)
-	private String	title;
+	private String				title;
 
 	@NotBlank
 	@Length(max = 75)
-	private String	Abstract;
+	private String				Abstract;
 
 	//Meter enum
 
 	@Positive
 	@NotNull
-	private Double	retailPrice;
+	private Double				retailPrice;
 
 	@URL
-	private String	link;
+	private String				link;
 }
