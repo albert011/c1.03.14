@@ -13,17 +13,10 @@ public class AdminDashboard extends AbstractForm {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	Integer						numberOfPrincipalsWithConsumerRole;
-	Integer						numberOfPrincipalsWithProviderRole;
-	Double						ratioOfPeepsWithEmailAddressAndLink;
-	Double						ratioOfCriticalBulletins;
-	Double						ratioOfNonCriticalBulletins;
-	Map<String, Double>			averageBudgetOfOffersByCurrency;
-	Map<String, Double>			minimumBudgetOfOffersByCurrency;
-	Map<String, Double>			maximumBudgetOfOffersByCurrency;
-	Map<String, Double>			standardDeviationBudgetOfOffersByCurrency;
-	Double						averageNumberOfNotes;
-	Integer						minimumNumberOfNotes;
-	Integer						maximumNumberOfNotes;
-	Double						standardDeviationNumberOfNotes;
+	int							minimumNumberOfNotes, maximumNumberOfNotes;
+	int							numberOfPrincipalsWithConsumerRole, numberOfPrincipalsWithProviderRole;
+	double						averageNumberOfNotes, standardDeviationNumberOfNotes;
+	double						ratioOfPeepsWithEmailAddressAndLink;
+	double						ratioOfCriticalBulletins, ratioOfNonCriticalBulletins;
+	Map<String, Double>			averageBudgetOfOffersByCurrency, minimumBudgetOfOffersByCurrency, maximumBudgetOfOffersByCurrency, standardDeviationBudgetOfOffersByCurrency;
 }
