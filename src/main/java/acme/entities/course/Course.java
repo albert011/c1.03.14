@@ -1,5 +1,5 @@
 
-package acme.entities;
+package acme.entities.course;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class course extends AbstractEntity {
+public class Course extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 

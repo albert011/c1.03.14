@@ -1,5 +1,5 @@
 
-package acme.offer;
+package acme.entities.offer;
 
 import java.time.LocalDate;
 
