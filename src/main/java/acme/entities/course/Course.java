@@ -25,22 +25,22 @@ public class Course extends AbstractEntity {
 	@NotBlank
 	@Column(unique = true)
 	@Pattern(regexp = "“[A-Z]{1,3} [0-9]{3}”")
-	private String				code;
+	protected String			code;
 
 	@NotBlank
 	@Length(max = 75)
-	private String				title;
+	protected String			title;
 
 	@NotBlank
 	@Length(max = 75)
-	private String				Abstract;
+	protected String			Abstract;
 
 	//Meter enum
 
 	@Positive
 	@NotNull
-	private Double				retailPrice;
+	protected Double			retailPrice;
 
 	@URL
-	private String				link;
+	protected String			link;
 }
