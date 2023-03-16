@@ -218,7 +218,7 @@ bg=yellow
       <h>150</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
-Enrollment
+Enrolment
 bg=yellow
 --
 + code: String {Unique, NotBlank, Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")}
