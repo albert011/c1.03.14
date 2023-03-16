@@ -4,11 +4,13 @@ package acme.offer;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
@@ -28,7 +30,8 @@ public class Offer extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotNull
-	@Past
+	@PastOrPresent
+	@Temporal(TemporalType.TIME)
 	protected LocalDate			instantiationMoment;
 
 	@NotBlank
@@ -41,10 +44,12 @@ public class Offer extends AbstractEntity {
 
 	@NotNull
 	@FutureOrPresent
+	@Temporal(TemporalType.DATE)
 	protected LocalDate			availabilityPeriodStart;
 
 	@NotNull
 	@FutureOrPresent
+	@Temporal(TemporalType.DATE)
 	protected LocalDate			availabilityPeriodEnd;
 
 	@Positive
@@ -55,7 +60,7 @@ public class Offer extends AbstractEntity {
 
 	@AssertTrue(message = "The availability period must be at least one week long and start at least one day after the offer is instantiated.")
 	public boolean isAvailabilityPeriodValid() {
-		final LocalDate minAvailabilityPeriodEnd = this.instantiationMoment.plusDays(1).plusWeeks(1);
+		LocalDate minAvailabilityPeriodEnd = this.instantiationMoment.plusDays(1).plusWeeks(1);
 		return this.availabilityPeriodEnd.isEqual(minAvailabilityPeriodEnd) || this.availabilityPeriodEnd.isAfter(minAvailabilityPeriodEnd);
 	}
 }
