@@ -2,12 +2,15 @@
 package acme.entities.note;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.framework.components.accounts.Principal;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,7 +28,7 @@ public class Note extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
-	//	@Pattern(regexp = "〈username〉 - 〈surname, name〉")
+	@Pattern(regexp = "〈username〉 - 〈surname, name〉")
 	protected String			author;
 
 	@NotBlank
@@ -38,6 +41,6 @@ public class Note extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	//	@ManyToOne()
-	//	protected Principal			principals;
+	@ManyToOne()
+	protected Principal			principals;
 }
