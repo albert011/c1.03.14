@@ -1,8 +1,12 @@
 
-package acme.enrolments;
+package acme.enrollments;
+
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -14,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Enrolment {
+public class Enrollment {
 
 	@NotBlank
 	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
@@ -30,5 +34,6 @@ public class Enrolment {
 	protected String	goals;
 
 	@NotNull
-	protected Integer	workTime;
+	@Temporal(TemporalType.TIME)
+	protected Date		workTime;
 }

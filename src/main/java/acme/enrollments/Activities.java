@@ -1,4 +1,4 @@
-package acme.enrolments;
+package acme.enrollments;
 
 
 public class Activities {
