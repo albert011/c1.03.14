@@ -2,13 +2,11 @@
 package acme.roles;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.course;
 import acme.framework.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,7 +32,4 @@ public class Lecturer extends AbstractRole {
 
 	@URL
 	private String				link;
-
-	@ManyToOne()
-	protected course			courses;
 }
