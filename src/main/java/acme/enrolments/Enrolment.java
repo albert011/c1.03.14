@@ -1,5 +1,5 @@
 
-package acme.enrollments;
+package acme.enrolments;
 
 import java.sql.Date;
 
@@ -18,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Enrollment {
+public class Enrolment {
 
 	@NotBlank
 	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
