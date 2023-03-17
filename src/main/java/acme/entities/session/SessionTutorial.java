@@ -4,7 +4,6 @@ package acme.entities.session;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
@@ -38,7 +37,7 @@ public class SessionTutorial extends AbstractEntity {
 	protected String			abstractMessage;
 
 	@NotNull
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(optional = false)
 	protected SessionType		sessionType;
 
 	@NotNull
@@ -52,12 +51,12 @@ public class SessionTutorial extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(optional = false)
 	protected Tutorial			tutorial;
 
 
 	@Transient
-	public Double getDuration() {
+	protected Double getDuration() {
 		//miliseconds
 		final long duration = this.timeEnd.getTime() - this.timeStart.getTime();
 		return (double) duration / (1000 * 60 * 60);

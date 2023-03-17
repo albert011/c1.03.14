@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 
 import acme.framework.data.AbstractEntity;
@@ -38,6 +39,7 @@ public class Tutorial extends AbstractEntity {
 	@Size(max = 100)
 	protected String			goals;
 
+	@PositiveOrZero
 	protected double			estimatedTotalTime;
 
 }
