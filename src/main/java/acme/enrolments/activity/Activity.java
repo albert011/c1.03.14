@@ -1,15 +1,17 @@
 
-package acme.enrolments;
+package acme.enrolments.activity;
 
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.enrolments.Enrolment;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +19,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Activities extends AbstractEntity {
+public class Activity extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
@@ -40,4 +42,8 @@ public class Activities extends AbstractEntity {
 	public enum ActivityType {
 		THEORY, HANDS_ON
 	}
+
+
+	@ManyToOne()
+	protected Enrolment enrolment;
 }
