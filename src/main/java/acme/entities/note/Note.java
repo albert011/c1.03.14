@@ -8,7 +8,6 @@ import javax.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.components.accounts.Principal;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,7 +36,5 @@ public class Note extends AbstractEntity {
 
 	@URL
 	protected String			link;
-
-	protected Principal			principals;
 
 }
