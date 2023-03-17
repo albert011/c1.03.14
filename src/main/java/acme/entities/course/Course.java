@@ -47,11 +47,6 @@ public class Course extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	//	@NotNull
-	//	@Valid
-	//	@OneToOne(optional = false)
-	//	protected Audit				audit;
-
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
