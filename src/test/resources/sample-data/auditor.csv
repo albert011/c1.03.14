@@ -1,0 +1,3 @@
+key,key:userAccount,firm,professionalId,certificationList,moreInfo
+auditor-01,user-account-auditor-01,"Firma de prueba",234567890B,"Certificacion de prueba",null
+auditor-02,user-account-auditor-02,"Firma de prueba",345678901C,"Certificacion de prueba",null

@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import acme.entities.course;
+import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Student;
 import lombok.Getter;
@@ -47,5 +47,5 @@ public class Enrolment extends AbstractEntity {
 	protected Student			student;
 
 	@ManyToOne()
-	protected course			course;
+	protected Course			course;
 }
