@@ -1,17 +1,20 @@
 
 package acme.entities.offer;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.AssertTrue;
-import javax.validation.constraints.FutureOrPresent;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.URL;
+
+import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,8 +31,9 @@ public class Offer extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotNull
-	@Past
-	protected LocalDate			instantiationMoment;
+	@Temporal(TemporalType.TIMESTAMP)
+	@PastOrPresent
+	protected Date				instantiationMoment;
 
 	@NotBlank
 	@Size(max = 75)
@@ -40,22 +44,18 @@ public class Offer extends AbstractEntity {
 	protected String			summary;
 
 	@NotNull
-	@FutureOrPresent
-	protected LocalDate			availabilityPeriodStart;
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				availabilityPeriodStart;
 
 	@NotNull
-	@FutureOrPresent
-	protected LocalDate			availabilityPeriodEnd;
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				availabilityPeriodEnd;
 
-	@Positive
-	protected double			price;
+	@NotNull
+	@Valid
+	protected Money				price;
 
+	@URL
 	protected String			link;
 
-
-	@AssertTrue(message = "The availability period must be at least one week long and start at least one day after the offer is instantiated.")
-	public boolean isAvailabilityPeriodValid() {
-		final LocalDate minAvailabilityPeriodEnd = this.instantiationMoment.plusDays(1).plusWeeks(1);
-		return this.availabilityPeriodEnd.isEqual(minAvailabilityPeriodEnd) || this.availabilityPeriodEnd.isAfter(minAvailabilityPeriodEnd);
-	}
 }

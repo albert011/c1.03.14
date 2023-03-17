@@ -9,3 +9,6 @@ user-account-lecturer-05,true,"UserIdentity{name: 'Ana', surname: 'Medina', emai
 user-account-lecturer-06,true,"UserIdentity{name: 'Isa', surname: 'Jimenez', email: 'isajimenez@acme.com'}",lecturer6,lecturer6
 user-account-lecturer-07,true,"UserIdentity{name: 'Jose', surname: 'Gomez', email: 'josegomez@acme.com'}",lecturer7,lecturer7
 user-account-lecturer-08,true,"UserIdentity{name: 'Alex', surname: 'Pecino', email: 'alexpecino@acme.com'}",lecturer8,lecturer8
+user-account-assistant-01,true,"UserIdentity{name: 'Tom', surname: 'Cat', email: 'tom.cat@acme.com'}",assistant1,assistant1
+user-account-assistant-02,true,"UserIdentity{name: 'Foo', surname: 'Bar', email: 'foo.bar@acme.com'}",assistant2,assistant2
+user-account-auditor-01,false,"UserIdentity{name: 'Auditor', surname: 'Evans', email: 'auditor@acme.com'}",auditor,auditor
