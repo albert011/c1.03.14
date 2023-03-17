@@ -1,7 +1,7 @@
 
 package acme.entities.enrolments;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +27,7 @@ public class Enrolment extends AbstractEntity {
 	protected static final long	serialVersionUID	= 1L;
 
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
+	@Pattern(regexp = "^[A-Z]{1,3}[0-9]{3}$")
 	@Column(unique = true)
 	protected String			code;
 
@@ -40,7 +40,7 @@ public class Enrolment extends AbstractEntity {
 	protected String			goals;
 
 	@NotNull
-	@Temporal(TemporalType.TIME)
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				workTime;
 
 	@ManyToOne()
