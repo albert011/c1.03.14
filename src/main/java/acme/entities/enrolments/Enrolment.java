@@ -1,5 +1,5 @@
 
-package acme.enrolments;
+package acme.entities.enrolments;
 
 import java.sql.Date;
 

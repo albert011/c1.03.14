@@ -1,5 +1,5 @@
 
-package acme.enrolments.activity;
+package acme.entities.enrolments;
 
 import java.sql.Date;
 
@@ -11,7 +11,6 @@ import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
 
-import acme.enrolments.Enrolment;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
