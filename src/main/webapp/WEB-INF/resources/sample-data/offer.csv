@@ -1,0 +1,5 @@
+key,instantiationMoment,heading,summary,availabilityPeriodStart,availabilityPeriodEnd,price,link
+offer-01,"1990/02/03 08:16","L","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consectetur velit in nulla viverra.","1990/02/13 08:16","1990/03/03 08:16","USD 99.99","https://www.example.com"
+offer-02,"2000/05/17 09:30","Lo","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consectetur velit in nulla viverra","2000/05/18 09:30","2000/06/17 09:30","EUR 120.50","https://www.example.com"
+offer-03,"2005/01/19 15:20","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id id","Lo","2005/02/19 15:20","2005/03/19 15:20","GBP 10.00","https://www.example.com"
+offer-04,"2018/10/25 19:34","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id id.","L","2019/10/25 19:34","2020/10/25 19:34","EUR 300.75","https://www.example.com"

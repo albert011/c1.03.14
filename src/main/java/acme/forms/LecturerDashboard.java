@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class lecturerDashboard extends AbstractForm {
+public class LecturerDashboard extends AbstractForm {
 
 	protected static final long	serialVersionUID	= 1L;
 

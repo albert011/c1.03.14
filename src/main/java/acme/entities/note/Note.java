@@ -32,7 +32,7 @@ public class Note extends AbstractEntity {
 	protected String			message;
 
 	@Email
-	protected String			email_address;
+	protected String			emailAddress;
 
 	@URL
 	protected String			link;
