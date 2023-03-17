@@ -12,6 +12,7 @@ import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.URL;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
@@ -33,10 +34,11 @@ public class BulletinMessage extends AbstractEntity {
 
 	@NotBlank
 	@Size(max = 100)
-	protected String			body;
+	protected String			message;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	@PastOrPresent
 	protected Date				instantiation;
 
