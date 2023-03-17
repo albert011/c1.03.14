@@ -6,3 +6,4 @@ user-account-student-02,true,"UserIdentity{name: 'Student', surname: 'Student', 
 user-account-assistant-01,true,"UserIdentity{name: 'Tom', surname: 'Cat', email: 'tom.cat@acme.com'}",assistant1,assistant1
 user-account-assistant-02,true,"UserIdentity{name: 'Foo', surname: 'Bar', email: 'foo.bar@acme.com'}",assistant2,assistant2
 user-account-auditor-01,false,"UserIdentity{name: 'Auditor', surname: 'Evans', email: 'auditor@acme.com'}",auditor,auditor
+

@@ -4,7 +4,6 @@ package acme.entities.note;
 import javax.persistence.Entity;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -27,7 +26,6 @@ public class Note extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
-	@Pattern(regexp = "〈username〉 - 〈surname, name〉")
 	protected String			author;
 
 	@NotBlank
@@ -41,4 +39,5 @@ public class Note extends AbstractEntity {
 	protected String			link;
 
 	protected Principal			principals;
+
 }

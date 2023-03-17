@@ -5,12 +5,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.OneToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -43,10 +46,10 @@ public class Audit extends AbstractEntity {
 	@Enumerated(value = EnumType.STRING)
 	protected Mark				mark;
 
-	//	@NotNull
-	//	@Valid
-	//	@OneToOne(optional = false)
-	//	protected Course			course;
+	@NotNull
+	@Valid
+	@OneToOne(optional = false)
+	protected Course			course;
 
 	/*
 	 * a mark (computed as the mode of the marks in the corresponding auditing records;
