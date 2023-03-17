@@ -1,18 +1,18 @@
 
-package acme.entities.practicums;
+package acme.entities.sessions;
 
+import java.time.LocalDate;
 
-import java.util.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import acme.entities.practicums.Practicum;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,7 +20,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Practicum extends AbstractEntity {
+public class Session extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -28,10 +28,9 @@ public class Practicum extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotBlank
-	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
-	protected String			code;
+	@ManyToOne
+	@JoinColumn(name = "practicum_id")
+	protected Practicum			practicum;
 
 	@NotBlank
 	@Size(max = 75)
@@ -41,11 +40,16 @@ public class Practicum extends AbstractEntity {
 	@Size(max = 100)
 	protected String			abstractText;
 
-	@NotBlank
-	@Size(max = 100)
-	protected String			goals;
+	@NotNull
+	@FutureOrPresent
+	protected LocalDate			startDate;
 
 	@NotNull
-	@Temporal(TemporalType.TIME)
-	protected Date				estimatedTotalTime;
+	@Future
+	protected LocalDate			endDate;
+
+	protected String			link;
+
+	// Getters and setters
+	// ...
 }

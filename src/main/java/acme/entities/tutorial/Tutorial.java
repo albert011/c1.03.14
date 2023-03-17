@@ -1,32 +1,28 @@
 
-package acme.entities.practicums;
-
-
-import java.util.Date;
+package acme.entities.tutorial;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 
 import acme.framework.data.AbstractEntity;
+import acme.roles.Assistant;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Practicum extends AbstractEntity {
+public class Tutorial extends AbstractEntity {
 
-	// Serialisation identifier -----------------------------------------------
-
-	protected static final long	serialVersionUID	= 1L;
-
-	// Attributes -------------------------------------------------------------
+	/**
+	 * 
+	 */
+	private static final long	serialVersionUID	= 1L;
 
 	@NotBlank
 	@Column(unique = true)
@@ -39,13 +35,16 @@ public class Practicum extends AbstractEntity {
 
 	@NotBlank
 	@Size(max = 100)
-	protected String			abstractText;
+	protected String			abstractMessage;
 
 	@NotBlank
 	@Size(max = 100)
 	protected String			goals;
 
-	@NotNull
-	@Temporal(TemporalType.TIME)
-	protected Date				estimatedTotalTime;
+	@PositiveOrZero
+	protected double			estimatedTotalTime;
+
+	@ManyToOne(optional = false)
+	protected Assistant			assistant;
+
 }
