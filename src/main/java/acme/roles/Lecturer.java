@@ -2,7 +2,6 @@
 package acme.roles;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
@@ -22,18 +21,18 @@ public class Lecturer extends AbstractRole {
 
 	@NotBlank
 	@Length(max = 75)
-	private String				almaMater;
+	protected String			almaMater;
 
 	@NotBlank
 	@Length(max = 75)
-	private String				resume;
+	protected String			resume;
 
 	@NotBlank
 	@Length(max = 100)
-	private String				listOfQualifications;
+	protected String			listOfQualifications;
 
 	@URL
-	private String				link;
+	protected String			link;
 
 	@ManyToOne()
 	protected Course			courses;
