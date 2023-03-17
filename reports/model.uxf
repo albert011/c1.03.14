@@ -145,8 +145,8 @@ Company
 bg=green
 --
 + name: String {NotBlank, Length(1,75)}
-+ VAT: String {NotBlank, Lenght(1,21)}
-+ summary: String {NotBlank, Lenght(1,100)}
++ VAT: String {NotBlank, Length(1,25)}
++ summary: String {NotBlank, Length(1,100)}
 + link: String {URL}</panel_attributes>
     <additional_attributes/>
   </element>
@@ -238,12 +238,12 @@ bg=yellow
 Offer
 bg=yellow
 --
-+ instantiationMoment: LocalDate {NotNull, PastOrPresent, Temporal(TemporalType.TIME)}
++ instantiationMoment: Date {NotNull, PastOrPresent, Temporal(TemporalType.TIMESTAMP)}
 + heading: String {NotBlank, Length(1,75)}
 + summary: String {NotBlank, Length(1,100)}
 + price: Money {NotNull}
-+ availabilityPeriodStart: LocalDate {NotNull, FutureOrPresent, Temporal(TemporalType.DATE)}
-+ availabilityPeriodEnd: LocalDate {NotNull, FutureOrPresent, Temporal(TemporalType.DATE)}
++ availabilityPeriodStart: Date {NotNull, Temporal(TemporalType.TIMESTAMP)}
++ availabilityPeriodEnd: Date {NotNull, Temporal(TemporalType.TIMESTAMP)}
 + link: String {URL}</panel_attributes>
     <additional_attributes/>
   </element>
@@ -281,7 +281,7 @@ bg=yellow
 --
 + code: String {Unique, NotBlank, Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")}
 + title: String {NotBlank, Length(1,75)}
-+ abstractPracticum: String {NotBlank, Length(1,100)}
++ abstractText: String {NotBlank, Length(1,100)}
 + goals: String {NotBlank, Length(1,75)}
 + estimedTotaltime: Date {NotNull, Temporal(TemporalType.TIME)}</panel_attributes>
     <additional_attributes/>
@@ -301,7 +301,7 @@ bg=yellow
 + title: String {NotBlank, Length(1,75)}
 + abstractSession: String {NotBlank, Length(1,100)}
 + startDate: Date {NotNull, Temporal(TemporalType.TIME)}
-+ finishDate: Date {NotNull, Temporal(TemporalType.TIME)}
++ endDate: Date {NotNull, Temporal(TemporalType.TIME)}
 + link: String {URL}</panel_attributes>
     <additional_attributes/>
   </element>
@@ -646,5 +646,22 @@ m1=1
 m2=0..*
 </panel_attributes>
     <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>820</x>
+      <y>610</y>
+      <w>220</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Currency
+bg=green
+--
++ systemCurrency: String {NotBlank}
++ acceptedCurrencies: String {NotBlank}
+</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
