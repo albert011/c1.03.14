@@ -3,6 +3,7 @@ package acme.entities.course;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -14,6 +15,7 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.entities.lecture.Lecture;
 import acme.framework.components.datatypes.Money;
+
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
