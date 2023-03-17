@@ -12,3 +12,5 @@ user-account-lecturer-08,true,"UserIdentity{name: 'Alex', surname: 'Pecino', ema
 user-account-assistant-01,true,"UserIdentity{name: 'Tom', surname: 'Cat', email: 'tom.cat@acme.com'}",assistant1,assistant1
 user-account-assistant-02,true,"UserIdentity{name: 'Foo', surname: 'Bar', email: 'foo.bar@acme.com'}",assistant2,assistant2
 user-account-auditor-01,false,"UserIdentity{name: 'Auditor', surname: 'Evans', email: 'auditor@acme.com'}",auditor,auditor
+user-account-student-01,true,"UserIdentity{name: 'Student', surname: 'Student', email: 'student1@acme.com'}",student1,student1
+user-account-student-02,true,"UserIdentity{name: 'Student', surname: 'Student', email: 'student2@acme.com'}",student2,student2
