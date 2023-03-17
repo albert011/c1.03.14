@@ -1,0 +1,5 @@
+key, code, motivation, goals, workTime, key:student, key:course
+enrolment-01, ABC1234, Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, 2022/03/16 19:30, student-01, course-01
+enrolment-02, ABC1234, Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, 2022/03/16 19:30, student-02, course-01
+enrolment-03, ABC1234, Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, 2022/03/16 19:30, student-01, course-01
+enrolment-04, ABC1234, Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, 2022/03/16 19:30, student-02, course-01
