@@ -28,25 +28,27 @@ public class Course extends AbstractEntity {
 	@NotBlank
 	@Column(unique = true)
 	@Pattern(regexp = "[A-Z]{1,3} [0-9]{3}")
-	private String				code;
+	protected String			code;
 
 	@NotBlank
 	@Length(max = 75)
-	private String				title;
+	protected String			title;
 
 	@NotBlank
-	@Length(max = 75)
-	private String				Abstract;
+	@Length(max = 100)
+	protected String			Abstract;
 
 	@Valid
 	@NotNull
-	private Money				retailPrice;
+	protected Money				retailPrice;
+
+	protected boolean			isTheoretical;
 
 	@URL
-	private String				link;
+	protected String			link;
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected Lecture			lecturer;
+	protected Lecture			lectures;
 }

@@ -27,25 +27,25 @@ public class Banner extends AbstractEntity {
 	@NotNull
 	@PastOrPresent
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				instantiationMoment;
+	protected Date				instantiationMoment;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				displayPeriodStart;
+	protected Date				displayPeriodStart;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				displayPeriodEnd;
+	protected Date				displayPeriodEnd;
 
 	@NotNull
 	@URL
-	private String				pictureLink;
+	protected String			pictureLink;
 
 	@NotBlank
 	@Length(max = 75)
-	private String				slogan;
+	protected String			slogan;
 
 	@NotNull
 	@URL
-	private String				targetLink;
+	protected String			targetLink;
 }
