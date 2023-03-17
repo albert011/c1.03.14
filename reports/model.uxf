@@ -221,7 +221,7 @@ bg=yellow
 Enrolment
 bg=yellow
 --
-+ code: String {Unique, NotBlank, Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")}
++ code: String {Unique, NotBlank, Pattern(regexp = "^[A-Z]{1,3}[0-9]{3}$")}
 + motivation: String {NotBlank, Length(1,75)}
 + goals: String {NotBlank, Length(1,100)}
 + workTime: Date {NotNull, Temporal(TemporalType.TIME)}</panel_attributes>
@@ -538,44 +538,30 @@ m2=1..*</panel_attributes>
     <additional_attributes>510.0;10.0;510.0;130.0;10.0;130.0;10.0;90.0</additional_attributes>
   </element>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1840</x>
-      <y>790</y>
-      <w>460</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Entity&gt;&gt;
-WorkBook
-bg=green
---</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>2060</x>
+      <x>1800</x>
       <y>700</y>
-      <w>70</w>
-      <h>110</h>
+      <w>300</w>
+      <h>150</h>
     </coordinates>
-    <panel_attributes>lt=x-&gt;
-m1=1..*
-m2=1
-has &gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-x
+m1=1
+m2=1..*
+&lt; has</panel_attributes>
+    <additional_attributes>270.0;10.0;270.0;120.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1240</x>
-      <y>750</y>
+      <x>1350</x>
+      <y>730</y>
       <w>460</w>
       <h>150</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Activity
-bg=yellow
+bg=green
 --
 + title: String {NotBlank, Length(1, 75)}
 + abstractField: String {NotBlank, Length(1,100)}
@@ -587,15 +573,14 @@ bg=yellow
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1690</x>
-      <y>810</y>
-      <w>170</w>
-      <h>50</h>
+      <x>2290</x>
+      <y>200</y>
+      <w>230</w>
+      <h>480</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
-m1=1..*
-m2=1
-&lt; has</panel_attributes>
-    <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
+m1=1
+m2=1..*</panel_attributes>
+    <additional_attributes>40.0;10.0;210.0;10.0;210.0;450.0;10.0;450.0</additional_attributes>
   </element>
 </diagram>
