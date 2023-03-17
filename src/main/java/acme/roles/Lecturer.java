@@ -8,7 +8,6 @@ import javax.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.course.Course;
 import acme.framework.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,7 +33,4 @@ public class Lecturer extends AbstractRole {
 
 	@URL
 	protected String			link;
-
-	@ManyToOne()
-	protected Course			courses;
 }
