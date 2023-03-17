@@ -1,0 +1,7 @@
+key,title,abstract-text,start-date,end-date,link,key:practicum
+practicum-session-01,sesion 1, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2030/12/11 23:00,2030/12/12 23:00,http://www.example.com,practicum-01
+practicum-session-02,sesion 2, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbb,2030/12/11 23:00,2030/12/12 23:00,,practicum-01
+practicum-session-03,ses3,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2023/07/11 17:00,2023/12/12 23:00,http://www.example.com,practicum-02
+practicum-session-04,s,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2023/07/11 17:00,2023/12/12 23:00,http://www.example.com,practicum-04
+practicum-session-05,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa75,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2023/07/11 17:00,2023/12/12 23:00,,practicum-06
+practicum-session-06,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa75,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2024/08/11 17:00,2024/08/12 13:00,,practicum-07

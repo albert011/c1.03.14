@@ -1,8 +1,12 @@
 
 package acme.entities.practicums;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -24,8 +28,8 @@ public class Practicum extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
 	@Column(unique = true)
+	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
 	protected String			code;
 
 	@NotBlank
@@ -41,6 +45,7 @@ public class Practicum extends AbstractEntity {
 	protected String			goals;
 
 	@NotNull
-	protected Integer			estimatedTotalTime;
+	@Temporal(TemporalType.TIME)
+	protected Date				estimatedTotalTime;
 
 }

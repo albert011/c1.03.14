@@ -1,7 +1,7 @@
 
-package acme.entities.sessions;
+package acme.entities.practicumSessions;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -23,7 +23,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Session extends AbstractEntity {
+public class PracticumSession extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -41,12 +41,12 @@ public class Session extends AbstractEntity {
 
 	@NotNull
 	@Future
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				startDate;
 
 	@NotNull
 	@Future
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				endDate;
 
 	@URL

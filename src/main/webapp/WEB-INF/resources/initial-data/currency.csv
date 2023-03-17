@@ -1,2 +1,2 @@
-system_currency,accepted_currencies
-EUR,"EUR,USD,GBP"
+key,system-currency,accepted-currencies
+currency-01,EUR,"EUR,USD,GBP"
