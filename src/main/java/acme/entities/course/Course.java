@@ -3,14 +3,17 @@ package acme.entities.course;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.lecture.Lecture;
+import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,7 +27,7 @@ public class Course extends AbstractEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "“[A-Z]{1,3} [0-9]{3}”")
+	@Pattern(regexp = "[A-Z]{1,3} [0-9]{3}")
 	protected String			code;
 
 	@NotBlank
@@ -32,14 +35,14 @@ public class Course extends AbstractEntity {
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 75)
+	@Length(max = 100)
 	protected String			Abstract;
 
-	//Meter enum
-
-	@Positive
+	@Valid
 	@NotNull
-	protected Double			retailPrice;
+	protected Money				retailPrice;
+
+	protected boolean			isTheoretical;
 
 	@URL
 	protected String			link;
@@ -48,4 +51,9 @@ public class Course extends AbstractEntity {
 	//	@Valid
 	//	@OneToOne(optional = false)
 	//	protected Audit				audit;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Lecture			lectures;
 }

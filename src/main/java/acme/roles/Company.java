@@ -1,10 +1,11 @@
 
 package acme.roles;
 
-import javax.annotation.Nullable;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractRole;
 import lombok.Getter;
@@ -33,6 +34,6 @@ public class Company extends AbstractRole {
 	@Size(max = 100)
 	protected String			summary;
 
-	@Nullable
+	@URL
 	protected String			link;
 }
