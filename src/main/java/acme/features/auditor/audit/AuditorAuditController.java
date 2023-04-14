@@ -14,11 +14,15 @@ import acme.roles.Auditor;
 public class AuditorAuditController extends AbstractController<Auditor, Audit> {
 
 	@Autowired
-	protected AuditorAuditListService listService;
+	protected AuditorAuditListService	listService;
+
+	@Autowired
+	protected AuditorAuditShowService	showService;
 
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 	}
 }

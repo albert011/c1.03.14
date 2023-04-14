@@ -16,9 +16,9 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="auditor.audit.list.label.code" path="reference" width="10%"/>
-	<acme:list-column code="auditor.audit.list.label.mark" path="deadline" width="10%"/>
-	<acme:list-column code="auditor.audit.list.label.course" path="title" width="80%"/>	
+	<acme:list-column code="auditor.audit.list.label.code" path="code" width="10%"/>
+	<acme:list-column code="auditor.audit.list.label.mark" path="mark" width="10%"/>
+	<acme:list-column code="auditor.audit.list.label.course" path="course.title" width="80%"/>	
 </acme:list>
 
 <jstl:if test="${_command == 'list'}">

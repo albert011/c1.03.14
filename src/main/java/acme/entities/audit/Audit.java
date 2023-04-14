@@ -53,6 +53,8 @@ public class Audit extends AbstractEntity {
 	@OneToOne(optional = false)
 	protected Course			course;
 
+	protected boolean			isPublished;
+
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)

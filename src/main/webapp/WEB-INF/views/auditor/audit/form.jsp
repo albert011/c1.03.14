@@ -16,9 +16,14 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:input-textbox code="authenticated.consumer.form.label.company" path="company"/>
-	<acme:input-textbox code="authenticated.consumer.form.label.sector" path="sector"/>
+	<acme:input-textbox code="auditor.audit.form.label.code" path="code"/>
+	<acme:input-textbox code="auditor.audit.form.label.conclusion" path="conclusion"/>
+	<acme:input-textbox code="auditor.audit.form.label.strong-points" path="strongPoints"/>
+	<acme:input-textbox code="auditor.audit.form.label.weak-points" path="weakPoints"/>
+	<acme:input-textbox code="auditor.audit.form.label.auditor" path="code"/>
+	<acme:input-textbox code="auditor.audit.form.label.mark" path="mark" readonly="true"/>
+	<acme:input-textbox code="auditor.audit.form.label.course" path="courseTitle"/>
 	
-	<acme:submit test="${_command == 'create'}" code="authenticated.consumer.form.button.create" action="/authenticated/consumer/create"/>
-	<acme:submit test="${_command == 'update'}" code="authenticated.consumer.form.button.update" action="/authenticated/consumer/update"/>
+	<acme:submit test="${_command == 'create'}" code="auditor.audit.form.button.create" action="/auditor/audit/create"/>
+	<acme:submit test="${_command == 'update'}" code="auditor.audit.form.button.update" action="/auditor/audit/update"/>
 </acme:form>
