@@ -13,11 +13,12 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class PracticumDeleteService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumDeleteService extends AbstractService<Company, Practicum> {
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected PracticumRepository repository;
+	protected CompanyPracticumRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 

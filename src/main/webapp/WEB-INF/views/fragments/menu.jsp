@@ -50,6 +50,7 @@
 		
 		<acme:menu-option code="master.menu.company" access="hasRole('Company')">			
 			<acme:menu-suboption code="master.menu.company.practicum.list-mine" action="/company/practicum/list-mine"/>			
+			<acme:menu-suboption code="master.menu.company.practicum-session.list-mine" action="/company/practicum-session/list-mine"/>
 		</acme:menu-option>
 		
 	</acme:menu-left>

@@ -17,6 +17,7 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.entities.practicums.Practicum;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Company;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -52,11 +53,21 @@ public class PracticumSession extends AbstractEntity {
 	@URL
 	protected String			link;
 
+	protected boolean			draftMode;
+
+	@NotNull
+	protected boolean			isAddendum;
+
 	// Relationships ----------------------------------------------------------
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	protected Practicum			practicum;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Company			company;
 
 }

@@ -13,47 +13,35 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class PracticumPublishService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumCreateService extends AbstractService<Company, Practicum> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected PracticumRepository repository;
+	protected CompanyPracticumRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int practicumId;
-		Practicum practicum;
-		Company company;
-
-		practicumId = super.getRequest().getData("id", int.class);
-		practicum = this.repository.findOnePracticumById(practicumId);
-		company = practicum == null ? null : practicum.getCompany();
-		status = practicum != null && practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(company);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
 		Practicum object;
-		int id;
+		Company company;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOnePracticumById(id);
+		company = this.repository.findOneCompanyById(super.getRequest().getPrincipal().getActiveRoleId());
+		object = new Practicum();
+		object.setDraftMode(true);
+		object.setCompany(company);
 
 		super.getBuffer().setData(object);
 	}
@@ -81,7 +69,7 @@ public class PracticumPublishService extends AbstractService<Company, Practicum>
 			Practicum existing;
 
 			existing = this.repository.findOnePracticumByCode(object.getCode());
-			super.state(existing == null || existing.equals(object), "code", "company.practicum.form.error.duplicated");
+			super.state(existing == null, "code", "company.practicum.form.error.duplicated");
 		}
 
 	}
@@ -90,7 +78,6 @@ public class PracticumPublishService extends AbstractService<Company, Practicum>
 	public void perform(final Practicum object) {
 		assert object != null;
 
-		object.setDraftMode(false);
 		this.repository.save(object);
 	}
 

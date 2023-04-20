@@ -11,7 +11,7 @@ import acme.framework.repositories.AbstractRepository;
 import acme.roles.Company;
 
 @Repository
-public interface PracticumRepository extends AbstractRepository {
+public interface CompanyPracticumRepository extends AbstractRepository {
 
 	@Query("select p from Practicum p where p.id = :id")
 	Practicum findOnePracticumById(int id);
