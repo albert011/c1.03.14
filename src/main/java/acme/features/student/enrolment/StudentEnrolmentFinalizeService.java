@@ -76,25 +76,18 @@ public class StudentEnrolmentFinalizeService extends AbstractService<Student, En
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
-
-		/*
-		 * if (!super.getBuffer().getErrors().hasErrors("deadline")) {
-		 * Date minimumDeadline;
-		 * 
-		 * minimumDeadline = MomentHelper.deltaFromCurrentMoment(7, ChronoUnit.DAYS);
-		 * super.state(MomentHelper.isAfter(object.getDeadline(), minimumDeadline), "deadline", "employer.job.form.error.too-close");
-		 * }
-		 */
-
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Enrolment existing;
-
-			existing = this.repository.findOneEnrolmentByCode(object.getCode());
-			super.state(existing == null || existing.equals(object), "code", "employer.job.form.error.duplicated");
-		}
-
-		//if (!super.getBuffer().getErrors().hasErrors("salary"))
-		//super.state(object.getSalary().getAmount() > 0, "salary", "employer.job.form.error.negative-salary");
+		final String card = super.getRequest().getData("creditCard", String.class);
+		if (card.matches("^\\d{4}\\/\\d(47\\/\\d{4}\\/\\d{4}$"))
+			throw new IllegalArgumentException("student.enrolment.form.error.card");
+		final String holderName = super.getRequest().getData("holderName", String.class);
+		if (holderName.isEmpty())
+			throw new IllegalArgumentException("student.enrolment.form.error.holder");
+		final String cvc = super.getRequest().getData("cvc", String.class);
+		if (!cvc.matches("^\\d{3]$"))
+			throw new IllegalArgumentException("student.enrolment.form.error.cvc");
+		final String expiryDate = super.getRequest().getData("expiryDate", String.class);
+		if (expiryDate.matches("^\\d{2}\\/\\d{2]$"))
+			throw new IllegalArgumentException("student.enrolment.form.error.expiryDate");
 	}
 
 	@Override
