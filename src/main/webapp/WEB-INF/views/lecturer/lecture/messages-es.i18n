@@ -1,0 +1,24 @@
+lecturer.lecture.list.label.title = Titulo
+lecturer.lecture.list.label.Abstract = Resumen
+lecturer.lecture.list.label.estimatedLearningTime = Tiempo de Aprendizaje
+lecturer.lecture.list.label.body = Cuerpo
+lecturer.lecture.list.label.isTheoretical = Es Teorico
+lecturer.lecture.list.label.link = Link
+
+lecturer.lecture.list.button.create = Crear
+
+lecturer.lecture.form.label.title = Titulo:
+lecturer.lecture.form.label.course = Curso:
+lecturer.lecture.form.label.Abstract = Resumen:
+lecturer.lecture.form.label.estimatedLearningTime = Tiempo de Aprendizaje:
+lecturer.lecture.form.label.body = Cuerpo:
+lecturer.lecture.form.label.isTheoretical = Es Teorico:
+lecturer.lecture.form.label.link = Link: (Optional)
+
+lecturer.lecture.form.button.lectures = Lecturas
+lecturer.lecture.form.button.update = Actualizar
+lecturer.lecture.form.button.delete = Borrar
+lecturer.lecture.form.button.publish = Publicar
+lecturer.lecture.form.button.create = Crear
+
+lecturer.lecture.form.error.negative-estimatedLearningTime = Este numero debe ser positivo
