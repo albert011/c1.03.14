@@ -56,6 +56,12 @@ public class LecturersCoursesUpdateService extends AbstractService<Lecturer, Cou
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			final Course course;
+
+			course = this.repository.findOneCourseByCode(object.getCode());
+			super.state(course == null || course.equals(object), "code", "lecturer.course.form.error.duplicated");
+		}
 
 	}
 

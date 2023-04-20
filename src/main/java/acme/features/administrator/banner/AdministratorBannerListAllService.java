@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.administrator.banner;
+package acme.features.administrator.banner;
 
 import java.util.Collection;
 

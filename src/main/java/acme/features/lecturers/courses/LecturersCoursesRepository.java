@@ -42,4 +42,7 @@ public interface LecturersCoursesRepository extends AbstractRepository {
 
 	@Query("select l from Lecture l where l.isTheoretical = false and l.courses.id =:coursesId")
 	Collection<Lecture> findManyNonTheoreticalLecturesByCourseId(int coursesId);
+
+	@Query("select c from Course c where c.code = :code")
+	Course findOneCourseByCode(String code);
 }
