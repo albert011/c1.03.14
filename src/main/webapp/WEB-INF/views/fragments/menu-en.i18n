@@ -52,6 +52,11 @@ master.menu.lecturer.all-lectures = List all lectures
 master.menu.lecturer.my-lectures = List my lectures
 master.menu.lecturer.my-courses = List my courses
 
+# master.menu.company ##########################################################
+
+master.menu.company = Company
+master.menu.company.practicum.list-mine = List my practicums
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
@@ -62,3 +67,11 @@ master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.lecturer = Lecturer data
 master.menu.user-account.become-lecturer = Become a lecturer
+master.menu.user-account.company = Company data
+master.menu.user-account.become-company = Become a company
+
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.offer.list = List offers
+
