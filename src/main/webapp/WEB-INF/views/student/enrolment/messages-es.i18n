@@ -23,3 +23,11 @@ student.enrolment.form.button.delete = Borrar
 student.enrolment.form.button.create = Crear
 
 student.enrolment.form.error.duplicated = Ya existe
+
+student.enrolment.list.button.finalize = Finalizar
+
+student.enrolment.form.label.creditCard = Número de tarjeta
+student.enrolment.form.label.cvc = CVC
+student.enrolment.form.label.holderName = Nombre del Propietario
+student.enrolment.form.label.expiryDate = Fecha de expiración
+student.enrolment.form.label.lowerNibble = Últimos 4 números

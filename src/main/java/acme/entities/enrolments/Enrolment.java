@@ -1,13 +1,10 @@
 
 package acme.entities.enrolments;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -39,13 +36,15 @@ public class Enrolment extends AbstractEntity {
 	@Size(max = 100)
 	protected String			goals;
 
-	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				workTime;
+	protected String			holderName;
+
+	protected String			lowerNibble;
 
 	@ManyToOne(optional = false)
 	protected Student			student;
 
+	@NotNull
+	@Valid
 	@ManyToOne(optional = false)
 	protected Course			course;
 }
