@@ -20,6 +20,7 @@
 	<acme:input-textbox code="student.enrolment.form.label.motivation" path="motivation"/>
 	<acme:input-textbox code="student.enrolment.form.label.goals" path="goals"/>
 	<acme:input-moment code="student.enrolment.form.label.workTime" path="workTime"/>
+	<acme:input-select code="student.enrolment.label.course" path="course" choices="${courses}"/>
 
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">

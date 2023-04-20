@@ -61,18 +61,18 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 	public void unbind(final Enrolment object) {
 		assert object != null;
 
-		int studentId;
-		final Collection<Course> courses;
-		final SelectChoices choices;
+		//int studentId;
+		Collection<Course> courses;
+		SelectChoices choices;
 		Tuple tuple;
 
-		studentId = super.getRequest().getPrincipal().getActiveRoleId();
-		//courses = this.repository.findManyContractorsByEmployerId(studentId);
-		//choices = SelectChoices.from(courses, "name", object.getCourse());
+		//studentId = super.getRequest().getPrincipal().getActiveRoleId();
+		courses = this.repository.findAllCourses();
+		choices = SelectChoices.from(courses, "title", object.getCourse());
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "workTime");
-		//tuple.put("contractor", choices.getSelected().getKey());
-		//tuple.put("contractors", choices);
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}

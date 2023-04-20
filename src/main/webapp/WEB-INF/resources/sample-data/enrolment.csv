@@ -1,5 +1,5 @@
 key,code,motivation,goals,workTime,key:student,key:course
-enrolment-01,ABC123,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,2022/03/16 19:30,student-01,course-01
-enrolment-02,TGH231,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,2022/03/16 19:30,student-02,course-01
-enrolment-03,JUG675,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,2022/03/16 19:30,student-01,course-01
-enrolment-04,APL234,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,2022/03/16 19:30,student-02,course-01
+enrolment-01,ABC123,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,2022/03/16 19:30,student-01,course-04
+enrolment-02,TGH231,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,2022/03/16 19:30,student-02,course-05
+enrolment-03,JUG675,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,2022/03/16 19:30,student-01,course-06
+enrolment-04,APL234,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,2022/03/16 19:30,student-02,course-04

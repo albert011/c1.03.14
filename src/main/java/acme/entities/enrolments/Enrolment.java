@@ -43,9 +43,9 @@ public class Enrolment extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				workTime;
 
-	@ManyToOne()
+	@ManyToOne(optional = false)
 	protected Student			student;
 
-	@ManyToOne()
+	@ManyToOne(optional = false)
 	protected Course			course;
 }

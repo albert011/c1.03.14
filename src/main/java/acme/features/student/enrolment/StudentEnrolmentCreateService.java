@@ -1,9 +1,12 @@
 
 package acme.features.student.enrolment;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.course.Course;
 import acme.entities.enrolments.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -44,8 +47,17 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 	@Override
 	public void bind(final Enrolment object) {
 		assert object != null;
-
+		int studentId;
+		Student student;
+		int courseId;
+		Course course;
+		studentId = super.getRequest().getPrincipal().getActiveRoleId();
+		student = this.repository.findOneStudentById(studentId);
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findOneCourseById(courseId);
 		super.bind(object, "code", "motivation", "goals", "workTime");
+		object.setStudent(student);
+		object.setCourse(course);
 	}
 
 	@Override
@@ -85,22 +97,18 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 	public void unbind(final Enrolment object) {
 		assert object != null;
 
-		int studentId;
-		//Collection<Company> contractors;
-		final SelectChoices choices;
+		//int studentId;
+		Collection<Course> courses;
+		SelectChoices choices;
 		Tuple tuple;
 
-		studentId = super.getRequest().getPrincipal().getActiveRoleId();
-		/*
-		 * contractors = this.repository.findManyContractorsByEmployerId(employerId);
-		 * choices = SelectChoices.from(contractors, "name", object.getContractor());
-		 */
+		//studentId = super.getRequest().getPrincipal().getActiveRoleId();
+		courses = this.repository.findAllCourses();
+		choices = SelectChoices.from(courses, "title", object.getCourse());
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "workTime");
-		/*
-		 * tuple.put("contractor", choices.getSelected().getKey());
-		 * tuple.put("contractors", choices);
-		 */
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}

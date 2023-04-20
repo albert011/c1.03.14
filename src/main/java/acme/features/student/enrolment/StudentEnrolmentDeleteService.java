@@ -1,11 +1,16 @@
 
 package acme.features.student.enrolment;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.course.Course;
+import acme.entities.enrolments.Activity;
 import acme.entities.enrolments.Enrolment;
 import acme.framework.components.accounts.Principal;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -56,17 +61,17 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	@Override
 	public void bind(final Enrolment object) {
 		assert object != null;
-
-		/*
-		 * int contractorId;
-		 * Company contractor;
-		 * 
-		 * contractorId = super.getRequest().getData("contractor", int.class);
-		 * contractor = this.repository.findOneContractorById(contractorId);
-		 */
-
+		int studentId;
+		Student student;
+		int courseId;
+		Course course;
+		studentId = super.getRequest().getPrincipal().getActiveRoleId();
+		student = this.repository.findOneStudentById(studentId);
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findOneCourseById(courseId);
 		super.bind(object, "code", "motivation", "goals", "workTime");
-		//object.setContractor(contractor);
+		object.setStudent(student);
+		object.setCourse(course);
 	}
 
 	@Override
@@ -78,10 +83,9 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	public void perform(final Enrolment object) {
 		assert object != null;
 
-		//Collection<Duty> duties;
-
-		//duties = this.repository.findManyDutiesByJobId(object.getId());
-		//this.repository.deleteAll(duties);
+		Collection<Activity> activity;
+		activity = this.repository.findManyActivitiesById(object.getId());
+		this.repository.deleteAll(activity);
 		this.repository.delete(object);
 	}
 
@@ -89,24 +93,18 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	public void unbind(final Enrolment object) {
 		assert object != null;
 
-		int employerId;
-		/*
-		 * Collection<Company> contractors;
-		 * SelectChoices choices;
-		 */
+		//int studentId;
+		Collection<Course> courses;
+		SelectChoices choices;
 		Tuple tuple;
 
-		employerId = super.getRequest().getPrincipal().getActiveRoleId();
-		/*
-		 * contractors = this.repository.findManyContractorsByEmployerId(employerId);
-		 * choices = SelectChoices.from(contractors, "name", object.getContractor());
-		 */
+		//studentId = super.getRequest().getPrincipal().getActiveRoleId();
+		courses = this.repository.findAllCourses();
+		choices = SelectChoices.from(courses, "title", object.getCourse());
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "workTime");
-		/*
-		 * tuple.put("contractor", choices.getSelected().getKey());
-		 * tuple.put("contractors", choices);
-		 */
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}
