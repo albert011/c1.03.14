@@ -38,6 +38,8 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/populate-sample"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.list-all" action="/administrator/banner/list-all"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
@@ -48,10 +50,16 @@
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 		
+
+		<acme:menu-option code="master.menu.lecturer" access="hasRole('Lecturer')">			
+			<acme:menu-suboption code="master.menu.lecturer.my-lectures" action="/lecturer/lecture/list-mine"/>
+			<acme:menu-suboption code="master.menu.lecturer.my-courses" action="/lecturer/course/list-mine"/>			
+		</acme:menu-option>
+
 		<acme:menu-option code="master.menu.company" access="hasRole('Company')">			
 			<acme:menu-suboption code="master.menu.company.practicum.list-mine" action="/company/practicum/list-mine"/>			
 		</acme:menu-option>
-		
+
 	</acme:menu-left>
 
 	<acme:menu-right>
