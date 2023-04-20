@@ -42,6 +42,12 @@
 			<acme:menu-suboption code="master.menu.administrator.list-all" action="/administrator/banner/list-all"/>
 		</acme:menu-option>
 		
+
+		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
+			<acme:menu-suboption code="master.menu.student.enrolment" action="/student/enrolment/list-mine"/>
+			<acme:menu-separator/>
+		</acme:menu-option>
+
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
