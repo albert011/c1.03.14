@@ -12,27 +12,15 @@ student.activity.list.label.title = Título
 student.activity.list.label.abstractField = Abstracto
 student.activity.list.label.activityType = Tipo de Actividad
 
-student.enrolment.form.label.code = Código
-student.enrolment.form.label.motivation = Motivación
-student.enrolment.form.label.goals = Objetivos
-student.enrolment.form.label.workTime = Tiempo de Trabajo
-student.enrolment.label.course = Curso
+student.activity.form.label.title = Título
+student.activity.form.label.abstractField = Abstracto
+student.activity.form.label.activityType = Tipo de Actividad
+student.activity.form.label.startPeriod = Fecha de Inicio
+student.activity.form.label.endPeriod = Fecha de Fin
+student.activity.form.label.link = Link
+student.activity.label.enrolment = Matrícula
 
-student.enrolment.form.button.update = Editar
-student.enrolment.form.button.delete = Borrar
-student.enrolment.form.button.create = Crear
-
-student.enrolment.form.error.duplicated = Ya existe
-
-student.enrolment.list.button.finalize = Finalizar
-
-student.enrolment.form.label.creditCard = Número de tarjeta
-student.enrolment.form.label.cvc = CVC
-student.enrolment.form.label.holderName = Nombre del Propietario
-student.enrolment.form.label.expiryDate = Fecha de expiración
-student.enrolment.form.label.lowerNibble = Últimos 4 números
-
-student.enrolment.form.error.card = El formato no es correcto
-student.enrolment.form.error.holder = No puede estar vacío
-student.enrolment.form.error.cvc = Debe tener 3 dígitos
-student.enrolment.form.error.expiryDate = El formato no es correcto
+student.activity.form.button.update = Editar
+student.activity.form.button.delete = Borrar
+student.activity.form.button.create = Crear
+student.activity.list.button.create = Crear

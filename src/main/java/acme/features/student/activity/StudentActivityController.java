@@ -14,12 +14,30 @@ import acme.roles.Student;
 public class StudentActivityController extends AbstractController<Student, Activity> {
 
 	@Autowired
-	protected StudentActivityListAllService listAllService;
+	protected StudentActivityListMineService	listAllService;
+
+	@Autowired
+	protected StudentActivityShowService		showService;
+
+	@Autowired
+	protected StudentActivityCreateService		createService;
+
+	@Autowired
+	protected StudentActivityUpdateService		updateService;
+
+	@Autowired
+	protected StudentActivityDeleteService		deleteService;
 
 
 	@PostConstruct
 	protected void initialise() {
-		super.addCustomCommand("list-all", "list", this.listAllService);
+
+		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
+
+		super.addCustomCommand("list-mine", "list", this.listAllService);
 	}
 
 }

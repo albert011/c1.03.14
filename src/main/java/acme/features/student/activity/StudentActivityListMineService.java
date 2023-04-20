@@ -13,7 +13,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentActivityListAllService extends AbstractService<Student, Activity> {
+public class StudentActivityListMineService extends AbstractService<Student, Activity> {
 
 	// Internal state ---------------------------------------------------------
 

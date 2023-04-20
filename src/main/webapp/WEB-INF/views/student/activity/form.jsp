@@ -16,40 +16,30 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="student.enrolment.form.label.code"
-		path="code" />
-	<acme:input-textbox code="student.enrolment.form.label.motivation"
-		path="motivation" />
-	<acme:input-textbox code="student.enrolment.form.label.goals"
-		path="goals" />
-	<acme:input-textbox code="student.enrolment.form.label.workTime"
-		path="workTime" readonly="true"/>
-	<acme:input-select code="student.enrolment.label.course" path="course"
-		choices="${courses}" />
-	<acme:input-textbox code="student.enrolment.form.label.creditCard"
-		path="creditCard" />
-	<acme:input-textbox code="student.enrolment.form.label.cvc" path="cvc" />
-	<acme:input-textbox code="student.enrolment.form.label.expiryDate"
-		path="expiryDate" />
-	<acme:input-textbox code="student.enrolment.form.label.holderName"
-		path="holderName" />
-	<acme:input-textbox code="student.enrolment.form.label.lowerNibble"
-		path="lowerNibble" readonly="true"/>
-
+	<acme:input-textbox code="student.activity.form.label.title"
+		path="title" />
+		<acme:input-textbox code="student.activity.form.label.abstractField"
+		path="abstractField" />
+		<acme:input-textbox code="student.activity.form.label.activityType"
+		path="activityType" />
+		<acme:input-moment code="student.activity.form.label.startPeriod"
+		path="startPeriod" />
+		<acme:input-moment code="student.activity.form.label.endPeriod"
+		path="endPeriod" />
+	<acme:input-textbox code="student.activity.form.label.link"
+		path="link" />
+	<acme:input-select code="student.activity.label.enrolment" path="enrolment"
+		choices="${enrolments}" />
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
-			<acme:submit code="student.enrolment.form.button.update"
-				action="/student/enrolment/update" />
-			<acme:submit code="student.enrolment.form.button.delete"
-				action="/student/enrolment/delete" />
+			<acme:submit code="student.activity.form.button.update"
+				action="/student/activity/update" />
+			<acme:submit code="student.activity.form.button.delete"
+				action="/student/activity/delete" />
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="student.enrolment.form.button.create"
-				action="/student/enrolment/create" />
+			<acme:submit code="student.activity.form.button.create"
+				action="/student/activity/create" />
 		</jstl:when>
 	</jstl:choose>
-	<jstl:if test="${_command == finalized == true}">
-		<acme:submit code="student.enrolment.list.button.finalize"
-			action="/student/enrolment/finalize" />
-	</jstl:if>
 </acme:form>

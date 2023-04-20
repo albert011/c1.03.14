@@ -12,27 +12,15 @@ student.activity.list.label.title = Title
 student.activity.list.label.abstractField = Abstract Field
 student.activity.list.label.activityType = Activity Type
 
-student.enrolment.form.label.code = Code
-student.enrolment.form.label.motivation = Motivation
-student.enrolment.form.label.goals = Goals
-student.enrolment.form.label.workTime = Work Time
-student.enrolment.label.course = Course
+student.activity.form.label.title = Title
+student.activity.form.label.abstractField = Abstract Field
+student.activity.form.label.activityType = Activity Type
+student.activity.form.label.startPeriod = Start Period
+student.activity.form.label.endPeriod = End Period
+student.activity.form.label.link = Link
+student.activity.label.enrolment = Enrolment
 
-student.enrolment.form.button.update = Update
-student.enrolment.form.button.delete = Delete
-student.enrolment.form.button.create = Create
-
-student.enrolment.form.error.duplicated = It already exist
-
-student.enrolment.list.button.finalize = Finalize
-
-student.enrolment.form.label.creditCard = Credit Card
-student.enrolment.form.label.cvc = CVC
-student.enrolment.form.label.holderName = Holder Name
-student.enrolment.form.label.expiryDate = Expiry Date
-student.enrolment.form.label.lowerNibble = Lower Nibble
-
-student.enrolment.form.error.card = Incorrect Format
-student.enrolment.form.error.holder = Cannot be blank
-student.enrolment.form.error.cvc = It must have 3 digits
-student.enrolment.form.error.expiryDate = Incorrect Format
+student.activity.form.button.update = Update
+student.activity.form.button.delete = Delete
+student.activity.form.button.create = Create
+student.activity.list.button.create = Create
