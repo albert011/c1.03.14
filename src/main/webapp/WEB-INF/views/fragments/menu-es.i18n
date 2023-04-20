@@ -44,6 +44,11 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.company ##########################################################
+
+master.menu.company = Compañía
+master.menu.company.practicum.list-mine = Ver mis prácticas
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
@@ -59,8 +64,13 @@ master.menu.student = Estudiante
 master.menu.student.enrolment = Matrícula
 
 
+master.menu.user-account.lecturer = Datos de lector
+master.menu.user-account.become-lecturer = Hazte lector
+master.menu.user-account.company = Datos de compañía
+master.menu.user-account.become-company = Hazte compañía
 
+# master.menu.authenticated #######################################################
 
-
-
+master.menu.authenticated = Autenticado
+master.menu.authenticated.offer.list = Ver ofertas
 
