@@ -42,7 +42,7 @@ public class Course extends AbstractEntity {
 	@NotNull
 	protected Money				retailPrice;
 
-	protected LectureType		type;
+	protected boolean			isTheoretical;
 
 	@URL
 	protected String			link;

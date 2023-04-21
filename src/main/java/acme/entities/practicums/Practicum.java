@@ -14,7 +14,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Company;
 import lombok.Getter;
@@ -61,9 +60,9 @@ public class Practicum extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Company			company;
 
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	protected Course			course;
+	//	@NotNull
+	//	@Valid
+	//	@ManyToOne(optional = false)
+	//	protected Course			course;
 
 }

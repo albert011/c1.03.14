@@ -1,21 +1,21 @@
 
-package acme.features.authenticated.offer;
+package acme.features.administrator.offer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.offer.Offer;
-import acme.framework.components.accounts.Authenticated;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AuthenticatedOfferShowService extends AbstractService<Authenticated, Offer> {
+public class AdministratorOfferUpdateService extends AbstractService<Administrator, Offer> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedOfferRepository repository;
+	protected AdministratorOfferRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -31,7 +31,15 @@ public class AuthenticatedOfferShowService extends AbstractService<Authenticated
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		Offer Offer;
+
+		masterId = super.getRequest().getData("id", int.class);
+		Offer = this.repository.findOneOfferById(masterId);
+		status = Offer != null && super.getRequest().getPrincipal().isAuthenticated();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -46,14 +54,30 @@ public class AuthenticatedOfferShowService extends AbstractService<Authenticated
 	}
 
 	@Override
+	public void bind(final Offer object) {
+		assert object != null;
+
+		super.bind(object, "heading", "summary", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "link");
+	}
+
+	@Override
+	public void validate(final Offer object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final Offer object) {
+		assert object != null;
+
+		this.repository.save(object);
+	}
+	@Override
 	public void unbind(final Offer object) {
 		assert object != null;
 
 		Tuple tuple;
 
 		tuple = super.unbind(object, "heading", "summary", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "link");
-
 		super.getResponse().setData(tuple);
 	}
-
 }

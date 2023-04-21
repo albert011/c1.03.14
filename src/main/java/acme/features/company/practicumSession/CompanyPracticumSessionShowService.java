@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.practicumSessions.PracticumSession;
+import acme.entities.practicums.Practicum;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -63,21 +64,21 @@ public class CompanyPracticumSessionShowService extends AbstractService<Company,
 		assert object != null;
 
 		final int companyId;
-		Collection<Company> companies;
+		Collection<Practicum> practicums;
 		SelectChoices choices;
 		Tuple tuple;
 
 		if (!object.isDraftMode())
-			companies = this.repository.findAllCompanies();
+			practicums = this.repository.findAllPracticums();
 		else {
 			companyId = super.getRequest().getPrincipal().getActiveRoleId();
-			companies = this.repository.findManyCompaniesById(companyId);
+			practicums = this.repository.findManyPracticumsByCompanyId(companyId);
 		}
-		choices = SelectChoices.from(companies, "name", object.getCompany());
+		choices = SelectChoices.from(practicums, "code", object.getPracticum());
 
 		tuple = super.unbind(object, "title", "abstractText", "startDate", "endDate", "link", "draftMode", "isAddendum");
-		tuple.put("company", choices.getSelected().getKey());
-		tuple.put("companies", choices);
+		tuple.put("practicum", choices.getSelected().getKey());
+		tuple.put("practicums", choices);
 
 		super.getResponse().setData(tuple);
 	}

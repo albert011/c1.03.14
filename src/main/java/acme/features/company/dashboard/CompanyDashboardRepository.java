@@ -19,22 +19,22 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface CompanyDashboardRepository extends AbstractRepository {
 
-	Integer totalNumberOfPracticasPerMonthInLastYear();
-
-	Double averageSessionLength();
-
-	Double deviationSessionLength();
-
-	Double minimumSessionLength();
-
-	Double maximumSessionLength();
-
-	Double averagePracticaLength();
-
-	Double deviationPracticaLength();
-
-	Double minimumPracticaLength();
-
-	Double maximumPracticaLength();
+	//	Integer totalNumberOfPracticasPerMonthInLastYear();
+	//
+	//	Double averageSessionLength();
+	//
+	//	Double deviationSessionLength();
+	//
+	//	Double minimumSessionLength();
+	//
+	//	Double maximumSessionLength();
+	//
+	//	Double averagePracticaLength();
+	//
+	//	Double deviationPracticaLength();
+	//
+	//	Double minimumPracticaLength();
+	//
+	//	Double maximumPracticaLength();
 
 }

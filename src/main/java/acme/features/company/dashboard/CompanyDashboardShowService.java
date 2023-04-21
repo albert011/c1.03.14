@@ -55,9 +55,7 @@ public class CompanyDashboardShowService extends AbstractService<Company, Compan
 		Tuple tuple;
 
 		tuple = super.unbind(object, //
-			"averageNumberOfJobsPerEmployer", "averageNumberOfApplicationsPerWorker", // 
-			"avegageNumberOfApplicationsPerEmployer", "ratioOfPendingApplications", //
-			"ratioOfRejectedApplications", "ratioOfAcceptedApplications");
+			"");
 
 		super.getResponse().setData(tuple);
 	}

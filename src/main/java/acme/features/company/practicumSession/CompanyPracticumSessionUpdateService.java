@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.practicumSessions.PracticumSession;
+import acme.entities.practicums.Practicum;
 import acme.framework.components.jsp.SelectChoices;
+import acme.framework.components.models.Dataset;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
@@ -61,14 +63,14 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 	public void bind(final PracticumSession object) {
 		assert object != null;
 
-		int companyId;
-		Company company;
+		int practicumId;
+		Practicum practicum;
 
-		companyId = super.getRequest().getData("company", int.class);
-		company = this.repository.findOneCompanyById(companyId);
+		practicumId = super.getRequest().getData("practicum", int.class);
+		practicum = this.repository.findOnePracticumById(practicumId);
 
-		super.bind(object, "code", "title", "abstractText", "goals", "estimatedTotalTime");
-		object.setCompany(company);
+		super.bind(object, "title", "abstractText", "startDate", "endDate", "link", "isAddendum");
+		object.setPracticum(practicum);
 
 	}
 
@@ -89,6 +91,10 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 	public void perform(final PracticumSession object) {
 		assert object != null;
 
+		final Dataset req = super.getRequest().getData();
+		if (req.containsKey("isAddendum") && req.get("isAddendum").toString().equals("true"))
+			object.setAddendum(true);
+
 		this.repository.save(object);
 	}
 
@@ -97,17 +103,17 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 		assert object != null;
 
 		final int companyId;
-		Collection<Company> companies;
+		Collection<Practicum> practicums;
 		SelectChoices choices;
 		Tuple tuple;
 
 		companyId = super.getRequest().getPrincipal().getActiveRoleId();
-		companies = this.repository.findManyCompaniesById(companyId);
-		choices = SelectChoices.from(companies, "name", object.getCompany());
+		practicums = this.repository.findManyPracticumsByCompanyId(companyId);
+		choices = SelectChoices.from(practicums, "code", object.getPracticum());
 
 		tuple = super.unbind(object, "title", "abstractText", "startDate", "endDate", "link", "draftMode", "isAddendum");
-		tuple.put("company", choices.getSelected().getKey());
-		tuple.put("companies", choices);
+		tuple.put("practicum", choices.getSelected().getKey());
+		tuple.put("practicums", choices);
 
 		super.getResponse().setData(tuple);
 	}

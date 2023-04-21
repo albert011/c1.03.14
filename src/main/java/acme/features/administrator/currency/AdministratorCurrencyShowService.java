@@ -1,23 +1,21 @@
 
-package acme.features.authenticated.offer;
-
-import java.util.Collection;
+package acme.features.administrator.currency;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.offer.Offer;
-import acme.framework.components.accounts.Authenticated;
+import acme.entities.currency.Currency;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AuthenticatedOfferListService extends AbstractService<Authenticated, Offer> {
+public class AdministratorCurrencyShowService extends AbstractService<Administrator, Currency> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedOfferRepository repository;
+	protected AdministratorCurrencyRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -34,20 +32,22 @@ public class AuthenticatedOfferListService extends AbstractService<Authenticated
 
 	@Override
 	public void load() {
-		Collection<Offer> objects;
-		objects = this.repository.findAllOffers();
+		Currency object;
 
-		super.getBuffer().setData(objects);
+		object = this.repository.findCurrency();
+
+		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Offer object) {
+	public void unbind(final Currency object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "heading", "summary", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "link");
+		tuple = super.unbind(object, "systemCurrency", "acceptedCurrencies");
 
 		super.getResponse().setData(tuple);
 	}
+
 }

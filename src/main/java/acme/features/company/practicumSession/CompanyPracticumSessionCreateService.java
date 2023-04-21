@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.practicumSessions.PracticumSession;
 import acme.entities.practicums.Practicum;
 import acme.framework.components.jsp.SelectChoices;
+import acme.framework.components.models.Dataset;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
@@ -71,6 +72,10 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 	@Override
 	public void perform(final PracticumSession object) {
 		assert object != null;
+
+		final Dataset req = super.getRequest().getData();
+		if (req.containsKey("isAddendum") && req.get("isAddendum").toString().equals("true"))
+			object.setAddendum(true);
 
 		this.repository.save(object);
 	}
