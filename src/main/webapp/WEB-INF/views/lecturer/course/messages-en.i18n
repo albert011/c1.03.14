@@ -24,3 +24,4 @@ lecturer.course.form.button.create = Create
 
 lecturer.course.form.error.lectures-unpublished = You can't publish a course until all the lectures are published
 lecturer.course.form.error.lectures-theoretical = You can't publish a purely theoretical course
+lecturer.course.form.error.duplicated = You can't create a course duplicated

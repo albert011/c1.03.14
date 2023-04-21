@@ -67,6 +67,7 @@ public class LecturersCoursesDeleteService extends AbstractService<Lecturer, Cou
 	@Override
 	public void perform(final Course object) {
 		assert object != null;
+
 		Collection<Lecture> lectures;
 		Collection<CoursesLecturers> courseLecturer;
 
@@ -86,7 +87,7 @@ public class LecturersCoursesDeleteService extends AbstractService<Lecturer, Cou
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "Abstract", "retailPrice", "isTheoretical", "link", "draftMode");
+		tuple = super.unbind(object, "code", "title", "Abstract", "retailPrice", "body", "isTheoretical", "link", "draftMode");
 		super.getResponse().setData(tuple);
 	}
 }

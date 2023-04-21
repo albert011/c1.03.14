@@ -61,14 +61,20 @@ public class LecturersCoursesPublishService extends AbstractService<Lecturer, Co
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			final Course course;
 
-		if (!super.getBuffer().getErrors().hasErrors("draftMode")) {
+			course = this.repository.findOneCourseByCode(object.getCode());
+			super.state(course == null || course.equals(object), "code", "lecturer.course.form.error.duplicated");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("*")) {
 			Collection<Lecture> lectures;
 
 			lectures = this.repository.findManyLecturesUnpublishedByCourse(object.getId());
 			super.state(lectures.isEmpty(), "draftMode", "lecturer.course.form.error.lectures-unpublished");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("isTheoretical")) {
+		if (!super.getBuffer().getErrors().hasErrors("*")) {
 			Collection<Lecture> lectures;
 
 			lectures = this.repository.findManyNonTheoreticalLecturesByCourseId(object.getId());
