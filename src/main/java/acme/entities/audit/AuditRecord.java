@@ -58,4 +58,6 @@ public class AuditRecord extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Audit				audit;
 
+	protected boolean			edited;
+
 }

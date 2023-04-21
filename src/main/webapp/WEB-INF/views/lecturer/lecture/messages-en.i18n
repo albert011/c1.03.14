@@ -1,0 +1,20 @@
+lecturer.lecture.list.label.title = Title
+lecturer.lecture.list.label.type = Type
+
+
+lecturer.lecture.list.button.create = Create
+
+lecturer.lecture.form.label.title = Title:
+lecturer.lecture.form.label.course = Course:
+lecturer.lecture.form.label.Abstract = Abstract:
+lecturer.lecture.form.label.estimatedLearningTime = EstimatedLearningTime:
+lecturer.lecture.form.label.body = Body:
+lecturer.lecture.form.label.type = Type:
+lecturer.lecture.form.label.link = Link: (Optional)
+
+lecturer.lecture.form.button.update = Update
+lecturer.lecture.form.button.delete = Delete
+lecturer.lecture.form.button.publish = Publish
+lecturer.lecture.form.button.create = Create
+
+lecturer.lecture.form.error.negative-estimatedLearningTime = This number must be positive

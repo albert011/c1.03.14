@@ -1,0 +1,31 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+auditor.audit-record.list.label.subject = Asunto
+auditor.audit-record.list.label.mark = Valoración
+auditor.audit-record.list.label.edited = Creado después de publicar la Inspección
+
+auditor.audit-record.form.label.subject = Asunto
+auditor.audit-record.form.label.assessment = Notas
+auditor.audit-record.form.label.period-start = Inicio del Período
+auditor.audit-record.form.label.period-end = Fin del Período
+auditor.audit-record.form.label.more-info = Más Información
+auditor.audit-record.form.label.mark = Valoración
+auditor.audit-record.form.label.audit-code = Código de la Inspección
+auditor.audit-record.form.label.edited = Creado después de publicar la Inspección
+audit.audit-record.form.label.accept = Reconozco que el registro está creado con la inspección ya publicada
+
+auditor.audit-record.list.button.create = Crear Registro de Inspección
+auditor.audit-record.form.submit.create = Crear Registro de Inspección
+auditor.audit-record.form.button.update = Actualizar Registro de Inspección
+auditor.audit-record.form.submit.delete = Borrar Registro de Inspección
+
+auditor.audit-record.form.error.period-too-short = El período debe durar como mínimo 1 hora
+auditor.audit-record.form.error.must-accept = La confirmación no cuadra
