@@ -25,3 +25,5 @@ student.course.form.label.retailPrice = Precio
 student.course.form.label.body = Cuerpo
 student.course.form.label.isTheoretical = es Teórico
 student.course.form.label.link = Link
+
+student.activity.form.button.list = Ver Clases

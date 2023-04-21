@@ -23,7 +23,7 @@
 	<acme:input-textbox code="student.enrolment.form.label.goals"
 		path="goals" />
 	<acme:input-textbox code="student.enrolment.form.label.workTime"
-		path="workTime" readonly="true"/>
+		path="workTime" readonly="true" />
 	<acme:input-select code="student.enrolment.label.course" path="course"
 		choices="${courses}" />
 	<acme:input-textbox code="student.enrolment.form.label.creditCard"
@@ -34,22 +34,20 @@
 	<acme:input-textbox code="student.enrolment.form.label.holderName"
 		path="holderName" />
 	<acme:input-textbox code="student.enrolment.form.label.lowerNibble"
-		path="lowerNibble" readonly="true"/>
+		path="lowerNibble" readonly="true" />
 
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|finalize')}">
 			<acme:submit code="student.enrolment.form.button.update"
 				action="/student/enrolment/update" />
 			<acme:submit code="student.enrolment.form.button.delete"
 				action="/student/enrolment/delete" />
+			<acme:submit code="student.enrolment.list.button.finalize"
+				action="/student/enrolment/finalize" />
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="student.enrolment.form.button.create"
 				action="/student/enrolment/create" />
 		</jstl:when>
 	</jstl:choose>
-	<jstl:if test="${_command == finalized == true}">
-		<acme:submit code="student.enrolment.list.button.finalize"
-			action="/student/enrolment/finalize" />
-	</jstl:if>
 </acme:form>

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
+import acme.entities.enrolments.Activity;
 import acme.entities.enrolments.Enrolment;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
@@ -90,7 +91,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 			Enrolment existing;
 
 			existing = this.repository.findOneEnrolmentByCode(object.getCode());
-			super.state(existing == null || existing.equals(object), "code", "employer.job.form.error.duplicated");
+			super.state(existing == null || existing.equals(object), "code", "student.enrolment.form.error.duplicated");
 		}
 
 		//if (!super.getBuffer().getErrors().hasErrors("salary"))
@@ -112,16 +113,23 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		Collection<Course> courses;
 		SelectChoices choices;
 		Tuple tuple;
+		Double workTime;
+		boolean finalized = false;
 
 		//studentId = super.getRequest().getPrincipal().getActiveRoleId();
 		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
+		workTime = this.repository.findManyActivitiesById(object.getId()).stream().map(Activity::getWorkTime).reduce(Double::sum).get();
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "workTime");
+		if (object.getHolderName() != null && object.getLowerNibble() != null)
+			finalized = true;
+
+		tuple = super.unbind(object, "code", "motivation", "goals", "holderName", "lowerNibble");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
-
+		tuple.put("workTime", workTime);
 		super.getResponse().setData(tuple);
+		tuple.put("finalized", finalized);
 	}
 
 }

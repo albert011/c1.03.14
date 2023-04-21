@@ -15,3 +15,5 @@ student.course.form.label.retailPrice = Retail Price
 student.course.form.label.body = Body
 student.course.form.label.isTheoretical = IsTheoretical
 student.course.form.label.link = Link
+
+student.activity.form.button.list = See Lectures
