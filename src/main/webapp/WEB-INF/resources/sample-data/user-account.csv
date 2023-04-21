@@ -11,6 +11,9 @@ user-account-lecturer-07,true,"UserIdentity{name: 'Jose', surname: 'Gomez', emai
 user-account-lecturer-08,true,"UserIdentity{name: 'Alex', surname: 'Pecino', email: 'alexpecino@acme.com'}",lecturer8,lecturer8
 user-account-assistant-01,true,"UserIdentity{name: 'Tom', surname: 'Cat', email: 'tom.cat@acme.com'}",assistant1,assistant1
 user-account-assistant-02,true,"UserIdentity{name: 'Foo', surname: 'Bar', email: 'foo.bar@acme.com'}",assistant2,assistant2
-user-account-auditor-01,false,"UserIdentity{name: 'Auditor', surname: 'Evans', email: 'auditor@acme.com'}",auditor,auditor
+user-account-auditor-01,true,"UserIdentity{name: 'Zipi', surname: 'Evans', email: 'auditor1@acme.com'}",auditor1,auditor1
+user-account-auditor-02,true,"UserIdentity{name: 'Zape', surname: 'Williams', email: 'auditor2@acme.com'}",auditor2,auditor2
+user-account-auditor-03,true,"UserIdentity{name: 'Mortadelo', surname: 'Sanchez', email: 'auditor3@acme.com'}",auditor3,auditor3
+user-account-auditor-04,true,"UserIdentity{name: 'Filemon', surname: 'Perez', email: 'auditor4@acme.com'}",auditor4,auditor4
 user-account-student-01,true,"UserIdentity{name: 'Student', surname: 'Student', email: 'student1@acme.com'}",student1,student1
 user-account-student-02,true,"UserIdentity{name: 'Student', surname: 'Student', email: 'student2@acme.com'}",student2,student2

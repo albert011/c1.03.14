@@ -1,5 +1,11 @@
-key,subject,assessment,periodStart,periodEnd,mark,moreInfo,key:audit
-audit-record-01,"Test subject","Test assessment","2000/02/17 08:16","2000/02/17 10:00",A,null,audit-01
-audit-record-02,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut orci ante eros.","Test assessment","2000/02/17 08:16","2000/02/17 10:00",A,null,audit-02
-audit-record-03,"Test subject","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.","2000/02/17 08:16","2000/02/17 10:00",A,null,audit-03
-audit-record-04,"Test subject","Test assessment","2000/02/17 08:16","2000/02/17 10:00",A,null,audit-04
+key,subject,assessment,periodStart,periodEnd,mark,moreInfo,key:audit,edited
+audit-record-01,"Test subject","Test assessment","2000/02/17 08:16","2000/02/17 10:00",A,null,audit-01,false
+audit-record-02,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut orci ante eros.","Test assessment","2000/02/17 08:16","2000/02/17 10:00",A,null,audit-02,false
+audit-record-03,"Test subject","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.","2000/02/17 08:16","2000/02/17 10:00",A,null,audit-03,false
+audit-record-04,"Test subject","Test assessment","2000/02/17 08:16","2000/02/17 10:00",A,null,audit-04,false
+audit-record-05,"Test subject","Test assessment","2000/02/17 08:16","2000/02/17 10:00",A,null,audit-05,false
+audit-record-06,"Test subject","Test assessment","2000/02/17 08:16","2000/02/17 10:00",A,null,audit-06,false
+audit-record-07,"Test subject","Test assessment","2000/02/17 08:16","2000/02/17 10:00",A,null,audit-07,false
+audit-record-08,"Test subject","Test assessment","2000/02/17 08:16","2000/02/17 10:00",A,null,audit-08,false
+audit-record-09,"Test subject","Test assessment","2000/02/17 08:16","2000/02/17 10:00",A,null,audit-09,false
+audit-record-10,"Test subject","Test assessment","2000/02/17 08:16","2000/02/17 10:00",A,null,audit-10,false

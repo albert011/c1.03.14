@@ -44,6 +44,11 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.auditor ##########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.audit.list = Lista de auditorías
+
 # master.menu.company ##########################################################
 
 master.menu.company = Compañía
@@ -55,6 +60,8 @@ master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
 master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
+master.menu.user-account.auditor = Datos de auditor
+master.menu.user-account.become-auditor = Hazte auditor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.student = Datos de estudiante
