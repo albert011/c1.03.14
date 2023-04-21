@@ -46,7 +46,7 @@ public class LecturersCoursesListMineService extends AbstractService<Lecturer, C
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "Abstract", "retailPrice", "isTheoretical", "link");
+		tuple = super.unbind(object, "code", "title", "type");
 
 		super.getResponse().setData(tuple);
 	}

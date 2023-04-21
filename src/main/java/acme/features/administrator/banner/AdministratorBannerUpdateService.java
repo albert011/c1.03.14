@@ -1,12 +1,16 @@
 
 package acme.features.administrator.banner;
 
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.banner.Banner;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -59,6 +63,16 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("displayPeriodEnd"))
+			super.state(MomentHelper.isAfter(object.getDisplayPeriodEnd(), object.getDisplayPeriodStart()), "displayPeriodEnd", "administrator.banner.form.error.display-period-end-before-display");
+		{
+			final Date displayStart = object.getDisplayPeriodStart();
+			Date actualDate;
+
+			actualDate = MomentHelper.deltaFromMoment(displayStart, 1, ChronoUnit.WEEKS);
+			super.state(MomentHelper.isAfterOrEqual(object.getDisplayPeriodEnd(), actualDate), "*", "administrator.banner.form.error.display-period-time");
+		}
+
 	}
 
 	@Override

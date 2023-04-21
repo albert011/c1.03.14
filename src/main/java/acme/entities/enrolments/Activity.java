@@ -4,6 +4,8 @@ package acme.entities.enrolments;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -12,6 +14,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
 import acme.framework.helpers.MomentHelper;
@@ -33,6 +36,7 @@ public class Activity extends AbstractEntity {
 	@Length(max = 100)
 	protected String			abstractField;
 
+	@Enumerated(value = EnumType.STRING)
 	protected ActivityType		activityType;
 
 	@NotNull
@@ -43,12 +47,8 @@ public class Activity extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				endPeriod;
 
+	@URL
 	protected String			link;
-
-	@NotNull
-	@Valid
-	@ManyToOne()
-	protected Enrolment			enrolment;
 
 
 	public enum ActivityType {
@@ -56,7 +56,14 @@ public class Activity extends AbstractEntity {
 	}
 
 
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Enrolment enrolment;
+
+
 	public Double getWorkTime() {
 		return (double) MomentHelper.computeDuration(this.startPeriod, this.endPeriod).toHours();
 	}
+
 }

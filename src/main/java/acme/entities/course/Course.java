@@ -11,6 +11,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.lecture.LectureType;
 import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
@@ -40,7 +41,8 @@ public class Course extends AbstractEntity {
 	@NotNull
 	protected Money				retailPrice;
 
-	protected boolean			isTheoretical;
+	@NotNull
+	protected LectureType		type;
 
 	@URL
 	protected String			link;

@@ -5,18 +5,9 @@
 
 <acme:list>
 	<acme:list-column code="lecturer.lecture.list.label.title" path="title"
-		width="10%" />
-	<acme:list-column code="lecturer.lecture.list.label.Abstract"
-		path="Abstract" width="30%" />
-	<acme:list-column
-		code="lecturer.lecture.list.label.estimatedLearningTime"
-		path="estimatedLearningTime" width="10%" />
-	<acme:list-column code="lecturer.lecture.list.label.body" path="body"
-		width="20%" />
-	<acme:list-column code="lecturer.lecture.list.label.isTheoretical"
-		path="isTheoretical" width="10%" />
-	<acme:list-column code="lecturer.lecture.list.label.link" path="link"
-		width="10%" />
+		width="30%" />
+	<acme:list-column code="lecturer.lecture.list.label.type"
+		path="type" width="30%" />
 </acme:list>
 
 <jstl:if test="${_command == 'list-mine'}">

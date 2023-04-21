@@ -2,6 +2,8 @@
 package acme.entities.lecture;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -40,7 +42,9 @@ public class Lecture extends AbstractEntity {
 	@Length(max = 100)
 	protected String			body;
 
-	protected boolean			isTheoretical;
+	@NotNull
+	@Enumerated(value = EnumType.STRING)
+	protected LectureType		type;
 
 	@URL
 	protected String			link;

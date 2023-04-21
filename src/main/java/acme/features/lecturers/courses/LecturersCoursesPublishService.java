@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
 import acme.entities.lecture.Lecture;
+import acme.entities.lecture.LectureType;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -45,9 +46,21 @@ public class LecturersCoursesPublishService extends AbstractService<Lecturer, Co
 	public void load() {
 		Course object;
 		int id;
-
+		Long theoreticalLectures;
+		Long handsOnLectures;
+		LectureType lectureType;
 		id = super.getRequest().getData("id", int.class);
+
+		handsOnLectures = this.repository.findManyNonTheoreticalLecturesByCourseId(id);
+		theoreticalLectures = this.repository.findManyTheoreticalLecturesByCourseId(id);
+
+		if (handsOnLectures > theoreticalLectures)
+			lectureType = LectureType.HANDS_ON;
+		else
+			lectureType = LectureType.THEORETICAL;
+
 		object = this.repository.findOneCourseById(id);
+		object.setType(lectureType);
 
 		super.getBuffer().setData(object);
 	}
@@ -61,26 +74,32 @@ public class LecturersCoursesPublishService extends AbstractService<Lecturer, Co
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
+			super.state(object.getRetailPrice().getAmount() > 0, "retailPrice", "lecturer.lecture.form.error.negative-price");
+
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
+			super.state(object.getRetailPrice().getCurrency().equals("EUR") || object.getRetailPrice().getCurrency().equals("GBP") || object.getRetailPrice().getCurrency().equals("USD"), "retailPrice", "lecturer.lecture.form.error.currency");
+
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			final Course course;
+			Course course;
 
 			course = this.repository.findOneCourseByCode(object.getCode());
 			super.state(course == null || course.equals(object), "code", "lecturer.course.form.error.duplicated");
 		}
-
-		if (!super.getBuffer().getErrors().hasErrors("*")) {
+		{
 			Collection<Lecture> lectures;
 
 			lectures = this.repository.findManyLecturesUnpublishedByCourse(object.getId());
-			super.state(lectures.isEmpty(), "draftMode", "lecturer.course.form.error.lectures-unpublished");
+			super.state(lectures.isEmpty(), "*", "lecturer.course.form.error.lectures-unpublished");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("*")) {
-			Collection<Lecture> lectures;
+		{
+			Long lectures;
+			final long var = 0;
 
 			lectures = this.repository.findManyNonTheoreticalLecturesByCourseId(object.getId());
-			super.state(!lectures.isEmpty(), "isTheoretical", "lecturer.course.form.error.lectures-theoretical");
+			super.state(!lectures.equals(var), "*", "lecturer.course.form.error.lectures-theoretical");
 		}
-		object.setTheoretical(false);
+		object.setType(LectureType.HANDS_ON);
 	}
 
 	@Override
@@ -97,7 +116,7 @@ public class LecturersCoursesPublishService extends AbstractService<Lecturer, Co
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "Abstract", "retailPrice", "isTheoretical", "link", "draftMode");
+		tuple = super.unbind(object, "code", "title", "Abstract", "retailPrice", "type", "link", "draftMode");
 		super.getResponse().setData(tuple);
 	}
 

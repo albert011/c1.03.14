@@ -38,6 +38,8 @@ public class Enrolment extends AbstractEntity {
 
 	protected String			holderName;
 
+	@NotNull
+	@Valid
 	protected String			lowerNibble;
 
 	@ManyToOne(optional = false)

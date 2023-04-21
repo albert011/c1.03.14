@@ -44,7 +44,8 @@ public class LecturersLecturesListMineService extends AbstractService<Lecturer, 
 		assert object != null;
 
 		Tuple tuple;
-		tuple = super.unbind(object, "title", "Abstract", "estimatedLearningTime", "body", "isTheoretical", "link");
+		tuple = super.unbind(object, "title", "type");
+
 		super.getResponse().setData(tuple);
 	}
 }

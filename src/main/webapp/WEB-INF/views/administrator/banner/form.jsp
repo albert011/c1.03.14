@@ -4,13 +4,15 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
+	<acme:input-moment code="administrator.banner.form.label.instantiationMoment"
+		path="instantiationMoment" readonly = "true"/>
+	<acme:input-textbox code="administrator.banner.form.label.slogan"
+		path="slogan" />
 	<acme:input-moment code="administrator.banner.form.label.displayPeriodStart"
 		path="displayPeriodStart" />
-		<acme:input-moment code="administrator.banner.form.label.displayPeriodEnd"
+	<acme:input-moment code="administrator.banner.form.label.displayPeriodEnd"
 		path="displayPeriodEnd" />
-	<acme:input-url code="administrator.banner.form.label.pictureLink"
-		path="pictureLink" />
-	<acme:input-textbox code="administrator.banner.form.label.slogan" path="slogan" />
+	<acme:input-url code="administrator.banner.form.label.pictureLink" path="pictureLink" />
 	<acme:input-url code="administrator.banner.form.label.targetLink" path="targetLink" />
 	<jstl:choose>
 		<jstl:when

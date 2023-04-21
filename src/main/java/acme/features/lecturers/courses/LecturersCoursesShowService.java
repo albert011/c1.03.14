@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
+import acme.entities.lecture.LectureType;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -42,9 +43,21 @@ public class LecturersCoursesShowService extends AbstractService<Lecturer, Cours
 	public void load() {
 		Course object;
 		int id;
-
+		Long theoreticalLectures;
+		Long handsOnLectures;
+		LectureType lectureType;
 		id = super.getRequest().getData("id", int.class);
+
+		handsOnLectures = this.repository.findManyNonTheoreticalLecturesByCourseId(id);
+		theoreticalLectures = this.repository.findManyTheoreticalLecturesByCourseId(id);
+
+		if (handsOnLectures > theoreticalLectures)
+			lectureType = LectureType.HANDS_ON;
+		else
+			lectureType = LectureType.THEORETICAL;
+
 		object = this.repository.findOneCourseById(id);
+		object.setType(lectureType);
 
 		super.getBuffer().setData(object);
 	}
@@ -55,7 +68,7 @@ public class LecturersCoursesShowService extends AbstractService<Lecturer, Cours
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "Abstract", "retailPrice", "isTheoretical", "link", "draftMode");
+		tuple = super.unbind(object, "code", "title", "Abstract", "retailPrice", "type", "link", "draftMode");
 
 		super.getResponse().setData(tuple);
 	}

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
 import acme.entities.lecture.Lecture;
+import acme.entities.lecture.LectureType;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -61,7 +62,8 @@ public class LecturersLecturesShowService extends AbstractService<Lecturer, Lect
 
 		int lecturerId;
 		Collection<Course> courses;
-		final SelectChoices choices;
+		SelectChoices choices;
+		SelectChoices types;
 		Tuple tuple;
 
 		if (!object.isDraftMode())
@@ -71,10 +73,13 @@ public class LecturersLecturesShowService extends AbstractService<Lecturer, Lect
 			courses = this.repository.findManyCoursesByLecturers(lecturerId);
 		}
 		choices = SelectChoices.from(courses, "code", object.getCourses());
+		types = SelectChoices.from(LectureType.class, object.getType());
 
-		tuple = super.unbind(object, "title", "Abstract", "estimatedLearningTime", "body", "isTheoretical", "link", "draftMode");
+		tuple = super.unbind(object, "title", "Abstract", "estimatedLearningTime", "body", "type", "link", "draftMode");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
+		tuple.put("type", types.getSelected().getKey());
+		tuple.put("types", types);
 		super.getResponse().setData(tuple);
 	}
 }
