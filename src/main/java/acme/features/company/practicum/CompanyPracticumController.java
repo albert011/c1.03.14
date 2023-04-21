@@ -11,30 +11,30 @@ import acme.framework.controllers.AbstractController;
 import acme.roles.Company;
 
 @Controller
-public class PracticumController extends AbstractController<Company, Practicum> {
+public class CompanyPracticumController extends AbstractController<Company, Practicum> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected PracticumShowService		showService;
+	protected CompanyPracticumShowService		showService;
 
 	@Autowired
-	protected PracticumCreateService	createService;
+	protected CompanyPracticumCreateService	createService;
 
 	@Autowired
-	protected PracticumUpdateService	updateService;
+	protected CompanyPracticumUpdateService	updateService;
 
 	@Autowired
-	protected PracticumDeleteService	deleteService;
+	protected CompanyPracticumDeleteService	deleteService;
 
 	@Autowired
-	protected PracticumListAllService	listAllService;
+	protected CompanyPracticumListAllService	listAllService;
 
 	@Autowired
-	protected PracticumListMineService	listMineService;
+	protected CompanyPracticumListMineService	listMineService;
 
 	@Autowired
-	protected PracticumPublishService	publishService;
+	protected CompanyPracticumPublishService	publishService;
 
 	// Constructors -----------------------------------------------------------
 

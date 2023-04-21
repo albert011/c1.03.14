@@ -33,12 +33,19 @@
 		</acme:menu-option>
 		
 
-
+		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
+      		<acme:menu-suboption code="master.menu.authenticated.offer.list" action="/authenticated/offer/list"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/populate-sample"/>			
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.offer.list-all" action="/administrator/offer/list-all"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.currency" action="/administrator/currency/show"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 			<acme:menu-separator/>
@@ -87,6 +94,7 @@
 
 		<acme:menu-option code="master.menu.company" access="hasRole('Company')">			
 			<acme:menu-suboption code="master.menu.company.practicum.list-mine" action="/company/practicum/list-mine"/>			
+			<acme:menu-suboption code="master.menu.company.practicum-session.list-mine" action="/company/practicum-session/list-mine"/>
 		</acme:menu-option>
 
 

@@ -14,7 +14,7 @@ company.practicum.list.label.abstractText = Abstract Text
 company.practicum.list.label.goals = Goals
 company.practicum.list.label.estimatedTotalTime = Estimaded Total Time
 
-company.practicum.job.list.button.create = Create
+company.practicum.list.button.create = Create
 
 company.practicum.form.label.code = Code
 company.practicum.form.label.company = Company

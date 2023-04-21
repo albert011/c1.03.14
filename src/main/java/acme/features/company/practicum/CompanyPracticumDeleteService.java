@@ -13,11 +13,12 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class PracticumUpdateService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumDeleteService extends AbstractService<Company, Practicum> {
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected PracticumRepository repository;
+	protected CompanyPracticumRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -41,7 +42,7 @@ public class PracticumUpdateService extends AbstractService<Company, Practicum> 
 		masterId = super.getRequest().getData("id", int.class);
 		practicum = this.repository.findOnePracticumById(masterId);
 		company = practicum == null ? null : practicum.getCompany();
-		status = practicum != null && practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(company);
+		status = super.getRequest().getPrincipal().hasRole(company) || practicum != null && practicum.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -69,27 +70,22 @@ public class PracticumUpdateService extends AbstractService<Company, Practicum> 
 
 		super.bind(object, "code", "title", "abstractText", "goals", "estimatedTotalTime");
 		object.setCompany(company);
-
 	}
 
 	@Override
 	public void validate(final Practicum object) {
 		assert object != null;
-
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Practicum existing;
-
-			existing = this.repository.findOnePracticumByCode(object.getCode());
-			super.state(existing == null || existing.equals(object), "code", "company.practicum.form.error.duplicated");
-		}
-
 	}
 
 	@Override
 	public void perform(final Practicum object) {
 		assert object != null;
 
-		this.repository.save(object);
+		Collection<Company> companies;
+
+		companies = this.repository.findManyCompaniesById(object.getId());
+		this.repository.deleteAll(companies);
+		this.repository.delete(object);
 	}
 
 	@Override
@@ -110,5 +106,7 @@ public class PracticumUpdateService extends AbstractService<Company, Practicum> 
 		tuple.put("companies", choices);
 
 		super.getResponse().setData(tuple);
+
 	}
+
 }

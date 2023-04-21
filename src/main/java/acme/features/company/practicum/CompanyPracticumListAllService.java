@@ -7,18 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.practicums.Practicum;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class PracticumListMineService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumListAllService extends AbstractService<Company, Practicum> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected PracticumRepository repository;
+	protected CompanyPracticumRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -36,10 +35,10 @@ public class PracticumListMineService extends AbstractService<Company, Practicum
 	@Override
 	public void load() {
 		Collection<Practicum> objects;
-		Principal principal;
+		int masterId;
 
-		principal = super.getRequest().getPrincipal();
-		objects = this.repository.findManyPracticumsByCompanyId(principal.getActiveRoleId());
+		masterId = super.getRequest().getData("masterId", int.class);
+		objects = this.repository.findManyPracticumsByCompanyId(masterId);
 
 		super.getBuffer().setData(objects);
 	}

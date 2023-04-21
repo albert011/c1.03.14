@@ -1,23 +1,24 @@
 
-package acme.features.authenticated.offer;
+package acme.features.company.practicum;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.offer.Offer;
-import acme.framework.components.accounts.Authenticated;
+import acme.entities.practicums.Practicum;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Company;
 
 @Service
-public class AuthenticatedOfferListService extends AbstractService<Authenticated, Offer> {
+public class CompanyPracticumListMineService extends AbstractService<Company, Practicum> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedOfferRepository repository;
+	protected CompanyPracticumRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -34,20 +35,24 @@ public class AuthenticatedOfferListService extends AbstractService<Authenticated
 
 	@Override
 	public void load() {
-		Collection<Offer> objects;
-		objects = this.repository.findAllOffers();
+		Collection<Practicum> objects;
+		Principal principal;
+
+		principal = super.getRequest().getPrincipal();
+		objects = this.repository.findManyPracticumsByCompanyId(principal.getActiveRoleId());
 
 		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final Offer object) {
+	public void unbind(final Practicum object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "heading", "summary", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "link");
+		tuple = super.unbind(object, "code", "title", "abstractText", "goals", "estimatedTotalTime");
 
 		super.getResponse().setData(tuple);
 	}
+
 }

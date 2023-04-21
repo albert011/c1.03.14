@@ -13,11 +13,12 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class PracticumDeleteService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumPublishService extends AbstractService<Company, Practicum> {
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected PracticumRepository repository;
+	protected CompanyPracticumRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -34,14 +35,14 @@ public class PracticumDeleteService extends AbstractService<Company, Practicum> 
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int practicumId;
 		Practicum practicum;
 		Company company;
 
-		masterId = super.getRequest().getData("id", int.class);
-		practicum = this.repository.findOnePracticumById(masterId);
+		practicumId = super.getRequest().getData("id", int.class);
+		practicum = this.repository.findOnePracticumById(practicumId);
 		company = practicum == null ? null : practicum.getCompany();
-		status = super.getRequest().getPrincipal().hasRole(company) || practicum != null && practicum.isDraftMode();
+		status = practicum != null && practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(company);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -69,22 +70,28 @@ public class PracticumDeleteService extends AbstractService<Company, Practicum> 
 
 		super.bind(object, "code", "title", "abstractText", "goals", "estimatedTotalTime");
 		object.setCompany(company);
+
 	}
 
 	@Override
 	public void validate(final Practicum object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Practicum existing;
+
+			existing = this.repository.findOnePracticumByCode(object.getCode());
+			super.state(existing == null || existing.equals(object), "code", "company.practicum.form.error.duplicated");
+		}
+
 	}
 
 	@Override
 	public void perform(final Practicum object) {
 		assert object != null;
 
-		Collection<Company> companies;
-
-		companies = this.repository.findManyCompaniesById(object.getId());
-		this.repository.deleteAll(companies);
-		this.repository.delete(object);
+		object.setDraftMode(false);
+		this.repository.save(object);
 	}
 
 	@Override
@@ -105,7 +112,6 @@ public class PracticumDeleteService extends AbstractService<Company, Practicum> 
 		tuple.put("companies", choices);
 
 		super.getResponse().setData(tuple);
-
 	}
 
 }

@@ -15,16 +15,18 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="company.practicum.list.label.code" path="code" width="20%"/>
-	<acme:list-column code="company.practicum.list.label.title" path="title" width="20%"/>
-	<acme:list-column code="company.practicum.list.label.abstractText" path="abstractText" width="20%"/>
-	<acme:list-column code="company.practicum.list.label.goals" path="goals" width="20%"/>
-	<acme:list-column code="company.practicum.list.label.estimatedTotalTime" path="estimatedTotalTime" width="20%"/>	
+	<acme:list-column code="company.practicumSession.list.label.title" path="title" width="10%"/>
+	<acme:list-column code="company.practicumSession.list.label.startDate" path="startDate" width="10%"/>
+	<acme:list-column code="company.practicumSession.list.label.endDate" path="endDate" width="10%"/>
+	<acme:list-column code="company.practicumSession.list.label.isAddendum" path="isAddendum" width="20%"/>
+	
 </acme:list>
 
 <jstl:if test="${_command == 'list-mine'}">
-	<acme:button code="company.practicum.list.button.create" action="/company/practicum/create"/>
+	<acme:button code="company.practicum.list.button.create" action="/company/practicum-session/create"/>
 </jstl:if>
+
+
 
 
 

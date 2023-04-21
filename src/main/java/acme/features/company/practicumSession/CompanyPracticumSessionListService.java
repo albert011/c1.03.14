@@ -1,23 +1,24 @@
 
-package acme.features.company.practicum;
+package acme.features.company.practicumSession;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.practicums.Practicum;
+import acme.entities.practicumSessions.PracticumSession;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class PracticumListAllService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumSessionListService extends AbstractService<Company, PracticumSession> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected PracticumRepository repository;
+	protected CompanyPracticumSessionRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -34,24 +35,24 @@ public class PracticumListAllService extends AbstractService<Company, Practicum>
 
 	@Override
 	public void load() {
-		Collection<Practicum> objects;
-		int masterId;
+		Collection<PracticumSession> objects;
+		Principal principal;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		objects = this.repository.findManyPracticumsByCompanyId(masterId);
+		principal = super.getRequest().getPrincipal();
+		objects = this.repository.findManyPracticumSessionsByCompanyId(principal.getActiveRoleId());
 
 		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final Practicum object) {
+	public void unbind(final PracticumSession object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstractText", "goals", "estimatedTotalTime");
+		tuple = super.unbind(object, "title", "startDate", "endDate", "isAddendum");
 
 		super.getResponse().setData(tuple);
-	}
 
+	}
 }
