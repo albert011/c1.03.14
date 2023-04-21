@@ -28,10 +28,8 @@
 		path="endPeriod" />
 	<acme:input-textbox code="student.activity.form.label.link"
 		path="link" />
-	<acme:input-select code="student.activity.label.enrolment" path="enrolment"
-		choices="${enrolments}" />
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && finalised == false}">
 			<acme:submit code="student.activity.form.button.update"
 				action="/student/activity/update" />
 			<acme:submit code="student.activity.form.button.delete"

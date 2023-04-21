@@ -2,6 +2,7 @@
 package acme.features.student.enrolment;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentEnrolmentFinalizeService extends AbstractService<Student, Enrolment> {
+public class StudentEnrolmentFinaliseService extends AbstractService<Student, Enrolment> {
 
 	@Autowired
 	protected StudentEnrolmentRepository repository;
@@ -94,28 +95,25 @@ public class StudentEnrolmentFinalizeService extends AbstractService<Student, En
 	public void unbind(final Enrolment object) {
 		assert object != null;
 
-		//int studentId;
 		Collection<Course> courses;
 		SelectChoices choices;
 		Tuple tuple;
-		Double workTime = 0.;
 		boolean finalized = false;
 
-		//studentId = super.getRequest().getPrincipal().getActiveRoleId();
 		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
-		if (!this.repository.findManyActivitiesById(object.getId()).isEmpty())
-			workTime = this.repository.findManyActivitiesById(object.getId()).stream().map(Activity::getWorkTime).reduce(Double::sum).get();
+		final Optional<Double> workTime = this.repository.findManyActivitiesById(object.getId()).stream().map(Activity::getWorkTime).reduce(Double::sum);
 
-		if (object.getHolderName() != null && object.getLowerNibble() != null)
+		if (object.getHolderName() != null && !object.getHolderName().isEmpty())
 			finalized = true;
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "holderName", "lowerNibble");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
-		tuple.put("workTime", workTime);
-		super.getResponse().setData(tuple);
+		if (workTime.isPresent())
+			tuple.put("workTime", workTime.get());
 		tuple.put("finalized", finalized);
+		super.getResponse().setData(tuple);
 	}
 
 }

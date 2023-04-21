@@ -24,7 +24,7 @@ student.enrolment.form.button.create = Crear
 
 student.enrolment.form.error.duplicated = Ya existe
 
-student.enrolment.list.button.finalize = Finalizar
+student.enrolment.form.button.finalise = Finalizar
 
 student.enrolment.form.label.creditCard = Número de tarjeta
 student.enrolment.form.label.cvc = CVC
@@ -36,3 +36,5 @@ student.enrolment.form.error.card = El formato no es correcto
 student.enrolment.form.error.holder = No puede estar vacío
 student.enrolment.form.error.cvc = Debe tener 3 dígitos
 student.enrolment.form.error.expiryDate = El formato no es correcto
+
+student.enrolment.form.button.activity = Actividades

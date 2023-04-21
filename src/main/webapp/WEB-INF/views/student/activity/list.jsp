@@ -16,14 +16,19 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="student.activity.list.label.title" path="title" width="10%"/>
-	<acme:list-column code="student.activity.list.label.abstractField" path="abstractField" width="10%"/>
-	<acme:list-column code="student.activity.list.label.activityType" path="activityType" width="10%"/>
+	<acme:list-column code="student.activity.list.label.title" path="title"
+		width="10%" />
+	<acme:list-column code="student.activity.list.label.abstractField"
+		path="abstractField" width="10%" />
+	<acme:list-column code="student.activity.list.label.activityType"
+		path="activityType" width="10%" />
 </acme:list>
+<jstl:if test="${finalised == false}">
+	<jstl:if test="${_command == 'list-mine'}">
+		<acme:button code="student.activity.list.button.create"
+			action="/student/activity/create?enrolment=${enrolment}" />
+	</jstl:if>
+</jstl:if>
 
-<jstl:if test="${_command == 'list-mine'}">
-	<acme:button code="student.activity.list.button.create" action="/student/activity/create"/>
-</jstl:if>	
-		
-	
+
 

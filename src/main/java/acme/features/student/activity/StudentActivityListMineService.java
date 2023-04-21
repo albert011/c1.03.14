@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Activity;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -36,10 +35,10 @@ public class StudentActivityListMineService extends AbstractService<Student, Act
 	@Override
 	public void load() {
 		Collection<Activity> objects;
-		Principal principal;
+		int masterId;
 
-		principal = super.getRequest().getPrincipal();
-		objects = this.repository.findStudentsActivities(principal.getActiveRoleId());
+		masterId = super.getRequest().getData("masterId", int.class);
+		objects = this.repository.findActivitiesByEnrolment(masterId);
 
 		super.getBuffer().setData(objects);
 	}
@@ -47,11 +46,15 @@ public class StudentActivityListMineService extends AbstractService<Student, Act
 	@Override
 	public void unbind(final Activity object) {
 		assert object != null;
+		boolean finalised = false;
 
+		if (object.getEnrolment().getHolderName() != null || object.getEnrolment().getHolderName().isEmpty())
+			finalised = true;
 		Tuple tuple;
 
 		tuple = super.unbind(object, "title", "abstractField", "activityType");
-
+		tuple.put("finalised", finalised);
 		super.getResponse().setData(tuple);
+		super.getResponse().setGlobal("enrolment", object.getEnrolment().getId());
 	}
 }

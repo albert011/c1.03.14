@@ -24,3 +24,6 @@ student.activity.form.button.update = Editar
 student.activity.form.button.delete = Borrar
 student.activity.form.button.create = Crear
 student.activity.list.button.create = Crear
+
+student.activity.form.error.moment = El periodo no puede empezar antes de hoy
+student.activity.form.error.endPeriod = No puedes acabar el periodo antes de empezarlo

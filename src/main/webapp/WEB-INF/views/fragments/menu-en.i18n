@@ -72,7 +72,6 @@ master.menu.user-account.become-student = Become a student
 
 master.menu.student = Student
 master.menu.student.enrolment = Enrolment
-master.menu.student.activity = Activity
 master.menu.student.course = Curse
 
 master.menu.user-account.lecturer = Lecturer data

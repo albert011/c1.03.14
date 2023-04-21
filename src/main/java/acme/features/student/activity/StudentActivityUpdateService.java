@@ -1,15 +1,11 @@
 
 package acme.features.student.activity;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Activity;
-import acme.entities.enrolments.Enrolment;
 import acme.framework.components.accounts.Principal;
-import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -61,13 +57,7 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	public void bind(final Activity object) {
 		assert object != null;
 
-		Enrolment enrolment;
-		int enrolmentId;
-		enrolmentId = super.getRequest().getData("enrolment", int.class);
-		enrolment = this.repository.findOneEnrolmentById(enrolmentId);
-
 		super.bind(object, "title", "abstractField", "activityType", "startPeriod", "endPeriod", "link");
-		object.setEnrolment(enrolment);
 	}
 
 	@Override
@@ -87,18 +77,10 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	public void unbind(final Activity object) {
 		assert object != null;
 
-		int studentId;
-		Collection<Enrolment> enrolments;
-		SelectChoices choices;
 		Tuple tuple;
 
-		studentId = super.getRequest().getPrincipal().getActiveRoleId();
-		enrolments = this.repository.findEnrolmentsByStudent(studentId);
-		choices = SelectChoices.from(enrolments, "code", object.getEnrolment());
-
 		tuple = super.unbind(object, "title", "abstractField", "activityType", "startPeriod", "endPeriod", "link");
-		tuple.put("enrolment", choices.getSelected().getKey());
-		tuple.put("enrolments", choices);
+
 		super.getResponse().setData(tuple);
 	}
 }

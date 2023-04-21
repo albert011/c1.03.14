@@ -1,5 +1,5 @@
 key,title,abstract-field,activity-type,start-period,end-period,link,key:enrolment
-activity-01,prueba-activity-01,Lorem ipsum dolor sit amet,THEORY,2022/03/16 19:30, 2022/05/16 19:30,null,enrolment-01
-activity-02,prueba-activity-02,Lorem ipsum dolor sit amet,THEORY,2022/03/16 19:30, 2022/05/16 19:30,null,enrolment-01
-activity-03,prueba-activity-03,Lorem ipsum dolor sit amet,THEORY,2022/03/16 19:30, 2022/05/16 19:30,null,enrolment-03
-activity-04,prueba-activity-04,Lorem ipsum dolor sit amet,THEORY,2022/03/16 19:30, 2022/05/16 19:30,null,enrolment-04 
+activity-01,prueba-activity-01,Lorem ipsum dolor sit amet,THEORY,2022/03/16 19:30,2022/05/16 19:30,null,enrolment-01
+activity-02,prueba-activity-02,Lorem ipsum dolor sit amet,THEORY,2022/03/16 19:30,2022/05/16 19:30,null,enrolment-01
+activity-03,prueba-activity-03,Lorem ipsum dolor sit amet,THEORY,2022/03/16 19:30,2022/05/16 19:30,null,enrolment-03
+activity-04,prueba-activity-04,Lorem ipsum dolor sit amet,THEORY,2022/03/16 19:30,2022/05/16 19:30,null,enrolment-01
