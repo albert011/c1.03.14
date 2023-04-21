@@ -55,7 +55,7 @@ public class LecturersLecturesDeleteService extends AbstractService<Lecturer, Le
 	public void bind(final Lecture object) {
 		assert object != null;
 
-		super.bind(object, "title", "Abstract", "estimatedLearningTime", "body", "isTheoretical", "link");
+		super.bind(object, "title", "Abstract", "estimatedLearningTime", "body", "type", "link");
 	}
 	@Override
 	public void validate(final Lecture object) {
@@ -75,7 +75,7 @@ public class LecturersLecturesDeleteService extends AbstractService<Lecturer, Le
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "Abstract", "estimatedLearningTime", "body", "isTheoretical", "link", "draftMode");
+		tuple = super.unbind(object, "title", "Abstract", "estimatedLearningTime", "body", "type", "link", "draftMode");
 		super.getResponse().setData(tuple);
 	}
 

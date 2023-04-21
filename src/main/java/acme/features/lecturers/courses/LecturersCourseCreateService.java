@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
 import acme.entities.course.CoursesLecturers;
+import acme.entities.lecture.LectureType;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -42,7 +43,8 @@ public class LecturersCourseCreateService extends AbstractService<Lecturer, Cour
 	public void bind(final Course object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "Abstract", "retailPrice", "isTheoretical", "link");
+		super.bind(object, "code", "title", "Abstract", "retailPrice", "link");
+		object.setType(LectureType.THEORETICAL);
 	}
 
 	@Override
@@ -50,11 +52,16 @@ public class LecturersCourseCreateService extends AbstractService<Lecturer, Cour
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			final Course course;
+			Course course;
 
 			course = this.repository.findOneCourseByCode(object.getCode());
 			super.state(course == null, "code", "lecturer.course.form.error.duplicated");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
+			super.state(object.getRetailPrice().getAmount() > 0, "retailPrice", "lecturer.lecture.form.error.negative-price");
+
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
+			super.state(object.getRetailPrice().getCurrency().equals("EUR") || object.getRetailPrice().getCurrency().equals("GBP") || object.getRetailPrice().getCurrency().equals("USD"), "retailPrice", "lecturer.lecture.form.error.currency");
 	}
 
 	@Override
@@ -78,7 +85,7 @@ public class LecturersCourseCreateService extends AbstractService<Lecturer, Cour
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "Abstract", "retailPrice", "isTheoretical", "link", "draftMode");
+		tuple = super.unbind(object, "code", "title", "Abstract", "retailPrice", "type", "link", "draftMode");
 		super.getResponse().setData(tuple);
 	}
 }

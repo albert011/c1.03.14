@@ -13,9 +13,7 @@
 	<acme:input-double
 		code="lecturer.course.form.label.retailPrice"
 		path="retailPrice" />
-	<acme:input-textbox code="lecturer.course.form.label.body" path="body" />
-	<acme:input-checkbox code="lecturer.course.form.label.isTheoretical"
-		path="isTheoretical" />
+	<acme:input-textbox code="lecturer.course.form.label.type" path="type" readonly="true"/>
 	<acme:input-url code="lecturer.course.form.label.link" path="link" />
 	<jstl:choose>
 		<jstl:when

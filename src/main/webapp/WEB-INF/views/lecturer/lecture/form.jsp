@@ -10,12 +10,10 @@
 		path="courses" choices="${courses}" />
 	<acme:input-textbox code="lecturer.lecture.form.label.Abstract"
 		path="Abstract" />
-	<acme:input-double
-		code="lecturer.lecture.form.label.estimatedLearningTime"
+	<acme:input-double code="lecturer.lecture.form.label.estimatedLearningTime"
 		path="estimatedLearningTime" />
 	<acme:input-textbox code="lecturer.lecture.form.label.body" path="body" />
-	<acme:input-checkbox code="lecturer.lecture.form.label.isTheoretical"
-		path="isTheoretical" />
+	<acme:input-select code="lecturer.lecture.form.label.type" path="type" choices="${types}" />
 	<acme:input-url code="lecturer.lecture.form.label.link" path="link" />
 	<jstl:choose>
 		<jstl:when
