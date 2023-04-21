@@ -47,4 +47,6 @@ public class Tutorial extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Assistant			assistant;
 
+	protected boolean			isPublished;
+
 }

@@ -19,6 +19,7 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
+			<acme:menu-suboption code="master.menu.any.peeps" action="/any/peep-message/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.vicgrabru.favourite-link" action="https://youtu.be/dQw4w9WgXcQ"/>
 			<acme:menu-suboption code="master.menu.anonymous.ferbarbar1.favourite-link" action="https://www.instagram.com/duki/?hl=es"/>
@@ -27,9 +28,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.gonsanmar2.favourite-link" action="https://open.spotify.com/playlist/37i9dQZF1DX2apWzyECwyZ?si=892688190c8e455f"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.authenticated.offer.list" action="/authenticated/offer/list"/>
-		</acme:menu-option>
+
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
@@ -58,6 +57,21 @@
 		</acme:menu-option>
 		
 
+		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
+			<acme:menu-suboption code="master.menu.any.peeps" action="/any/peep-message/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
+			<acme:menu-suboption code="master.menu.authenticated.bulletins" action="/authenticated/bulletin-message/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.tutorials" action="/authenticated/tutorial/list"/>
+      <acme:menu-suboption code="master.menu.authenticated.offer.list" action="/authenticated/offer/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
+			<acme:menu-suboption code="master.menu.assistant.tutorials" action="/assistant/tutorial/list"/>
+		</acme:menu-option>
+
+
 		<acme:menu-option code="master.menu.lecturer" access="hasRole('Lecturer')">			
 			<acme:menu-suboption code="master.menu.lecturer.my-lectures" action="/lecturer/lecture/list-mine"/>
 			<acme:menu-suboption code="master.menu.lecturer.my-courses" action="/lecturer/course/list-mine"/>			
@@ -66,6 +80,7 @@
 		<acme:menu-option code="master.menu.company" access="hasRole('Company')">			
 			<acme:menu-suboption code="master.menu.company.practicum.list-mine" action="/company/practicum/list-mine"/>			
 		</acme:menu-option>
+
 
 	</acme:menu-left>
 
