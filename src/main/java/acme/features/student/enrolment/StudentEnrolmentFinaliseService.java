@@ -2,6 +2,7 @@
 package acme.features.student.enrolment;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +17,12 @@ import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentEnrolmentDeleteService extends AbstractService<Student, Enrolment> {
+public class StudentEnrolmentFinaliseService extends AbstractService<Student, Enrolment> {
 
 	@Autowired
 	protected StudentEnrolmentRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Employer, Job> -------------------------------------
 
 
 	@Override
@@ -61,60 +62,58 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	@Override
 	public void bind(final Enrolment object) {
 		assert object != null;
-		int studentId;
-		Student student;
-		int courseId;
-		Course course;
-		studentId = super.getRequest().getPrincipal().getActiveRoleId();
-		student = this.repository.findOneStudentById(studentId);
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findOneCourseById(courseId);
-		super.bind(object, "code", "motivation", "goals", "workTime");
-		object.setStudent(student);
-		object.setCourse(course);
+		object.setHolderName(this.getRequest().getData("holderName", String.class));
+		super.bind(object, "holderName", "lowerNibble");
 	}
 
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
+		final String card = super.getRequest().getData("creditCard", String.class);
+		if (!super.getBuffer().getErrors().hasErrors("creditCard"))
+			super.state(card.matches("^\\d{4}\\/\\d{4}\\/\\d{4}\\/\\d{4}$"), "creditCard", "student.enrolment.form.error.card");
+
+		final String holderName = super.getRequest().getData("holderName", String.class);
+		if (!super.getBuffer().getErrors().hasErrors("holderName"))
+			super.state(!holderName.isEmpty(), "holderName", "student.enrolment.form.error.holder");
+		final String cvc = super.getRequest().getData("cvc", String.class);
+		if (!super.getBuffer().getErrors().hasErrors("cvc"))
+			super.state(cvc.matches("^\\d{3}$"), "cvc", "student.enrolment.form.error.cvc");
+		final String expiryDate = super.getRequest().getData("expiryDate", String.class);
+		if (!super.getBuffer().getErrors().hasErrors("expiryDate"))
+			super.state(expiryDate.matches("^\\d{2}\\/\\d{2}$"), "expiryDate", "student.enrolment.form.error.expiryDate");
 	}
 
 	@Override
 	public void perform(final Enrolment object) {
 		assert object != null;
-
-		Collection<Activity> activity;
-		activity = this.repository.findManyActivitiesById(object.getId());
-		this.repository.deleteAll(activity);
-		this.repository.delete(object);
+		object.setLowerNibble(this.getRequest().getData("creditCard", String.class).substring(this.getRequest().getData("creditCard", String.class).length() - 4));
+		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Enrolment object) {
 		assert object != null;
 
-		//int studentId;
 		Collection<Course> courses;
 		SelectChoices choices;
 		Tuple tuple;
-		Double workTime = 0.;
 		boolean finalized = false;
 
-		//studentId = super.getRequest().getPrincipal().getActiveRoleId();
 		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
-		if (!this.repository.findManyActivitiesById(object.getId()).isEmpty())
-			workTime = this.repository.findManyActivitiesById(object.getId()).stream().map(Activity::getWorkTime).reduce(Double::sum).get();
+		final Optional<Double> workTime = this.repository.findManyActivitiesById(object.getId()).stream().map(Activity::getWorkTime).reduce(Double::sum);
 
-		if (object.getHolderName() != null && object.getLowerNibble() != null)
+		if (object.getHolderName() != null && !object.getHolderName().isEmpty())
 			finalized = true;
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "holderName", "lowerNibble");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
-		tuple.put("workTime", workTime);
-		super.getResponse().setData(tuple);
+		if (workTime.isPresent())
+			tuple.put("workTime", workTime.get());
 		tuple.put("finalized", finalized);
+		super.getResponse().setData(tuple);
 	}
 
 }
