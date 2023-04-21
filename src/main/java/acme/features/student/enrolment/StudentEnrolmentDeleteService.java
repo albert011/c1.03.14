@@ -97,16 +97,24 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 		Collection<Course> courses;
 		SelectChoices choices;
 		Tuple tuple;
+		Double workTime = 0.;
+		boolean finalized = false;
 
 		//studentId = super.getRequest().getPrincipal().getActiveRoleId();
 		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
+		if (!this.repository.findManyActivitiesById(object.getId()).isEmpty())
+			workTime = this.repository.findManyActivitiesById(object.getId()).stream().map(Activity::getWorkTime).reduce(Double::sum).get();
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "workTime");
+		if (object.getHolderName() != null && object.getLowerNibble() != null)
+			finalized = true;
+
+		tuple = super.unbind(object, "code", "motivation", "goals", "holderName", "lowerNibble");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
-
+		tuple.put("workTime", workTime);
 		super.getResponse().setData(tuple);
+		tuple.put("finalized", finalized);
 	}
 
 }

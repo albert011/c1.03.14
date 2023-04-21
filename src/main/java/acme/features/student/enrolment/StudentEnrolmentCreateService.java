@@ -102,13 +102,14 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 		Collection<Course> courses;
 		SelectChoices choices;
 		Tuple tuple;
-		Double workTime;
+		Double workTime = 0.;
 		boolean finalized = false;
 
 		//studentId = super.getRequest().getPrincipal().getActiveRoleId();
 		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
-		workTime = this.repository.findManyActivitiesById(object.getId()).stream().map(Activity::getWorkTime).reduce(Double::sum).get();
+		if (!this.repository.findManyActivitiesById(object.getId()).isEmpty())
+			workTime = this.repository.findManyActivitiesById(object.getId()).stream().map(Activity::getWorkTime).reduce(Double::sum).get();
 
 		if (object.getHolderName() != null && object.getLowerNibble() != null)
 			finalized = true;
