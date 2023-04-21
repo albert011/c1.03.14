@@ -33,6 +33,7 @@ master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.list-all = List Banners
 
 # master.menu.provider ########################################################
 
@@ -44,6 +45,18 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+# master.menu.lecturer ##########################################################
+
+master.menu.lecturer = Lecturer
+master.menu.lecturer.all-lectures = List all lectures
+master.menu.lecturer.my-lectures = List my lectures
+master.menu.lecturer.my-courses = List my courses
+
+# master.menu.company ##########################################################
+
+master.menu.company = Company
+master.menu.company.practicum.list-mine = List my practicums
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
@@ -53,15 +66,34 @@ master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
 
+
 # master.menu.any ##############################################
 master.menu.any = Any Role
 master.menu.any.peeps = Peep messages
 
-# master.menu.authenticated ##############################################
+
+
+
+master.menu.user-account.lecturer = Lecturer data
+master.menu.user-account.become-lecturer = Become a lecturer
+master.menu.user-account.company = Company data
+master.menu.user-account.become-company = Become a company
+
+# master.menu.student ####################################################
+
+master.menu.student = Student
+master.menu.student.enrolment = Enrolment
+
+
+
+# master.menu.authenticated #######################################################
+
 master.menu.authenticated = Authenticated
+master.menu.authenticated.offer.list = List offers
 master.menu.authenticated.bulletins = Bulletin messages
 master.menu.authenticated.tutorials = Tutorials
 
 # master.menu.assistant ##############################################
 master.menu.assistant = Assistant
 master.menu.assistant.tutorials = Tutorials
+
