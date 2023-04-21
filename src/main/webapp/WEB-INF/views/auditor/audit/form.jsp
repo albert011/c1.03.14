@@ -20,10 +20,29 @@
 	<acme:input-textbox code="auditor.audit.form.label.conclusion" path="conclusion"/>
 	<acme:input-textbox code="auditor.audit.form.label.strong-points" path="strongPoints"/>
 	<acme:input-textbox code="auditor.audit.form.label.weak-points" path="weakPoints"/>
-	<acme:input-textbox code="auditor.audit.form.label.auditor" path="code"/>
-	<acme:input-textbox code="auditor.audit.form.label.mark" path="mark" readonly="true"/>
-	<acme:input-textbox code="auditor.audit.form.label.course" path="courseTitle"/>
+	<acme:input-select code="auditor.audit.form.label.mark" path="mark" choices="${marks}"/>
+	<acme:input-textbox code="auditor.audit.form.label.course" path="courseTitle" readonly="${_command != 'create'}"/>
+	<jstl:if test="${_command != 'create'}">
+		<acme:input-textbox code="auditor.audit.form.label.auditor" path="code" readonly="True"/>
+		<acme:input-checkbox code="auditor.audit.form.label.published" path="isPublished" readonly="True"/>
+	</jstl:if>
 	
-	<acme:submit test="${_command == 'create'}" code="auditor.audit.form.button.create" action="/auditor/audit/create"/>
-	<acme:submit test="${_command == 'update'}" code="auditor.audit.form.button.update" action="/auditor/audit/update"/>
+	<jstl:choose>
+		<jstl:when test="${_command == 'show' && isPublished}">
+			<acme:button code="auditor.audit.form.button.records" action="/auditor/audit-record/list?masterId=${id}"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'show' && !isPublished}">
+			<acme:button code="auditor.audit.form.button.records" action="/auditor/audit-record/list?masterId=${id}"/>
+			<acme:button code="auditor.audit.form.button.update" action="/auditor/audit/update?id=${id}"/>
+			<acme:submit code="auditor.audit.form.submit.delete" action="/auditor/audit/delete"/>
+			<acme:submit code="auditor.audit.form.submit.publish" action="/auditor/audit/publish"/>
+		</jstl:when>
+		
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="auditor.audit.form.submit.create" action="/auditor/audit/create"/>
+		</jstl:when>
+		
+	
+	</jstl:choose>
+	
 </acme:form>

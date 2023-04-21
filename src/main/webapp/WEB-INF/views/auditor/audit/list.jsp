@@ -18,7 +18,8 @@
 <acme:list>
 	<acme:list-column code="auditor.audit.list.label.code" path="code" width="10%"/>
 	<acme:list-column code="auditor.audit.list.label.mark" path="mark" width="10%"/>
-	<acme:list-column code="auditor.audit.list.label.course" path="course.title" width="80%"/>	
+	<acme:list-column code="auditor.audit.list.label.published" path="isPublished" width="10%"/>
+	<acme:list-column code="auditor.audit.list.label.course" path="course.title" width="70%"/>
 </acme:list>
 
 <jstl:if test="${_command == 'list'}">

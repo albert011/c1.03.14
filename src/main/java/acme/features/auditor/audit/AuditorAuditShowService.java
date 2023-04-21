@@ -58,15 +58,15 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 	public void unbind(final Audit object) {
 		assert object != null;
 
-		SelectChoices mark;
+		SelectChoices marks;
 		Tuple tuple;
 
-		mark = SelectChoices.from(Mark.class, object.getMark());
+		marks = SelectChoices.from(Mark.class, object.getMark());
 
-		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished");
+		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished", "mark");
 		tuple.put("masterId", object.getAuditor().getId());
 		tuple.put("courseTitle", object.getCourse().getTitle());
-		tuple.put("mark", mark);
+		tuple.put("marks", marks);
 
 		super.getResponse().setData(tuple);
 	}
