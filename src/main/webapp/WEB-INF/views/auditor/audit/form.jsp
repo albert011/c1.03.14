@@ -29,11 +29,11 @@
 	
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' && isPublished}">
-			<acme:button code="auditor.audit.form.button.records" action="/auditor/audit-record/list?masterId=${id}"/>
+			<acme:button code="auditor.audit.form.button.records" action="/auditor/audit-record/list?auditId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'show' && !isPublished}">
-			<acme:button code="auditor.audit.form.button.records" action="/auditor/audit-record/list?masterId=${id}"/>
-			<acme:button code="auditor.audit.form.button.update" action="/auditor/audit/update?id=${id}"/>
+			<acme:button code="auditor.audit.form.button.records" action="/auditor/audit-record/list?auditId=${id}"/>
+			<acme:submit code="auditor.audit.form.button.update" action="/auditor/audit/update"/>
 			<acme:submit code="auditor.audit.form.submit.delete" action="/auditor/audit/delete"/>
 			<acme:submit code="auditor.audit.form.submit.publish" action="/auditor/audit/publish"/>
 		</jstl:when>

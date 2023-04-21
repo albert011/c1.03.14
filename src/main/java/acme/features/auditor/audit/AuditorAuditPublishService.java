@@ -2,11 +2,6 @@
 package acme.features.auditor.audit;
 
 import java.util.Collection;
-import java.util.Comparator;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +13,7 @@ import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
+import acme.utils.MarkUtils;
 
 @Service
 public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> {
@@ -76,11 +72,8 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 		marksCollection = this.repository.findMarksOfAuditByAuditId(object.getId());
 
 		if (!marksCollection.isEmpty()) {
-			Map<Mark, Long> marksOfRecords;
 			Mark finalMark;
-
-			marksOfRecords = marksCollection.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-			finalMark = marksOfRecords.entrySet().stream().max(Comparator.comparing(Entry::getValue)).get().getKey();
+			finalMark = MarkUtils.getNewMark(marksCollection);
 
 			object.setMark(finalMark);
 		}
@@ -102,12 +95,23 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 
 			super.state(existing == null || existing.equals(object), "courseTitle", "auditor.audit.form.error.duplicated");
 		}
+
+		Long numberOfRecords;
+		numberOfRecords = this.repository.countRecordsFromAuditById(object.getId());
+		super.state(numberOfRecords > 0, "isPublished", "auditor.audit.form.error.no-records");
+
 	}
 
 	@Override
 	public void perform(final Audit object) {
 		assert object != null;
 
+		Collection<Mark> marksCollection;
+		marksCollection = this.repository.findMarksOfAuditByAuditId(object.getId());
+		Mark finalMark;
+		finalMark = MarkUtils.getNewMark(marksCollection);
+
+		object.setMark(finalMark);
 		object.setPublished(true);
 		this.repository.save(object);
 	}

@@ -31,3 +31,4 @@ auditor.audit.form.button.records = Audit Records of this audit
 
 auditor.audit.form.error.duplicated = There is already an audit for that course
 default.error.conversion = Wrong code format, it must be 1-3 letters followed by 4 numbers
+auditor.audit.form.error.no-records = This audit has no auditing records

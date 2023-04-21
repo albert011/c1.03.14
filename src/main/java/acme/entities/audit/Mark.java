@@ -12,4 +12,9 @@ public enum Mark {
 	private Mark(final String value) {
 		this.value = value;
 	}
+
+	@Override
+	public String toString() {
+		return this.value;
+	}
 }
