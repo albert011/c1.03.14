@@ -1,7 +1,7 @@
-key,key:assistant,code,title,abstractMessage,goals,estimatedTotalTime
-tuto-01,assist-01,A0000,.,.,.,0.5
-tuto-02,assist-01,AA0999,Ejemplo normal de tutorial,Texto de prueba,learn-mariasql-populator;,2.1
-tuto-03,assist-02,ZZZ9999,Morbi in enim blandit; malesuada sapien et; consectetur massa. Maecenas at.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam.,4.20
-tuto-04,assist-02,ACB8213,Morbi in enim blandit; malesuada sapien et; consectetur massa. Maecenas at.,.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam.,3.18
-tuto-05,assist-01,ZZZ9099,.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam.,.,4.20
-tuto-06,assist-02,ZZ9999,Morbi in enim blandit; malesuada sapien et; consectetur massa. Maecenas at,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam,4.20
+key,key:assistant,code,title,abstractMessage,goals,estimatedTotalTime,isPublished
+tuto-01,assist-01,A0000,.,.,.,0.5,false
+tuto-02,assist-01,AA0999,Ejemplo normal de tutorial,Texto de prueba,learn-mariasql-populator;,2.1,true
+tuto-03,assist-02,ZZZ9999,Morbi in enim blandit; malesuada sapien et; consectetur massa. Maecenas at.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam.,4.20,true
+tuto-04,assist-02,ACB8213,Morbi in enim blandit; malesuada sapien et; consectetur massa. Maecenas at.,.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam.,3.18,true
+tuto-05,assist-01,ZZZ9099,.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam.,.,4.20,true
+tuto-06,assist-02,ZZ9999,Morbi in enim blandit; malesuada sapien et; consectetur massa. Maecenas at,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam,4.20,true

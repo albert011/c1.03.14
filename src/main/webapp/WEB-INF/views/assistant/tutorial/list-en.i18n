@@ -1,0 +1,23 @@
+# list-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for assistant particular
+# purposes.  The copyright owner does not offer assistant warranties or representations, nor do
+# they accept assistant liabilities with respect to them.
+
+
+assistant.tutorial.form.label.code = Code of Reference
+assistant.tutorial.form.label.title = Title
+assistant.tutorial.form.label.message = Abstract
+assistant.tutorial.form.label.time = Estimated Time
+assistant.tutorial.form.label.goals = Goals
+
+assistant.tutorial.list.label.code = Code of Reference
+assistant.tutorial.list.label.title = Title
+assistant.tutorial.list.label.message = Abstract
+assistant.tutorial.list.label.time = Estimated Time
+
+assistant.tutorial.create = Create Tutorial

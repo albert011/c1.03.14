@@ -5,13 +5,13 @@ import java.util.List;
 
 public class UtilsMath {
 
-	public Double getAverage(final List<Double> list) {
+	public static Double getAverage(final List<Double> list) {
 
 		return list.stream().mapToDouble(Double::doubleValue).average().orElse(0.);
 
 	}
 
-	public Double getDeviation(final List<Double> list) {
+	public static Double getDeviation(final List<Double> list) {
 
 		final double media = list.stream().mapToDouble(Double::doubleValue).average().orElse(0.);
 
@@ -19,12 +19,12 @@ public class UtilsMath {
 
 	}
 
-	public Double getMinimum(final List<Double> list) {
+	public static Double getMinimum(final List<Double> list) {
 
 		return list.stream().mapToDouble(Double::doubleValue).min().orElse(0.);
 	}
 
-	public Double getMaximum(final List<Double> list) {
+	public static Double getMaximum(final List<Double> list) {
 
 		return list.stream().mapToDouble(Double::doubleValue).max().orElse(0.);
 	}
