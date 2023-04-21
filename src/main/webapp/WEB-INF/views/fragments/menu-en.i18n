@@ -46,6 +46,11 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+# master.menu.auditor ##########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.audit.list = Audit list
+
 # master.menu.lecturer ##########################################################
 
 master.menu.lecturer = Lecturer
@@ -64,21 +69,36 @@ master.menu.user-account = Account
 master.menu.user-account.general-data = General data
 master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-auditor = Become an auditor
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+
+# master.menu.any ##############################################
+master.menu.any = Any Role
+master.menu.any.peeps = Peep messages
+master.menu.user-account.student = Student data
+master.menu.user-account.become-student = Become a student
 master.menu.user-account.lecturer = Lecturer data
 master.menu.user-account.become-lecturer = Become a lecturer
 master.menu.user-account.company = Company data
 master.menu.user-account.become-company = Become a company
 
+
 # master.menu.student ####################################################
 
 master.menu.student = Student
 master.menu.student.enrolment = Enrolment
-
-
+master.menu.student.course = Curse
 
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Authenticated
 master.menu.authenticated.offer.list = List offers
+master.menu.authenticated.bulletins = Bulletin messages
+master.menu.authenticated.tutorials = Tutorials
+
+# master.menu.assistant ##############################################
+master.menu.assistant = Assistant
+master.menu.assistant.tutorials = Tutorials
+

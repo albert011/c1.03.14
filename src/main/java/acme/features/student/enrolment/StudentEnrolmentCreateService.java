@@ -1,9 +1,13 @@
 
 package acme.features.student.enrolment;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.course.Course;
+import acme.entities.enrolments.Activity;
 import acme.entities.enrolments.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -44,8 +48,17 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 	@Override
 	public void bind(final Enrolment object) {
 		assert object != null;
-
+		int studentId;
+		Student student;
+		int courseId;
+		Course course;
+		studentId = super.getRequest().getPrincipal().getActiveRoleId();
+		student = this.repository.findOneStudentById(studentId);
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findOneCourseById(courseId);
 		super.bind(object, "code", "motivation", "goals", "workTime");
+		object.setStudent(student);
+		object.setCourse(course);
 	}
 
 	@Override
@@ -85,24 +98,28 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 	public void unbind(final Enrolment object) {
 		assert object != null;
 
-		int studentId;
-		//Collection<Company> contractors;
-		final SelectChoices choices;
+		//int studentId;
+		Collection<Course> courses;
+		SelectChoices choices;
 		Tuple tuple;
+		Double workTime = 0.;
+		boolean finalized = false;
 
-		studentId = super.getRequest().getPrincipal().getActiveRoleId();
-		/*
-		 * contractors = this.repository.findManyContractorsByEmployerId(employerId);
-		 * choices = SelectChoices.from(contractors, "name", object.getContractor());
-		 */
+		//studentId = super.getRequest().getPrincipal().getActiveRoleId();
+		courses = this.repository.findAllCourses();
+		choices = SelectChoices.from(courses, "title", object.getCourse());
+		if (!this.repository.findManyActivitiesById(object.getId()).isEmpty())
+			workTime = this.repository.findManyActivitiesById(object.getId()).stream().map(Activity::getWorkTime).reduce(Double::sum).get();
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "workTime");
-		/*
-		 * tuple.put("contractor", choices.getSelected().getKey());
-		 * tuple.put("contractors", choices);
-		 */
+		if (object.getHolderName() != null && object.getLowerNibble() != null)
+			finalized = true;
 
+		tuple = super.unbind(object, "code", "motivation", "goals", "holderName", "lowerNibble");
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
+		tuple.put("workTime", workTime);
 		super.getResponse().setData(tuple);
+		tuple.put("finalized", finalized);
 	}
 
 }

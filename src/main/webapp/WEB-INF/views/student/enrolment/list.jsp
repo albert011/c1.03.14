@@ -22,6 +22,7 @@
 
 <jstl:if test="${_command == 'list-mine'}">
 	<acme:button code="student.enrolment.list.button.create" action="/student/enrolment/create"/>
-</jstl:if>		
+</jstl:if>	
+		
 	
 

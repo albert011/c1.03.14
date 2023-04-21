@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -15,6 +16,7 @@ import org.hibernate.validator.constraints.Length;
 
 import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Auditor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -50,6 +52,13 @@ public class Audit extends AbstractEntity {
 	@Valid
 	@OneToOne(optional = false)
 	protected Course			course;
+
+	protected boolean			isPublished;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Auditor			auditor;
 
 	/*
 	 * a mark (computed as the mode of the marks in the corresponding auditing records;

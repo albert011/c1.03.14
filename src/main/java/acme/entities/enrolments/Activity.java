@@ -17,6 +17,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
+import acme.framework.helpers.MomentHelper;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -38,8 +39,13 @@ public class Activity extends AbstractEntity {
 	@Enumerated(value = EnumType.STRING)
 	protected ActivityType		activityType;
 
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				timePeriod;
+	protected Date				startPeriod;
+
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				endPeriod;
 
 	@URL
 	protected String			link;
@@ -54,4 +60,10 @@ public class Activity extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Enrolment enrolment;
+
+
+	public Double getWorkTime() {
+		return (double) MomentHelper.computeDuration(this.startPeriod, this.endPeriod).toHours();
+	}
+
 }

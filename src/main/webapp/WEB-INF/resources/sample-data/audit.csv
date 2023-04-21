@@ -1,11 +1,11 @@
-key,code,conclusion,strongPoints,weakPoints,mark,key:course
-audit-01,ABC1234,"testing conclusion","testing strong points","testing weak points",A,course-01
-audit-02,BCD2345,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.","testing strong points","testing weak points",A,course-02
-audit-03,CDE3456,"testing conclusion","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.","testing weak points",A,course-03
-audit-04,DEF4567,"testing conclusion","testing strong points","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.",A,course-04
-audit-05,EFG5678,"testing conclusion","testing strong points","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.",A,course-05
-audit-06,FGH6789,"testing conclusion","testing strong points","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.",A,course-06
-audit-07,GHI7890,"testing conclusion","testing strong points","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.",A,course-07
-audit-08,HIJ8901,"testing conclusion","testing strong points","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.",A,course-08
-audit-09,IJK9012,"testing conclusion","testing strong points","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.",A,course-09
-audit-10,JKL0123,"testing conclusion","testing strong points","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.",A,course-10
+key,code,conclusion,strongPoints,weakPoints,mark,key:course,key:auditor,is-published
+audit-01,ABC1234,"testing conclusion","testing strong points","testing weak points",A,course-01,auditor-01,true
+audit-02,BCD2345,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.","testing strong points","testing weak points",A,course-02,auditor-02,true
+audit-03,CDE3456,"testing conclusion","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.","testing weak points",A,course-03,auditor-04,true
+audit-04,DEF4567,"testing conclusion","testing strong points","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.",A,course-04,auditor-01,false
+audit-05,EFG5678,"testing conclusion","testing strong points","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.",A,course-05,auditor-03,true
+audit-06,FGH6789,"testing conclusion","testing strong points","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.",A,course-06,auditor-02,false
+audit-07,GHI7890,"testing conclusion","testing strong points","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.",A,course-07,auditor-01,false
+audit-08,HIJ8901,"testing conclusion","testing strong points","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.",A,course-08,auditor-04,true
+audit-09,IJK9012,"testing conclusion","testing strong points","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.",A,course-09,auditor-01,false
+audit-10,JKL0123,"testing conclusion","testing strong points","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor neque a orci erat curae.",A,course-10,auditor-02,false

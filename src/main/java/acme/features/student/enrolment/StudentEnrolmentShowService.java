@@ -2,11 +2,13 @@
 package acme.features.student.enrolment;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
+import acme.entities.enrolments.Activity;
 import acme.entities.enrolments.Enrolment;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
@@ -61,19 +63,24 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 	public void unbind(final Enrolment object) {
 		assert object != null;
 
-		int studentId;
-		final Collection<Course> courses;
-		final SelectChoices choices;
+		Collection<Course> courses;
+		SelectChoices choices;
 		Tuple tuple;
+		boolean finalized = false;
 
-		studentId = super.getRequest().getPrincipal().getActiveRoleId();
-		//courses = this.repository.findManyContractorsByEmployerId(studentId);
-		//choices = SelectChoices.from(courses, "name", object.getCourse());
+		courses = this.repository.findAllCourses();
+		choices = SelectChoices.from(courses, "title", object.getCourse());
+		final Optional<Double> workTime = this.repository.findManyActivitiesById(object.getId()).stream().map(Activity::getWorkTime).reduce(Double::sum);
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "workTime");
-		//tuple.put("contractor", choices.getSelected().getKey());
-		//tuple.put("contractors", choices);
+		if (object.getHolderName() != null)
+			finalized = true;
 
+		tuple = super.unbind(object, "code", "motivation", "goals", "holderName", "lowerNibble");
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
+		if (workTime.isPresent())
+			tuple.put("workTime", workTime.get());
+		tuple.put("finalized", finalized);
 		super.getResponse().setData(tuple);
 	}
 

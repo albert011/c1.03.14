@@ -78,9 +78,7 @@ public class LecturersCoursesPublishService extends AbstractService<Lecturer, Co
 			super.state(object.getRetailPrice().getAmount() > 0, "retailPrice", "lecturer.lecture.form.error.negative-price");
 
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
-			super.state(object.getRetailPrice().getCurrency().equals("EUR") ||
-				object.getRetailPrice().getCurrency().equals("GBP") ||
-				object.getRetailPrice().getCurrency().equals("USD"), "retailPrice", "lecturer.lecture.form.error.currency");
+			super.state(object.getRetailPrice().getCurrency().equals("EUR") || object.getRetailPrice().getCurrency().equals("GBP") || object.getRetailPrice().getCurrency().equals("USD"), "retailPrice", "lecturer.lecture.form.error.currency");
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Course course;
@@ -88,7 +86,6 @@ public class LecturersCoursesPublishService extends AbstractService<Lecturer, Co
 			course = this.repository.findOneCourseByCode(object.getCode());
 			super.state(course == null || course.equals(object), "code", "lecturer.course.form.error.duplicated");
 		}
-
 		{
 			Collection<Lecture> lectures;
 
@@ -97,9 +94,10 @@ public class LecturersCoursesPublishService extends AbstractService<Lecturer, Co
 		}
 		{
 			Long lectures;
+			final long var = 0;
 
 			lectures = this.repository.findManyNonTheoreticalLecturesByCourseId(object.getId());
-			super.state(!(lectures == 0), "*", "lecturer.course.form.error.lectures-theoretical");
+			super.state(!lectures.equals(var), "*", "lecturer.course.form.error.lectures-theoretical");
 		}
 		object.setType(LectureType.HANDS_ON);
 	}

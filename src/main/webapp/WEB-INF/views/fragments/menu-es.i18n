@@ -45,6 +45,11 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.auditor ##########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.audit.list = Lista de auditorías
+
 # master.menu.company ##########################################################
 
 master.menu.company = Compañía
@@ -56,13 +61,23 @@ master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
 master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
+master.menu.user-account.auditor = Datos de auditor
+master.menu.user-account.become-auditor = Hazte auditor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.student = Datos de estudiante
+master.menu.user-account.become-student = Hazte estudiante
+
+
+# master.menu.any ##############################################3
+master.menu.any = Cualquier rol
+master.menu.any.peeps = Ver Mensajes
 
 # master.menu.student ####################################################
 
 master.menu.student = Estudiante
 master.menu.student.enrolment = Matrícula
+master.menu.student.course = Cursos
 
 
 master.menu.user-account.lecturer = Datos de lector
@@ -74,4 +89,10 @@ master.menu.user-account.become-company = Hazte compañía
 
 master.menu.authenticated = Autenticado
 master.menu.authenticated.offer.list = Ver ofertas
+master.menu.authenticated.bulletins = Boletines
+master.menu.authenticated.tutorials = Tutoriales
+
+# master.menu.assistant ##############################################
+master.menu.assistant = Asistente
+master.menu.assistant.tutorials = Mis Tutoriales
 

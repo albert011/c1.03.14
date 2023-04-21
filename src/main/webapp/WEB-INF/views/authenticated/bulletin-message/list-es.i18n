@@ -1,0 +1,29 @@
+# list-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for authenticated particular
+# purposes.  The copyright owner does not offer authenticated warranties or representations, nor do
+# they accept authenticated liabilities with respect to them.
+
+
+
+authenticated.bulletin.list.label.instantiation = Instancia
+authenticated.bulletin.list.label.title = Título
+authenticated.bulletin.list.label.link = Enlace
+authenticated.bulletin.list.label.critical = Es crítico?
+authenticated.bulletin.list.label.message = Mensaje
+
+authenticated.bulletin.create = Publicar Boletín
+
+
+authenticated.bulletin.form.label.title = Título
+authenticated.bulletin.form.label.message = Mensaje
+authenticated.bulletin.form.label.instantiation = Instancia
+authenticated.bulletin.form.label.link = Enlace
+authenticated.bulletin.form.label.critical = Es crítico?
+
+authenticated.bulletin.form.button.apply = Publicar
+authenticated.bulletin.form.button.list = Ver Boletines
