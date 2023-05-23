@@ -11,8 +11,8 @@
 	<acme:input-double code="student.course.form.label.retailPrice"
 		path="retailPrice" />
 	<acme:input-textbox code="student.course.form.label.body" path="body" />
-	<acme:input-checkbox code="student.course.form.label.isTheoretical"
-		path="isTheoretical" />
+	<acme:input-textbox code="student.course.form.label.type"
+		path="type" />
 	<acme:input-url code="student.course.form.label.link" path="link" />
 
 	<acme:button code="student.activity.form.button.list"

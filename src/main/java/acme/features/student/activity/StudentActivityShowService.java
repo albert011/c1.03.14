@@ -59,7 +59,7 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 		Tuple tuple;
 		boolean finalised = false;
 
-		if (object.getEnrolment().getHolderName() != null || object.getEnrolment().getHolderName().isEmpty())
+		if (object.getEnrolment().getHolderName() != null && !object.getEnrolment().getHolderName().isEmpty())
 			finalised = true;
 
 		tuple = super.unbind(object, "title", "abstractField", "activityType", "startPeriod", "endPeriod", "link");

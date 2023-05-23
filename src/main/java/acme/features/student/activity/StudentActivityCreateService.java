@@ -46,7 +46,6 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	@Override
 	public void bind(final Activity object) {
 		assert object != null;
-
 		super.bind(object, "title", "abstractField", "activityType", "startPeriod", "endPeriod", "link");
 	}
 
@@ -75,6 +74,7 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 		tuple = super.unbind(object, "title", "abstractField", "activityType", "startPeriod", "endPeriod", "link");
 
 		super.getResponse().setData(tuple);
+		super.getResponse().setGlobal("enrolment", object.getEnrolment().getId());
 	}
 
 }

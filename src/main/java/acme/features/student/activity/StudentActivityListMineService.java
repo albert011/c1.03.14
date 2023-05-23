@@ -46,11 +46,11 @@ public class StudentActivityListMineService extends AbstractService<Student, Act
 	@Override
 	public void unbind(final Activity object) {
 		assert object != null;
+		Tuple tuple;
 		boolean finalised = false;
 
-		if (object.getEnrolment().getHolderName() != null || object.getEnrolment().getHolderName().isEmpty())
+		if (object.getEnrolment().getHolderName() != null && !object.getEnrolment().getHolderName().isEmpty())
 			finalised = true;
-		Tuple tuple;
 
 		tuple = super.unbind(object, "title", "abstractField", "activityType");
 		tuple.put("finalised", finalised);

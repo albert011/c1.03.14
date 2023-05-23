@@ -94,7 +94,7 @@ master.menu.user-account.become-company = Become a company
 
 master.menu.student = Student
 master.menu.student.enrolment = Enrolment
-master.menu.student.course = Curse
+master.menu.student.course = Course
 
 # master.menu.authenticated #######################################################
 
