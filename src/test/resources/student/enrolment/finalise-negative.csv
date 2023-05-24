@@ -1,0 +1,5 @@
+recordIndex,creditCard,cvc,expiryDate,holderName,lowerNibble
+1,4542/123/9853/2335,123,10/27,holder name test,2335
+1,4542/1234/9853/2335,12,10/27,holder name test,2335
+1,4542/1234/9853/2335,123,1027,holder name test,2335
+1,4542/1234/9853/2335,123,10/27,,2335
