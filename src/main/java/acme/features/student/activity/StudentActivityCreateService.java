@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Activity;
+import acme.entities.enrolments.Activity.ActivityType;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -70,9 +72,12 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	public void unbind(final Activity object) {
 		assert object != null;
 		Tuple tuple;
+		SelectChoices choices;
 
-		tuple = super.unbind(object, "title", "abstractField", "activityType", "startPeriod", "endPeriod", "link");
-
+		choices = SelectChoices.from(ActivityType.class, object.getActivityType());
+		tuple = super.unbind(object, "title", "abstractField", "startPeriod", "endPeriod", "link");
+		tuple.put("activityType", choices.getSelected().getKey());
+		tuple.put("activityTypes", choices);
 		super.getResponse().setData(tuple);
 		super.getResponse().setGlobal("enrolment", object.getEnrolment().getId());
 	}

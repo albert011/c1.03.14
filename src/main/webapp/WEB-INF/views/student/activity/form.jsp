@@ -20,8 +20,8 @@
 		path="title" />
 		<acme:input-textbox code="student.activity.form.label.abstractField"
 		path="abstractField" />
-		<acme:input-textbox code="student.activity.form.label.activityType"
-		path="activityType" />
+		<acme:input-select code="student.activity.form.label.activityType" path="activityType"
+		choices="${activityTypes}" />
 		<acme:input-moment code="student.activity.form.label.startPeriod"
 		path="startPeriod" />
 		<acme:input-moment code="student.activity.form.label.endPeriod"
@@ -29,7 +29,7 @@
 	<acme:input-textbox code="student.activity.form.label.link"
 		path="link" />
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && finalised == false}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && finalised == true}">
 			<acme:submit code="student.activity.form.button.update"
 				action="/student/activity/update" />
 			<acme:submit code="student.activity.form.button.delete"

@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Activity;
+import acme.entities.enrolments.Activity.ActivityType;
 import acme.framework.components.accounts.Principal;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -60,7 +62,7 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	public void bind(final Activity object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstractField", "activityType", "startPeriod", "endPeriod", "link");
+		super.bind(object, "title", "abstractField", "startPeriod", "endPeriod", "link");
 	}
 
 	@Override
@@ -84,9 +86,13 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 		assert object != null;
 
 		Tuple tuple;
+		SelectChoices choices;
 
-		tuple = super.unbind(object, "title", "abstractField", "activityType", "startPeriod", "endPeriod", "link");
+		choices = SelectChoices.from(ActivityType.class, object.getActivityType());
 
+		tuple = super.unbind(object, "title", "abstractField", "startPeriod", "endPeriod", "link");
+		tuple.put("activityType", choices.getSelected().getKey());
+		tuple.put("activityTypes", choices);
 		super.getResponse().setData(tuple);
 	}
 }
