@@ -35,13 +35,16 @@ public interface CompanyPracticumSessionRepository extends AbstractRepository {
 	@Query("select ps from PracticumSession ps where ps.company.id = :companyId")
 	Collection<PracticumSession> findManyPracticumSessionsByCompanyId(int companyId);
 
+	@Query("select p from Practicum p")
+	Collection<Practicum> findAllPracticums();
+
 	@Query("select p from Practicum p where p.id = :id")
 	Practicum findOnePracticumById(int id);
 
 	@Query("select p from Practicum p where p.company.id = :companyId")
 	Collection<Practicum> findManyPracticumsByCompanyId(int companyId);
 
-	@Query("select p from Practicum p")
-	Collection<Practicum> findAllPracticums();
+	@Query("SELECT COUNT(ps) FROM PracticumSession ps WHERE ps.practicum.id = :practicumId AND ps.isAddendum = true")
+	Long countAddendumSessionsByPracticumId(int practicumId);
 
 }

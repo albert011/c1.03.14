@@ -16,10 +16,9 @@
 
 <acme:list>
 	<acme:list-column code="company.practicumSession.list.label.title" path="title" width="10%"/>
+	<acme:list-column code="company.practicumSession.list.label.isAddendum" path="isAddendum" width="20%"/>
 	<acme:list-column code="company.practicumSession.list.label.startDate" path="startDate" width="10%"/>
 	<acme:list-column code="company.practicumSession.list.label.endDate" path="endDate" width="10%"/>
-	<acme:list-column code="company.practicumSession.list.label.isAddendum" path="isAddendum" width="20%"/>
-	
 </acme:list>
 
 <jstl:if test="${_command == 'list-mine'}">

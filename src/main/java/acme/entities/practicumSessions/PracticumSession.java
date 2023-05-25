@@ -58,6 +58,10 @@ public class PracticumSession extends AbstractEntity {
 	@NotNull
 	protected boolean			isAddendum;
 
+	//	public Double getWorkTime() {
+	//		return (double) MomentHelper.computeDuration(this.startDate, this.endDate).toHours();
+	//	}
+
 	// Relationships ----------------------------------------------------------
 
 	@NotNull

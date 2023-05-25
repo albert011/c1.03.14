@@ -32,11 +32,6 @@
 			<acme:menu-suboption code="master.menu.anonymous.gonsanmar2.favourite-link" action="https://open.spotify.com/playlist/37i9dQZF1DX2apWzyECwyZ?si=892688190c8e455f"/>
 		</acme:menu-option>
 		
-
-		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
-      		<acme:menu-suboption code="master.menu.authenticated.offer.list" action="/authenticated/offer/list"/>
-		</acme:menu-option>
-		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>

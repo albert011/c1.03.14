@@ -8,24 +8,26 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-company.practicum.list.label.code = Código
-company.practicum.list.label.title = Título
-company.practicum.list.label.abstractText = Texto Abstracto
-company.practicum.list.label.goals = Objetivos
-company.practicum.list.label.estimatedTotalTime = Tiempo Total Estimado
+company.practicumSession.list.label.title = Título
+company.practicumSession.list.label.startDate = Fecha de inicio
+company.practicumSession.list.label.endDate = Fecha de fin
+company.practicumSession.list.label.link = Enlace
+company.practicumSession.list.label.isAddendum = Es apéndice
 
-company.practicum.job.list.button.create = Crear
+company.practicum.list.button.create = Crear
 
-company.practicum.form.label.code = Código
-company.practicum.form.label.company = Compañía
-company.practicum.form.label.title = Título
-company.practicum.form.label.abstractText = Texto Abstracto
-company.practicum.form.label.goals = Objetivos
-company.practicum.form.label.estimatedTotalTime = Tiempo Total Estimado
+company.practicumSession.form.label.title = Título
+company.practicumSession.form.label.practicum = Práctica
+company.practicumSession.form.label.abstractText = Texto abstracto
+company.practicumSession.form.label.startDate = Fecha de inicio
+company.practicumSession.form.label.endDate = Fecha de fin
+company.practicumSession.form.label.link = Enlace
+company.practicumSession.form.label.isAddendum = Es apéndice
+ 
+company.practicumSession.form.button.update = Actualizar
+company.practicumSession.form.button.delete = Eliminar
+company.practicumSession.form.button.publish = Publicar
+company.practicumSession.form.button.create = Crear
 
-company.practicum.form.button.update = Actualizar
-company.practicum.form.button.delete = Eliminar
-company.practicum.form.button.publish = Publicar
-company.practicum.form.button.create = Crear
-
-company.practicum.form.error.duplicated = Este código ya se ha utilizado
+company.practicumSession.form.error.period-too-short = El plazo debe ser de al menos una semana de antelación y la duración debe ser de al menos una semana
+company.practicumSession.form.error.addendum-limit = Solo está permitida una sesión apéndice 

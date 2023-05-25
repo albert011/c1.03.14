@@ -1,7 +1,9 @@
 
 package acme.features.company.practicumSession;
 
+import java.time.temporal.ChronoUnit;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +12,7 @@ import acme.entities.practicumSessions.PracticumSession;
 import acme.entities.practicums.Practicum;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
@@ -77,6 +80,20 @@ public class CompanyPracticumSessionPublishService extends AbstractService<Compa
 	@Override
 	public void validate(final PracticumSession object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("startDate") && !super.getBuffer().getErrors().hasErrors("endDate")) {
+			Date minimumPeriod;
+
+			minimumPeriod = MomentHelper.deltaFromMoment(object.getStartDate(), 7, ChronoUnit.DAYS);
+			super.state(MomentHelper.isAfterOrEqual(object.getEndDate(), minimumPeriod), "endDate", "company.practicumSession.form.error.period-too-short");
+		}
+
+		if (object.isAddendum() && !object.getPracticum().isDraftMode()) {
+			Integer countAddendumSessions;
+
+			countAddendumSessions = this.repository.countAddendumSessionsByPracticumId(object.getPracticum().getId()).intValue();
+			super.state(countAddendumSessions <= 1, "isAddendum", "company.practicumSession.form.error.addendum-limit");
+		}
 
 	}
 

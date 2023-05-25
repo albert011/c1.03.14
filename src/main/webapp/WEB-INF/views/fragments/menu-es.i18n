@@ -56,6 +56,7 @@ master.menu.auditor.audit.list = Lista de auditorías
 
 master.menu.company = Compañía
 master.menu.company.practicum.list-mine = Ver mis prácticas
+master.menu.company.practicum-session.list-mine = Ver mis sesiones de prácticas
 
 # master.menu.user-account ####################################################
 
