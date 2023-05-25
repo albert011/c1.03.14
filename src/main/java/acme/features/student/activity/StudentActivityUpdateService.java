@@ -1,12 +1,15 @@
 
 package acme.features.student.activity;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Activity;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
@@ -63,9 +66,12 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	@Override
 	public void validate(final Activity object) {
 		assert object != null;
-
+		final Date moment = MomentHelper.getCurrentMoment();
+		if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
+			super.state(!moment.after(object.getStartPeriod()), "startPeriod", "student.activity.form.error.moment");
+		if (!super.getBuffer().getErrors().hasErrors("endPeriod"))
+			super.state(object.getEndPeriod().after(object.getStartPeriod()), "endPeriod", "student.activity.form.error.endPeriod");
 	}
-
 	@Override
 	public void perform(final Activity object) {
 		assert object != null;

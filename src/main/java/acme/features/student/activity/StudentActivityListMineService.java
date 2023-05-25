@@ -39,7 +39,7 @@ public class StudentActivityListMineService extends AbstractService<Student, Act
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		objects = this.repository.findActivitiesByEnrolment(masterId);
-
+		super.getResponse().setGlobal("enrolment", masterId);
 		super.getBuffer().setData(objects);
 	}
 
@@ -55,6 +55,5 @@ public class StudentActivityListMineService extends AbstractService<Student, Act
 		tuple = super.unbind(object, "title", "abstractField", "activityType");
 		tuple.put("finalised", finalised);
 		super.getResponse().setData(tuple);
-		super.getResponse().setGlobal("enrolment", object.getEnrolment().getId());
 	}
 }
