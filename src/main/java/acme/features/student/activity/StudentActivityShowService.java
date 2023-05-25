@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Activity;
+import acme.entities.enrolments.Activity.ActivityType;
 import acme.framework.components.accounts.Principal;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -59,11 +61,18 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 		Tuple tuple;
 		boolean finalised = false;
 
+		SelectChoices activityTypes;
+
+		activityTypes = SelectChoices.from(ActivityType.class, object.getActivityType());
+
 		if (object.getEnrolment().getHolderName() != null && !object.getEnrolment().getHolderName().isEmpty())
 			finalised = true;
 
-		tuple = super.unbind(object, "title", "abstractField", "activityType", "startPeriod", "endPeriod", "link");
+		tuple = super.unbind(object, "title", "abstractField", "startPeriod", "endPeriod", "link");
 		tuple.put("finalised", finalised);
+		tuple.put("activityType", activityTypes.getSelected().getKey());
+		tuple.put("activityTypes", activityTypes);
 		super.getResponse().setData(tuple);
+
 	}
 }

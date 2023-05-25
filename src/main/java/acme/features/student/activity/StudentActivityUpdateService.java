@@ -1,8 +1,6 @@
 
 package acme.features.student.activity;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +9,6 @@ import acme.entities.enrolments.Activity.ActivityType;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
-import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
@@ -61,16 +58,15 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	@Override
 	public void bind(final Activity object) {
 		assert object != null;
-
-		super.bind(object, "title", "abstractField", "startPeriod", "endPeriod", "link");
+		final ActivityType activityType;
+		//activityType = this.repository.findActivityTypeById(object.getId());
+		super.bind(object, "title", "abstractField", "activityType", "startPeriod", "endPeriod", "link");
+		//object.setActivityType(activityType);
 	}
 
 	@Override
 	public void validate(final Activity object) {
 		assert object != null;
-		final Date moment = MomentHelper.getCurrentMoment();
-		if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
-			super.state(!moment.after(object.getStartPeriod()), "startPeriod", "student.activity.form.error.moment");
 		if (!super.getBuffer().getErrors().hasErrors("endPeriod"))
 			super.state(object.getEndPeriod().after(object.getStartPeriod()), "endPeriod", "student.activity.form.error.endPeriod");
 	}
@@ -86,13 +82,18 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 		assert object != null;
 
 		Tuple tuple;
-		SelectChoices choices;
+		SelectChoices activityTypes;
+		boolean finalised = false;
 
-		choices = SelectChoices.from(ActivityType.class, object.getActivityType());
+		activityTypes = SelectChoices.from(ActivityType.class, object.getActivityType());
+
+		if (object.getEnrolment().getHolderName() != null && !object.getEnrolment().getHolderName().isEmpty())
+			finalised = true;
 
 		tuple = super.unbind(object, "title", "abstractField", "startPeriod", "endPeriod", "link");
-		tuple.put("activityType", choices.getSelected().getKey());
-		tuple.put("activityTypes", choices);
+		tuple.put("finalised", finalised);
+		tuple.put("activityType", activityTypes.getSelected().getKey());
+		tuple.put("activityTypes", activityTypes);
 		super.getResponse().setData(tuple);
 	}
 }
