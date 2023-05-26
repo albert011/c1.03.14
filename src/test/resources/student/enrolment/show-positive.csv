@@ -1,3 +1,4 @@
-recordIndex, code, motivation, goal
-0,ABC123,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet
-1,JUG675,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet
+recordIndex,code,motivation,goal,course,holderName,lowerNibble
+0,ABC123,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPYTWAnDzq3ivxj3rgbKzPRudH,student1,5342
+1,JUG675,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,m6HSEw4f4pdqPELHLaVJUypbur,,
+2,JUG999,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,m6HSEw4f4pdqPELHLaVJUypbur,,

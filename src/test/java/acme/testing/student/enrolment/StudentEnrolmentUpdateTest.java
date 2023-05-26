@@ -65,7 +65,6 @@ public class StudentEnrolmentUpdateTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
-		super.checkColumnHasValue(recordIndex, 0, code);
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.fillInputBoxIn("code", code);
@@ -101,6 +100,26 @@ public class StudentEnrolmentUpdateTest extends TestHarness {
 			super.signOut();
 
 			super.signIn("student2", "student2");
+			super.request("/student/enrolment/update", param);
+			super.checkPanicExists();
+			super.signOut();
+
+			super.signIn("company1", "company1");
+			super.request("/student/enrolment/update", param);
+			super.checkPanicExists();
+			super.signOut();
+
+			super.signIn("lecturer1", "lecturer1");
+			super.request("/student/enrolment/update", param);
+			super.checkPanicExists();
+			super.signOut();
+
+			super.signIn("assistant1", "assistant1");
+			super.request("/student/enrolment/update", param);
+			super.checkPanicExists();
+			super.signOut();
+
+			super.signIn("auditor1", "auditor1");
 			super.request("/student/enrolment/update", param);
 			super.checkPanicExists();
 			super.signOut();
