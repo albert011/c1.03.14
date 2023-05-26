@@ -1,7 +1,11 @@
 
 package acme.features.student.enrolment;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +17,7 @@ import acme.entities.enrolments.Enrolment;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
@@ -69,6 +74,46 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
+
+		SimpleDateFormat format;
+		final Date moment = MomentHelper.getCurrentMoment();
+		final String res = this.getRequest().getData("expiryDate", String.class);
+		String month = "", year = "";
+
+		if (super.getRequest().getLocale().getLanguage().equals("es"))
+			format = new SimpleDateFormat("MM/YY");
+		else
+			format = new SimpleDateFormat("YY/MM");
+
+		final Calendar calendar = Calendar.getInstance();
+		Date fechaFinal = new Date();
+		if (res != null && !res.isEmpty())
+			try {
+				Date date;
+
+				if (super.getRequest().getLocale().getLanguage().equals("es")) {
+					month = res.substring(0, 2);
+					year = res.substring(res.length() - 2);
+					date = format.parse(month + "/" + year);
+				} else {
+					year = res.substring(0, 2);
+					month = res.substring(res.length() - 2);
+					date = format.parse(year + "/" + month);
+				}
+				calendar.setTime(date);
+				// Obtener el último día del mes
+				final int lastDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+				calendar.set(Calendar.DAY_OF_MONTH, lastDay);
+
+				// Establecer la hora a las 23:59
+				calendar.set(Calendar.HOUR_OF_DAY, 23);
+				calendar.set(Calendar.MINUTE, 59);
+
+				fechaFinal = calendar.getTime();
+			} catch (final ParseException e) {
+				e.printStackTrace();
+			}
+
 		final String card = super.getRequest().getData("creditCard", String.class);
 		if (!super.getBuffer().getErrors().hasErrors("creditCard"))
 			super.state(card.matches("^\\d{4}\\/\\d{4}\\/\\d{4}\\/\\d{4}$"), "creditCard", "student.enrolment.form.error.card");
@@ -80,8 +125,12 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 		if (!super.getBuffer().getErrors().hasErrors("cvc"))
 			super.state(cvc.matches("^\\d{3}$"), "cvc", "student.enrolment.form.error.cvc");
 		final String expiryDate = super.getRequest().getData("expiryDate", String.class);
-		if (!super.getBuffer().getErrors().hasErrors("expiryDate"))
-			super.state(expiryDate.matches("^\\d{2}\\/\\d{2}$"), "expiryDate", "student.enrolment.form.error.expiryDate");
+		if (res != null && !res.isEmpty())
+			if (!super.getBuffer().getErrors().hasErrors("expiryDate")) {
+				super.state(Integer.parseInt(month) <= 12 && Integer.parseInt(month) != 00, "expiryDate", "student.enrolment.form.error.month");
+				super.state(!MomentHelper.isAfterOrEqual(moment, fechaFinal), "expiryDate", "student.enrolment.form.error.limit");
+				super.state(expiryDate.matches("^\\d{2}\\/\\d{2}$"), "expiryDate", "student.enrolment.form.error.expiryDate");
+			}
 	}
 
 	@Override
@@ -100,16 +149,23 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 		Tuple tuple;
 		boolean finalized = false;
 
+		final String creditCard = this.getRequest().getData("creditCard", String.class);
+		final String expiryDate = this.getRequest().getData("expiryDate", String.class);
+		final String cvc = this.getRequest().getData("cvc", String.class);
+
 		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 		final Optional<Double> workTime = this.repository.findManyActivitiesById(object.getId()).stream().map(Activity::getWorkTime).reduce(Double::sum);
 
-		if (object.getHolderName() != null && !object.getHolderName().isEmpty())
+		if (object.getHolderName() != null && !object.getHolderName().isEmpty() && object.getLowerNibble() != null && !object.getLowerNibble().isEmpty())
 			finalized = true;
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "holderName", "lowerNibble");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
+		tuple.put("cvc", cvc);
+		tuple.put("creditCard", creditCard);
+		tuple.put("expiryDate", expiryDate);
 		if (workTime.isPresent())
 			tuple.put("workTime", workTime.get());
 		tuple.put("finalized", finalized);

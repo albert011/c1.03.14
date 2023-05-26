@@ -47,13 +47,13 @@ public class StudentActivityListMineService extends AbstractService<Student, Act
 	public void unbind(final Activity object) {
 		assert object != null;
 		Tuple tuple;
-		boolean finalised = false;
+		boolean showCreate = false;
 
 		if (object.getEnrolment().getHolderName() != null && !object.getEnrolment().getHolderName().isEmpty())
-			finalised = true;
+			showCreate = true;
 
 		tuple = super.unbind(object, "title", "abstractField", "activityType");
-		tuple.put("finalised", finalised);
 		super.getResponse().setData(tuple);
+		super.getResponse().setGlobal("showCreate", showCreate);
 	}
 }
