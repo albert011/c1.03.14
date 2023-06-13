@@ -1,7 +1,7 @@
-key,key:tutorial,key:sessionType,title,abstractMessage,timeStart,timeEnd,link
-session-tuto-01,tuto-01,session-type-01,.,.,2022/08/19 15:30, 2022/08/19 16:30,null
-session-tuto-02,tuto-01,session-type-01,Morbi in enim blandit; malesuada sapien et; consectetur massa. Maecenas at.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam.,2022/08/19 15:30, 2022/08/19 16:30,null
-session-tuto-03,tuto-02,session-type-02,Ejemplo normal de sesion,Este es un texto de ejemplo normal que se puede ver en la sesion, 2022/09/20 21:00, 2022/09/20 22:00,https://www.youtube.com/watch?v=dQw4w9WgXcQ
-session-tuto-04,tuto-05,session-type-02,Morbi in enim blandit; malesuada sapien et; consectetur massa. Maecenas at.,.,2022/08/19 15:30, 2022/08/19 16:30,null
-session-tuto-05,tuto-05,session-type-01,.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam.,2022/08/19 15:30, 2022/08/19 16:30,null
-session-tuto-06,tuto-01,session-type-01,Morbi in enim blandit; malesuada sapien et; consectetur massa.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci.,2022/08/19 15:30, 2022/08/19 16:30,null
+key,key:tutorial,type,title,abstractMessage,timeStart,timeEnd,link
+session-tuto-01,tuto-01,HANDS_ON,.,.,2022/08/19 15:30, 2022/08/19 16:30,null
+session-tuto-02,tuto-01,HANDS_ON,Morbi in enim blandit; malesuada sapien et; consectetur massa. Maecenas at.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam.,2022/08/19 15:30, 2022/08/19 16:30,null
+session-tuto-03,tuto-02,THEORETICAL,Ejemplo normal de sesion,Este es un texto de ejemplo normal que se puede ver en la sesion, 2022/09/20 21:00, 2022/09/20 22:00,https://www.youtube.com/watch?v=dQw4w9WgXcQ
+session-tuto-04,tuto-05,THEORETICAL,Morbi in enim blandit; malesuada sapien et; consectetur massa. Maecenas at.,.,2022/08/19 15:30, 2022/08/19 16:30,null
+session-tuto-05,tuto-05,HANDS_ON,.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam.,2022/08/19 15:30, 2022/08/19 16:30,null
+session-tuto-06,tuto-01,HANDS_ON,Morbi in enim blandit; malesuada sapien et; consectetur massa.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci.,2022/08/19 15:30, 2022/08/19 16:30,null

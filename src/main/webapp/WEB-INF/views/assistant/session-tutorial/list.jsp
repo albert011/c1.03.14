@@ -22,4 +22,4 @@
 	<acme:list-column code="assistant.session-tutorial.list.label.time" path="estimatedTotalTime" width="10%"/>
 </acme:list>
 
-<acme:button code="authenticated.bulletin.create" action="/assistant/session-tutorial/create"/>
+<acme:button code="assistant.session.create" action="/assistant/session-tutorial/create"/>

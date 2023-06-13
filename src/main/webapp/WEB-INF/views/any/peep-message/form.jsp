@@ -22,11 +22,13 @@
 	<acme:input-url code="any.peep.form.label.link" path="link"/>	
 	<acme:input-email code="any.peep.form.label.email" path="email"/>
 	<acme:input-textbox code="any.peep.form.label.nickname" path="nickname"/>
-	
-	<jstl:when test="${_command == 'show'}">
+	<jstl:choose>
+		<jstl:when test="${_command == 'show'}">
 			<acme:button code="any.peep.form.button.list" action="/any/peep-message/list"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create' }">
 			<acme:submit code="any.peep.form.button.apply" action="/any/peep-message/create"/>
 		</jstl:when>
+	</jstl:choose>
+	
 </acme:form>
