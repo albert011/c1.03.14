@@ -16,10 +16,10 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="assistant.session-tutorial.list.label.code" path="code" width="10%"/>
+	<acme:list-column code="assistant.session-tutorial.list.label.timeStart" path="timeStart" width="10%"/>
+	<acme:list-column code="assistant.session-tutorial.list.label.timeEnd" path="timeEnd" width="10%"/>
 	<acme:list-column code="assistant.session-tutorial.list.label.title" path="title" width="10%"/>
 	<acme:list-column code="assistant.session-tutorial.list.label.message" path="abstractMessage" width="70%"/>
-	<acme:list-column code="assistant.session-tutorial.list.label.time" path="estimatedTotalTime" width="10%"/>
 </acme:list>
 
 <acme:button code="assistant.session.create" action="/assistant/session-tutorial/create"/>

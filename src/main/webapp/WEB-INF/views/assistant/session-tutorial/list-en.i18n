@@ -9,13 +9,18 @@
 # they accept assistant liabilities with respect to them.
 
 
-assistant.tutorial.form.label.code = Code of Reference
-assistant.tutorial.form.label.title = Title
-assistant.tutorial.form.label.message = Abstract
-assistant.tutorial.form.label.time = Estimated Time
-assistant.tutorial.form.label.goals = Goals
+assistant.session-tutorial.form.label.title = Title
+assistant.session-tutorial.form.label.message = Abstract
+assistant.session-tutorial.form.label.type = Type
+assistant.session-tutorial.form.label.tutorial = Tutorial Code
+assistant.session-tutorial.form.label.timeStart = Session Start
+assistant.session-tutorial.form.label.timeEnd = Session End
+assistant.session-tutorial.form.update = Update
+assistant.session-tutorial.form.delete = Delete
+assistant.session-tutorial.form.button.apply = Create Session
 
-assistant.tutorial.list.label.code = Code of Reference
-assistant.tutorial.list.label.title = Title
-assistant.tutorial.list.label.message = Abstract
-assistant.tutorial.list.label.time = Estimated Time
+assistant.session-tutorial.list.label.timeStart = Session Start
+assistant.session-tutorial.list.label.timeEnd = Session End
+assistant.session-tutorial.list.label.title = Title
+assistant.session-tutorial.list.label.message = Abstract
+assistant.session.create = Create Session

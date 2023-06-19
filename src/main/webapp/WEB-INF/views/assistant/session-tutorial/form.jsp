@@ -19,15 +19,18 @@
 <acme:form>
 	<acme:input-textbox code="assistant.session-tutorial.form.label.title" path="title"/>
 	<acme:input-textbox code="assistant.session-tutorial.form.label.message" path="abstractMessage"/>
-	<acme:input-select code="assistant.session-tutorial.form.label.type" path="type" choices="${types }"/>
-	<acme:input-textbox code="assistant.session-tutorial.form.label.goals" path="goals"/>	
-	<acme:input-double code="assistant.session-tutorial.form.label.time" path="estimatedTotalTime"/>
+	<acme:input-select code="assistant.session-tutorial.form.label.tutorial" path="tutorial" choices="${tutorials}"/>
+	<acme:input-select code="assistant.session-tutorial.form.label.type" path="type" choices="${types}"/>
+	<acme:input-moment code="assistant.session-tutorial.form.label.timeStart" path="timeStart"/>	
+	<acme:input-moment code="assistant.session-tutorial.form.label.timeEnd" path="timeEnd"/>
 	<jstl:choose>
-		<jstl:when test="${_command == 'show' }">
-			<acme:button code="assistant.session-tutorial.form.show" action="/assistant/session-tutorial/list"/>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
+			<acme:submit code="assistant.session-tutorial.form.update" action="/assistant/session-tutorial/update"/>
+			<acme:submit code="assistant.session-tutorial.form.delete" action="/assistant/session-tutorial/delete"/>
+			<acme:submit code="assistant.session-tutorial.form.publish" action="/assistant/session-tutorial/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<personal:confirm-submit code="assistant.session-tutorial.form.button.apply" action="/assistant/session-tutorial/create"/>
+			<acme:submit code="assistant.session-tutorial.form.button.apply" action="/assistant/session-tutorial/create"/>
 		</jstl:when>
 	</jstl:choose>
 	

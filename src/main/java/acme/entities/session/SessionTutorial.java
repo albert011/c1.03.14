@@ -40,6 +40,7 @@ public class SessionTutorial extends AbstractEntity {
 	@Size(max = 100)
 	protected String			abstractMessage;
 
+	@Valid
 	@NotNull
 	@Enumerated(value = EnumType.STRING)
 	protected LectureType		type;

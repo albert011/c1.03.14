@@ -17,7 +17,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantSessionUpdateService extends AbstractService<Assistant, SessionTutorial> {
+public class AssistantSessionPublishService extends AbstractService<Assistant, SessionTutorial> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -63,6 +63,7 @@ public class AssistantSessionUpdateService extends AbstractService<Assistant, Se
 
 		super.bind(session, "title", "abstractMessage", "timeStart", "timeEnd", "link");
 		session.setTutorial(tutorial);
+		session.setDraftMode(false);
 	}
 
 	@Override

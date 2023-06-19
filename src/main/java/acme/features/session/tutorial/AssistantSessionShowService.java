@@ -1,10 +1,15 @@
 
 package acme.features.session.tutorial;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.course.LectureType;
 import acme.entities.session.SessionTutorial;
+import acme.entities.tutorial.Tutorial;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
@@ -51,7 +56,19 @@ public class AssistantSessionShowService extends AbstractService<Assistant, Sess
 	public void unbind(final SessionTutorial session) {
 		assert session != null;
 		Tuple tuple;
-		tuple = super.unbind(session, "title", "abstractMessage", "sessionType");
+		Collection<Tutorial> tutorials;
+		SelectChoices choices;
+		SelectChoices types;
+
+		tutorials = this.repository.findAllPublishedTutorials();
+		choices = SelectChoices.from(tutorials, "code", session.getTutorial());
+		types = SelectChoices.from(LectureType.class, session.getType());
+
+		tuple = super.unbind(session, "title", "abstractMessage", "type", "timeStart", "timeEnd", "link", "draftMode");
+		tuple.put("tutorial", choices.getSelected().getLabel());
+		tuple.put("tutorials", choices);
+		tuple.put("types", types);
+
 		super.getResponse().setData(tuple);
 	}
 
