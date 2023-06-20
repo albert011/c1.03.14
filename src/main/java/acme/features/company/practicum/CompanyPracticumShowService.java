@@ -6,6 +6,8 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.course.Course;
+import acme.entities.practicumSessions.PracticumSession;
 import acme.entities.practicums.Practicum;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -42,7 +44,9 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 		masterId = super.getRequest().getData("id", int.class);
 		practicum = this.repository.findOnePracticumById(masterId);
 		company = practicum == null ? null : practicum.getCompany();
-		status = super.getRequest().getPrincipal().hasRole(company) || practicum != null && !practicum.isDraftMode();
+		status = practicum != null && !practicum.isDraftMode() || super.getRequest().getPrincipal().hasRole(company);
+
+		// Revisar si hay q poner !practicum.isDraftMode()
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -62,22 +66,23 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 	public void unbind(final Practicum object) {
 		assert object != null;
 
-		final int companyId;
-		Collection<Company> companies;
-		SelectChoices choices;
 		Tuple tuple;
+		Collection<Course> courses;
+		Collection<PracticumSession> practicumSession;
+		String estimatedTotalTime;
+		SelectChoices choices;
 
-		if (!object.isDraftMode())
-			companies = this.repository.findAllCompanies();
-		else {
-			companyId = super.getRequest().getPrincipal().getActiveRoleId();
-			companies = this.repository.findManyCompaniesById(companyId);
-		}
-		choices = SelectChoices.from(companies, "name", object.getCompany());
+		courses = this.repository.findManyPublishedCourses();
+		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "title", "abstractText", "goals", "estimatedTotalTime", "draftMode");
-		tuple.put("company", choices.getSelected().getKey());
-		tuple.put("companies", choices);
+		practicumSession = this.repository.findManyPracticumSessionsByPracticumId(object.getId());
+		estimatedTotalTime = object.getEstimatedTotalTime(practicumSession);
+
+		tuple = super.unbind(object, "code", "title", "abstractText", "goals", "draftMode");
+		tuple.put("courseCode", this.repository.findCourseCodeByPracticumId(object.getId()));
+		tuple.put("estimatedTotalTime", estimatedTotalTime);
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}

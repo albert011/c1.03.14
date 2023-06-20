@@ -6,6 +6,8 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.course.Course;
+import acme.entities.practicumSessions.PracticumSession;
 import acme.entities.practicums.Practicum;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -62,29 +64,25 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 	public void bind(final Practicum object) {
 		assert object != null;
 
-		int companyId;
-		Company company;
+		super.bind(object, "code", "title", "abstractText", "goals");
 
-		companyId = super.getRequest().getData("company", int.class);
-		company = this.repository.findOneCompanyById(companyId);
-
-		super.bind(object, "code", "title", "abstractText", "goals", "estimatedTotalTime");
-		object.setCompany(company);
 	}
 
 	@Override
 	public void validate(final Practicum object) {
 		assert object != null;
+
+		super.state(object.isDraftMode(), "*", "company.practicum.form.error.not-draft-mode");
 	}
 
 	@Override
 	public void perform(final Practicum object) {
 		assert object != null;
 
-		Collection<Company> companies;
+		Collection<PracticumSession> practicumSessions;
 
-		companies = this.repository.findManyCompaniesById(object.getId());
-		this.repository.deleteAll(companies);
+		practicumSessions = this.repository.findManyPracticumSessionsByPracticumId(object.getId());
+		this.repository.deleteAll(practicumSessions);
 		this.repository.delete(object);
 	}
 
@@ -92,18 +90,23 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 	public void unbind(final Practicum object) {
 		assert object != null;
 
-		final int companyId;
-		Collection<Company> companies;
-		SelectChoices choices;
 		Tuple tuple;
+		Collection<Course> courses;
+		Collection<PracticumSession> practicumSession;
+		String estimatedTotalTime;
+		SelectChoices choices;
 
-		companyId = super.getRequest().getPrincipal().getActiveRoleId();
-		companies = this.repository.findManyCompaniesById(companyId);
-		choices = SelectChoices.from(companies, "name", object.getCompany());
+		courses = this.repository.findManyPublishedCourses();
+		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "title", "abstractText", "goals", "estimatedTotalTime", "draftMode");
-		tuple.put("company", choices.getSelected().getKey());
-		tuple.put("companies", choices);
+		practicumSession = this.repository.findManyPracticumSessionsByPracticumId(object.getId());
+		estimatedTotalTime = object.getEstimatedTotalTime(practicumSession);
+
+		tuple = super.unbind(object, "code", "title", "abstractText", "goals", "draftMode");
+		tuple.put("courseCode", this.repository.findCourseCodeByPracticumId(object.getId()));
+		tuple.put("estimatedTotalTime", estimatedTotalTime);
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 

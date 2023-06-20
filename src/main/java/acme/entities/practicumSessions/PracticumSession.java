@@ -17,7 +17,6 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.entities.practicums.Practicum;
 import acme.framework.data.AbstractEntity;
-import acme.roles.Company;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -55,12 +54,7 @@ public class PracticumSession extends AbstractEntity {
 
 	protected boolean			draftMode;
 
-	@NotNull
 	protected boolean			isAddendum;
-
-	//	public Double getWorkTime() {
-	//		return (double) MomentHelper.computeDuration(this.startDate, this.endDate).toHours();
-	//	}
 
 	// Relationships ----------------------------------------------------------
 
@@ -68,10 +62,5 @@ public class PracticumSession extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Practicum			practicum;
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	protected Company			company;
 
 }
