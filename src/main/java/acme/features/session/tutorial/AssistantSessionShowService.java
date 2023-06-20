@@ -59,8 +59,10 @@ public class AssistantSessionShowService extends AbstractService<Assistant, Sess
 		Collection<Tutorial> tutorials;
 		SelectChoices choices;
 		SelectChoices types;
+		Assistant assistant;
 
-		tutorials = this.repository.findAllPublishedTutorials();
+		assistant = this.repository.findAssistant(super.getRequest().getPrincipal().getAccountId());
+		tutorials = this.repository.findAllPublishedTutorialsByAssistant(assistant);
 		choices = SelectChoices.from(tutorials, "code", session.getTutorial());
 		types = SelectChoices.from(LectureType.class, session.getType());
 

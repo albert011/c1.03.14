@@ -14,3 +14,12 @@ authenticated.tutorial.list.label.code = Code of Reference
 authenticated.tutorial.list.label.title = Title
 authenticated.tutorial.list.label.message = Abstract
 authenticated.tutorial.list.label.time = Estimated Time
+authenticated.tutorial.list.label.assistant = Assistant
+
+authenticated.tutorial.form.label.assistant = Assistant
+authenticated.tutorial.form.label.code = Code of Reference
+authenticated.tutorial.form.label.course = Course Code
+authenticated.tutorial.form.label.title = Title
+authenticated.tutorial.form.label.message = Abstract
+authenticated.tutorial.form.label.goals = Goals
+authenticated.tutorial.form.label.time = Estimated Time

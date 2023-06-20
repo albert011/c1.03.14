@@ -23,11 +23,10 @@
 	<acme:input-textbox code="assistant.tutorial.form.label.goals" path="goals"/>	
 	<acme:input-double code="assistant.tutorial.form.label.time" path="estimatedTotalTime"/>
 	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>
-	<acme:input-checkbox code="assistant.tutorial.form.label.publish" path="isPublished"/>
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && isPublished == false }">
-			<acme:button code="assistant.tutorial.form.sessions" action="/assistant/session-tutorial/list?tutorialId=${id}"/>
 			<acme:submit code="assistant.tutorial.form.update" action="/assistant/tutorial/update"/>
+			<acme:submit code="assistant.tutorial.form.publish" action="/assistant/tutorial/publish"/>
 			<acme:submit code="assistant.tutorial.form.delete" action="/assistant/tutorial/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command != 'create'}">

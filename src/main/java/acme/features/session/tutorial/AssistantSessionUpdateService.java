@@ -68,6 +68,11 @@ public class AssistantSessionUpdateService extends AbstractService<Assistant, Se
 	@Override
 	public void validate(final SessionTutorial session) {
 		assert session != null;
+
+		if (!(super.getBuffer().getErrors().hasErrors("timeStart") || super.getBuffer().getErrors().hasErrors("timeEnd"))) {
+			super.state(session.getDuration() >= 1.0 && session.getDuration() <= 5.0, "timeStart", "assistant.session-tutorial.form.error.duration");
+			super.state(session.getDuration() >= 1.0 && session.getDuration() <= 5.0, "timeEnd", "assistant.session-tutorial.form.error.duration");
+		}
 	}
 
 	@Override
@@ -85,8 +90,10 @@ public class AssistantSessionUpdateService extends AbstractService<Assistant, Se
 		Collection<Tutorial> tutorials;
 		SelectChoices choices;
 		SelectChoices types;
+		Assistant assistant;
 
-		tutorials = this.repository.findAllPublishedTutorials();
+		assistant = this.repository.findAssistant(super.getRequest().getPrincipal().getAccountId());
+		tutorials = this.repository.findAllPublishedTutorialsByAssistant(assistant);
 		choices = SelectChoices.from(tutorials, "code", session.getTutorial());
 		types = SelectChoices.from(LectureType.class, session.getType());
 

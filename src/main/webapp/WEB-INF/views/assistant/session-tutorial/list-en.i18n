@@ -17,7 +17,10 @@ assistant.session-tutorial.form.label.timeStart = Session Start
 assistant.session-tutorial.form.label.timeEnd = Session End
 assistant.session-tutorial.form.update = Update
 assistant.session-tutorial.form.delete = Delete
+assistant.session-tutorial.form.publish = Publish
 assistant.session-tutorial.form.button.apply = Create Session
+
+assistant.session-tutorial.form.error.duration = Duration can not be neither less than an hour nor more than five
 
 assistant.session-tutorial.list.label.timeStart = Session Start
 assistant.session-tutorial.list.label.timeEnd = Session End
