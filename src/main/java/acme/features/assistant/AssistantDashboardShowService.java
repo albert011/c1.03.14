@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.course.LectureType;
+import acme.entities.lecture.LectureType;
 import acme.entities.session.SessionTutorial;
 import acme.entities.tutorial.Tutorial;
 import acme.forms.AssistantDashboard;

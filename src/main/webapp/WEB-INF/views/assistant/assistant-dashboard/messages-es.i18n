@@ -8,10 +8,15 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.dashboard.form.title.general-indicators = Indicadores generales
-administrator.dashboard.form.title.application-statuses = Estados de solicitud
+assistant.dashboard.form.title.general-indicators = Indicadores Generales
 
-administrator.dashboard.form.label.average-number-jobs-employer =  Número medio de trabajos por empleador
-administrator.dashboard.form.label.average-number-applications-worker =  Número medio de solicitudes por trabajador
-administrator.dashboard.form.label.average-number-applications-employer = Número medio de solicitudes por empleador
-
+assistant.dashboard.form.label.total-number-tutorials-hands-on = Número de tutoriales asociados a cursos prácticos
+assistant.dashboard.form.label.total-number-tutorials-theory = Número de tutoriales asociados a cursos teóricos
+assistant.dashboard.form.label.average-time-tutorials = Tiempo medio estimado de mis tutoriales
+assistant.dashboard.form.label.deviation-time-tutorials = Desviación del tiempo estimado de mis tutoriales
+assistant.dashboard.form.label.min-time-tutorials = Tiempo mínimo estimado de mis tutoriales
+assistant.dashboard.form.label.max-time-tutorials = Tiempo máximo estimado de mis tutoriales
+assistant.dashboard.form.label.average-time-sessions = Duración media de las sesiones de mis tutoriales
+assistant.dashboard.form.label.deviation-time-sessions = Desviación de la duración de las sesiones de mis tutoriales
+assistant.dashboard.form.label.min-time-sessions = Duración mínima de las sesiones de mis tutoriales
+assistant.dashboard.form.label.max-time-sessions = Duración máxima de las sesiones de mis tutoriales
