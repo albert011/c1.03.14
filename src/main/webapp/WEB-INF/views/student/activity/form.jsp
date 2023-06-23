@@ -35,7 +35,7 @@
 			<acme:submit code="student.activity.form.button.delete"
 				action="/student/activity/delete" />
 		</jstl:when>
-		<jstl:when test="${_command == 'create'}">
+		<jstl:when test="${_command == 'create' && finalised == true}">
 			<acme:submit code="student.activity.form.button.create"
 				action="/student/activity/create?enrolment=${enrolment}" />
 		</jstl:when>
