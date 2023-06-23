@@ -61,14 +61,22 @@ public class AssistantSessionPublishService extends AbstractService<Assistant, S
 		tutorialId = super.getRequest().getData("tutorial", int.class);
 		tutorial = this.repository.findTutorialById(tutorialId);
 
-		super.bind(session, "title", "abstractMessage", "timeStart", "timeEnd", "link");
+		super.bind(session, "title", "abstractMessage", "timeStart", "timeEnd", "link", "draftMode");
 		session.setTutorial(tutorial);
-		session.setDraftMode(false);
+		session.setDraftMode(tutorial.isPublished());
 	}
 
 	@Override
 	public void validate(final SessionTutorial session) {
 		assert session != null;
+
+		if (!(super.getBuffer().getErrors().hasErrors("timeStart") || super.getBuffer().getErrors().hasErrors("timeEnd"))) {
+			super.state(session.getDuration() >= 1.0 && session.getDuration() <= 5.0, "timeStart", "assistant.session-tutorial.form.error.duration");
+			super.state(session.getDuration() >= 1.0 && session.getDuration() <= 5.0, "timeEnd", "assistant.session-tutorial.form.error.duration");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("tutorial"))
+			super.state(!session.getTutorial().isPublished(), "tutorial", "assistant.session-tutorial.form.error.published");
 	}
 
 	@Override
@@ -93,7 +101,7 @@ public class AssistantSessionPublishService extends AbstractService<Assistant, S
 		choices = SelectChoices.from(tutorials, "code", session.getTutorial());
 		types = SelectChoices.from(LectureType.class, session.getType());
 
-		tuple = super.unbind(session, "title", "abstractMessage", "type", "timeStart", "timeEnd", "link");
+		tuple = super.unbind(session, "title", "abstractMessage", "type", "timeStart", "timeEnd", "link", "draftMode");
 		tuple.put("tutorial", choices.getSelected().getLabel());
 		tuple.put("tutorials", choices);
 		tuple.put("types", types);

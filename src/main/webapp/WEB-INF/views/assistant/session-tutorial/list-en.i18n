@@ -21,6 +21,7 @@ assistant.session-tutorial.form.publish = Publish
 assistant.session-tutorial.form.button.apply = Create Session
 
 assistant.session-tutorial.form.error.duration = Duration can not be neither less than an hour nor more than five
+assistant.session-tutorial.form.error.published = The tutorial you are trying to link the session has already been published
 
 assistant.session-tutorial.list.label.timeStart = Session Start
 assistant.session-tutorial.list.label.timeEnd = Session End

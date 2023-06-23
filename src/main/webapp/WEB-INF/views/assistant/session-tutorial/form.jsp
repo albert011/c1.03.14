@@ -24,7 +24,7 @@
 	<acme:input-moment code="assistant.session-tutorial.form.label.timeStart" path="timeStart"/>	
 	<acme:input-moment code="assistant.session-tutorial.form.label.timeEnd" path="timeEnd"/>
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 			<acme:submit code="assistant.session-tutorial.form.update" action="/assistant/session-tutorial/update"/>
 			<acme:submit code="assistant.session-tutorial.form.delete" action="/assistant/session-tutorial/delete"/>
 			<acme:submit code="assistant.session-tutorial.form.publish" action="/assistant/session-tutorial/publish"/>
