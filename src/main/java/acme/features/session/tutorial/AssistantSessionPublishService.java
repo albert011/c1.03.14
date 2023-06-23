@@ -89,7 +89,7 @@ public class AssistantSessionPublishService extends AbstractService<Assistant, S
 		Assistant assistant;
 
 		assistant = this.repository.findAssistant(super.getRequest().getPrincipal().getAccountId());
-		tutorials = this.repository.findAllNotPublishedTutorialsByAssistant(assistant);
+		tutorials = session.getTutorial().isPublished() ? this.repository.findAllTutorialsByAssistant(assistant) : this.repository.findAllNotPublishedTutorialsByAssistant(assistant);
 		choices = SelectChoices.from(tutorials, "code", session.getTutorial());
 		types = SelectChoices.from(LectureType.class, session.getType());
 

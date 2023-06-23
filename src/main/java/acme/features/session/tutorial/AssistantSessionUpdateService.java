@@ -73,6 +73,9 @@ public class AssistantSessionUpdateService extends AbstractService<Assistant, Se
 			super.state(session.getDuration() >= 1.0 && session.getDuration() <= 5.0, "timeStart", "assistant.session-tutorial.form.error.duration");
 			super.state(session.getDuration() >= 1.0 && session.getDuration() <= 5.0, "timeEnd", "assistant.session-tutorial.form.error.duration");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("tutorial"))
+			super.state(!session.getTutorial().isPublished(), "tutorial", "assistant.session-tutorial.form.error.published");
 	}
 
 	@Override
@@ -93,7 +96,7 @@ public class AssistantSessionUpdateService extends AbstractService<Assistant, Se
 		Assistant assistant;
 
 		assistant = this.repository.findAssistant(super.getRequest().getPrincipal().getAccountId());
-		tutorials = this.repository.findAllNotPublishedTutorialsByAssistant(assistant);
+		tutorials = session.getTutorial().isPublished() ? this.repository.findAllTutorialsByAssistant(assistant) : this.repository.findAllNotPublishedTutorialsByAssistant(assistant);
 		choices = SelectChoices.from(tutorials, "code", session.getTutorial());
 		types = SelectChoices.from(LectureType.class, session.getType());
 
