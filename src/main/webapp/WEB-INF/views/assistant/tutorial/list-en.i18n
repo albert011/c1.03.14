@@ -22,6 +22,7 @@ assistant.tutorial.list.label.code = Code of Reference
 assistant.tutorial.list.label.title = Title
 assistant.tutorial.list.label.message = Abstract
 assistant.tutorial.list.label.time = Estimated Time
+assistant.tutorial.list.label.publish-status = Is Published?
 
 assistant.tutorial.create = Create Tutorial
 

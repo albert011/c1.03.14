@@ -69,7 +69,7 @@ public class AssistantSessionListService extends AbstractService<Assistant, Sess
 		assert session != null;
 		Tuple tuple;
 
-		tuple = super.unbind(session, "title", "abstractMessage", "timeStart", "timeEnd", "type");
+		tuple = super.unbind(session, "title", "abstractMessage", "timeStart", "timeEnd", "type", "draftMode");
 		super.getResponse().setData(tuple);
 	}
 

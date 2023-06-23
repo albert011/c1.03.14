@@ -25,4 +25,5 @@ assistant.session-tutorial.list.label.timeStart = Inicio de la Sesión
 assistant.session-tutorial.list.label.timeEnd = Fin de la Sesión
 assistant.session-tutorial.list.label.title = Título
 assistant.session-tutorial.list.label.message = Resumen
+assistant.session-tutorial.list.label.draft-status = ¿Es un borrador?
 assistant.session.create = Crear Sesión

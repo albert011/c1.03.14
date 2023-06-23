@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
+import acme.entities.session.SessionTutorial;
 import acme.entities.tutorial.Tutorial;
 import acme.framework.components.jsp.SelectChoices;
-import acme.framework.components.models.Dataset;
 import acme.framework.components.models.Tuple;
 import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.PrincipalHelper;
@@ -66,7 +66,11 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 
 		super.bind(tutorial, "title", "abstractMessage", "goals", "estimatedTotalTime", "isPublished");
 		tutorial.setCourse(course);
-		tutorial.setPublished(true);
+
+		Collection<SessionTutorial> sessions;
+
+		sessions = this.repository.findSessionsOfTutorial(tutorial);
+		tutorial.setPublished(!sessions.isEmpty());
 	}
 
 	@Override
@@ -79,16 +83,28 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 			existing = this.repository.findTutorialByCode(tutorial.getCode());
 			super.state(existing == null || existing.equals(tutorial), "code", "assistant.tutorial.form.error.duplicated");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors()) {
+			Collection<SessionTutorial> sessions;
+
+			sessions = this.repository.findSessionsOfTutorial(tutorial);
+			super.state(!sessions.isEmpty(), "code", "assistant.tutorial.form.error.no-sessions-on-publish");
+
+		}
+
 	}
 
 	@Override
 	public void perform(final Tutorial tutorial) {
 		assert tutorial != null;
-		final Dataset req = super.getRequest().getData();
-		if (req.containsKey("isPublished") && req.get("isPublished").toString().equals("true"))
-			tutorial.setPublished(true);
 
 		this.repository.save(tutorial);
+		Collection<SessionTutorial> sessions;
+
+		sessions = this.repository.findSessionsOfTutorial(tutorial);
+		for (final SessionTutorial session : sessions)
+			session.setDraftMode(false);
+		this.repository.saveAll(sessions);
 	}
 
 	@Override
@@ -101,7 +117,7 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 
 		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "code", tutorial.getCourse());
-		tuple = super.unbind(tutorial, "code", "title", "abstractMessage", "goals", "estimatedTotalTime");
+		tuple = super.unbind(tutorial, "code", "title", "abstractMessage", "goals", "estimatedTotalTime", "isPublished");
 
 		tuple.put("course", choices.getSelected().getLabel());
 		tuple.put("courses", choices);

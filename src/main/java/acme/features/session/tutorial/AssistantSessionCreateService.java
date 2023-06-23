@@ -85,11 +85,11 @@ public class AssistantSessionCreateService extends AbstractService<Assistant, Se
 		Assistant assistant;
 
 		assistant = this.repository.findAssistant(super.getRequest().getPrincipal().getAccountId());
-		tutorials = this.repository.findAllPublishedTutorialsByAssistant(assistant);
+		tutorials = this.repository.findAllNotPublishedTutorialsByAssistant(assistant);
 		choices = SelectChoices.from(tutorials, "code", session.getTutorial());
 		types = SelectChoices.from(LectureType.class, session.getType());
 
-		tuple = super.unbind(session, "title", "abstractMessage", "type", "timeStart", "timeEnd", "link");
+		tuple = super.unbind(session, "title", "abstractMessage", "type", "timeStart", "timeEnd", "link", "draftMode");
 		tuple.put("tutorial", choices.getSelected().getLabel());
 		tuple.put("tutorials", choices);
 		tuple.put("types", types);

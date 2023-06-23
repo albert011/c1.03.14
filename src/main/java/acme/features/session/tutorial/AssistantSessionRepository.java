@@ -32,10 +32,10 @@ public interface AssistantSessionRepository extends AbstractRepository {
 	@Query("select st from SessionTutorial st where st.tutorial.assistant = :assistant")
 	Collection<SessionTutorial> findSessionsCreatedByAssistant(Assistant assistant);
 
-	@Query("select t from Tutorial t where t.isPublished = true")
-	Collection<Tutorial> findAllPublishedTutorials();
+	@Query("select t from Tutorial t where t.isPublished = false and t.assistant = :assistant")
+	Collection<Tutorial> findAllNotPublishedTutorialsByAssistant(Assistant assistant);
 
-	@Query("select t from Tutorial t where t.isPublished = true and t.assistant = :assistant")
-	Collection<Tutorial> findAllPublishedTutorialsByAssistant(Assistant assistant);
+	@Query("select t from Tutorial t where t.assistant = :assistant")
+	Collection<Tutorial> findAllTutorialsByAssistant(Assistant assistant);
 
 }

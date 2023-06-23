@@ -26,4 +26,5 @@ assistant.session-tutorial.list.label.timeStart = Session Start
 assistant.session-tutorial.list.label.timeEnd = Session End
 assistant.session-tutorial.list.label.title = Title
 assistant.session-tutorial.list.label.message = Abstract
+assistant.session-tutorial.list.label.draft-status = Is draft?
 assistant.session.create = Create Session

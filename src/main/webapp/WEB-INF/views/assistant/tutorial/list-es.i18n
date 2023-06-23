@@ -21,6 +21,7 @@ assistant.tutorial.list.label.code = Código de Referencia
 assistant.tutorial.list.label.title = Título
 assistant.tutorial.list.label.message = Resumen
 assistant.tutorial.list.label.time = Tiempo Estimado
+assistant.tutorial.list.label.publish-status = ¿Está publicado?
 
 assistant.tutorial.create = Crear Tutorial
 

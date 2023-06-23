@@ -19,7 +19,8 @@
 	<acme:list-column code="assistant.session-tutorial.list.label.timeStart" path="timeStart" width="10%"/>
 	<acme:list-column code="assistant.session-tutorial.list.label.timeEnd" path="timeEnd" width="10%"/>
 	<acme:list-column code="assistant.session-tutorial.list.label.title" path="title" width="10%"/>
-	<acme:list-column code="assistant.session-tutorial.list.label.message" path="abstractMessage" width="70%"/>
+	<acme:list-column code="assistant.session-tutorial.list.label.draft-status" path="draftMode" width="5%"/>
+	<acme:list-column code="assistant.session-tutorial.list.label.message" path="abstractMessage" width="65%"/>
 </acme:list>
 
 <acme:button code="assistant.session.create" action="/assistant/session-tutorial/create"/>

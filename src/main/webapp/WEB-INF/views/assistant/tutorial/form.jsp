@@ -24,10 +24,11 @@
 	<acme:input-double code="assistant.tutorial.form.label.time" path="estimatedTotalTime"/>
 	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && isPublished == false }">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && isPublished == false }">
 			<acme:submit code="assistant.tutorial.form.update" action="/assistant/tutorial/update"/>
 			<acme:submit code="assistant.tutorial.form.publish" action="/assistant/tutorial/publish"/>
 			<acme:submit code="assistant.tutorial.form.delete" action="/assistant/tutorial/delete"/>
+			<acme:button code="assistant.tutorial.form.sessions" action="/assistant/session-tutorial/list?tutorialId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${_command != 'create'}">
 			<acme:button code="assistant.tutorial.form.sessions" action="/assistant/session-tutorial/list?tutorialId=${id}"/>
