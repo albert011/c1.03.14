@@ -21,6 +21,9 @@ assistant.session-tutorial.form.button.apply = Crear Sesión
 
 assistant.session-tutorial.form.error.duration = La duración no puede ser inferior a una hora ni superior a cinco
 assistant.session-tutorial.form.error.published = El tutorial al que está intentando enlazar la sesión ya ha sido publicado
+assistant.session-tutorial.form.error.start-is-after-end = El inicio de la sesión no puede ser posterior a su fin
+assistant.session-tutorial.form.error.end-is-before-start = El fin de la sesión no puede ser anterior a su inicio
+assistant.session-tutorial.form.error.start-is-before-current-moment = El inicio de la sesión debe ser al menos un día posterior a la fecha actual
 
 assistant.session-tutorial.list.label.timeStart = Inicio de la Sesión
 assistant.session-tutorial.list.label.timeEnd = Fin de la Sesión

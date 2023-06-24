@@ -11,6 +11,7 @@ import acme.entities.session.SessionTutorial;
 import acme.entities.tutorial.Tutorial;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
@@ -61,9 +62,20 @@ public class AssistantSessionCreateService extends AbstractService<Assistant, Se
 	public void validate(final SessionTutorial session) {
 		assert session != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("tutorial"))
+			super.state(!session.getTutorial().isPublished(), "tutorial", "assistant.session-tutorial.form.error.published");
+
 		if (!(super.getBuffer().getErrors().hasErrors("timeStart") || super.getBuffer().getErrors().hasErrors("timeEnd"))) {
-			super.state(session.getDuration() >= 1.0 && session.getDuration() <= 5.0, "timeStart", "assistant.session-tutorial.form.error.duration");
-			super.state(session.getDuration() >= 1.0 && session.getDuration() <= 5.0, "timeEnd", "assistant.session-tutorial.form.error.duration");
+
+			if (session.getTimeStart().before(session.getTimeEnd())) {
+				super.state(session.getDuration() >= 1.0 && session.getDuration() <= 5.0, "timeStart", "assistant.session-tutorial.form.error.duration");
+				super.state(session.getDuration() >= 1.0 && session.getDuration() <= 5.0, "timeEnd", "assistant.session-tutorial.form.error.duration");
+
+			}
+			super.state(session.getTimeStart().before(session.getTimeEnd()), "timeStart", "assistant.session-tutorial.form.error.start-is-after-end");
+			super.state(session.getTimeStart().before(session.getTimeEnd()), "timeEnd", "assistant.session-tutorial.form.error.end-is-before-start");
+
+			super.state(session.getTimeStart().after(MomentHelper.getCurrentMoment()), "timeStart", "assistant.session-tutorial.form.error.start-is-before-current-moment");
 		}
 	}
 
