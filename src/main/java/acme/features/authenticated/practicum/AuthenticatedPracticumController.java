@@ -1,7 +1,7 @@
 /*
- * AdministratorDashboardController.java
+ * AuthenticatedPracticumController.java
  *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
+ * Copyright (C) 2022-2023 Javier Fernández Castillo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -10,30 +10,34 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.company.dashboard;
+package acme.features.authenticated.practicum;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.forms.CompanyDashboard;
+import acme.entities.practicums.Practicum;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.controllers.AbstractController;
-import acme.roles.Company;
 
 @Controller
-public class CompanyDashboardController extends AbstractController<Company, CompanyDashboard> {
+public class AuthenticatedPracticumController extends AbstractController<Authenticated, Practicum> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected CompanyDashboardShowService showService;
+	protected AuthenticatedPracticumListService	listService;
+
+	@Autowired
+	protected AuthenticatedPracticumShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
+		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 	}
 

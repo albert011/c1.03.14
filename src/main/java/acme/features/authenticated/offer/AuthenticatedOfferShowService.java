@@ -4,15 +4,13 @@ package acme.features.authenticated.offer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.offer.Offer;
+import acme.entities.offers.Offer;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
 public class AuthenticatedOfferShowService extends AbstractService<Authenticated, Offer> {
-
-	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AuthenticatedOfferRepository repository;
@@ -31,6 +29,7 @@ public class AuthenticatedOfferShowService extends AbstractService<Authenticated
 
 	@Override
 	public void authorise() {
+
 		super.getResponse().setAuthorised(true);
 	}
 
@@ -50,10 +49,8 @@ public class AuthenticatedOfferShowService extends AbstractService<Authenticated
 		assert object != null;
 
 		Tuple tuple;
-
-		tuple = super.unbind(object, "heading", "summary", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "link");
+		tuple = super.unbind(object, "heading", "instantiationMoment", "summary", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "link");
 
 		super.getResponse().setData(tuple);
 	}
-
 }

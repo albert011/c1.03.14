@@ -17,8 +17,7 @@
 <acme:list>
 	<acme:list-column code="company.practicum.list.label.code" path="code" width="20%"/>
 	<acme:list-column code="company.practicum.list.label.course-code" path="courseCode" width="20%"/>	
-	<acme:list-column code="company.practicum.list.label.title" path="title" width="40%"/>
-	<acme:list-column code="company.practicum.list.label.estimated-total-time" path="estimatedTotalTime" width="20%"/>
+	<acme:list-column code="company.practicum.list.label.title" path="title" width="60%"/>
 </acme:list>
 
 <jstl:if test="${_command == 'list-mine'}">

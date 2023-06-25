@@ -37,14 +37,14 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int practicumId;
 		Practicum practicum;
 		Company company;
 
-		masterId = super.getRequest().getData("id", int.class);
-		practicum = this.repository.findOnePracticumById(masterId);
+		practicumId = super.getRequest().getData("id", int.class);
+		practicum = this.repository.findOnePracticumById(practicumId);
 		company = practicum == null ? null : practicum.getCompany();
-		status = super.getRequest().getPrincipal().hasRole(company) || practicum != null && practicum.isDraftMode();
+		status = practicum != null && practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(company);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -96,7 +96,7 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 		String estimatedTotalTime;
 		SelectChoices choices;
 
-		courses = this.repository.findManyPublishedCourses();
+		courses = this.repository.findManyPublishedHandsOnCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
 		practicumSession = this.repository.findManyPracticumSessionsByPracticumId(object.getId());

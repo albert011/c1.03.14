@@ -41,6 +41,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 		Company company;
 
 		company = this.repository.findOneCompanyById(super.getRequest().getPrincipal().getActiveRoleId());
+
 		object = new Practicum();
 		object.setDraftMode(true);
 		object.setCompany(company);
@@ -93,7 +94,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 		String estimatedTotalTime;
 		SelectChoices choices;
 
-		courses = this.repository.findManyPublishedCourses();
+		courses = this.repository.findManyPublishedHandsOnCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
 		practicumSession = this.repository.findManyPracticumSessionsByPracticumId(object.getId());

@@ -1,12 +1,14 @@
 
 package acme.features.administrator.offer;
 
+import java.time.temporal.ChronoUnit;
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.offer.Offer;
+import acme.entities.offers.Offer;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
@@ -56,6 +58,30 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 	@Override
 	public void validate(final Offer object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("price"))
+			super.state(object.getPrice().getAmount() > 0, "price", "administrator.offer.form.error.price.negative-or-zero");
+
+		if (!super.getBuffer().getErrors().hasErrors("price")) {
+			Collection<String> currencySystemConfiguration;
+			currencySystemConfiguration = this.repository.findAllCurrencySystemConfiguration();
+
+			super.state(currencySystemConfiguration.contains(object.getPrice().getCurrency()), "price", "administrator.offer.form.error.price.non-existent-currency");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("availabilityPeriodStart")) {
+			Date dayAfterInstatiation;
+			dayAfterInstatiation = MomentHelper.deltaFromMoment(object.getInstantiationMoment(), 1, ChronoUnit.DAYS);
+
+			super.state(MomentHelper.isAfterOrEqual(object.getAvailabilityPeriodStart(), dayAfterInstatiation), "availabilityPeriodStart", "administrator.offer.form.error.less-than-a-day-after-instantiation");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("availabilityPeriodStart") && !super.getBuffer().getErrors().hasErrors("availabilityPeriodEnd")) {
+			Date minimumPeriod;
+			minimumPeriod = MomentHelper.deltaFromMoment(object.getAvailabilityPeriodStart(), 7, ChronoUnit.DAYS);
+
+			super.state(MomentHelper.isAfterOrEqual(object.getAvailabilityPeriodEnd(), minimumPeriod), "availabilityPeriodEnd", "administrator.offer.form.error.period-too-short");
+		}
 
 	}
 

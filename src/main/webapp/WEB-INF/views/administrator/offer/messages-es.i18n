@@ -27,3 +27,8 @@ administrator.offer.list.label.price = Precio
 administrator.offer.list.label.link = Enlace
 
 administrator.offer.list.button.create = Crear
+
+administrator.offer.form.error.price.negative-or-zero = El precio debe ser igual o mayor que cero
+administrator.offer.form.error.price.non-existent-currency = Esa moneda no está permitida en el sistema
+administrator.offer.form.error.less-than-a-day-after-instantiation = El período de disponibilidad debe comenzar al menos un día después del momento de la instanciación
+administrator.offer.form.error.period-too-short = La duración de la oferta debe ser de al menos una semana

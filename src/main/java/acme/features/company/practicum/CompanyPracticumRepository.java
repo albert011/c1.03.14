@@ -24,8 +24,8 @@ public interface CompanyPracticumRepository extends AbstractRepository {
 	@Query("select ps from PracticumSession ps where ps.practicum.id = :id")
 	Collection<PracticumSession> findManyPracticumSessionsByPracticumId(int id);
 
-	@Query("SELECT course from Course course where course.draftMode = false")
-	Collection<Course> findManyPublishedCourses();
+	@Query("select c from Course c where c.draftMode = false and c.type= 1")
+	Collection<Course> findManyPublishedHandsOnCourses();
 
 	@Query("select c from Course c where c.id = :id")
 	Course findOneCourseById(int id);

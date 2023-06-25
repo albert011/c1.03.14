@@ -10,22 +10,24 @@
 
 company.practicum.list.label.code = Código
 company.practicum.list.label.title = Título
-company.practicum.list.label.abstractText = Texto Abstracto
+company.practicum.list.label.abstractText = Texto abstracto
 company.practicum.list.label.goals = Objetivos
-company.practicum.list.label.estimatedTotalTime = Tiempo Total Estimado
+company.practicum.list.label.estimatedTotalTime = Tiempo total estimado
 
 company.practicum.list.button.create = Crear
 
 company.practicum.form.label.code = Código
 company.practicum.form.label.company = Compañía
 company.practicum.form.label.title = Título
-company.practicum.form.label.abstractText = Texto Abstracto
+company.practicum.form.label.abstractText = Texto abstracto
 company.practicum.form.label.goals = Objetivos
-company.practicum.form.label.estimatedTotalTime = Tiempo Total Estimado
+company.practicum.form.label.estimatedTotalTime = Tiempo total estimado
 
 company.practicum.form.button.update = Actualizar
 company.practicum.form.button.delete = Eliminar
 company.practicum.form.button.publish = Publicar
 company.practicum.form.button.create = Crear
+company.practicum.form.button.practicum-sessions = Sesiones de la práctica
 
 company.practicum.form.error.duplicated = Este código ya se ha utilizado
+company.practicum.form.error.no-practicum-sessions = No se puede publicar una práctica sin sesiones asociadas

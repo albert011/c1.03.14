@@ -1,7 +1,7 @@
 <%--
 - list.jsp
 -
-- Copyright (C) 2012-2023 Rafael Corchuelo.
+- Copyright (C) 2022-2023 Javier Fernández Castillo.
 -
 - In keeping with the traditional purpose of furthering education and research, it is
 - the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -16,10 +16,10 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.offer.list.label.heading" path="heading" width="35%"/>
-	<acme:list-column code="authenticated.offer.list.label.availabilityPeriodStart" path="availabilityPeriodStart" width="25%"/>
-	<acme:list-column code="authenticated.offer.list.label.availabilityPeriodEnd" path="availabilityPeriodEnd" width="25%"/>
-	<acme:list-column code="authenticated.offer.list.label.price" path="price" width="15%"/>
+	<acme:list-column code="authenticated.practicum.list.label.code" path="code" width="20%"/>
+	<acme:list-column code="authenticated.practicum.list.label.title" path="title" width="40%"/>
+	<acme:list-column code="authenticated.practicum.list.label.course" path="courseCode" width="20%"/>
 </acme:list>
 
+	
 

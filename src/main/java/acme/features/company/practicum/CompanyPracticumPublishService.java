@@ -81,7 +81,7 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 
 		Collection<PracticumSession> sessions;
 		sessions = this.repository.findManyPracticumSessionsByPracticumId(object.getId());
-		super.state(!sessions.isEmpty(), "*", "company.practicum.form.error.no-sessions");
+		super.state(!sessions.isEmpty(), "*", "company.practicum.form.error.no-practicum-sessions");
 
 	}
 
@@ -100,10 +100,10 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 		Tuple tuple;
 		Collection<Course> courses;
 		Collection<PracticumSession> practicumSession;
-		String estimatedTotalTime;
 		SelectChoices choices;
+		String estimatedTotalTime;
 
-		courses = this.repository.findManyPublishedCourses();
+		courses = this.repository.findManyPublishedHandsOnCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
 		practicumSession = this.repository.findManyPracticumSessionsByPracticumId(object.getId());

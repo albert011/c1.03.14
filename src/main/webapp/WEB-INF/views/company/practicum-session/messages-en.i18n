@@ -9,25 +9,25 @@
 # they accept any liabilities with respect to them.
 
 company.practicumSession.list.label.title = Title
-company.practicumSession.list.label.startDate = Start Date
-company.practicumSession.list.label.endDate = End Date
+company.practicumSession.list.label.startDate = Start date
+company.practicumSession.list.label.endDate = End date
 company.practicumSession.list.label.link = Link
 company.practicumSession.list.label.isAddendum = Is addendum
 
-company.practicum.list.button.create = Create
+company.practicumSession.list.button.create = Create
+company.addendumSession.list.button.create = Create addendum session
 
 company.practicumSession.form.label.title = Title
 company.practicumSession.form.label.practicum = Practicum
-company.practicumSession.form.label.abstractText = Abstract Text
-company.practicumSession.form.label.startDate = Start Date 
-company.practicumSession.form.label.endDate = End Date
+company.practicumSession.form.label.abstractText = Abstract text
+company.practicumSession.form.label.startDate = Start date 
+company.practicumSession.form.label.endDate = End date
 company.practicumSession.form.label.link = Link
-company.practicumSession.form.label.isAddendum = Is Addendum
+company.addendum-session.form.label.accept = Confirm the creation of an addendum session  (You can only create one)
  
 company.practicumSession.form.button.update = Update
 company.practicumSession.form.button.delete = Delete
-company.practicumSession.form.button.publish = Publish
 company.practicumSession.form.button.create = Create
 
 company.practicumSession.form.error.period-too-short = The timeframe must be at least one week in advance and the duration must be at least one week
-company.practicumSession.form.error.addendum-limit = Only one addendum session is allowed
+company.addendumSession.form.error.must-accept = You must check this box to create an addendum session
