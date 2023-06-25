@@ -16,10 +16,10 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="administrator.offer.list.label.heading" path="heading" width="40%"/>
-	<acme:list-column code="administrator.offer.list.label.availabilityPeriodStart" path="availabilityPeriodStart" width="20%"/>
-	<acme:list-column code="administrator.offer.list.label.availabilityPeriodEnd" path="availabilityPeriodEnd" width="20%"/>
-	<acme:list-column code="administrator.offer.list.label.price" path="price" width="40%"/>	
+	<acme:list-column code="administrator.offer.list.label.heading" path="heading" width="35%"/>
+	<acme:list-column code="administrator.offer.list.label.availabilityPeriodStart" path="availabilityPeriodStart" width="25%"/>
+	<acme:list-column code="administrator.offer.list.label.availabilityPeriodEnd" path="availabilityPeriodEnd" width="25%"/>
+	<acme:list-column code="administrator.offer.list.label.price" path="price" width="15%"/>	
 </acme:list>
 
 <acme:button code="administrator.offer.list.button.create" action="/administrator/offer/create"/>

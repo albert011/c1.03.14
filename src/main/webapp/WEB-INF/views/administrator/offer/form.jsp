@@ -31,11 +31,17 @@
 	<acme:input-url code="administrator.offer.form.label.link" path="link" />
 
 
-	<acme:submit code="administrator.offer.form.button.create"
-		action="/administrator/offer/create" />
-	<acme:submit code="administrator.offer.form.button.update"
-		action="/administrator/offer/update" />
-	<acme:submit code="administrator.offer.form.button.delete"
-		action="/administrator/offer/delete" />
+	<jstl:choose>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+			<acme:submit code="administrator.offer.form.button.update"
+				action="/administrator/offer/update" />
+			<acme:submit code="administrator.offer.form.button.delete"
+				action="/administrator/offer/delete" />
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="administrator.offer.form.button.create"
+				action="/administrator/offer/create" />
+		</jstl:when>
+	</jstl:choose>
 
 </acme:form>

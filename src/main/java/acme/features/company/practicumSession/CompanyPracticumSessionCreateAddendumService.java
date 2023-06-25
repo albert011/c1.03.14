@@ -1,3 +1,14 @@
+/*
+ * CompanyPracticumSessionCreateAddendumService.java
+ *
+ * Copyright (C) 2022-2023 Javier Fernández Castillo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
 package acme.features.company.practicumSession;
 
@@ -15,20 +26,21 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumSessionUpdateService extends AbstractService<Company, PracticumSession> {
+public class CompanyPracticumSessionCreateAddendumService extends AbstractService<Company, PracticumSession> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected CompanyPracticumSessionRepository repository;
 
-
 	// AbstractService interface ----------------------------------------------
+
+
 	@Override
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("id", int.class);
+		status = super.getRequest().hasData("masterId", int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -36,14 +48,14 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 	@Override
 	public void authorise() {
 		boolean status;
-		int practicumSessionId;
-		PracticumSession practicumSession;
+		int masterId;
+		PracticumSession addendumSession;
 		Practicum practicum;
 
-		practicumSessionId = super.getRequest().getData("id", int.class);
-		practicum = this.repository.findOnePracticumByPracticumSessionId(practicumSessionId);
-		practicumSession = this.repository.findOnePracticumSessionById(practicumSessionId);
-		status = practicum != null && practicumSession.isDraftMode() && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
+		masterId = super.getRequest().getData("masterId", int.class);
+		addendumSession = this.repository.findOneAddendumSessionByPracticumId(masterId);
+		practicum = this.repository.findOnePracticumById(masterId);
+		status = addendumSession == null && practicum != null && !practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -51,10 +63,16 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 	@Override
 	public void load() {
 		PracticumSession object;
-		int id;
+		int masterId;
+		Practicum practicum;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOnePracticumSessionById(id);
+		masterId = super.getRequest().getData("masterId", int.class);
+		practicum = this.repository.findOnePracticumById(masterId);
+
+		object = new PracticumSession();
+		object.setTitle("");
+		object.setAddendum(true);
+		object.setPracticum(practicum);
 
 		super.getBuffer().setData(object);
 	}
@@ -70,13 +88,17 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 	public void validate(final PracticumSession object) {
 		assert object != null;
 
+		boolean isAccepted;
+
+		isAccepted = this.getRequest().getData("accept", boolean.class);
+		super.state(isAccepted, "accept", "company.addendumSession.form.error.must-accept");
+
 		if (!super.getBuffer().getErrors().hasErrors("startDate") && !super.getBuffer().getErrors().hasErrors("endDate")) {
 			Date minimumPeriod;
 
 			minimumPeriod = MomentHelper.deltaFromMoment(object.getStartDate(), 7, ChronoUnit.DAYS);
 			super.state(MomentHelper.isAfterOrEqual(object.getEndDate(), minimumPeriod), "endDate", "company.practicumSession.form.error.period-too-short");
 		}
-
 	}
 
 	@Override
@@ -90,12 +112,14 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 	public void unbind(final PracticumSession object) {
 		assert object != null;
 
+		int masterId;
 		Tuple tuple;
 
+		masterId = super.getRequest().getData("masterId", int.class);
+
 		tuple = super.unbind(object, "title", "abstractText", "startDate", "endDate", "link", "isAddendum");
-		tuple.put("masterId", object.getPracticum().getId());
-		tuple.put("draftMode", object.isDraftMode());
-		tuple.put("confirmation", "false");
+		tuple.put("masterId", masterId);
+		tuple.put("confirmation", "true");
 
 		super.getResponse().setData(tuple);
 	}

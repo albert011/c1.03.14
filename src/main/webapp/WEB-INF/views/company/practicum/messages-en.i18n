@@ -9,23 +9,25 @@
 # they accept any liabilities with respect to them.
 
 company.practicum.list.label.code = Code
+company.practicum.list.label.course-code = Course code
 company.practicum.list.label.title = Title
-company.practicum.list.label.abstractText = Abstract Text
-company.practicum.list.label.goals = Goals
-company.practicum.list.label.estimatedTotalTime = Estimaded Total Time
+company.practicum.list.label.estimated-total-time = Estimated total time
 
 company.practicum.list.button.create = Create
 
 company.practicum.form.label.code = Code
-company.practicum.form.label.company = Company
+company.practicum.form.label.course-code = Course code
 company.practicum.form.label.title = Title
-company.practicum.form.label.abstractText = Abstract Text
+company.practicum.form.label.abstract-text = Abstract text
 company.practicum.form.label.goals = Goals
-company.practicum.form.label.estimatedTotalTime = Estimated Total Time
+company.practicum.form.label.estimated-total-time = Estimated total time
 
 company.practicum.form.button.update = Update
 company.practicum.form.button.delete = Delete
 company.practicum.form.button.publish = Publish
 company.practicum.form.button.create = Create
+company.practicum.form.button.practicum-sessions = Practicum sessions
 
 company.practicum.form.error.duplicated = This code is taken
+company.practicum.form.error.no-practicum-sessions = Can not publish a practicum without associated sessions
+

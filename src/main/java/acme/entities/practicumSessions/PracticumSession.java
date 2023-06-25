@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
@@ -17,7 +18,6 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.entities.practicums.Practicum;
 import acme.framework.data.AbstractEntity;
-import acme.roles.Company;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -53,21 +53,22 @@ public class PracticumSession extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	protected boolean			draftMode;
-
-	@NotNull
 	protected boolean			isAddendum;
+
+	// Derived attributes -----------------------------------------------------
+
+
+	@Transient
+	public Boolean isDraftMode() {
+		return this.practicum.isDraftMode();
+	}
 
 	// Relationships ----------------------------------------------------------
 
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	protected Practicum			practicum;
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected Company			company;
+	protected Practicum practicum;
 
 }
