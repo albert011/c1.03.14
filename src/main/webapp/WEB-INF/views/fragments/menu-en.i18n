@@ -94,7 +94,7 @@ master.menu.any.peeps = Peep messages
 
 master.menu.student = Student
 master.menu.student.enrolment = Enrolment
-master.menu.student.course = Curse
+master.menu.student.course = Course
 
 # master.menu.authenticated #######################################################
 
