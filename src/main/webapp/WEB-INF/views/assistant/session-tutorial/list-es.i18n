@@ -14,6 +14,7 @@ assistant.session-tutorial.form.label.type = Tipo
 assistant.session-tutorial.form.label.tutorial = Código del Tutorial
 assistant.session-tutorial.form.label.timeStart = Inicio de la Sesión
 assistant.session-tutorial.form.label.timeEnd = Fin de la Sesión
+assistant.session-tutorial.form.label.link = Enlace (opcional)
 assistant.session-tutorial.form.update = Editar
 assistant.session-tutorial.form.delete = Eliminar
 assistant.session-tutorial.form.publish = Publicar

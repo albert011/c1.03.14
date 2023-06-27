@@ -41,6 +41,8 @@ public class AssistantSessionListService extends AbstractService<Assistant, Sess
 
 		tutorialId = super.getRequest().getData("tutorialId", int.class);
 		tutorial = this.repository.findTutorialById(tutorialId);
+		assert tutorial != null;
+		assert super.getRequest().getPrincipal().getAccountId() == tutorial.getAssistant().getUserAccount().getId();
 		sessions = this.repository.findAllSessionsByTutorial(tutorial);
 		super.getBuffer().setData(sessions);
 	}

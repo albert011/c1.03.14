@@ -23,6 +23,7 @@
 	<acme:input-select code="assistant.session-tutorial.form.label.type" path="type" choices="${types}"/>
 	<acme:input-moment code="assistant.session-tutorial.form.label.timeStart" path="timeStart"/>	
 	<acme:input-moment code="assistant.session-tutorial.form.label.timeEnd" path="timeEnd"/>
+	<acme:input-textbox code="assistant.session-tutorial.form.label.link" path="link"/>
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 			<acme:submit code="assistant.session-tutorial.form.update" action="/assistant/session-tutorial/update"/>
