@@ -15,16 +15,14 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="company.practicumSession.list.label.title" path="title" width="10%"/>
-	<acme:list-column code="company.practicumSession.list.label.startDate" path="startDate" width="10%"/>
-	<acme:list-column code="company.practicumSession.list.label.endDate" path="endDate" width="10%"/>
-	<acme:list-column code="company.practicumSession.list.label.isAddendum" path="isAddendum" width="20%"/>
-	
+	<acme:list-column code="company.practicumSession.list.label.title" path="title" width="25%"/>
+	<acme:list-column code="company.practicumSession.list.label.isAddendum" path="addendumState" width="25%"/>
+	<acme:list-column code="company.practicumSession.list.label.startDate" path="startDate" width="25%"/>
+	<acme:list-column code="company.practicumSession.list.label.endDate" path="endDate" width="25%"/>
 </acme:list>
 
-<jstl:if test="${_command == 'list-mine'}">
-	<acme:button code="company.practicum.list.button.create" action="/company/practicum-session/create"/>
-</jstl:if>
+<acme:button test="${showAddendumCreate}" code="company.addendumSession.list.button.create" action="/company/practicum-session/create-addendum?masterId=${masterId}"/>
+<acme:button test="${showCreate}" code="company.practicumSession.list.button.create" action="/company/practicum-session/create?masterId=${masterId}"/>
 
 
 

@@ -19,16 +19,13 @@ public class CompanyPracticumController extends AbstractController<Company, Prac
 	protected CompanyPracticumShowService		showService;
 
 	@Autowired
-	protected CompanyPracticumCreateService	createService;
+	protected CompanyPracticumCreateService		createService;
 
 	@Autowired
-	protected CompanyPracticumUpdateService	updateService;
+	protected CompanyPracticumUpdateService		updateService;
 
 	@Autowired
-	protected CompanyPracticumDeleteService	deleteService;
-
-	@Autowired
-	protected CompanyPracticumListAllService	listAllService;
+	protected CompanyPracticumDeleteService		deleteService;
 
 	@Autowired
 	protected CompanyPracticumListMineService	listMineService;

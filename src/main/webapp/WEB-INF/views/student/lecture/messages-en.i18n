@@ -10,3 +10,9 @@
 
 student.lecture.list.label.title = Title
 student.lecture.list.label.almaMater = Alma Mater
+
+student.lecture.form.label.abstract = Abstract
+student.lecture.form.label.body = Body
+student.lecture.form.label.title = Title
+student.lecture.form.label.link = Link
+student.lecture.form.label.lecturer = Lecturer

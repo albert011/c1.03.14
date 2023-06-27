@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Activity;
+import acme.entities.enrolments.Enrolment;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -36,25 +37,28 @@ public class StudentActivityListMineService extends AbstractService<Student, Act
 	public void load() {
 		Collection<Activity> objects;
 		int masterId;
+		Enrolment enrolment;
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		objects = this.repository.findActivitiesByEnrolment(masterId);
-
+		enrolment = this.repository.findOneEnrolmentById(masterId);
+		if (enrolment.getHolderName() != null && !enrolment.getHolderName().isEmpty())
+			super.getResponse().setGlobal("showCreate", true);
+		super.getResponse().setGlobal("enrolment", masterId);
 		super.getBuffer().setData(objects);
 	}
 
 	@Override
 	public void unbind(final Activity object) {
 		assert object != null;
-		boolean finalised = false;
-
-		if (object.getEnrolment().getHolderName() != null || object.getEnrolment().getHolderName().isEmpty())
-			finalised = true;
 		Tuple tuple;
+		boolean showCreate = false;
+
+		if (object.getEnrolment().getHolderName() != null && !object.getEnrolment().getHolderName().isEmpty())
+			showCreate = true;
 
 		tuple = super.unbind(object, "title", "abstractField", "activityType");
-		tuple.put("finalised", finalised);
 		super.getResponse().setData(tuple);
-		super.getResponse().setGlobal("enrolment", object.getEnrolment().getId());
+		super.getResponse().setGlobal("showCreate", showCreate);
 	}
 }

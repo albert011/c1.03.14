@@ -26,20 +26,24 @@
 		path="workTime" readonly="true" />
 	<acme:input-select code="student.enrolment.label.course" path="course"
 		choices="${courses}" />
-	<acme:input-textbox code="student.enrolment.form.label.creditCard"
-		path="creditCard" placeholder="XXXX/XXXX/XXXX/XXXX" />
-	<acme:input-textbox code="student.enrolment.form.label.cvc" path="cvc"
-		placeholder="XXX" />
-	<acme:input-textbox code="student.enrolment.form.label.expiryDate"
-		path="expiryDate" placeholder="XX/XX" />
-	<acme:input-textbox code="student.enrolment.form.label.holderName"
-		path="holderName" />
-	<acme:input-textbox code="student.enrolment.form.label.lowerNibble"
-		path="lowerNibble" readonly="true" />
+	<jstl:choose>
+		<jstl:when test="${_command != 'create'}">
+			<acme:input-textbox code="student.enrolment.form.label.creditCard"
+				path="creditCard" placeholder="XXXX/XXXX/XXXX/XXXX" />
+			<acme:input-textbox code="student.enrolment.form.label.cvc"
+				path="cvc" placeholder="XXX" />
+			<acme:input-textbox code="student.enrolment.form.label.expiryDate"
+				path="expiryDate" placeholder="XX/XX" />
+			<acme:input-textbox code="student.enrolment.form.label.holderName"
+				path="holderName" />
+			<acme:input-textbox code="student.enrolment.form.label.lowerNibble"
+				path="lowerNibble" readonly="true" />
+		</jstl:when>
+	</jstl:choose>
 
 	<jstl:choose>
 		<jstl:when
-			test="${acme:anyOf(_command, 'show|update|delete|finalise') && finalized == false}">
+			test="${acme:anyOf(_command, 'show|update|finalise') && finalized == false}">
 			<acme:submit code="student.enrolment.form.button.update"
 				action="/student/enrolment/update" />
 			<acme:submit code="student.enrolment.form.button.delete"

@@ -4,7 +4,7 @@ package acme.features.administrator.offer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.offer.Offer;
+import acme.entities.offers.Offer;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -51,7 +51,7 @@ public class AdministratorOfferShowService extends AbstractService<Administrator
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "heading", "summary", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "link");
+		tuple = super.unbind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "link");
 
 		super.getResponse().setData(tuple);
 	}

@@ -1,7 +1,7 @@
 /*
- * AdministratorDashboardShowService.java
+ * AuthenticatedPracticumListService.java
  *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
+ * Copyright (C) 2022-2023 Javier Fernández Castillo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -10,23 +10,25 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.company.dashboard;
+package acme.features.authenticated.practicum;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.forms.CompanyDashboard;
+import acme.entities.practicums.Practicum;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Company;
 
 @Service
-public class CompanyDashboardShowService extends AbstractService<Company, CompanyDashboard> {
+public class AuthenticatedPracticumListService extends AbstractService<Authenticated, Practicum> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected CompanyDashboardRepository repository;
+	protected AuthenticatedPracticumRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -38,24 +40,30 @@ public class CompanyDashboardShowService extends AbstractService<Company, Compan
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+
+		status = super.getRequest().getPrincipal().isAuthenticated();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		CompanyDashboard companyDashboard;
+		Collection<Practicum> objects;
 
-		companyDashboard = new CompanyDashboard();
+		objects = this.repository.findManyPublishedPracticums();
 
-		super.getBuffer().setData(companyDashboard);
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final CompanyDashboard object) {
+	public void unbind(final Practicum object) {
+		assert object != null;
+
 		Tuple tuple;
 
-		tuple = super.unbind(object, //
-			"");
+		tuple = super.unbind(object, "code", "title");
+		tuple.put("courseCode", this.repository.findCourseCodeByPracticumId(object.getId()));
 
 		super.getResponse().setData(tuple);
 	}

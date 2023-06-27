@@ -4,7 +4,7 @@ package acme.features.administrator.offer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.offer.Offer;
+import acme.entities.offers.Offer;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -30,6 +30,9 @@ public class AdministratorOfferDeleteService extends AbstractService<Administrat
 
 	@Override
 	public void authorise() {
+
+		//super.getResponse().setAuthorised(true);
+
 		boolean status;
 		int masterId;
 		Offer offer;
@@ -56,7 +59,7 @@ public class AdministratorOfferDeleteService extends AbstractService<Administrat
 	public void bind(final Offer object) {
 		assert object != null;
 
-		super.bind(object, "heading", "summary", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "link");
+		super.bind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "link");
 	}
 
 	@Override
@@ -77,7 +80,7 @@ public class AdministratorOfferDeleteService extends AbstractService<Administrat
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "heading", "summary", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "link");
+		tuple = super.unbind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "link");
 		super.getResponse().setData(tuple);
 	}
 
