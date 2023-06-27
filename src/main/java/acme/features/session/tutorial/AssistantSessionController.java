@@ -16,19 +16,25 @@ public class AssistantSessionController extends AbstractController<Assistant, Se
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantSessionListService	listService;
+	protected AssistantSessionListService		listService;
 
 	@Autowired
-	protected AssistantSessionShowService	showService;
+	protected AssistantSessionShowService		showService;
 
 	@Autowired
-	protected AssistantSessionCreateService	createService;
+	protected AssistantSessionCreateService		createService;
 
 	@Autowired
-	protected AssistantSessionUpdateService	updateService;
+	protected AssistantSessionUpdateService		updateService;
 
 	@Autowired
-	protected AssistantSessionDeleteService	deleteService;
+	protected AssistantSessionDeleteService		deleteService;
+
+	@Autowired
+	protected AssistantSessionListMineService	listMineService;
+
+	@Autowired
+	protected AssistantSessionPublishService	publishService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -40,6 +46,9 @@ public class AssistantSessionController extends AbstractController<Assistant, Se
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
+
+		super.addCustomCommand("list-mine", "list", this.listMineService);
+		super.addCustomCommand("publish", "update", this.publishService);
 	}
 
 }

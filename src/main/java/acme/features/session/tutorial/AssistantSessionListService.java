@@ -39,10 +39,29 @@ public class AssistantSessionListService extends AbstractService<Assistant, Sess
 		Tutorial tutorial;
 		int tutorialId;
 
-		tutorialId = super.getRequest().getData("id", int.class);
+		tutorialId = super.getRequest().getData("tutorialId", int.class);
 		tutorial = this.repository.findTutorialById(tutorialId);
+		assert tutorial != null;
+		assert super.getRequest().getPrincipal().getAccountId() == tutorial.getAssistant().getUserAccount().getId();
 		sessions = this.repository.findAllSessionsByTutorial(tutorial);
 		super.getBuffer().setData(sessions);
+	}
+
+	@Override
+	public void bind(final SessionTutorial session) {
+		assert session != null;
+
+		int tutorialId;
+		Tutorial tutorial;
+
+		tutorialId = tutorialId = super.getRequest().getData("tutorialId", int.class);
+		tutorial = this.repository.findTutorialById(tutorialId);
+		super.bind(session, "title", "abstractMessage", "timeStart", "timeEnd");
+	}
+
+	@Override
+	public void validate(final SessionTutorial session) {
+		assert session != null;
 	}
 
 	//bind: datos formulario
@@ -51,7 +70,8 @@ public class AssistantSessionListService extends AbstractService<Assistant, Sess
 	public void unbind(final SessionTutorial session) {
 		assert session != null;
 		Tuple tuple;
-		tuple = super.unbind(session, "title", "abstractMessage", "timeStart", "timeEnd");
+
+		tuple = super.unbind(session, "title", "abstractMessage", "timeStart", "timeEnd", "type", "draftMode");
 		super.getResponse().setData(tuple);
 	}
 

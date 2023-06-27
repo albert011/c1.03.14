@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.lecture.LectureType;
 import acme.entities.session.SessionTutorial;
 import acme.entities.tutorial.Tutorial;
 import acme.forms.AssistantDashboard;
@@ -45,7 +46,8 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 		Collection<Tutorial> tutorials;
 		Collection<SessionTutorial> sessions;
 
-		int numberOfTutorials;
+		int numberOfTutorialsHandsOn;
+		int numberOfTutorialsTheory;
 		double averageTimeSessions;
 		double deviationTimeSessions;
 		double minTimeSessions;
@@ -62,7 +64,8 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 
 		final List<Double> estimatedTimeTutorials = tutorials.stream().mapToDouble(x -> x.getEstimatedTotalTime()).boxed().collect(Collectors.toList());
 		final List<Double> durationSessions = sessions.stream().mapToDouble(x -> (x.getTimeEnd().getTime() - x.getTimeStart().getTime()) / 3600000).boxed().collect(Collectors.toList());
-		numberOfTutorials = tutorials.size();
+		numberOfTutorialsHandsOn = (int) tutorials.stream().filter(p -> p.getCourse().getType().equals(LectureType.HANDS_ON)).count();
+		numberOfTutorialsTheory = (int) tutorials.stream().filter(p -> p.getCourse().getType().equals(LectureType.THEORETICAL)).count();
 		averageTimeSessions = UtilsMath.getAverage(durationSessions);
 		deviationTimeSessions = UtilsMath.getDeviation(durationSessions);
 		minTimeSessions = UtilsMath.getMinimum(durationSessions);
@@ -73,7 +76,8 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 		maxTimeTutorials = UtilsMath.getMaximum(estimatedTimeTutorials);
 
 		dashboard = new AssistantDashboard();
-		dashboard.setNumberOfTutorials(numberOfTutorials);
+		dashboard.setNumberOfTutorialsHandsOn(numberOfTutorialsHandsOn);
+		dashboard.setNumberOfTutorialsTheory(numberOfTutorialsTheory);
 		dashboard.setAverageTimeSessions(averageTimeSessions);
 		dashboard.setDeviationTimeSessions(deviationTimeSessions);
 		dashboard.setMinTimeSessions(minTimeSessions);
@@ -91,7 +95,7 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 		Tuple tuple;
 
 		tuple = super.unbind(object, //
-			"numberOfTutorials", "averageTimeSessions", "deviationTimeSessions",//
+			"numberOfTutorialsHandsOn", "numberOfTutorialsTheory", "averageTimeSessions", "deviationTimeSessions",//
 			"minTimeSessions", "maxTimeSessions", "averageTimeTutorials", // 
 			"deviationTimeTutorials", "minTimeTutorials", "maxTimeTutorials");
 

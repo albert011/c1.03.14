@@ -16,20 +16,25 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 <%@taglib prefix="personal" tagdir="/WEB-INF/tags"%>
 
-<acme:form>
+<acme:form readonly="${isPublished}">
 	<acme:input-textbox code="assistant.tutorial.form.label.code" path="code"/>
 	<acme:input-textbox code="assistant.tutorial.form.label.title" path="title"/>
 	<acme:input-textbox code="assistant.tutorial.form.label.message" path="abstractMessage"/>
 	<acme:input-textbox code="assistant.tutorial.form.label.goals" path="goals"/>	
 	<acme:input-double code="assistant.tutorial.form.label.time" path="estimatedTotalTime"/>
-	<acme:input-checkbox code="assistant.tutorial.form.label.publish" path="isPublished"/>
+	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') }">
-			<acme:button code="assistant.tutorial.form.show" action="/assistant/tutorial/list"/>
-			<acme:button code="assistant.tutorial.form.delete" action="/assistant/tutorial/delete"/>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && isPublished == false }">
+			<acme:submit code="assistant.tutorial.form.update" action="/assistant/tutorial/update"/>
+			<acme:submit code="assistant.tutorial.form.publish" action="/assistant/tutorial/publish"/>
+			<acme:submit code="assistant.tutorial.form.delete" action="/assistant/tutorial/delete"/>
+			<acme:button code="assistant.tutorial.form.sessions" action="/assistant/session-tutorial/list?tutorialId=${id}"/>
+		</jstl:when>
+		<jstl:when test="${_command != 'create'}">
+			<acme:button code="assistant.tutorial.form.sessions" action="/assistant/session-tutorial/list?tutorialId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<personal:confirm-submit code="assistant.tutorial.form.button.apply" action="/assistant/tutorial/create"/>
+			<acme:submit code="assistant.tutorial.form.button.apply" action="/assistant/tutorial/create"/>
 		</jstl:when>
 	</jstl:choose>
 	

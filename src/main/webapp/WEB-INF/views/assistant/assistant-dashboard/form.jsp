@@ -22,81 +22,85 @@
 <table class="table table-sm">
 	<tr>
 		<th scope="row">
-			<acme:message code="assistant.dashboard.form.label.total-number-tutorials"/>
+			<acme:message code="assistant.dashboard.form.label.total-number-tutorials-hands-on"/>
 		</th>
 		<td>
-			<acme:print value="${averageNumberOfJobsPerEmployer}"/>
+			<acme:print value="${numberOfTutorialsHandsOn}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="assistant.dashboard.form.label.average-number-applications-worker"/>
+			<acme:message code="assistant.dashboard.form.label.total-number-tutorials-theory"/>
 		</th>
 		<td>
-			<acme:print value="${averageNumberOfApplicationsPerWorker}"/>
+			<acme:print value="${numberOfTutorialsTheory}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="assistant.dashboard.form.label.average-number-applications-employer"/>
+			<acme:message code="assistant.dashboard.form.label.average-time-tutorials"/>
 		</th>
 		<td>
-			<acme:print value="${avegageNumberOfApplicationsPerEmployer}"/>
+			<acme:print value="${averageTimeTutorials}"/>
 		</td>
-	</tr>	
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="assistant.dashboard.form.label.deviation-time-tutorials"/>
+		</th>
+		<td>
+			<acme:print value="${deviationTimeTutorials}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="assistant.dashboard.form.label.min-time-tutorials"/>
+		</th>
+		<td>
+			<acme:print value="${minTimeTutorials}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="assistant.dashboard.form.label.max-time-tutorials"/>
+		</th>
+		<td>
+			<acme:print value="${maxTimeTutorials}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="assistant.dashboard.form.label.average-time-sessions"/>
+		</th>
+		<td>
+			<acme:print value="${averageTimeSessions}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="assistant.dashboard.form.label.deviation-time-sessions"/>
+		</th>
+		<td>
+			<acme:print value="${deviationTimeSessions}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="assistant.dashboard.form.label.min-time-sessions"/>
+		</th>
+		<td>
+			<acme:print value="${minTimeSessions}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="assistant.dashboard.form.label.max-time-sessions"/>
+		</th>
+		<td>
+			<acme:print value="${maxTimeSessions}"/>
+		</td>
+	</tr>
 </table>
-
-<h2>
-	<acme:message code="assistant.dashboard.form.title.application-statuses"/>
-</h2>
-
-<div>
-	<canvas id="canvas"></canvas>
-</div>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		var data = {
-			labels : [
-					"PENDING", "ACCEPTED", "REJECTED"
-			],
-			datasets : [
-				{
-					data : [
-						<jstl:out value="${ratioOfPendingApplications}"/>, 
-						<jstl:out value="${ratioOfAcceptedApplications}"/>, 
-						<jstl:out value="${ratioOfRejectedApplications}"/>
-					]
-				}
-			]
-		};
-		var options = {
-			scales : {
-				yAxes : [
-					{
-						ticks : {
-							suggestedMin : 0.0,
-							suggestedMax : 1.0
-						}
-					}
-				]
-			},
-			legend : {
-				display : false
-			}
-		};
-	
-		var canvas, context;
-	
-		canvas = document.getElementById("canvas");
-		context = canvas.getContext("2d");
-		new Chart(context, {
-			type : "bar",
-			data : data,
-			options : options
-		});
-	});
-</script>
 
 <acme:return/>
 

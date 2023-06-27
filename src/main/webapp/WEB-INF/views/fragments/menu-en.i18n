@@ -107,4 +107,8 @@ master.menu.authenticated.practicum.list = List practicums
 # master.menu.assistant ##############################################
 master.menu.assistant = Assistant
 master.menu.assistant.tutorials = Tutorials
+master.menu.assistant.tutorials.sessions = Sessions
+master.menu.user-account.become-assistant = Become an assistant
+master.menu.user-account.assistant = Assistant data
+master.menu.assistant.dashboard = Dashboard
 

@@ -14,10 +14,23 @@ assistant.tutorial.form.label.title = Title
 assistant.tutorial.form.label.message = Abstract
 assistant.tutorial.form.label.time = Estimated Time
 assistant.tutorial.form.label.goals = Goals
+assistant.tutorial.form.label.course = Course Code
+
+assistant.tutorial.form.error.duplicated = That Code is already in use, please try another
 
 assistant.tutorial.list.label.code = Code of Reference
 assistant.tutorial.list.label.title = Title
 assistant.tutorial.list.label.message = Abstract
 assistant.tutorial.list.label.time = Estimated Time
+assistant.tutorial.list.label.publish-status = Is Published?
 
 assistant.tutorial.create = Create Tutorial
+
+assistant.tutorial.form.sessions = List Sessions
+
+assistant.tutorial.form.update = Update
+assistant.tutorial.form.publish = Publish
+assistant.tutorial.form.delete = Delete
+assistant.tutorial.form.button.apply = Create Tutorial
+
+assistant.tutorial.form.error.no-sessions-on-publish = You can not publish a tutorial without sessions. Please, create a session linked to this tutorial first

@@ -1,0 +1,17 @@
+recordIndex,code,title,abstractMessage,goals,estimatedTotalTime,course
+0,,,,,,
+0,ZZ1234,,test data,test data,1.5,CC 578
+0,ZZ1234,test data,,test data,1.5,CC 578
+0,ZZ1234,test data,test data,,1.5,CC 578
+0,A,test data,test data,test data,1.5,CC 578
+0,0,test data,test data,test data,1.5,CC 578
+0,A0,test data,test data,test data,1.5,CC 578
+0,A01,test data,test data,test data,1.5,CC 578
+0,A012,test data,test data,test data,1.5,CC 578
+0,A0000,test data,test data,test data,1.5,CC 578
+0,AAAA0000,test data,test data,test data,1.5,CC 578
+0,ZZ1234,test data,test data,test data,-1.0,CC 578
+0,zz1234,test data,test data,test data,1.0,CC 578
+0,Zz1234,test data,test data,test data,1.0,CC 578
+0,ZZ1234Z,test data,test data,test data,1.0,CC 578
+0,ZZ1234,test data,test data,test data,2.5,

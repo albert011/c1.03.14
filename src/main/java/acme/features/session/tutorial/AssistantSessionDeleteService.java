@@ -37,7 +37,7 @@ public class AssistantSessionDeleteService extends AbstractService<Assistant, Se
 
 		id = super.getRequest().getData("id", int.class);
 		session = this.repository.findSessionById(id);
-		status = session != null && super.getRequest().getPrincipal().hasRole(session.getTutorial().getAssistant());
+		status = session != null && super.getRequest().getPrincipal().hasRole(session.getTutorial().getAssistant()) && session.isDraftMode();
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -78,7 +78,7 @@ public class AssistantSessionDeleteService extends AbstractService<Assistant, Se
 
 		Tuple tuple;
 
-		tuple = super.unbind(session, "title", "abstractMessage", "sessionType");
+		tuple = super.unbind(session, "title", "abstractMessage", "type");
 
 		super.getResponse().setData(tuple);
 	}
