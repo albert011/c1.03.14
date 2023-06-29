@@ -50,11 +50,11 @@ public interface LecturersCoursesRepository extends AbstractRepository {
 	@Query("select e from Enrolment e where e.course.id = :courseId")
 	Collection<Enrolment> findManyEnrolmentsByCourseId(int courseId);
 
-	@Query("select count(l) from Lecture l where l.type = 1 and l.courses.id =:coursesId")
-	Long findManyNonTheoreticalLecturesByCourseId(int coursesId);
+	@Query("select l from Lecture l where l.type = 'HANDS_ON' and l.courses.id =:coursesId")
+	Collection<Lecture> findManyNonTheoreticalLecturesByCourseId(int coursesId);
 
-	@Query("select count(l) from Lecture l where l.type = 0 and l.courses.id =:coursesId")
-	Long findManyTheoreticalLecturesByCourseId(int coursesId);
+	@Query("select l from Lecture l where l.type = 'THEORETICAL' and l.courses.id =:coursesId")
+	Collection<Lecture> findManyTheoreticalLecturesByCourseId(int coursesId);
 
 	@Query("select c from Course c where c.code = :code")
 	Course findOneCourseByCode(String code);

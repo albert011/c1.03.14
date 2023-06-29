@@ -46,15 +46,15 @@ public class LecturersCoursesPublishService extends AbstractService<Lecturer, Co
 	public void load() {
 		Course object;
 		int id;
-		Long theoreticalLectures;
-		Long handsOnLectures;
+		Collection<Lecture> theoreticalLectures;
+		Collection<Lecture> handsOnLectures;
 		LectureType lectureType;
 		id = super.getRequest().getData("id", int.class);
 
 		handsOnLectures = this.repository.findManyNonTheoreticalLecturesByCourseId(id);
 		theoreticalLectures = this.repository.findManyTheoreticalLecturesByCourseId(id);
 
-		if (handsOnLectures > theoreticalLectures)
+		if (handsOnLectures.size() > theoreticalLectures.size())
 			lectureType = LectureType.HANDS_ON;
 		else
 			lectureType = LectureType.THEORETICAL;
@@ -93,13 +93,11 @@ public class LecturersCoursesPublishService extends AbstractService<Lecturer, Co
 			super.state(lectures.isEmpty(), "*", "lecturer.course.form.error.lectures-unpublished");
 		}
 		{
-			Long lectures;
-			final long var = 0;
+			Collection<Lecture> lectures;
 
 			lectures = this.repository.findManyNonTheoreticalLecturesByCourseId(object.getId());
-			super.state(!lectures.equals(var), "*", "lecturer.course.form.error.lectures-theoretical");
+			super.state(!lectures.isEmpty(), "*", "lecturer.course.form.error.lectures-theoretical");
 		}
-		object.setType(LectureType.HANDS_ON);
 	}
 
 	@Override
@@ -107,6 +105,7 @@ public class LecturersCoursesPublishService extends AbstractService<Lecturer, Co
 		assert object != null;
 
 		object.setDraftMode(false);
+
 		this.repository.save(object);
 	}
 

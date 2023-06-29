@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
-import acme.entities.lecture.LectureType;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -41,22 +40,9 @@ public class LecturersCoursesUpdateService extends AbstractService<Lecturer, Cou
 	public void load() {
 		Course object;
 		int id;
-		Long theoreticalLectures;
-		Long handsOnLectures;
-		LectureType lectureType;
 		id = super.getRequest().getData("id", int.class);
 
-		handsOnLectures = this.repository.findManyNonTheoreticalLecturesByCourseId(id);
-		theoreticalLectures = this.repository.findManyTheoreticalLecturesByCourseId(id);
-
-		if (handsOnLectures > theoreticalLectures)
-			lectureType = LectureType.HANDS_ON;
-		else
-			lectureType = LectureType.THEORETICAL;
-
 		object = this.repository.findOneCourseById(id);
-		object.setType(lectureType);
-
 		super.getBuffer().setData(object);
 	}
 
@@ -75,7 +61,7 @@ public class LecturersCoursesUpdateService extends AbstractService<Lecturer, Cou
 
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice"))
 			super.state(object.getRetailPrice().getCurrency().equals("EUR") || object.getRetailPrice().getCurrency().equals("GBP") || object.getRetailPrice().getCurrency().equals("USD"), "retailPrice", "lecturer.lecture.form.error.currency");
-		
+
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			final Course course;
 

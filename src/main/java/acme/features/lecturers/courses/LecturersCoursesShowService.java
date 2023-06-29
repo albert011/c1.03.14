@@ -1,10 +1,13 @@
 
 package acme.features.lecturers.courses;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
+import acme.entities.lecture.Lecture;
 import acme.entities.lecture.LectureType;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -43,15 +46,15 @@ public class LecturersCoursesShowService extends AbstractService<Lecturer, Cours
 	public void load() {
 		Course object;
 		int id;
-		Long theoreticalLectures;
-		Long handsOnLectures;
+		Collection<Lecture> theoreticalLectures;
+		Collection<Lecture> handsOnLectures;
 		LectureType lectureType;
 		id = super.getRequest().getData("id", int.class);
 
 		handsOnLectures = this.repository.findManyNonTheoreticalLecturesByCourseId(id);
 		theoreticalLectures = this.repository.findManyTheoreticalLecturesByCourseId(id);
 
-		if (handsOnLectures > theoreticalLectures)
+		if (handsOnLectures.size() > theoreticalLectures.size())
 			lectureType = LectureType.HANDS_ON;
 		else
 			lectureType = LectureType.THEORETICAL;
