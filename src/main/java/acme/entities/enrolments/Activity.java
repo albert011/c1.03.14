@@ -36,6 +36,7 @@ public class Activity extends AbstractEntity {
 	@Length(max = 100)
 	protected String			abstractField;
 
+	@NotNull
 	@Enumerated(value = EnumType.STRING)
 	protected ActivityType		activityType;
 

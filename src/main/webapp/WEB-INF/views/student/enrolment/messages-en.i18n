@@ -36,5 +36,7 @@ student.enrolment.form.error.card = Incorrect Format
 student.enrolment.form.error.holder = Cannot be blank
 student.enrolment.form.error.cvc = It must have 3 digits
 student.enrolment.form.error.expiryDate = Incorrect Format
+student.enrolment.form.error.month = Month must be higher than 0 and lower or equal than 12
+student.enrolment.form.error.limit = Date must be present or future
 
 student.enrolment.form.button.activity = Activities

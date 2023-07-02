@@ -10,7 +10,8 @@
 - they accept any liabilities with respect to them.
 --%>
 
-<%@page language="java" import="acme.framework.helpers.PrincipalHelper,acme.roles.Provider,acme.roles.Consumer,acme.roles.Company,acme.roles.Lecturer"%>
+<%@page language="java"
+	import="acme.framework.helpers.PrincipalHelper,acme.roles.Provider,acme.roles.Consumer,acme.roles.Company,acme.roles.Lecturer"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
@@ -18,18 +19,31 @@
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
-		<acme:menu-option code="master.menu.BannerChange" access = "true">
-			<acme:menu-suboption code="master.menu.anonymous.foto" action="/any/banner/show"/>
+		<acme:menu-option code="master.menu.BannerChange" access="true">
+			<acme:menu-suboption code="master.menu.anonymous.foto"
+				action="/any/banner/show" />
 		</acme:menu-option>
-			
+
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.any.peeps" action="/any/peep-message/list"/>
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
-			<acme:menu-suboption code="master.menu.anonymous.vicgrabru.favourite-link" action="https://youtu.be/dQw4w9WgXcQ"/>
-			<acme:menu-suboption code="master.menu.anonymous.ferbarbar1.favourite-link" action="https://www.instagram.com/duki/?hl=es"/>
-			<acme:menu-suboption code="master.menu.anonymous.alvsanflo1.favourite-link" action="https://www.realmadrid.com/"/>
-			<acme:menu-suboption code="master.menu.anonymous.student3.favourite-link" action="https://www.shodan.io/"/>
-			<acme:menu-suboption code="master.menu.anonymous.gonsanmar2.favourite-link" action="https://open.spotify.com/playlist/37i9dQZF1DX2apWzyECwyZ?si=892688190c8e455f"/>
+			<acme:menu-suboption code="master.menu.any.peeps"
+				action="/any/peep-message/list" />
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link"
+				action="http://www.example.com/" />
+			<acme:menu-suboption
+				code="master.menu.anonymous.vicgrabru.favourite-link"
+				action="https://youtu.be/dQw4w9WgXcQ" />
+			<acme:menu-suboption
+				code="master.menu.anonymous.ferbarbar1.favourite-link"
+				action="https://www.instagram.com/duki/?hl=es" />
+			<acme:menu-suboption
+				code="master.menu.anonymous.alvsanflo1.favourite-link"
+				action="https://www.realmadrid.com/" />
+			<acme:menu-suboption
+				code="master.menu.anonymous.student3.favourite-link"
+				action="https://www.shodan.io/" />
+			<acme:menu-suboption
+				code="master.menu.anonymous.gonsanmar2.favourite-link"
+				action="https://open.spotify.com/playlist/37i9dQZF1DX2apWzyECwyZ?si=892688190c8e455f" />
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
@@ -44,13 +58,17 @@
 			<acme:menu-suboption code="master.menu.administrator.currency" action="/administrator/currency/show"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
-		</acme:menu-option>
-		
 
-		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
-			<acme:menu-suboption code="master.menu.student.enrolment" action="/student/enrolment/list-mine"/>
-			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.student.course" action="/student/course/list-all"/>
+		</acme:menu-option>
+
+
+		<acme:menu-option code="master.menu.student"
+			access="hasRole('Student')">
+			<acme:menu-suboption code="master.menu.student.enrolment"
+				action="/student/enrolment/list-mine" />
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.student.course"
+				action="/student/course/list-all" />
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
@@ -58,7 +76,8 @@
 		</acme:menu-option>		
 
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
-			<acme:menu-suboption code="master.menu.any.peeps" action="/any/peep-message/list"/>
+			<acme:menu-suboption code="master.menu.any.peeps"
+				action="/any/peep-message/list" />
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
@@ -69,26 +88,34 @@
 			<acme:menu-suboption code="master.menu.authenticated.offers.list" action="/authenticated/offer/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.practicum.list" action="/authenticated/practicum/list"/>
+
 		</acme:menu-option>
-		
-		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
-			<acme:menu-suboption code="master.menu.assistant.tutorials" action="/assistant/tutorial/list"/>
+
+		<acme:menu-option code="master.menu.assistant"
+			access="hasRole('Assistant')">
+			<acme:menu-suboption code="master.menu.assistant.tutorials"
+				action="/assistant/tutorial/list" />
 		</acme:menu-option>
 
 
-		<acme:menu-option code="master.menu.lecturer" access="hasRole('Lecturer')">			
-			<acme:menu-suboption code="master.menu.lecturer.my-lectures" action="/lecturer/lecture/list-mine"/>
-			<acme:menu-suboption code="master.menu.lecturer.my-courses" action="/lecturer/course/list-mine"/>			
+		<acme:menu-option code="master.menu.lecturer"
+			access="hasRole('Lecturer')">
+			<acme:menu-suboption code="master.menu.lecturer.my-lectures"
+				action="/lecturer/lecture/list-mine" />
+			<acme:menu-suboption code="master.menu.lecturer.my-courses"
+				action="/lecturer/course/list-mine" />
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.company" access="hasRole('Company')">			
 			<acme:menu-suboption code="master.menu.company.practicum.list-mine" action="/company/practicum/list-mine"/>			
+
 		</acme:menu-option>
 
 
 	</acme:menu-left>
 
 	<acme:menu-right>
+    
 		<acme:menu-option code="master.menu.sign-up" action="/anonymous/user-account/create" access="isAnonymous()"/>
 		<acme:menu-option code="master.menu.sign-in" action="/master/sign-in" access="isAnonymous()"/>
 
@@ -112,9 +139,11 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.user-account.become-lecturer" action="/authenticated/lecturer/create" access="!hasRole('Lecturer')"/>
 			<acme:menu-suboption code="master.menu.user-account.lecturer" action="/authenticated/lecturer/update" access="hasRole('Lecturer')"/>
+
 		</acme:menu-option>
 
-		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
+		<acme:menu-option code="master.menu.sign-out"
+			action="/master/sign-out" access="isAuthenticated()" />
 	</acme:menu-right>
 </acme:menu-bar>
 

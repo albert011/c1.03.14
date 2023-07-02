@@ -17,3 +17,4 @@ student.course.form.label.isTheoretical = IsTheoretical
 student.course.form.label.link = Link
 
 student.activity.form.button.list = See Lectures
+student.course.form.label.type = Course Type
