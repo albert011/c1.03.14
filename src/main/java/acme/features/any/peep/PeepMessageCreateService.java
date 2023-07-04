@@ -1,10 +1,10 @@
 
-package acme.features.messages.peep;
+package acme.features.any.peep;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.messages.PeepMessage;
+import acme.entities.peep.PeepMessage;
 import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;

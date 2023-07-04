@@ -1,28 +1,28 @@
 
-package acme.features.messages.peep;
+package acme.features.authenticated.bulletin;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.messages.PeepMessage;
-import acme.framework.components.accounts.Any;
+import acme.entities.bulletin.BulletinMessage;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-public class PeepMessageController extends AbstractController<Any, PeepMessage> {
+public class BulletinMessageController extends AbstractController<Authenticated, BulletinMessage> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected PeepMessageListService	listService;
+	protected BulletinMessageListService	listService;
 
 	@Autowired
-	protected PeepMessageShowService	showService;
+	protected BulletinMessageShowService	showService;
 
 	@Autowired
-	protected PeepMessageCreateService	createService;
+	protected BulletinMessageCreateService	createService;
 
 	// Constructors -----------------------------------------------------------
 

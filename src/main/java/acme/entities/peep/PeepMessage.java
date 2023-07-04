@@ -1,11 +1,12 @@
 
-package acme.entities.messages;
+package acme.entities.peep;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -21,7 +22,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class BulletinMessage extends AbstractEntity {
+public class PeepMessage extends AbstractEntity {
 
 	/**
 	 * 
@@ -45,6 +46,11 @@ public class BulletinMessage extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	protected boolean			isCritical;
+	@Email
+	protected String			email;
+
+	@NotBlank
+	@Size(max = 75)
+	protected String			nickname;
 
 }
