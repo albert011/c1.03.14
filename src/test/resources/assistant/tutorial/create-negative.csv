@@ -15,3 +15,7 @@ recordIndex,code,title,abstractMessage,goals,estimatedTotalTime,course
 0,Zz1234,test data,test data,test data,1.0,CC 578
 0,ZZ1234Z,test data,test data,test data,1.0,CC 578
 0,ZZ1234,test data,test data,test data,2.5,
+0,ZZ1234,Suspendisse et feugiat lectus. Lorem ipsum dolor sit amet; consectetur biam.,test data,test data,1.0,CC 578
+0,ZZ1234,test data,Lorem ipsum dolor sit amet; consectetur adipiscing elit. Aenean iaculis; ligula a sollicitudin metus.,test data, 1.0,CC 578
+0,ZZ1234,test data,test data,Lorem ipsum dolor sit amet; consectetur adipiscing elit. Aenean iaculis; ligula a sollicitudin metus.,1.0,CC 578
+0,ZZ1234,Suspendisse et feugiat lectus. Lorem ipsum dolor sit amet; consectetur biam.,Lorem ipsum dolor sit amet; consectetur adipiscing elit. Aenean iaculis; ligula a sollicitudin metus.,Lorem ipsum dolor sit amet; consectetur adipiscing elit. Aenean iaculis; ligula a sollicitudin metus.,1.0,CC 578

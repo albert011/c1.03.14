@@ -47,7 +47,7 @@ public class PeepPublishAuthenticatedTest extends TestHarness {
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/peep/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/peep/create-authenticated-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String title, final String message, final String instantiation, final String link, final String email, final String nickName) {
 		// HINT: this test attempts to create jobs with incorrect data.
 

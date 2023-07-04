@@ -4,6 +4,7 @@ package acme.testing.assistant.tutorial;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.entities.course.Course;
@@ -33,8 +34,15 @@ public class AssistantTutorialCRUDTest extends TestHarness {
 		super.fillInputBoxIn("course", course);
 		super.clickOnSubmit("Create Tutorial");
 
-		super.clickOnMenu("Assistant", "Tutorials");
-		super.checkListingExists();
+		//A veces selenium no soporta la carga del hilo y devuelve el error siguiente
+		try {
+			super.clickOnMenu("Assistant", "Tutorials");
+			super.checkListingExists();
+		} catch (final StaleElementReferenceException e) {
+			// TODO Auto-generated catch block
+			super.clickOnMenu("Assistant", "Tutorials");
+			super.checkListingExists();
+		}
 
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, title);
