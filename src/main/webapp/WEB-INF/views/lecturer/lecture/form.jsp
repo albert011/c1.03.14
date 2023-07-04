@@ -6,8 +6,6 @@
 <acme:form>
 	<acme:input-textbox code="lecturer.lecture.form.label.title"
 		path="title" />
-	<acme:input-select code="lecturer.lecture.form.label.course"
-		path="courses" choices="${courses}" />
 	<acme:input-textbox code="lecturer.lecture.form.label.Abstract"
 		path="Abstract" />
 	<acme:input-double code="lecturer.lecture.form.label.estimatedLearningTime"

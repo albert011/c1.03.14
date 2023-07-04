@@ -16,8 +16,12 @@
 	<acme:input-textbox code="lecturer.course.form.label.type" path="type" readonly="true"/>
 	<acme:input-url code="lecturer.course.form.label.link" path="link" />
 	<jstl:choose>
+		<jstl:when test="${_command == 'show' && draftMode == false}">
+		<acme:button code="lecturer.course.form.button.lectures-in-course" action="/lecturer/lecture/list-mine?courseId=${id}"/>
+		</jstl:when>
 		<jstl:when
 			test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
+			<acme:button code="lecturer.course.form.button.lectures-in-course" action="/lecturer/course-lecture/list-mine?courseId=${id}"/>
 			<acme:submit code="lecturer.course.form.button.update"
 				action="/lecturer/course/update" />
 			<acme:submit code="lecturer.course.form.button.delete"

@@ -8,8 +8,6 @@
 		width="20%" />
 	<acme:list-column code="lecturer.course.list.label.title"
 		path="title" width="20%" />
-	<acme:list-column code="lecturer.course.list.label.type"
-		path="type" width="20%" />
 </acme:list>
 
 <jstl:if test="${_command == 'list-mine'}">

@@ -1,11 +1,11 @@
-key,code,title,Abstract,retail-price,type,link,draftMode
-course-01,A 123,a,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7AN9n7WFMmP9SHRaw4,"EUR 16.99",THEORETICAL,https://google.com/,true
-course-02,B 123,aa,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7AN9n7WFMmP9SHRaw,"EUR 15.98",THEORETICAL,https://google.com/,true
-course-03,CC 578,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPYTWAnDzq3ivxj3rgbKzPRudHT,a,"EUR 100.75",THEORETICAL,,true
-course-04,FF 578,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPYTWAnDzq3ivxj3rgbKzPRudH,aa,"EUR 10.99",THEORETICAL,https://google.com/,false
-course-05,GHJ 800,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPYTWAnDzq3ivxj3rgbKzPRudHT,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefD,"EUR 6.50",THEORETICAL,https://google.com/,false
-course-06,KJA 000,m6HSEw4f4pdqPELHLaVJUypbur,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7AN9n7WFMmP9SHRaw4,"EUR 96.99",THEORETICAL,,false
-course-07,KAI 075,m6HSEw4f4pdqPELHLaVJUypburaTNVX,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdS,"EUR 1.29",THEORETICAL,,false
-course-08,OLK 865,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fi,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7A,"EUR 6.59",THEORETICAL,,false
-course-09,OKP 011,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDv,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7AN9n7WFMmP9SHRaw4,"EUR 19.00",THEORETICAL,https://google.com/,true
-course-10,JBD 007,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPY,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7AN9n7WFMmP9SHRaw4,"EUR 1.99",THEORETICAL,https://google.com/,true
+key,code,title,Abstract,retail-price,type,link,draftMode,key:lecturer
+course-01,A 123,a,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7AN9n7WFMmP9SHRaw4,"EUR 16.99",THEORETICAL,https://google.com/,true,lecturer-01
+course-02,B 123,aa,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7AN9n7WFMmP9SHRaw,"EUR 15.98",THEORETICAL,https://google.com/,true,lecturer-02
+course-03,CC 578,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPYTWAnDzq3ivxj3rgbKzPRudHT,a,"EUR 100.75",THEORETICAL,,true,lecturer-03
+course-04,FF 578,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPYTWAnDzq3ivxj3rgbKzPRudH,aa,"EUR 10.99",THEORETICAL,https://google.com/,true,lecturer-01
+course-05,GHJ 800,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPYTWAnDzq3ivxj3rgbKzPRudHT,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefD,"EUR 6.50",THEORETICAL,https://google.com/,false,lecturer-05
+course-06,KJA 000,m6HSEw4f4pdqPELHLaVJUypbur,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7AN9n7WFMmP9SHRaw4,"EUR 96.99",THEORETICAL,,false,lecturer-05
+course-07,KAI 075,m6HSEw4f4pdqPELHLaVJUypburaTNVX,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdS,"EUR 1.29",THEORETICAL,,false,lecturer-02
+course-08,OLK 865,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fi,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7A,"EUR 6.59",THEORETICAL,,false,lecturer-02
+course-09,OKP 011,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDv,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7AN9n7WFMmP9SHRaw4,"EUR 19.00",THEORETICAL,https://google.com/,true,lecturer-03
+course-10,JBD 007,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPY,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7AN9n7WFMmP9SHRaw4,"EUR 1.99",THEORETICAL,https://google.com/,true,lecturer-06
