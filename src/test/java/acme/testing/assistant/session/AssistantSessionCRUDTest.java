@@ -4,6 +4,7 @@ package acme.testing.assistant.session;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.entities.session.SessionTutorial;
@@ -33,8 +34,16 @@ public class AssistantSessionCRUDTest extends TestHarness {
 			super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Create Session");
 
-		super.clickOnMenu("Assistant", "Sessions");
-		super.checkListingExists();
+		//A veces selenium no soporta la carga del hilo y devuelve el error siguiente
+		try {
+			super.clickOnMenu("Assistant", "Sessions");
+			super.checkListingExists();
+		} catch (final StaleElementReferenceException e) {
+			// TODO Auto-generated catch block
+			super.clickOnMenu("Assistant", "Sessions");
+			super.checkListingExists();
+		}
+
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, title);
 		super.checkColumnHasValue(recordIndex, 1, abstractMessage);
