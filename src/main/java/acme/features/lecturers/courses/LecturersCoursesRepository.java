@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import acme.entities.audit.Audit;
 import acme.entities.audit.AuditRecord;
 import acme.entities.course.Course;
-import acme.entities.course.CoursesLectures;
+import acme.entities.course.CourseLecture;
 import acme.entities.enrolments.Activity;
 import acme.entities.enrolments.Enrolment;
 import acme.entities.lecture.Lecture;
@@ -23,8 +23,8 @@ public interface LecturersCoursesRepository extends AbstractRepository {
 	@Query("select c from Course c where c.lecturer.id = :id")
 	Collection<Course> findCoursesByLecturer(int id);
 
-	@Query("select cl from CoursesLectures cl where cl.course.id = :coursesId")
-	Collection<CoursesLectures> findCourseLectureByCourse(int coursesId);
+	@Query("select cl from CourseLecture cl where cl.course.id = :coursesId")
+	Collection<CourseLecture> findCourseLectureByCourse(int coursesId);
 
 	@Query("select c from Course c where c.id = :id")
 	Course findOneCourseById(int id);
@@ -38,13 +38,13 @@ public interface LecturersCoursesRepository extends AbstractRepository {
 	@Query("select l from Lecturer l where l.id = :id")
 	Lecturer findOneLecturerById(int id);
 
-	@Query("select cl.lecture from CoursesLectures cl where cl.course.id = :courseId")
+	@Query("select cl.lecture from CourseLecture cl where cl.course.id = :courseId")
 	Collection<Lecture> findManyLecturesByCourseId(int courseId);
 
-	@Query("SELECT cl.lecture FROM CoursesLectures cl JOIN cl.lecture l JOIN cl.course c WHERE c.id = :courseId AND l.draftMode=true")
+	@Query("SELECT cl.lecture FROM CourseLecture cl JOIN cl.lecture l JOIN cl.course c WHERE c.id = :courseId AND l.draftMode=true")
 	Collection<Lecture> findManyLecturesUnpublishedByCourse(int courseId);
 
-	@Query("SELECT cl.lecture FROM CoursesLectures cl JOIN cl.lecture l JOIN cl.course c WHERE c.id = :courseId AND l.type='HANDS_ON'")
+	@Query("SELECT cl.lecture FROM CourseLecture cl JOIN cl.lecture l JOIN cl.course c WHERE c.id = :courseId AND l.type='HANDS_ON'")
 	Collection<Lecture> findManyNonTheoreticalLecturesByCourseId(int courseId);
 
 	@Query("select a from Audit a where a.course.id = :courseId")

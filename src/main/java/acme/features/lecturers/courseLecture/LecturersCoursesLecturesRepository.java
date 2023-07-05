@@ -1,5 +1,5 @@
 
-package acme.features.lecturers.coursesLectures;
+package acme.features.lecturers.courseLecture;
 
 import java.util.Collection;
 
@@ -7,15 +7,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.course.Course;
-import acme.entities.course.CoursesLectures;
+import acme.entities.course.CourseLecture;
 import acme.entities.lecture.Lecture;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Lecturer;
 
 @Repository
 public interface LecturersCoursesLecturesRepository extends AbstractRepository {
 
-	@Query("select l from CoursesLectures l where l.lecture.lecturer.id = :lecturerId")
-	Collection<CoursesLectures> findManyCoursesLecturesByLecturerId(int lecturerId);
+	@Query("select l from CourseLecture l where l.lecture.lecturer.id = :lecturerId")
+	Collection<CourseLecture> findManyCoursesLecturesByLecturerId(int lecturerId);
 
 	@Query("select c from Course c where c.lecturer.id = :id")
 	Collection<Course> findCoursesByLecturer(int id);
@@ -23,16 +24,16 @@ public interface LecturersCoursesLecturesRepository extends AbstractRepository {
 	@Query("select c from Course c where c.id = :courseId")
 	Course findCourseById(int courseId);
 
-	@Query("select cl from CoursesLectures cl where cl.id = :id")
-	CoursesLectures findCourseLectureById(int id);
+	@Query("select cl from CourseLecture cl where cl.id = :id")
+	CourseLecture findCourseLectureById(int id);
 
 	@Query("select l from Lecture l where l.id = :lectureId")
 	Lecture findLectureById(int lectureId);
 
-	@Query("select cl from CoursesLectures cl where cl.course.id = :courseId")
-	Collection<CoursesLectures> findManyCoursesLecturesByCourseId(int courseId);
+	@Query("select cl from CourseLecture cl where cl.course.id = :courseId")
+	Collection<CourseLecture> findManyCoursesLecturesByCourseId(int courseId);
 
-	@Query("select cl.lecture from CoursesLectures cl where cl.course.id = :id")
+	@Query("select cl.lecture from CourseLecture cl where cl.course.id = :id")
 	Collection<Lecture> findLecturesByCourseId(int id);
 
 	@Query("select c from Course c where c.lecturer.id = :id")
@@ -40,4 +41,7 @@ public interface LecturersCoursesLecturesRepository extends AbstractRepository {
 
 	@Query("select l from Lecture l where l.lecturer.id = :id")
 	Collection<Lecture> findManyLecturesByLecturerId(int id);
+
+	@Query("select c.lecturer from Course c where c.id = :courseId")
+	Lecturer findCourseOwnerByCourseId(int courseId);
 }

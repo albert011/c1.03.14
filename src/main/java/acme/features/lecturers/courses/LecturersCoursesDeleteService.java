@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.audit.Audit;
 import acme.entities.audit.AuditRecord;
 import acme.entities.course.Course;
-import acme.entities.course.CoursesLectures;
+import acme.entities.course.CourseLecture;
 import acme.entities.enrolments.Activity;
 import acme.entities.enrolments.Enrolment;
 import acme.entities.lecture.Lecture;
@@ -76,7 +76,7 @@ public class LecturersCoursesDeleteService extends AbstractService<Lecturer, Cou
 	public void perform(final Course object) {
 		assert object != null;
 
-		Collection<CoursesLectures> courseLecture;
+		Collection<CourseLecture> courseLecture;
 		List<Audit> audits;
 		List<Enrolment> enrolments;
 		Collection<Activity> activities;

@@ -16,7 +16,7 @@ lecturer.course.form.button.update = Update
 lecturer.course.form.button.delete = Delete
 lecturer.course.form.button.publish = Publish
 lecturer.course.form.button.create = Create
-
+lecturer.course.form.button.lectures-in-course = Lectures in this course
 
 lecturer.course.form.error.lectures-unpublished = You can't publish a course until all the lectures are published
 lecturer.course.form.error.lectures-theoretical = You can't publish a purely theoretical course

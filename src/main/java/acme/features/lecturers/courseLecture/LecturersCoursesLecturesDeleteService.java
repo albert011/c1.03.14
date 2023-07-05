@@ -1,5 +1,5 @@
 
-package acme.features.lecturers.coursesLectures;
+package acme.features.lecturers.courseLecture;
 
 import java.util.Collection;
 
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
-import acme.entities.course.CoursesLectures;
+import acme.entities.course.CourseLecture;
 import acme.entities.lecture.Lecture;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -15,10 +15,12 @@ import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturersCoursesLecturesShowService extends AbstractService<Lecturer, CoursesLectures> {
+public class LecturersCoursesLecturesDeleteService extends AbstractService<Lecturer, CourseLecture> {
 
 	@Autowired
 	protected LecturersCoursesLecturesRepository repository;
+
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -34,28 +36,52 @@ public class LecturersCoursesLecturesShowService extends AbstractService<Lecture
 	public void authorise() {
 		boolean status;
 		int courseLectureId;
-		CoursesLectures courseLecture;
+		CourseLecture courseLecture;
 
 		courseLectureId = super.getRequest().getData("id", int.class);
 		courseLecture = this.repository.findCourseLectureById(courseLectureId);
-		status = courseLecture != null ? super.getRequest().getPrincipal().getActiveRoleId() == courseLecture.getCourse().getLecturer().getId() : false;
+		status = courseLecture != null && super.getRequest().getPrincipal().getActiveRoleId() == courseLecture.getCourse().getLecturer().getId();
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		CoursesLectures object;
+		CourseLecture object;
 		int id;
-
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findCourseLectureById(id);
-
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final CoursesLectures object) {
+	public void bind(final CourseLecture object) {
+		assert object != null;
+		final CourseLecture courseLecture = this.repository.findCourseLectureById(object.getId());
+		object.setCourse(courseLecture.getCourse());
+		object.setLecture(courseLecture.getLecture());
+	}
+
+	@Override
+	public void validate(final CourseLecture object) {
+		assert object != null;
+		super.state(object.getCourse().isDraftMode(), "*", "lecturer.course-lecture.form.error.course-not-draft-mode");
+
+		// Opposite of update and create (without "!")
+		final Collection<Lecture> lecturesInCourse = this.repository.findLecturesByCourseId(object.getCourse().getId());
+		super.state(lecturesInCourse.contains(object.getLecture()), "lecture", "lecturer.course-lecture.form.error.cant-delete-lecture-not-in-course");
+
+	}
+
+	@Override
+	public void perform(final CourseLecture object) {
+		assert object != null;
+
+		this.repository.delete(object);
+	}
+
+	@Override
+	public void unbind(final CourseLecture object) {
 		assert object != null;
 
 		Tuple tuple = new Tuple();
@@ -63,7 +89,7 @@ public class LecturersCoursesLecturesShowService extends AbstractService<Lecture
 		tuple = super.unbind(object, "id");
 		final Collection<Course> courses = this.repository.findManyCoursesByLecturerId(lecturerId);
 		final Collection<Lecture> lectures = this.repository.findManyLecturesByLecturerId(lecturerId);
-		tuple.put("editable", object.getCourse().isDraftMode());
+		tuple.put("draftMode", object.getCourse().isDraftMode());
 		tuple.put("courses", SelectChoices.from(courses, "code", object.getCourse()));
 		tuple.put("lectures", SelectChoices.from(lectures, "title", object.getLecture()));
 		super.getResponse().setData(tuple);

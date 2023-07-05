@@ -1,29 +1,31 @@
-
 <%@page language="java"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
-<acme:form readonly="${!draftMode}">
-
-	<acme:input-select path="course" code="lecturer.coursesLectures.form.label.course-code" choices="${courses}" readonly="true"/>
-	<acme:input-select path="lecture" code="lecturer.coursesLectures.form.label.lecture-code" choices="${lectures}"/>
-
-	
+<acme:form>
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
-			<acme:submit code="lecturer.coursesLectures.form.button.update" action="/lecturer/course-lecture/update"/>
-			<acme:submit code="lecturer.coursesLectures.form.button.delete" action="/lecturer/course-lecture/delete"/>
-			<acme:button code="lecturer.coursesLectures.form.button.show-lecture-details" action="/lecturer/lecture/show?id=${lectureId}"/>
+		<jstl:when test="${acme:anyOf(_command, 'show|delete')}">
+		<acme:input-select
+				code="lecturer.course-lecture.form.label.courseCode" path="course"
+				choices="${courses}" readonly="true" />
+			<acme:input-select
+				code="lecturer.course-lecture.form.label.lectureTitle"
+				path="lecture" choices="${lectures}" readonly="true" />
+			<acme:submit code="lecturer.course-lecture.form.button.delete"
+				action="/lecturer/course-lecture/delete" />
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="lecturer.coursesLectures.form.button.attach-to-course" action="/lecturer/course-lecture/create?coursesId=${courseId}"/>
-			<br>
-			<br>
-			<h3><acme:message code="lecturer.coursesLectures.form.cant-you-find-the-lecture"/></h3>
+		<acme:input-select
+				code="lecturer.course-lecture.form.label.courseCode" path="course"
+				choices="${courses}" readonly="true" />
+			<acme:input-select
+				code="lecturer.course-lecture.form.label.lectureTitle"
+				path="lecture" choices="${lectures}" />
+			<acme:submit code="lecturer.course-lecture.form.button.add-lectures"
+				action="/lecturer/course-lecture/create?courseId=${courseId}" />
 			
-			<acme:button code="lecturer.coursesLectures.form.button.create-new-lecture" action="/lecturer/lecture/create"/>
-		</jstl:when>		
-	</jstl:choose>		
+		</jstl:when>
+	</jstl:choose>
 </acme:form>
 

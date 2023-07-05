@@ -1,0 +1,12 @@
+lecturer.course-lecture.list.label.courseCode = Course code:
+lecturer.course-lecture.list.label.lectureTitle = Lecture title:
+
+lecturer.course-lecture.form.label.courseCode = Course code:
+lecturer.course-lecture.form.label.lectureTitle = Lecture Title:
+
+lecturer.course-lecture.form.button.update = Update
+lecturer.course-lecture.form.button.delete = Delete
+lecturer.course-lecture.form.button.add-lectures = Create
+
+lecturer.course-lecture.form.error.course-not-draft-mode = You can't add lectures to a course that is already published!
+lecturer.course-lecture.form.error.duplicated-course-lecture = This course already have this lecture

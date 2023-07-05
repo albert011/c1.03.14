@@ -1,5 +1,5 @@
 
-package acme.features.lecturers.coursesLectures;
+package acme.features.lecturers.courseLecture;
 
 import java.util.Collection;
 
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
-import acme.entities.course.CoursesLectures;
+import acme.entities.course.CourseLecture;
 import acme.entities.lecture.Lecture;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -15,7 +15,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturersCoursesLecturesUpdateService extends AbstractService<Lecturer, CoursesLectures> {
+public class LecturersCoursesLecturesShowService extends AbstractService<Lecturer, CourseLecture> {
 
 	@Autowired
 	protected LecturersCoursesLecturesRepository repository;
@@ -34,18 +34,18 @@ public class LecturersCoursesLecturesUpdateService extends AbstractService<Lectu
 	public void authorise() {
 		boolean status;
 		int courseLectureId;
-		CoursesLectures courseLecture;
+		CourseLecture courseLecture;
 
 		courseLectureId = super.getRequest().getData("id", int.class);
 		courseLecture = this.repository.findCourseLectureById(courseLectureId);
-		status = courseLecture != null ? super.getRequest().getPrincipal().getActiveRoleId() == courseLecture.getCourse().getLecturer().getId() : false;
+		status = courseLecture != null && super.getRequest().getPrincipal().getActiveRoleId() == courseLecture.getCourse().getLecturer().getId();
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		CoursesLectures object;
+		CourseLecture object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
@@ -55,27 +55,9 @@ public class LecturersCoursesLecturesUpdateService extends AbstractService<Lectu
 	}
 
 	@Override
-	public void bind(final CoursesLectures object) {
+	public void unbind(final CourseLecture object) {
 		assert object != null;
-		final CoursesLectures courseLecture = this.repository.findCourseLectureById(object.getId());
-		object.setCourse(courseLecture.getCourse());
-		object.setLecture(courseLecture.getLecture());
-	}
 
-	@Override
-	public void validate(final CoursesLectures object) {
-		assert object != null;
-	}
-
-	@Override
-	public void perform(final CoursesLectures object) {
-		assert object != null;
-		this.repository.save(object);
-	}
-
-	@Override
-	public void unbind(final CoursesLectures object) {
-		assert object != null;
 		Tuple tuple = new Tuple();
 		final int lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
 		tuple = super.unbind(object, "id");

@@ -6,7 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.course.CoursesLectures;
+import acme.entities.course.CourseLecture;
 import acme.entities.lecture.Lecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -69,7 +69,7 @@ public class LecturersLecturesDeleteService extends AbstractService<Lecturer, Le
 	public void perform(final Lecture object) {
 		assert object != null;
 
-		Collection<CoursesLectures> courseLectures;
+		Collection<CourseLecture> courseLectures;
 
 		courseLectures = this.repository.findManyCoursesLecturesByLectureId(object.getId());
 		this.repository.deleteAll(courseLectures);
