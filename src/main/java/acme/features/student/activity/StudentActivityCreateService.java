@@ -1,14 +1,14 @@
 
 package acme.features.student.activity;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Activity;
+import acme.entities.enrolments.Activity.ActivityType;
+import acme.framework.components.accounts.Principal;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
-import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
@@ -28,7 +28,17 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+
+		final boolean status;
+		final Principal principal;
+		final int masterId;
+
+		masterId = super.getRequest().getData("enrolment", int.class);
+		principal = super.getRequest().getPrincipal();
+
+		status = this.repository.findStudentByEnrolment(masterId).getId() == principal.getActiveRoleId();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -46,16 +56,12 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	@Override
 	public void bind(final Activity object) {
 		assert object != null;
-
 		super.bind(object, "title", "abstractField", "activityType", "startPeriod", "endPeriod", "link");
 	}
 
 	@Override
 	public void validate(final Activity object) {
 		assert object != null;
-		final Date moment = MomentHelper.getCurrentMoment();
-		if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
-			super.state(!moment.after(object.getStartPeriod()), "startPeriod", "student.activity.form.error.moment");
 		if (!super.getBuffer().getErrors().hasErrors("endPeriod"))
 			super.state(object.getEndPeriod().after(object.getStartPeriod()), "endPeriod", "student.activity.form.error.endPeriod");
 	}
@@ -71,10 +77,20 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	public void unbind(final Activity object) {
 		assert object != null;
 		Tuple tuple;
+		SelectChoices choices;
 
-		tuple = super.unbind(object, "title", "abstractField", "activityType", "startPeriod", "endPeriod", "link");
+		boolean finalised = false;
 
+		if (object.getEnrolment().getHolderName() != null && !object.getEnrolment().getHolderName().isEmpty())
+			finalised = true;
+
+		choices = SelectChoices.from(ActivityType.class, object.getActivityType());
+		tuple = super.unbind(object, "title", "abstractField", "startPeriod", "endPeriod", "link");
+		tuple.put("activityType", choices.getSelected().getKey());
+		tuple.put("activityTypes", choices);
+		tuple.put("finalised", finalised);
 		super.getResponse().setData(tuple);
+		super.getResponse().setGlobal("enrolment", object.getEnrolment().getId());
 	}
 
 }

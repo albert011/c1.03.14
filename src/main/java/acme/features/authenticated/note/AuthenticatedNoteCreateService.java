@@ -44,8 +44,6 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 
 		Date moment;
 		String principal;
-		final String name;
-		final String surname;
 
 		principal = super.getRequest().getPrincipal().getUsername();
 		moment = MomentHelper.getCurrentMoment();

@@ -16,35 +16,35 @@ public class CompanyPracticumSessionController extends AbstractController<Compan
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected CompanyPracticumSessionShowService	showService;
+	protected CompanyPracticumSessionListService			listService;
 
 	@Autowired
-	protected CompanyPracticumSessionCreateService	createService;
+	protected CompanyPracticumSessionShowService			showService;
 
 	@Autowired
-	protected CompanyPracticumSessionUpdateService	updateService;
+	protected CompanyPracticumSessionCreateService			createService;
 
 	@Autowired
-	protected CompanyPracticumSessionDeleteService	deleteService;
+	protected CompanyPracticumSessionUpdateService			updateService;
 
 	@Autowired
-	protected CompanyPracticumSessionListService	listService;
+	protected CompanyPracticumSessionDeleteService			deleteService;
 
 	@Autowired
-	protected CompanyPracticumSessionPublishService	publishService;
+	protected CompanyPracticumSessionCreateAddendumService	createAddencumService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
+		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
 
-		super.addCustomCommand("list-mine", "list", this.listService);
-		super.addCustomCommand("publish", "update", this.publishService);
+		super.addCustomCommand("create-addendum", "create", this.createAddencumService);
 	}
 
 }

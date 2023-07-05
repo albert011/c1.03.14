@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Activity;
+import acme.entities.enrolments.Activity.ActivityType;
 import acme.framework.components.accounts.Principal;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -56,16 +58,18 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	@Override
 	public void bind(final Activity object) {
 		assert object != null;
-
+		final ActivityType activityType;
+		//activityType = this.repository.findActivityTypeById(object.getId());
 		super.bind(object, "title", "abstractField", "activityType", "startPeriod", "endPeriod", "link");
+		//object.setActivityType(activityType);
 	}
 
 	@Override
 	public void validate(final Activity object) {
 		assert object != null;
-
+		if (!super.getBuffer().getErrors().hasErrors("endPeriod"))
+			super.state(object.getEndPeriod().after(object.getStartPeriod()), "endPeriod", "student.activity.form.error.endPeriod");
 	}
-
 	@Override
 	public void perform(final Activity object) {
 		assert object != null;
@@ -78,9 +82,18 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 		assert object != null;
 
 		Tuple tuple;
+		SelectChoices activityTypes;
+		boolean finalised = false;
 
-		tuple = super.unbind(object, "title", "abstractField", "activityType", "startPeriod", "endPeriod", "link");
+		activityTypes = SelectChoices.from(ActivityType.class, object.getActivityType());
 
+		if (object.getEnrolment().getHolderName() != null && !object.getEnrolment().getHolderName().isEmpty())
+			finalised = true;
+
+		tuple = super.unbind(object, "title", "abstractField", "startPeriod", "endPeriod", "link");
+		tuple.put("finalised", finalised);
+		tuple.put("activityType", activityTypes.getSelected().getKey());
+		tuple.put("activityTypes", activityTypes);
 		super.getResponse().setData(tuple);
 	}
 }

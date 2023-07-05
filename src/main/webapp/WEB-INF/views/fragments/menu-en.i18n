@@ -67,6 +67,7 @@ master.menu.lecturer.my-courses = List my courses
 
 master.menu.company = Company
 master.menu.company.practicum.list-mine = List my practicums
+master.menu.company.practicum-session.list-mine = List my practicum sessions
 
 # master.menu.user-account ####################################################
 
@@ -78,10 +79,6 @@ master.menu.user-account.auditor = Auditor data
 master.menu.user-account.become-auditor = Become an auditor
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
-
-# master.menu.any ##############################################
-master.menu.any = Any Role
-master.menu.any.peeps = Peep messages
 master.menu.user-account.student = Student data
 master.menu.user-account.become-student = Become a student
 master.menu.user-account.lecturer = Lecturer data
@@ -89,19 +86,23 @@ master.menu.user-account.become-lecturer = Become a lecturer
 master.menu.user-account.company = Company data
 master.menu.user-account.become-company = Become a company
 
+# master.menu.any ##############################################
+master.menu.any = Any Role
+master.menu.any.peeps = Peep messages
 
 # master.menu.student ####################################################
 
 master.menu.student = Student
 master.menu.student.enrolment = Enrolment
-master.menu.student.course = Curse
+master.menu.student.course = Course
 
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Authenticated
-master.menu.authenticated.offer.list = List offers
+master.menu.authenticated.offers.list = List offers
 master.menu.authenticated.bulletins = Bulletin messages
 master.menu.authenticated.tutorials = Tutorials
+master.menu.authenticated.practicum.list = List practicums
 
 # master.menu.assistant ##############################################
 master.menu.assistant = Assistant

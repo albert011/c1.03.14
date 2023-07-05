@@ -13,5 +13,4 @@ administrator.currency.form.label.acceptedCurrencies = Monedas aceptadas
 
 administrator.currency.form.button.update = Actualizar
 
-administrator.currency.form.error.non-string-system-currency = La moneda del sistema debe ser un literal
-administrator.currency.form.error.non-string-accepted-currencies = Las monedas aceptadas deben ser un literal
+administrator.currency.form.error.currency-not-accepted = Moneda no aceptada

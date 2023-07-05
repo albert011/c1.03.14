@@ -6,7 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.offer.Offer;
+import acme.entities.offers.Offer;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -14,12 +14,8 @@ import acme.framework.services.AbstractService;
 @Service
 public class AuthenticatedOfferListService extends AbstractService<Authenticated, Offer> {
 
-	// Internal state ---------------------------------------------------------
-
 	@Autowired
 	protected AuthenticatedOfferRepository repository;
-
-	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -46,8 +42,9 @@ public class AuthenticatedOfferListService extends AbstractService<Authenticated
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "heading", "summary", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "link");
+		tuple = super.unbind(object, "heading", "availabilityPeriodStart", "availabilityPeriodEnd", "price");
 
 		super.getResponse().setData(tuple);
 	}
+
 }

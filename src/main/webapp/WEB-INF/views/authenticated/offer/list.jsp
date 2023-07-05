@@ -16,13 +16,10 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.offer.list.label.instantiationMoment" path="instantiationMoment" width="10%"/>
-	<acme:list-column code="authenticated.offer.list.label.heading" path="heading" width="20%"/>
-	<acme:list-column code="authenticated.offer.list.label.summary" path="summary" width="20%"/>
-	<acme:list-column code="authenticated.offer.list.label.availabilityPeriodStart" path="availabilityPeriodStart" width="15%"/>
-	<acme:list-column code="authenticated.offer.list.label.availabilityPeriodEnd" path="availabilityPeriodEnd" width="15%"/>
-	<acme:list-column code="authenticated.offer.list.label.price" path="price" width="10%"/>
-	<acme:list-column code="authenticated.offer.list.label.link" path="link" width="10%"/>
+	<acme:list-column code="authenticated.offer.list.label.heading" path="heading" width="35%"/>
+	<acme:list-column code="authenticated.offer.list.label.availabilityPeriodStart" path="availabilityPeriodStart" width="25%"/>
+	<acme:list-column code="authenticated.offer.list.label.availabilityPeriodEnd" path="availabilityPeriodEnd" width="25%"/>
+	<acme:list-column code="authenticated.offer.list.label.price" path="price" width="15%"/>
 </acme:list>
 
 

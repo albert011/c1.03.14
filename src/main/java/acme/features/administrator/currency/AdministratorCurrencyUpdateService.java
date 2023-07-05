@@ -1,6 +1,8 @@
 
 package acme.features.administrator.currency;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -51,10 +53,11 @@ public class AdministratorCurrencyUpdateService extends AbstractService<Administ
 	public void validate(final Currency object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("systemCurrency"))
-			super.state(object.getSystemCurrency().matches("^[a-zA-Z]{3}$"), "systemCurrency", "administrator.currency.form.error.non-string-system-currency");
-		if (!super.getBuffer().getErrors().hasErrors("acceptedCurrencies"))
-			super.state(object.getAcceptedCurrencies().matches("^([a-zA-Z]{3},)*[a-zA-Z]{3}$"), "acceptedCurrencies", "administrator.currency.form.error.non-string-accepted-currencies");
+		if (!super.getBuffer().getErrors().hasErrors("systemCurrency")) {
+			final Collection<String> acceptedCurrencies = object.getAcceptedCurrenciesAsCollection();
+
+			super.state(acceptedCurrencies.contains(object.getSystemCurrency()), "systemCurrency", "administrator.currency.form.error.currency-not-accepted");
+		}
 
 	}
 

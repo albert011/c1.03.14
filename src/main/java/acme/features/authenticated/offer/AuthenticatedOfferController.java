@@ -4,11 +4,13 @@ package acme.features.authenticated.offer;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
-import acme.entities.offer.Offer;
+import acme.entities.offers.Offer;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.controllers.AbstractController;
 
+@Controller
 public class AuthenticatedOfferController extends AbstractController<Authenticated, Offer> {
 
 	// Internal state ---------------------------------------------------------
@@ -27,5 +29,4 @@ public class AuthenticatedOfferController extends AbstractController<Authenticat
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 	}
-
 }

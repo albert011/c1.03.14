@@ -18,4 +18,7 @@ public interface StudentLectureRepository extends AbstractRepository {
 
 	@Query("SELECT ll FROM Lecture l JOIN l.lecturer ll WHERE l.id = :id")
 	Lecturer findOneLecturerByLectureId(int id);
+
+	@Query("SELECT l FROM Lecture l WHERE l.id = :id")
+	Lecture findById(int id);
 }
