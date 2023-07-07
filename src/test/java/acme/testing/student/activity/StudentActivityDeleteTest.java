@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.entities.enrolments.Activity;
 import acme.testing.TestHarness;
 
-public class StudentActivityUpdateTest extends TestHarness {
+public class StudentActivityDeleteTest extends TestHarness {
 
 	// Internal state ---------------------------------------------------------
 
@@ -22,7 +22,7 @@ public class StudentActivityUpdateTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/student/activity/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/student/activity/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title, final String abstractField, final String activityType, final String startPeriod, final String endPeriod, final String link) {
 
 		super.signIn("student1", "student1");
@@ -33,22 +33,7 @@ public class StudentActivityUpdateTest extends TestHarness {
 		super.clickOnListingRecord(0);
 		super.clickOnButton("Activities");
 
-		super.clickOnListingRecord(recordIndex);
-		super.checkFormExists();
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("abstractField", abstractField);
-		super.fillInputBoxIn("activityType", activityType);
-		super.fillInputBoxIn("startPeriod", startPeriod);
-		super.fillInputBoxIn("endPeriod", endPeriod);
-		super.fillInputBoxIn("link", link);
-		super.clickOnSubmit("Update");
-
-		super.checkListingExists();
-		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, title);
-		super.checkColumnHasValue(recordIndex, 1, abstractField);
-		super.checkColumnHasValue(recordIndex, 2, activityType);
-
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("title", title);
@@ -58,34 +43,22 @@ public class StudentActivityUpdateTest extends TestHarness {
 		super.checkInputBoxHasValue("endPeriod", endPeriod);
 		super.checkInputBoxHasValue("link", link);
 
+		super.clickOnSubmit("Delete");
+
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+		/*
+		 * super.checkColumnHasValue(recordIndex, 0, title);
+		 * super.checkColumnHasValue(recordIndex, 1, abstractField);
+		 * super.checkColumnHasValue(recordIndex, 2, activityType);
+		 */
+
 		super.signOut();
 	}
 
-	@ParameterizedTest
-	@CsvFileSource(resources = "/student/activity/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String title, final String abstractField, final String activityType, final String startPeriod, final String endPeriod, final String link) {
+	@Test
+	public void test200Negative() {
 
-		super.signIn("student1", "student1");
-
-		super.clickOnMenu("Student", "Enrolment");
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-		super.clickOnListingRecord(0);
-		super.clickOnButton("Activities");
-
-		super.clickOnListingRecord(recordIndex);
-		super.checkFormExists();
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("abstractField", abstractField);
-		super.fillInputBoxIn("activityType", activityType);
-		super.fillInputBoxIn("startPeriod", startPeriod);
-		super.fillInputBoxIn("endPeriod", endPeriod);
-		super.fillInputBoxIn("link", link);
-		super.clickOnSubmit("Update");
-
-		super.checkErrorsExist();
-
-		super.signOut();
 	}
 
 	@Test
@@ -102,16 +75,16 @@ public class StudentActivityUpdateTest extends TestHarness {
 			param = String.format("id=%d", activity.getId());
 
 			super.checkLinkExists("Sign in");
-			super.request("/student/activity/update", param);
+			super.request("/student/activity/delete", param);
 			super.checkPanicExists();
 
 			super.signIn("administrator", "administrator");
-			super.request("/student/activity/update", param);
+			super.request("/student/activity/delete", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("student2", "student2");
-			super.request("/student/activity/update", param);
+			super.request("/student/activity/delete", param);
 			super.checkPanicExists();
 			super.signOut();
 		}
