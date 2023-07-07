@@ -28,7 +28,7 @@ public class Audit extends AbstractEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}", message = "default.error.conversion")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
 	protected String			code;
 
 	@NotBlank
@@ -43,7 +43,7 @@ public class Audit extends AbstractEntity {
 	@Length(max = 100)
 	protected String			weakPoints;
 
-	@NotNull
+	//	@NotNull
 	@Enumerated(value = EnumType.STRING)
 	protected Mark				mark;
 

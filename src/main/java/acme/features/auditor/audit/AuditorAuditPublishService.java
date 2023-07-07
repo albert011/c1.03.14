@@ -86,15 +86,6 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 	@Override
 	public void validate(final Audit object) {
 		assert object != null;
-		if (!super.getBuffer().getErrors().hasErrors("courseTitle")) {
-			Audit existing;
-			String courseTitle;
-
-			courseTitle = super.getRequest().getData("courseTitle", String.class);
-			existing = this.repository.findOneAuditByCourseTitle(courseTitle);
-
-			super.state(existing == null || existing.equals(object), "courseTitle", "auditor.audit.form.error.duplicated");
-		}
 
 		Long numberOfRecords;
 		numberOfRecords = this.repository.countRecordsFromAuditById(object.getId());
@@ -120,15 +111,22 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 	public void unbind(final Audit object) {
 		assert object != null;
 
-		SelectChoices marks;
+		Collection<Course> courseOptions;
+		SelectChoices marks, courses;
 		Tuple tuple;
 
 		marks = SelectChoices.from(Mark.class, object.getMark());
+
+		courseOptions = this.repository.findCourses();
+
+		courses = SelectChoices.from(courseOptions, "title", object.getCourse());
 
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished", "mark");
 		tuple.put("masterId", object.getAuditor().getId());
 		tuple.put("courseTitle", object.getCourse().getTitle());
 		tuple.put("marks", marks);
+		tuple.put("course", courses.getSelected().getKey());
+		tuple.put("courses", courses);
 
 		super.getResponse().setData(tuple);
 	}
