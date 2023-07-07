@@ -2,6 +2,7 @@
 package acme.features.session.tutorial;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -75,7 +76,9 @@ public class AssistantSessionCreateService extends AbstractService<Assistant, Se
 			super.state(session.getTimeStart().before(session.getTimeEnd()), "timeStart", "assistant.session-tutorial.form.error.start-is-after-end");
 			super.state(session.getTimeStart().before(session.getTimeEnd()), "timeEnd", "assistant.session-tutorial.form.error.end-is-before-start");
 
-			super.state(session.getTimeStart().after(MomentHelper.getCurrentMoment()), "timeStart", "assistant.session-tutorial.form.error.start-is-before-current-moment");
+			final Date currentDay = MomentHelper.getCurrentMoment();
+			super.state(session.getTimeStart().after(currentDay), "timeStart", "assistant.session-tutorial.form.error.start-is-before-current-moment");
+			super.state(MomentHelper.computeDuration(currentDay, session.getTimeStart()).toHours() > 24, "timeStart", "assistant.session-tutorial.form.error.start-is-before-current-moment");
 		}
 	}
 
