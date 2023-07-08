@@ -8,5 +8,6 @@ lecturer.course-lecture.form.button.update = Update
 lecturer.course-lecture.form.button.delete = Delete
 lecturer.course-lecture.form.button.add-lectures = Create
 
-lecturer.course-lecture.form.error.course-not-draft-mode = You can't add lectures to a course that is already published!
+lecturer.course-lecture.form.error.course-published = You can't add lectures to a course that is already published!
 lecturer.course-lecture.form.error.duplicated-course-lecture = This course already have this lecture
+lecturer.course-lecture.form.error.cant-delete-lecture-not-in-course = This lecture doesn't belong to this course
