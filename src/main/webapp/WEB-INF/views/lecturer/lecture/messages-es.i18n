@@ -4,12 +4,12 @@ lecturer.lecture.list.label.type = Tipo
 
 lecturer.lecture.list.button.create = Crear
 
-lecturer.lecture.form.label.title = Titulo:
-lecturer.lecture.form.label.Abstract = Resumen:
-lecturer.lecture.form.label.estimatedLearningTime = Tiempo de Aprendizaje:
-lecturer.lecture.form.label.body = Cuerpo:
-lecturer.lecture.form.label.type = Tipo:
-lecturer.lecture.form.label.link = Link: (Opcional)
+lecturer.lecture.form.label.title = Titulo
+lecturer.lecture.form.label.Abstract = Resumen
+lecturer.lecture.form.label.estimatedLearningTime = Tiempo de Aprendizaje
+lecturer.lecture.form.label.body = Cuerpo
+lecturer.lecture.form.label.type = Tipo
+lecturer.lecture.form.label.link = Link
 
 lecturer.lecture.form.button.update = Actualizar
 lecturer.lecture.form.button.delete = Borrar

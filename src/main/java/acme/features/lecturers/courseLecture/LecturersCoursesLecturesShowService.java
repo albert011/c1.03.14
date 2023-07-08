@@ -57,17 +57,19 @@ public class LecturersCoursesLecturesShowService extends AbstractService<Lecture
 	@Override
 	public void unbind(final CourseLecture object) {
 		assert object != null;
+		int lecturerId;
+		Collection<Course> courses;
+		Collection<Lecture> lectures;
+		Tuple tuple;
+		tuple = new Tuple();
 
-		Tuple tuple = new Tuple();
-		final int lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
+		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
 		tuple = super.unbind(object, "id");
-		final Collection<Course> courses = this.repository.findManyCoursesByLecturerId(lecturerId);
-		final Collection<Lecture> lectures = this.repository.findManyLecturesByLecturerId(lecturerId);
-		tuple.put("draftMode", object.getCourse().isDraftMode());
+		courses = this.repository.findManyCoursesByLecturerId(lecturerId);
+		lectures = this.repository.findManyLecturesByLecturerId(lecturerId);
 		tuple.put("courses", SelectChoices.from(courses, "code", object.getCourse()));
 		tuple.put("lectures", SelectChoices.from(lectures, "title", object.getLecture()));
 		super.getResponse().setData(tuple);
-		super.getResponse().setGlobal("draftMode", object.getCourse().isDraftMode());
 		super.getResponse().setGlobal("courseId", object.getCourse().getId());
 		super.getResponse().setGlobal("lectureId", object.getLecture().getId());
 	}

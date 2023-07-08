@@ -72,7 +72,7 @@ public class LecturersCoursesLecturesCreateService extends AbstractService<Lectu
 	public void validate(final CourseLecture object) {
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("course"))
-			super.state(object.getCourse().isDraftMode(), "*", "lecturer.course-lecture.form.error.course-not-draft-mode");
+			super.state(object.getCourse().isDraftMode(), "*", "lecturer.course-lecture.form.error.course-published");
 		if (!super.getBuffer().getErrors().hasErrors("lecture") && !super.getBuffer().getErrors().hasErrors("course")) {
 			final Collection<Lecture> lecturesInCourse = this.repository.findLecturesByCourseId(object.getCourse().getId());
 			super.state(!lecturesInCourse.contains(object.getLecture()), "lecture", "lecturer.course-lecture.form.error.duplicated-course-lecture");
@@ -88,14 +88,18 @@ public class LecturersCoursesLecturesCreateService extends AbstractService<Lectu
 	@Override
 	public void unbind(final CourseLecture object) {
 		assert object != null;
-		final int lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
-		final Collection<Course> courses = this.repository.findManyCoursesByLecturerId(lecturerId);
-		final Collection<Lecture> lectures = this.repository.findManyLecturesByLecturerId(lecturerId);
-		final Tuple tuple = new Tuple();
+		int lecturerId;
+		Collection<Course> courses;
+		Collection<Lecture> lectures;
+		Tuple tuple;
+
+		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
+		courses = this.repository.findManyCoursesByLecturerId(lecturerId);
+		lectures = this.repository.findManyLecturesByLecturerId(lecturerId);
+		tuple = new Tuple();
 		tuple.put("courses", SelectChoices.from(courses, "code", object.getCourse()));
 		tuple.put("lectures", SelectChoices.from(lectures, "title", null));
 		super.getResponse().setData(tuple);
-		super.getResponse().setGlobal("draftMode", true);
 		super.getResponse().setGlobal("courseId", object.getCourse().getId());
 	}
 }

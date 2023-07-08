@@ -57,7 +57,6 @@ public class LecturersCoursesLecturesListMineService extends AbstractService<Lec
 
 		Tuple tuple;
 		tuple = super.unbind(object, "id");
-		tuple.put("draftMode", object.getCourse().isDraftMode());
 		tuple.put("courseCode", object.getCourse().getCode());
 		tuple.put("lectureTitle", object.getLecture().getTitle());
 

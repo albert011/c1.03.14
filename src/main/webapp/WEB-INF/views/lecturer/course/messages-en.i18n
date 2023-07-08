@@ -9,7 +9,6 @@ lecturer.course.form.label.title = Title
 lecturer.course.form.label.Abstract = Abstract
 lecturer.course.form.label.retailPrice = Retail Price
 lecturer.course.form.label.type = Type
-lecturer.course.form.label.isTheoretical = Is Theoretical
 lecturer.course.form.label.link = Link
 
 lecturer.course.form.button.update = Update
