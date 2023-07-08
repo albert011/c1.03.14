@@ -8,10 +8,10 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.lecturer.form.label.almaMáter = Alma Máter
-authenticated.lecturer.form.label.resumen = resumen
-authenticated.lecturer.form.label.cualidades = cualidades
-authenticated.lecturer.form.label.link = link
+authenticated.lecturer.form.label.almaMater = Alma Máter
+authenticated.lecturer.form.label.resume = Resumen
+authenticated.lecturer.form.label.listOfQualifications = Cualidades
+authenticated.lecturer.form.label.link = Link
 
 authenticated.lecturer.form.button.create = Registrar
 authenticated.lecturer.form.button.update = Actualizar

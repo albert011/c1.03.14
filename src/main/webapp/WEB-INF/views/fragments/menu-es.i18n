@@ -36,11 +36,19 @@ master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.currency = Configuración del sistema
 master.menu.administrator.offer.list-all = Mostrar ofertas
+master.menu.administrator.banner.list-all = Lista de Banners
 
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
 master.menu.provider.favourite-link = Enlace favorito
+
+# master.menu.lecturer ##########################################################
+
+master.menu.lecturer = Profesor
+master.menu.lecturer.all-lectures = Ver mis clases
+master.menu.lecturer.my-lectures = Ver mis clases
+master.menu.lecturer.my-courses = Ver mis cursos
 
 # master.menu.consumer ##########################################################
 
@@ -70,20 +78,26 @@ master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.student = Datos de estudiante
 master.menu.user-account.become-student = Hazte estudiante
-master.menu.user-account.lecturer = Datos de lector
-master.menu.user-account.become-lecturer = Hazte lector
+
 master.menu.user-account.company = Datos de compañía
 master.menu.user-account.become-company = Hazte compañía
+
+master.menu.user-account.lecturer = Datos del profesor
+master.menu.user-account.become-lecturer = Hazte profesor
+
 
 # master.menu.any ##############################################3
 master.menu.any = Cualquier rol
 master.menu.any.peeps = Ver Mensajes
+master.menu.any.course = Cursos publicados
 
 # master.menu.student ####################################################
 
 master.menu.student = Estudiante
 master.menu.student.enrolment = Matrícula
 master.menu.student.course = Cursos
+master.menu.user-account.company = Datos de compañía
+master.menu.user-account.become-company = Hazte compañía
 
 # master.menu.authenticated #######################################################
 

@@ -1,10 +1,13 @@
 
 package acme.features.lecturers.courses;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
+import acme.entities.lecture.Lecture;
 import acme.entities.lecture.LectureType;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -34,7 +37,7 @@ public class LecturersCoursesShowService extends AbstractService<Lecturer, Cours
 
 		id = super.getRequest().getData("id", int.class);
 		course = this.repository.findOneCourseById(id);
-		status = course != null;
+		status = course != null && super.getRequest().getPrincipal().getActiveRoleId() == course.getLecturer().getId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -43,21 +46,9 @@ public class LecturersCoursesShowService extends AbstractService<Lecturer, Cours
 	public void load() {
 		Course object;
 		int id;
-		Long theoreticalLectures;
-		Long handsOnLectures;
-		LectureType lectureType;
+
 		id = super.getRequest().getData("id", int.class);
-
-		handsOnLectures = this.repository.findManyNonTheoreticalLecturesByCourseId(id);
-		theoreticalLectures = this.repository.findManyTheoreticalLecturesByCourseId(id);
-
-		if (handsOnLectures > theoreticalLectures)
-			lectureType = LectureType.HANDS_ON;
-		else
-			lectureType = LectureType.THEORETICAL;
-
 		object = this.repository.findOneCourseById(id);
-		object.setType(lectureType);
 
 		super.getBuffer().setData(object);
 	}
@@ -67,8 +58,21 @@ public class LecturersCoursesShowService extends AbstractService<Lecturer, Cours
 		assert object != null;
 
 		Tuple tuple;
+		Collection<Lecture> lectures;
+		int totalTheoretical = 0;
+		int totalHandsOn = 0;
 
+		lectures = this.repository.findManyLecturesByCourseId(object.getId());
+
+		for (final Lecture lecture : lectures)
+			if (lecture.getType().equals(LectureType.THEORETICAL))
+				totalTheoretical++;
+			else
+				totalHandsOn++;
+
+		final LectureType type = totalHandsOn == totalTheoretical ? LectureType.HANDS_ON : totalHandsOn > totalTheoretical ? LectureType.HANDS_ON : LectureType.THEORETICAL;
 		tuple = super.unbind(object, "code", "title", "Abstract", "retailPrice", "type", "link", "draftMode");
+		tuple.put("type", type);
 
 		super.getResponse().setData(tuple);
 	}
