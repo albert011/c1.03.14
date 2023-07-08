@@ -13,7 +13,6 @@ import javax.validation.constraints.Positive;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Lecturer;
 import lombok.Getter;
@@ -55,9 +54,4 @@ public class Lecture extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Lecturer			lecturer;
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	protected Course			courses;
 }
