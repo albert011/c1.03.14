@@ -61,15 +61,15 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 		assert object != null;
 
 		Tuple tuple;
-		String addendumState;
+		String resaltarAddendum;
 
 		if (object.isAddendum())
-			addendumState = "✓";
+			resaltarAddendum = "✓";
 		else
-			addendumState = "✗";
+			resaltarAddendum = "✗";
 
 		tuple = super.unbind(object, "title", "abstractText", "startDate", "endDate", "link");
-		tuple.put("addendumState", addendumState);
+		tuple.put("resaltarAddendum", resaltarAddendum);
 
 		super.getResponse().setData(tuple);
 

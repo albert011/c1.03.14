@@ -16,7 +16,7 @@
 
 <acme:list>
 	<acme:list-column code="company.practicumSession.list.label.title" path="title" width="25%"/>
-	<acme:list-column code="company.practicumSession.list.label.isAddendum" path="addendumState" width="25%"/>
+	<acme:list-column code="company.practicumSession.list.label.isAddendum" path="resaltarAddendum" width="25%"/>
 	<acme:list-column code="company.practicumSession.list.label.startDate" path="startDate" width="25%"/>
 	<acme:list-column code="company.practicumSession.list.label.endDate" path="endDate" width="25%"/>
 </acme:list>
