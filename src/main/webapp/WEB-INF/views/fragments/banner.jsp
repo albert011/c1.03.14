@@ -33,17 +33,26 @@
 		    if (cookie != null) {
         
                      // Reemplaza "imagenSrc" con el nombre de tu cookie
-                        imagenSrc = document.cookie;
-                        const imagen = document.getElementById('imagenBanner');
-                        let cookieValue = document.cookie.split(" ")[1];
-                        
-                        let cookieValue2 = cookieValue.split("=")[1];
-                        let decodedCookieValue = decodeURIComponent(cookieValue2);
-                        
-                        let decodedCookieValue2 = decodeURIComponent(cookieValue2);
-                 
-                        imagen.src=decodedCookieValue;
-                        
+				const cookieName = "imagenSrc=";
+				const cookieArray = document.cookie.split(";");
+				
+				let decodedCookieValue = null;
+				
+				for (let i = 0; i < cookieArray.length; i++) {
+				  let cookie = cookieArray[i];
+				  while (cookie.charAt(0) === " ") {
+				    cookie = cookie.substring(1);
+				  }
+				  if (cookie.indexOf(cookieName) === 0) {
+				    decodedCookieValue = decodeURIComponent(cookie.substring(cookieName.length));
+				    break;
+				  }
+				}
+				
+				if (decodedCookieValue) {
+				  const imagen = document.getElementById('imagenBanner');
+				  imagen.src = decodedCookieValue;
+				}                        
 
                 
                  
