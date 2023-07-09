@@ -24,7 +24,6 @@ public class CompanyPracticumShowTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/company/practicum/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String title, final String abstractText, final String goals, final String course) {
-		// HINT: this test tries to show all practica created by the principal.
 
 		super.signIn("company1", "company1");
 
@@ -44,13 +43,11 @@ public class CompanyPracticumShowTest extends TestHarness {
 
 	@Test
 	public void test200Negative() {
-		// HINT: there's no negative test case for this show
 
 	}
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to show an unpublished practicum by someone who is not the principal.
 
 		Collection<Practicum> practicums;
 		String param;

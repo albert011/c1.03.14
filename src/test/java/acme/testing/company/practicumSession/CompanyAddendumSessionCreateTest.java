@@ -26,7 +26,6 @@ public class CompanyAddendumSessionCreateTest extends TestHarness {
 	@CsvFileSource(resources = "/company/practicumSession/create-addendum-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Negative(final int practicumRecordIndex, final String code, final String course, final String practicumTitle, final int practicumSessionRecordIndex, final String practicumSessionTitle, final String abstractText,
 		final String startDate, final String endDate, final String link, final String accept) {
-		// HINT: this test attempts to create an addendum session for a published practicum without any addendum using wrong data.
 
 		super.signIn("company1", "company1");
 
@@ -57,9 +56,6 @@ public class CompanyAddendumSessionCreateTest extends TestHarness {
 	@CsvFileSource(resources = "/company/practicumSession/create-addendum-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Positive(final int practicumRecordIndex, final String code, final String course, final String practicumTitle, final int practicumSessionRecordIndex, final String practicumSessionTitle, final String abstractText,
 		final String startDate, final String endDate, final String link, final String accept) {
-		// HINT: this test authenticates as a company, list his or her practica, navigates
-		// HINT+ to a published practicum without any addendum and lists its sessions. Then creates a new one addendum session, and check that it's 
-		// HINT+ been created properly.
 
 		super.signIn("company1", "company1");
 
@@ -100,9 +96,6 @@ public class CompanyAddendumSessionCreateTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to create an addendum Session for a practicum as a principal without
-		// HINT: the "Company" role.
-		// HINT+ or using a company who is not the owner.
 
 		Collection<Practicum> practica;
 		String param;
@@ -149,8 +142,6 @@ public class CompanyAddendumSessionCreateTest extends TestHarness {
 
 	@Test
 	public void test301Hacking() {
-		// HINT: this test tries to create an addendum session for a published practicum with one addendum session created by
-		// HINT+ the principal.
 
 		Collection<Practicum> practica;
 		Collection<PracticumSession> practicumSessions;
@@ -172,8 +163,6 @@ public class CompanyAddendumSessionCreateTest extends TestHarness {
 
 	@Test
 	public void test302Hacking() {
-		// HINT: this test tries to create an addendum session for an unpublished practicum created by
-		// HINT+ the principal.
 
 		Collection<Practicum> practica;
 

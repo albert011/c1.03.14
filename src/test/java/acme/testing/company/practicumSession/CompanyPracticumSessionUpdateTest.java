@@ -25,9 +25,6 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 	@CsvFileSource(resources = "/company/practicumSession/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int practicumRecordIndex, final String code, final String course, final String practicumTitle, final int practicumSessionRecordIndex, final String practicumSessionTitle, final String abstractText,
 		final String startDate, final String endDate, final String link) {
-		// HINT: this test authenticates as a company, list his or her practica, navigates
-		// HINT+ to a practicum and lists its sessions. Then updates one, and checks that the 
-		// HINT+ update has actually been performed.
 
 		super.signIn("company1", "company1");
 
@@ -85,7 +82,6 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 	@CsvFileSource(resources = "/company/practicumSession/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int practicumRecordIndex, final String code, final String course, final String practicumTitle, final int practicumSessionRecordIndex, final String practicumSessionTitle, final String abstractText,
 		final String startDate, final String endDate, final String link) {
-		// HINT: this test attempts to update practicum sessions using wrong data.
 
 		super.signIn("company1", "company1");
 
@@ -116,9 +112,6 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to update a practicumSession of a practicum as a principal without
-		// HINT: the "Company" role.
-		// HINT+ or using a company who is not the owner.
 
 		Collection<PracticumSession> practicumSessions;
 		String param;
@@ -165,8 +158,6 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 
 	@Test
 	public void test301Hacking() {
-		// HINT: this test tries to update a practicumSession of a published practicum created by
-		// HINT+ the principal.
 
 		Collection<PracticumSession> practicumSessions;
 		String param;

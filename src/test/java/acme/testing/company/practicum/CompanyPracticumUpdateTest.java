@@ -24,9 +24,6 @@ public class CompanyPracticumUpdateTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/company/practicum/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String title, final String abstractText, final String goals, final String course) {
-		// HINT: this test logs in as a company, lists his or her practica,
-		// HINT+ selects one of them, updates it, and then checks that
-		// HINT+ the update has actually been performed.
 
 		super.signIn("company1", "company1");
 
@@ -66,7 +63,6 @@ public class CompanyPracticumUpdateTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/company/practicum/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String code, final String title, final String abstractText, final String goals, final String course) {
-		// HINT: this test attempts to update a practicum with wrong data.
 
 		super.signIn("company1", "company1");
 
@@ -90,8 +86,6 @@ public class CompanyPracticumUpdateTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to update a practicum with a role other than "Company",
-		// HINT+ or using a company who is not the owner.
 
 		Collection<Practicum> practicums;
 		String param;
@@ -140,7 +134,6 @@ public class CompanyPracticumUpdateTest extends TestHarness {
 
 	@Test
 	public void test301Hacking() {
-		// HINT: this test attempts to update a practicum that has been published.
 
 		Collection<Practicum> practica;
 		String param;

@@ -28,9 +28,7 @@ public class CompanyPracticumListMineTest extends TestHarness {
 
 	@Test
 	public void test200Negative() {
-		// HINT: there aren't any negative tests for this feature since it's a listing
-		// that
-		// HINT+ doesn't involve entering any data into any forms.
+
 	}
 
 	@Test

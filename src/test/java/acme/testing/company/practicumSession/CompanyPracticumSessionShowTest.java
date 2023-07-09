@@ -27,9 +27,6 @@ public class CompanyPracticumSessionShowTest extends TestHarness {
 	public void test100Positive(final int practicumRecordIndex, final String code, final String course, final String practicumTitle, final int practicumSessionRecordIndex, final String practicumSessionTitle, final String abstractText,
 		final String startDate, final String endDate, final String link) {
 
-		// HINT: this test signs in as a company, lists his or her practica, selects
-		// HINT+ one of them and checks that it's as expected.
-
 		super.signIn("company1", "company1");
 
 		super.clickOnMenu("Company", "List my practicums");
@@ -60,13 +57,11 @@ public class CompanyPracticumSessionShowTest extends TestHarness {
 
 	@Test
 	public void test200Negative() {
-		// HINT: there's no negative test case for this show
+
 	}
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to show a practicumSession of a practicum
-		// HINT+ but wasn't published by the principal;
 
 		Collection<PracticumSession> practicumSessions;
 		String param;
