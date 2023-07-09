@@ -1,0 +1,21 @@
+administrator.banner.list.label.instantiationMoment = Momento de instanciación
+administrator.banner.list.label.slogan = Eslogan
+
+administrator.banner.list.button.create = Crear
+
+administrator.banner.form.label.instantiationMoment = Momento de instanciación:
+administrator.banner.form.label.slogan = Eslogan:
+administrator.banner.form.label.displayPeriodStart = Fecha de inicio de muestra:
+administrator.banner.form.label.displayPeriodEnd = Fecha de fin de muestra:
+administrator.banner.form.label.pictureLink = Imagen enlazada:
+administrator.banner.form.label.targetLink = Enlace objetivo:
+
+administrator.banner.form.button.update = Actualizar
+administrator.banner.form.button.delete = Eliminar
+administrator.banner.form.button.create = Crear
+
+administrator.banner.form.error.display-period-start-before = No se puede mostrar antes del momento de instanciación
+administrator.banner.form.error.display-period-end-before = No puedes finalizar la muestra antes de su instanciación
+administrator.banner.form.error.display-period-end-before-display = No puedes finalizar la muestra antes de su inicio
+administrator.banner.form.error.display-period-time = La muestra debe durar al menos una semana
+administrator.banner.form.error.display-period-start = No puedes iniciar la muestra antes de su instanciación
