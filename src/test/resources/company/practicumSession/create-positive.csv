@@ -6,4 +6,4 @@ practicumRecordIndex,code,course,practicumTitle,practicumSessionRecordIndex,prac
 1,CBA3456,KJA 000,abc,1,otra sesion1,aaaaaa,2023/06/10 12:00,2023/06/20 10:00,https://www.ejemplo.com
 1,CBA3456,KJA 000,abc,2,otra sesion2,aaaaaaaaaaaaaaaaaaaaaaaaaa,2023/09/10 12:00,2023/09/19 17:00,
 1,CBA3456,KJA 000,abc,3,otra sesion3,bbbbbbbbbbbbbbb,2022/08/10 12:00,2022/08/19 17:00,https://www.ejemplo.com
-
+1,CBA3456,KJA 000,abc,4,@cáracteres especiales,#&????áéíóú,2022/08/10 20:00,2022/08/19 00:00,https://www.ejemplo.com
