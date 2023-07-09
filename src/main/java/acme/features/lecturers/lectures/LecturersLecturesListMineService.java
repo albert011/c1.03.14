@@ -34,8 +34,13 @@ public class LecturersLecturesListMineService extends AbstractService<Lecturer, 
 		Collection<Lecture> objects;
 		Principal principal;
 
-		principal = super.getRequest().getPrincipal();
-		objects = this.repository.findLecturesByLecturer(principal.getActiveRoleId());
+		if (super.getRequest().hasData("courseId", int.class)) {
+			final Integer courseId = super.getRequest().getData("courseId", int.class);
+			objects = this.repository.findManyLecturesByCourseId(courseId);
+		} else {
+			principal = super.getRequest().getPrincipal();
+			objects = this.repository.findLecturesByLecturer(principal.getActiveRoleId());
+		}
 		super.getBuffer().setData(objects);
 	}
 

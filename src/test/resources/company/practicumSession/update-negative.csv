@@ -1,0 +1,7 @@
+practicumRecordIndex,code,course,practicumTitle,practicumSessionRecordIndex,practicumSessionTitle,abstractText,startDate,endDate,link
+1,CBA3456,KJA 000,abc,0,,,,,
+1,CBA3456,KJA 000,abc,0,titulo actualizado,101aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2023/07/11 17:00,2023/12/12 23:00,
+1,CBA3456,KJA 000,abc,0,fecha en pasado,abstract actualizado,2021/07/11 17:00,2021/12/12 23:00,www.ejemplo.com
+1,CBA3456,KJA 000,abc,0,duracion incorrecta,abstract actualizado,2023/07/11 17:00,2023/07/12 23:00,www.ejemplo.com
+1,CBA3456,KJA 000,abc,0,fecha incorrecta,abstract actualizado,2023/07/11 17:00,2022/12/12 23:00,www.ejemplo.com
+1,CBA3456,KJA 000,abc,0,,algunos campos vacios,2023/07/11 17:00,,www.ejemplo.com
