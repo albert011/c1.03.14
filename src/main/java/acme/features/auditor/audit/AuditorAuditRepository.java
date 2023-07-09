@@ -40,4 +40,7 @@ public interface AuditorAuditRepository extends AbstractRepository {
 	@Query("select a from Audit a where a.course.title = :title")
 	Audit findOneAuditByCourseTitle(String title);
 
+	@Query("select c from Course c")
+	Collection<Course> findCourses();
+
 }
