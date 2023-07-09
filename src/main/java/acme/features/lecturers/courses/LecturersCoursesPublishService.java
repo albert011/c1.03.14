@@ -84,10 +84,15 @@ public class LecturersCoursesPublishService extends AbstractService<Lecturer, Co
 			super.state(lectures.isEmpty(), "*", "lecturer.course.form.error.lectures-unpublished");
 		}
 		{
+			Collection<Lecture> lecturesP;
 			Collection<Lecture> lectures;
 
-			lectures = this.repository.findManyNonTheoreticalLecturesByCourseId(object.getId());
-			super.state(!lectures.isEmpty(), "*", "lecturer.course.form.error.lectures-theoretical");
+			lecturesP = this.repository.findManyNonTheoreticalLecturesByCourseId(object.getId());
+			lectures = this.repository.findManyLecturesByCourseId(object.getId());
+			if (lectures.isEmpty())
+				super.state(!lectures.isEmpty(), "*", "lecturer.course.form.error.lectures-empty");
+			else if (lecturesP.isEmpty())
+				super.state(!lecturesP.isEmpty(), "*", "lecturer.course.form.error.lectures-theoretical");
 		}
 	}
 

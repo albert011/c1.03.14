@@ -22,3 +22,4 @@ lecturer.course.form.error.lectures-theoretical = No puedes publicar un curso pu
 lecturer.course.form.error.duplicated = No puedes crear un curso con el mismo código
 lecturer.lecture.form.error.currency = Solo aceptamos USD, GBP o EUR como moneda
 lecturer.lecture.form.error.negative-price = La cantidad debe ser mayor de 0
+lecturer.course.form.error.lectures-empty = ¡No puedes publicar cursos vacios!
