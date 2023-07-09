@@ -32,6 +32,7 @@
 		let encodedEnlace = encodeURIComponent(enlace2);
 		
 
+
 		document.cookie = "imagenSrc="+encodedEnlace+"; path=/";
 
 		window.location.href=url;

@@ -9,7 +9,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.Valid;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -41,12 +40,10 @@ public class PracticumSession extends AbstractEntity {
 	protected String			abstractText;
 
 	@NotNull
-	@Future
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				startDate;
 
 	@NotNull
-	@Future
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				endDate;
 

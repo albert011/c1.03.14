@@ -105,15 +105,22 @@ public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
 	public void unbind(final Audit object) {
 		assert object != null;
 
-		SelectChoices marks;
+		Collection<Course> courseOptions;
+		SelectChoices marks, courses;
 		Tuple tuple;
 
 		marks = SelectChoices.from(Mark.class, object.getMark());
+
+		courseOptions = this.repository.findCourses();
+
+		courses = SelectChoices.from(courseOptions, "title", object.getCourse());
 
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished", "mark");
 		tuple.put("masterId", object.getAuditor().getId());
 		tuple.put("courseTitle", object.getCourse().getTitle());
 		tuple.put("marks", marks);
+		tuple.put("course", courses.getSelected().getKey());
+		tuple.put("courses", courses);
 
 		super.getResponse().setData(tuple);
 	}

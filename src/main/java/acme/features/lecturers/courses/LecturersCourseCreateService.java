@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.course.Course;
-import acme.entities.course.CoursesLecturers;
 import acme.entities.lecture.LectureType;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -31,9 +30,12 @@ public class LecturersCourseCreateService extends AbstractService<Lecturer, Cour
 	@Override
 	public void load() {
 		Course object;
+		Lecturer lecturer;
 
+		lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new Course();
 		object.setDraftMode(true);
+		object.setLecturer(lecturer);
 
 		super.getBuffer().setData(object);
 
@@ -67,16 +69,8 @@ public class LecturersCourseCreateService extends AbstractService<Lecturer, Cour
 	@Override
 	public void perform(final Course object) {
 		assert object != null;
-		final CoursesLecturers courseLecturer = new CoursesLecturers();
-		Course course;
-		Lecturer lecturer;
 
 		this.repository.save(object);
-		course = this.repository.findOneCourseById(object.getId());
-		lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
-		courseLecturer.setCourses(course);
-		courseLecturer.setLecturers(lecturer);
-		this.repository.save(courseLecturer);
 	}
 
 	@Override

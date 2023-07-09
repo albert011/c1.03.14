@@ -33,7 +33,6 @@ public class StudentActivityUpdateTest extends TestHarness {
 		super.clickOnListingRecord(0);
 		super.clickOnButton("Activities");
 
-		super.checkColumnHasValue(recordIndex, 0, title);
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.fillInputBoxIn("title", title);

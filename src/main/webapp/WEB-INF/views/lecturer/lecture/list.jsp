@@ -10,7 +10,7 @@
 		path="type" width="30%" />
 </acme:list>
 
-<jstl:if test="${_command == 'list-mine'}">
+<jstl:if test="${_command == 'list-mine' && (param.courseId==null)}">
 	<acme:button code="lecturer.lecture.list.button.create"
 		action="/lecturer/lecture/create" />
 </jstl:if>
