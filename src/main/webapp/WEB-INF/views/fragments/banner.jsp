@@ -18,7 +18,7 @@
 <div class="rounded"
 	style="background: <acme:message code='master.banner.background'/>">
 	<img src="images/banner.png" id="imagenBanner"
-		style="width: 100% !important"
+		style="width: 100% !important;max-height: 300px"
 		alt="<acme:message code='master.banner.alt'/>"
 		class="img-fluid mx-auto d-block rounded" />
 </div>
