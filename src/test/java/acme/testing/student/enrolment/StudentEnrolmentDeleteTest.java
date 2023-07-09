@@ -34,10 +34,10 @@ public class StudentEnrolmentDeleteTest extends TestHarness {
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
-		super.fillInputBoxIn("code", code);
-		super.fillInputBoxIn("motivation", motivation);
-		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("course", course);
+		super.checkInputBoxHasValue("code", code);
+		super.checkInputBoxHasValue("motivation", motivation);
+		super.checkInputBoxHasValue("goals", goals);
+		super.checkInputBoxHasValue("course", course);
 		super.clickOnSubmit("Delete");
 
 		super.checkListingExists();
