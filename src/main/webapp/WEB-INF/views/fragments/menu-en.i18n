@@ -16,8 +16,7 @@ master.menu.sign-in = Sign in
 master.menu.sign-out = Sign out
 
 # master.menu.anonymous #######################################################
-master.menu.BannerChange = Banner Change
-master.menu.anonymous.foto = Perform Change
+
 master.menu.anonymous = Anonymous
 master.menu.anonymous.favourite-link = Favourite link
 master.menu.anonymous.vicgrabru.favourite-link = 32081530B: Gravan Bru, Victor
@@ -35,12 +34,6 @@ master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
 
-master.menu.administrator.currency = System Configuration
-master.menu.administrator.offer.list-all = List offers
-
-master.menu.administrator.banner.list-all = List Banners
-
-
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
@@ -51,65 +44,11 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
-# master.menu.auditor ##########################################################
-
-master.menu.auditor = Auditor
-master.menu.auditor.audit.list = Audit list
-
-# master.menu.lecturer ##########################################################
-
-master.menu.lecturer = Lecturer
-master.menu.lecturer.all-lectures = List all lectures
-master.menu.lecturer.my-lectures = List my lectures
-master.menu.lecturer.my-courses = List my courses
-
-# master.menu.company ##########################################################
-
-master.menu.company = Company
-master.menu.company.practicum.list-mine = List my practicums
-master.menu.company.practicum-session.list-mine = List my practicum sessions
-
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data
 master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
-master.menu.user-account.auditor = Auditor data
-master.menu.user-account.become-auditor = Become an auditor
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
-master.menu.user-account.student = Student data
-master.menu.user-account.become-student = Become a student
-master.menu.user-account.lecturer = Lecturer data
-master.menu.user-account.become-lecturer = Become a lecturer
-master.menu.user-account.company = Company data
-master.menu.user-account.become-company = Become a company
-
-# master.menu.any ##############################################
-master.menu.any = Any Role
-master.menu.any.peeps = Peep messages
-master.menu.any.course = Courses Published
-
-# master.menu.student ####################################################
-
-master.menu.student = Student
-master.menu.student.enrolment = Enrolment
-master.menu.student.course = Course
-
-# master.menu.authenticated #######################################################
-
-master.menu.authenticated = Authenticated
-master.menu.authenticated.offers.list = List offers
-master.menu.authenticated.bulletins = Bulletin messages
-master.menu.authenticated.tutorials = Tutorials
-master.menu.authenticated.practicum.list = List practicums
-
-# master.menu.assistant ##############################################
-master.menu.assistant = Assistant
-master.menu.assistant.tutorials = Tutorials
-master.menu.assistant.tutorials.sessions = Sessions
-master.menu.user-account.become-assistant = Become an assistant
-master.menu.user-account.assistant = Assistant data
-master.menu.assistant.dashboard = Dashboard
-

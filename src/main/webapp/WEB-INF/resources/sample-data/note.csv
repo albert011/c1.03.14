@@ -1,9 +1,0 @@
-key,moment,title,author,message,emailAddress,link
-note-01,1990/02/17 08:16,"L","lecturer4 - Lucero, Maria","message","marialucero@acme.com","https://www.example.com"
-note-02,1990/02/17 08:16,"Lo","lecturer4 - Lucero, Maria","message","marialucero@acme.com","https://www.example.com"
-note-03,1990/02/17 08:16,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sodales sit","lecturer4 - Lucero, Maria","message","marialucero@acme.com","https://www.example.com"
-note-04,1990/02/17 08:16,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sodales sit.","lecturer4 - Lucero, Maria","message","marialucero@acme.com","https://www.example.com"
-note-05,1990/02/17 08:16,"title1","lecturer4 - Lucero, Maria","L","marialucero@acme.com","https://www.example.com"
-note-06,1990/02/17 08:16,"title2","lecturer4 - Lucero, Maria","Lo","marialucero@acme.com","https://www.example.com"
-note-07,1990/02/17 08:16,"title3","lecturer4 - Lucero, Maria","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ullamcorper, ante sit amet tincidunt","marialucero@acme.com","https://www.example.com"
-note-08,1998/02/17 08:16,"title4","lecturer4 - Lucero, Maria","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ullamcorper, ante sit amet tincidunt.","marialucero@acme.com","https://www.example.com"
