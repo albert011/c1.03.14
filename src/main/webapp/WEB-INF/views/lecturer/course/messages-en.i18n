@@ -22,3 +22,4 @@ lecturer.course.form.error.lectures-theoretical = You can't publish a purely the
 lecturer.course.form.error.duplicated = You can't create a course duplicated
 lecturer.lecture.form.error.currency = We only use EUR GBP or USD as accepted currency
 lecturer.lecture.form.error.negative-price = The amount must be greater than 0
+lecturer.course.form.error.lectures-empty = You can't publish empty courses!

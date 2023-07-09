@@ -69,4 +69,7 @@ public interface LecturersCoursesRepository extends AbstractRepository {
 
 	@Query("select s from SessionTutorial s where s.tutorial.id = :tutorialId")
 	Collection<SessionTutorial> findManySessionsByTutorial(int tutorialId);
+
+	@Query("SELECT cl.lecture FROM CourseLecture cl JOIN cl.lecture l JOIN cl.course c WHERE c.id = :courseId AND l.type='THEORETICAL'")
+	Collection<Lecture> findManyTheoreticalLecturesByCourseId(int courseId);
 }
