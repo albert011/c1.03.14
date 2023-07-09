@@ -15,6 +15,8 @@ import acme.entities.enrolments.Activity;
 import acme.entities.enrolments.Enrolment;
 import acme.entities.lecture.Lecture;
 import acme.entities.lecture.LectureType;
+import acme.entities.session.SessionTutorial;
+import acme.entities.tutorial.Tutorial;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -82,8 +84,12 @@ public class LecturersCoursesDeleteService extends AbstractService<Lecturer, Cou
 		Collection<Activity> activities;
 		Enrolment enrolment;
 		Audit audit;
+		List<Tutorial> tutorials;
 		Collection<AuditRecord> auditRecords;
+		Collection<SessionTutorial> session;
+		Tutorial tutorial;
 
+		tutorials = (List<Tutorial>) this.repository.findManyTutorialsByCourseId(object.getId());
 		enrolments = (List<Enrolment>) this.repository.findManyEnrolmentsByCourseId(object.getId());
 		audits = (List<Audit>) this.repository.findManyAuditsByCourseId(object.getId());
 		courseLecture = this.repository.findCourseLectureByCourse(object.getId());
@@ -98,9 +104,16 @@ public class LecturersCoursesDeleteService extends AbstractService<Lecturer, Cou
 			activities = this.repository.findManyActivitiesByEnrolmentId(enrolment.getId());
 			this.repository.deleteAll(activities);
 		}
+		for (int i = 0; i < tutorials.size(); i++) {
+			tutorial = tutorials.get(i);
+			session = this.repository.findManySessionsByTutorial(tutorial.getId());
+			this.repository.deleteAll(session);
+		}
+
 		this.repository.deleteAll(enrolments);
 		this.repository.deleteAll(audits);
 		this.repository.deleteAll(courseLecture);
+		this.repository.deleteAll(tutorials);
 
 		this.repository.delete(object);
 

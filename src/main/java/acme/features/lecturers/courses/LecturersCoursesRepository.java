@@ -13,6 +13,8 @@ import acme.entities.course.CourseLecture;
 import acme.entities.enrolments.Activity;
 import acme.entities.enrolments.Enrolment;
 import acme.entities.lecture.Lecture;
+import acme.entities.session.SessionTutorial;
+import acme.entities.tutorial.Tutorial;
 import acme.framework.components.accounts.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Lecturer;
@@ -61,4 +63,10 @@ public interface LecturersCoursesRepository extends AbstractRepository {
 
 	@Query("select a from AuditRecord a where a.audit.id = :auditId")
 	Collection<AuditRecord> findManyAuditRecordByAuditId(int auditId);
+
+	@Query("select t from Tutorial t where t.course.id = :courseId")
+	Collection<Tutorial> findManyTutorialsByCourseId(int courseId);
+
+	@Query("select s from SessionTutorial s where s.tutorial.id = :tutorialId")
+	Collection<SessionTutorial> findManySessionsByTutorial(int tutorialId);
 }
