@@ -32,5 +32,6 @@ assistant.tutorial.form.update = Update
 assistant.tutorial.form.publish = Publish
 assistant.tutorial.form.delete = Delete
 assistant.tutorial.form.button.apply = Create Tutorial
+tutorial-delete-error-session-published = You can not delete a tutorial if any of the sessions is published
 
 assistant.tutorial.form.error.no-sessions-on-publish = You can not publish a tutorial without sessions. Please, create a session linked to this tutorial first
