@@ -18,10 +18,10 @@ public class LecturerLectureShowTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/sample-data/lecturer/lecture/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/lecturer/lecture/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title, final String Abstract, final String estimatedLearningTime, final String body, final String type, final String link) {
 
-		super.signIn("lecturer1", "lecturer1");
+		super.signIn("lecturer7", "lecturer7");
 
 		super.clickOnMenu("Lecturer", "List my lectures");
 		super.sortListing(0, "asc");

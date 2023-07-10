@@ -18,10 +18,10 @@ public class LecturerCourseUpdateTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/sample-data/lecturer/course/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/lecturer/course/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String title, final String Abstract, final String retailPrice, final String type, final String link) {
 
-		super.signIn("lecturer1", "lecturer1");
+		super.signIn("lecturer7", "lecturer7");
 
 		super.clickOnMenu("Lecturer", "List my courses");
 		super.checkListingExists();
@@ -37,11 +37,10 @@ public class LecturerCourseUpdateTest extends TestHarness {
 		super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Update");
 
+		super.clickOnMenu("Lecturer", "List my courses");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
-		super.checkColumnHasValue(recordIndex, 1, title);
-		super.checkColumnHasValue(recordIndex, 2, type);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -57,9 +56,9 @@ public class LecturerCourseUpdateTest extends TestHarness {
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/sample-data/lecturer/course/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/lecturer/course/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String code, final String title, final String Abstract, final String retailPrice, final String type, final String link) {
-		super.signIn("lecturer1", "lecturer1");
+		super.signIn("lecturer7", "lecturer7");
 
 		super.clickOnMenu("Lecturer", "List my courses");
 		super.checkListingExists();

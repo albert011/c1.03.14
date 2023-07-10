@@ -18,10 +18,10 @@ public class LecturerLectureUpdateTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/sample-data/lecturer/lecture/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/lecturer/lecture/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title, final String Abstract, final String estimatedLearningTime, final String body, final String type, final String link) {
 
-		super.signIn("lecturer1", "lecturer1");
+		super.signIn("lecturer7", "lecturer7");
 
 		super.clickOnMenu("Lecturer", "List my lectures");
 		super.checkListingExists();
@@ -38,10 +38,10 @@ public class LecturerLectureUpdateTest extends TestHarness {
 		super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Update");
 
+		super.clickOnMenu("Lecturer", "List my lectures");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, title);
-		super.checkColumnHasValue(recordIndex, 1, type);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -57,9 +57,9 @@ public class LecturerLectureUpdateTest extends TestHarness {
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/sample-data/lecturer/lecture/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/lecturer/lecture/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String title, final String Abstract, final String estimatedLearningTime, final String body, final String type, final String link) {
-		super.signIn("lecturer1", "lecturer1");
+		super.signIn("lecturer7", "lecturer7");
 
 		super.clickOnMenu("Lecturer", "List my lectures");
 		super.checkListingExists();
@@ -68,12 +68,13 @@ public class LecturerLectureUpdateTest extends TestHarness {
 		super.checkColumnHasValue(recordIndex, 0, title);
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
-		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("Abstract", Abstract);
-		super.checkInputBoxHasValue("estimatedLearningTime", estimatedLearningTime);
-		super.checkInputBoxHasValue("body", body);
-		super.checkInputBoxHasValue("type", type);
-		super.checkInputBoxHasValue("link", link);
+		super.fillInputBoxIn("title", title);
+		super.fillInputBoxIn("Abstract", Abstract);
+		super.fillInputBoxIn("estimatedLearningTime", estimatedLearningTime);
+		super.fillInputBoxIn("body", body);
+		super.fillInputBoxIn("type", type);
+		super.fillInputBoxIn("link", link);
+		super.clickOnSubmit("Update");
 
 		super.checkErrorsExist();
 

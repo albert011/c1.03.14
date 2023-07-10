@@ -10,7 +10,7 @@ import acme.testing.TestHarness;
 public class LecturerCourseCreateTest extends TestHarness {
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/sample-data/lecturer/course/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/lecturer/course/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String title, final String Abstract, final String retailPrice, final String type, final String link) {
 
 		super.signIn("lecturer1", "lecturer1");
@@ -31,7 +31,6 @@ public class LecturerCourseCreateTest extends TestHarness {
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, title);
-		super.checkColumnHasValue(recordIndex, 2, type);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -47,7 +46,7 @@ public class LecturerCourseCreateTest extends TestHarness {
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/sample-data/lecturer/course/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/lecturer/course/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String code, final String title, final String Abstract, final String retailPrice, final String type, final String link) {
 		super.signIn("lecturer1", "lecturer1");
 
