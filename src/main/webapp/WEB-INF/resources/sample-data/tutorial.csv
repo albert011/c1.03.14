@@ -1,0 +1,10 @@
+key,key:assistant,key:course,code,title,abstractMessage,goals,estimatedTotalTime,isPublished
+tuto-01,assist-01,course-01,A0000,.,.,.,0.5,false
+tuto-02,assist-01,course-04,AA0999,Ejemplo normal de tutorial,Texto de prueba,learn-mariasql-populator;,2.1,true
+tuto-03,assist-02,course-05,ZZZ9999,Morbi in enim blandit; malesuada sapien et; consectetur massa. Maecenas at.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam.,4.20,false
+tuto-04,assist-02,course-08,ACB8213,Morbi in enim blandit; malesuada sapien et; consectetur massa. Maecenas at.,.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam.,3.18,false
+tuto-05,assist-01,course-04,EZZ9099,.,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam.,.,4.20,true
+tuto-06,assist-02,course-05,ZZ9999,Morbi in enim blandit; malesuada sapien et; consectetur massa. Maecenas at,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam,Integer vehicula nisl pharetra consequat hendrerit. Mauris consequat molestie suscipit orci aliquam,4.20,false
+tuto-07,assist-02,course-06,QW0000,Mòrbi in eñím blândít; malesüada sapien et; consectétur mâssà. Mæcenas at.,Integer vehicula ñisl pharètra conseqüat hendrerit. Mâuris consequat molestie suscípit orçi aliquâm.,Integer vehicula ñisl pharètra consequat hendrerít. Mauris consequât molestie suscipit orci aliqüam.,4.20,true
+tuto-08,assist-02,course-07,WQE1234,Ejemplo con caracteres extraños,Caracteres extraños incluyen ´¨`^çáäàâéëèêíïìîóöòôúüùûñ$~%&@€,Añil-Añublo-Añejo-Pedigrí,3.70,true
+tuto-09,assist-02,course-08,ZAP1234,경제의 발전을 위한 중요정책의 수립,Лорем ипсум долор сит амет; пер цлита поссит ех; ат му,अनुवाद कार्यलय मुख्य संस्था सोफ़तवेर निरपेक्ष उनका आपके बाटते आशाआ,4.50,true

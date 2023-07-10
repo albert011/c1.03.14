@@ -1,0 +1,23 @@
+key,code,title,Abstract,retail-price,type,link,draftMode,key:lecturer
+course-01,A 123,a,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7AN9n7WFMmP9SHRaw4,EUR 16.99,THEORETICAL,https://google.com/,true,lecturer-01
+course-02,B 123,aa,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7AN9n7WFMmP9SHRaw,EUR 15.98,THEORETICAL,https://google.com/,true,lecturer-02
+course-03,CC 578,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPYTWAnDzq3ivxj3rgbKzPRudHT,a,EUR 100.75,THEORETICAL,,true,lecturer-03
+course-04,FF 578,m6HSEw4f4pdqPELHLaVJUypburaTNVX,aa,EUR 10.99,THEORETICAL,https://google.com/,true,lecturer-01
+course-05,GHJ 800,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPYTWAnDzq3ivxj3rgbKzPRudHT,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefD,EUR 6.50,HANDS_ON,https://google.com/,false,lecturer-05
+course-06,KJA 000,m6HSEw4f4pdqPELHLaVJUypbur,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7AN9n7WFMmP9SHRaw4,EUR 96.99,HANDS_ON,,false,lecturer-05
+course-07,KAI 075,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPYTWAnDzq3ivxj3rgbKzPRudH,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdS,EUR 1.29,THEORETICAL,,false,lecturer-02
+course-08,OLK 865,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fi,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7A,EUR 6.59,THEORETICAL,,false,lecturer-02
+course-09,OKP 011,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDv,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7AN9n7WFMmP9SHRaw4,EUR 19.00,THEORETICAL,https://google.com/,true,lecturer-03
+course-10,JBD 007,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPY,WQRbzYPegEtSczYY2Vuvg4Hn4jjYRwCgzBqSxdScqkEkNdLLvaAAG6pd6ZMefDN8F3T4WGgiPCrRV3PLjr7AN9n7WFMmP9SHRaw4,EUR 1.99,THEORETICAL,https://google.com/,true,lecturer-06
+course-11,AAA 123,Curso de informatica,Este es un curso de informatica,GBP 33.91,THEORETICAL,https://google.com/,true,lecturer-07
+course-12,AAB 123,Curso de matematicas,Este es un curso de matematicas,GBP 03.91,THEORETICAL,,true,lecturer-07
+course-13,AAC 123,Curso de alemán,Este es un curso de alemán,USD 78.00,THEORETICAL,,true,lecturer-07
+course-14,AAD 123,Curso de latín,Este es un curso de latín თხა,EUR 20.50,THEORETICAL,,true,lecturer-07
+course-15,AAE 123,Curso de griego,Este es un curso de griego Λ,EUR 88.11,THEORETICAL,,true,lecturer-07
+course-16,AAF 123,Curso de chino,Este es un curso de chino よ芝弾,USD 110.20,THEORETICAL,https://google.com/,true,lecturer-07
+course-17,AAG 123,Curso de ruso,Este es un curso de ruso за,EUR 00.01,THEORETICAL,https://google.com/,true,lecturer-07
+course-18,AAH 123,Curso de tildes,Este es un curso de tildes òó,USD 50.00,THEORETICAL,,true,lecturer-07
+course-19,AAI 123,Curso de car@cteres,Este es un curso de car@cteres,USD 10.99,THEORETICAL,https://google.com/,true,lecturer-07
+course-20,ZZA 111,Curso sin publicar,Este es un curso publicado,EUR 9.99,HANDS_ON,,true,lecturer-08
+course-21,ZZA 112,Curso sin publicar,Este es otro curso publicado,GBP 8.99,HANDS_ON,,false,lecturer-08
+course-22,ZZA 113,Curso sin publicar,Este es otro curso publicado,USD 7.99,HANDS_ON,,false,lecturer-08

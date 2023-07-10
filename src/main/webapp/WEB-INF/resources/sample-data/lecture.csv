@@ -1,0 +1,24 @@
+key,title,Abstract,estimated-learning-time,body,type,link,draftMode,key:lecturer
+lecture-01,a,a,21.0,a,HANDS_ON,https://ev.us.es/,false,lecturer-01
+lecture-02,aaaaa,aaaaaaa,22.0,aaaaaaaa,HANDS_ON,https://ev.us.es/,false,lecturer-01
+lecture-03,aaaaaaaaaaaaaaaaaaaaaa,PAXzHxhtrJiytjCaMX5ukgF6zPXWNP7CVEnpAxYUDAkBiqKkpHy2BDUUz89ieAaPQJjYcbAUCC8VjQiJ6UdaAhbUZGReEtwQXXgf,23.0,PAXzHxhtrJiytjCaMX5ukgF6zPXWNP7CVEnpAxYUDAkBiqKkpHy2BDUUz89ieAaPQJjYcbAUCC8VjQiJ6UdaAhbUZGReEtwQXXgf,THEORETICAL,https://google.com/,false,lecturer-02
+lecture-04,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPYTWAnDzq3ivxj3rgbKzPRudHT,AXzHxhtrJiytjCaMX5ukgF6zPXWNP7CVEnpAxYUDAkBiqKkpHy2BDUUz89ieAaPQJjYcbAUCC8VjQiJ6UdaAhbUZGReEtwQXXgf,23.0,PAXzHxhtrJiytjCaMX5ukgF6zPXWNP7CVEnpAxYUDAkBiqKkpHy2BDUUz89ieAaPQJjYcbAUCC8VjQiJ6UdaAhbUZGReEtwQXXg,THEORETICAL,https://google.com/,true,lecturer-02
+lecture-05,6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPYTWAnDzq3ivxj3rgbKzPRudHT,AXzHxhtrJiytjCaMX5ukgF6zPXWNP7CVEnpAxYUDAkBiqKkpHy2BDUUz89ieAaPQJjYcbAUCC8VjQiJ6UdaAhbUZGReEtwQXXgf,23.0,PAXzHxhtrJiytjCaMX5ukgF6zPXWNP7CVEnpAxYUDAkBiqKkpHy2BDUUz89ieAaPQJjYcbAUCC8VjQiJ6UdaAhbUZGReEtwQXXg,THEORETICAL,https://google.com/,true,lecturer-03
+lecture-06,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPYTWAnDzq3ivxj3rgbKzPRudHT,AXzHxhtrJiytjCaMX5ukgF6zPXWNP7CVEnpAxYUDAkBiqKkpHy2BDUUz89ieAaPQJjYcbAUCC8VjQiJ6UdaAhbUZGReEtwQXXgf,23.0,PAXzHxhtrJiytjCaMX5ukgF6zPXWNP7CVEnpAxYUDAkBiqKkpHy2BDUUz89ieAaPQJjYcbAUCC8VjQiJ6UdaAhbUZGReEtwQXXg,THEORETICAL,https://google.com/,true,lecturer-06
+lecture-07,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPYTWAnDzq3ivxj3rgbKzPRud,zHxhtrJiytjCaMX5ukgF6zPXWNP7CVEnpAxYUDAkBiqKkpHy2BDUUz89ieAaPQJjYcbAUCC8VjQiJ6UdaAhbUZGReEtwQXXgf,23.0,PAXzHxhtrJiytjCaMX5ukgF6zPXWNP7CVEnpAxYUDAkBiqKkpHy2BDUUz89ieAaPQJjYcbAUCC8VjQiJ6UdaAhbUZGReEtwQg,HANDS_ON,https://gmail.com/,true,lecturer-08
+lecture-08,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyakMxFPYTWAnDzq3ivxj3rg,ytjCaMX5ukgF6zPXWNP7CVEnpAxYUDAkBiqKkpHy2BDUUz89ieAaPQJjYcbAUCC8VjQiJ6UdaAhbUZGReEtwQXXgf,26.5,aMX5ukgF6zPXWNP7CVEnpAxYUDAkBiqKkpHy2BDUUz89ieAaPQJjYcbAUCC8VjQiJ6UdaAhbUZGReEtwQXXg,THEORETICAL,https://google.com/,false,lecturer-04
+lecture-09,m6HSEw4f4pdqPELHLaVJUypburaTNVX26Fih8rZDvAvyWAnDzq3ivxj3rgbKzPRudHT,AXzHxhtrJiytjCaMX5ukgF6zPXWNP7CVEnpAxYUDAkBiqKkpHy2BDUUz89ieAaPQJjYcbAUCC8VjQiJ6UdaAhbUZGReEtwQXXgf,27.8,PAXzHxhtrJiytjCaMX5ukgF6zPXWNP7CVEnpAxYUDAkBiqKkpHy2BDUUz89ieAaPQJjYcbAUCC8VjQiJ6U,HANDS_ON,,true,lecturer-05
+lecture-10,Clase-A,Clase de Informatica,20.00,Esta es una clase de informatica,THEORETICAL,https://gmail.com/,true,lecturer-07
+lecture-11,Clase-B,Clase de Matematicas,21.00,Esta es una clase de matematicas,THEORETICAL,https://gmail.com/,true,lecturer-07
+lecture-12,Clase-C,Clase de Alemán,60.00,Esta es una clase de alemán,THEORETICAL,https://gmail.com/,true,lecturer-07
+lecture-13,Clase-D-თხა თხა,Clase de Latin,54.50,Esta es una clase de latín,THEORETICAL,https://gmail.com/,true,lecturer-07
+lecture-14,Clase-E-Λορεμ,Clase de Griego,20.00,Esta es una clase de griego,THEORETICAL,https://gmail.com/,true,lecturer-07
+lecture-15,Clase-F-貸んい建濯よ芝弾テソ,Clase de chino,33.33,Esta es una clase de chino,THEORETICAL,https://gmail.com/,true,lecturer-07
+lecture-16,Clase-G-коза коза,Clase de Ruso,0.01,Esta es una clase de Ruso,THEORETICAL,https://gmail.com/,true,lecturer-07
+lecture-17,Clase-H-áéíóúùòìèà,Clase de tildes,180.30,Esta es una clase de tildes,THEORETICAL,https://gmail.com/,true,lecturer-07
+lecture-18,Clase-I,Clase de car@cteres,61.98,Esta es una clase de informatica avanzada,THEORETICAL,https://gmail.com/,true,lecturer-07
+lecture-19,Clase-J,Esta es la última clase del curso,"1,220.00",Ya hemos probado todas las restricciones,THEORETICAL,https://gmail.com/,true,lecturer-07
+lecture-20,Clase-Publicada01,Clase de tipo práctica publicada,1.99,Vamos a usarla para los tests,HANDS_ON,,false,lecturer-07
+lecture-21,Clase-Publicada02,Clase de tipo práctica publicada,2.99,Vamos a usarla para los tests,HANDS_ON,,false,lecturer-08
+lecture-22,Clase-Publicada03,Clase de tipo práctica publicada,3.99,Vamos a usarla para los tests,HANDS_ON,,false,lecturer-08
+lecture-23,Clase-Publicada04,Clase de tipo práctica publicada,4.99,Vamos a usarla para los tests,HANDS_ON,,false,lecturer-08
