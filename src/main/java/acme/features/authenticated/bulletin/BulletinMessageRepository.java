@@ -1,12 +1,12 @@
 
-package acme.features.messages.bulletin;
+package acme.features.authenticated.bulletin;
 
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.messages.BulletinMessage;
+import acme.entities.bulletin.BulletinMessage;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository

@@ -5,7 +5,7 @@ recordIndex,title,abstractMessage,tutorial,type,timeStart,timeEnd,link
 5,.,.,,,,,
 5,.,.,,,,,
 5,.,.,A0000,,,,
-5,.,.,A0000,,2023/06/01 15:30,2023/06/01 16:30,
+5,.,.,A0000,,2023/06/01 15:30,2023/06/01 16:30,https://sevius.us.es/index.php
 5,.,.,,HANDS_ON,2023/06/01 15:30,2023/06/01 16:30,
 5,.,.,A0000,HANDS_ON,2023/06/01 17:30,2023/06/01 16:30,
 5,.,.,A0000,HANDS_ON,2023/06/01 16:00,2023/06/01 16:30,
@@ -17,3 +17,4 @@ recordIndex,title,abstractMessage,tutorial,type,timeStart,timeEnd,link
 5,Suspendisse et feugiat lectus. Lorem ipsum dolor sit amet; consectetur biam.,test data,A0000,HANDS_ON,2023/06/01 17:30,2023/06/01 19:30,https://www.google.es/
 5,test data,Lorem ipsum dolor sit amet; consectetur adipiscing elit. Aenean iaculis; ligula a sollicitudin metus.,A0000,HANDS_ON,2023/06/01 17:30,2023/06/01 19:30,https://intelx.io/
 5,Suspendisse et feugiat lectus. Lorem ipsum dolor sit amet; consectetur biam.,Lorem ipsum dolor sit amet; consectetur adipiscing elit. Aenean iaculis; ligula a sollicitudin metus.,A0000,HANDS_ON,2023/06/01 17:30,2023/06/01 19:30,
+

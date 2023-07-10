@@ -1,12 +1,12 @@
 
-package acme.features.messages.bulletin;
+package acme.features.authenticated.bulletin;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.messages.BulletinMessage;
+import acme.entities.bulletin.BulletinMessage;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;

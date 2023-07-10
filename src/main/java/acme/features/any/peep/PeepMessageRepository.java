@@ -1,12 +1,12 @@
 
-package acme.features.messages.peep;
+package acme.features.any.peep;
 
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.messages.PeepMessage;
+import acme.entities.peep.PeepMessage;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
