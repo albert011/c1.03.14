@@ -1,12 +1,9 @@
 key,key:course,key:lecture
 course-lecture-01.01,course-01,lecture-01
 course-lecture-01.02,course-01,lecture-02
-course-lecture-01.03,course-01,lecture-03
-course-lecture-02.02,course-02,lecture-02
-course-lecture-03.02,course-03,lecture-02
+course-lecture-03.05,course-03,lecture-05
 course-lecture-02.03,course-02,lecture-03
-course-lecture-03.03,course-03,lecture-03
-course-lecture-01.04,course-01,lecture-04
+course-lecture-02.04,course-02,lecture-04
 course-lecture-04.01,course-04,lecture-01
 course-lecture-11.10,course-11,lecture-10
 course-lecture-12.10,course-12,lecture-10
