@@ -1,0 +1,10 @@
+recordIndex,code,title,Abstract,retailPrice,type,link
+0,AAA 123,Curso de informatica MODIFICADO,Este es un curso de informatica MODIFICADO,GBP 33.91,THEORETICAL,https://google.com/
+1,AAB 123,Curso de matematicas,Este es un curso de matematicas,USD 33.91,THEORETICAL,
+2,AAC 123,Cursillo,Este es un cursillo de alemán,USD 78.00,THEORETICAL,
+3,AAD 123,თხათხათხ,Este es un curso de latín თხა,EUR 20.50,THEORETICAL,
+4,AAE 123,Curso de griego,Este es un curso de griego Λ,EUR 88.11,HANDS_ON,
+5,AAF 123,Curso de chino,Este es un curso de chino よ芝弾,GBP 110.20,HANDS_ON,https://google.com/
+6,AAG 123,Curso de ruso,Este es un curso de ruso за,EUR 0.01,HANDS_ON,https://google.com/
+7,AAH 123,Curso de tildes,Este es un curso de tildes òó,USD 50.00,HANDS_ON,
+8,AAI 123,Curso de car@cteres,Este es un curso de car@cteres,"EUR 1,000.99",HANDS_ON,https://google.com/

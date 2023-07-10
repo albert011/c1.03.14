@@ -10,7 +10,7 @@ import acme.testing.TestHarness;
 public class LecturerLectureCreateTest extends TestHarness {
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/sample-data/lecturer/lecture/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/lecturer/lecture/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title, final String Abstract, final String estimatedLearningTime, final String body, final String type, final String link) {
 
 		super.signIn("lecturer1", "lecturer1");
@@ -46,16 +46,12 @@ public class LecturerLectureCreateTest extends TestHarness {
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/sample-data/lecturer/lecture/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/lecturer/lecture/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String title, final String Abstract, final String estimatedLearningTime, final String body, final String type, final String link) {
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "List my lectures");
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-
-		super.checkColumnHasValue(recordIndex, 0, title);
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnButton("Create");
 		super.checkFormExists();
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("Abstract", Abstract);
@@ -63,7 +59,7 @@ public class LecturerLectureCreateTest extends TestHarness {
 		super.fillInputBoxIn("body", body);
 		super.fillInputBoxIn("type", type);
 		super.fillInputBoxIn("link", link);
-		super.clickOnSubmit("Update");
+		super.clickOnSubmit("Create");
 
 		super.checkErrorsExist();
 

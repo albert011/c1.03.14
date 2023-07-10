@@ -18,10 +18,10 @@ public class LecturerLecturePublishTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/sample-data/lecturer/lecture/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/lecturer/lecture/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title) {
 
-		super.signIn("lecturer1", "lecturer1");
+		super.signIn("lecturer7", "lecturer7");
 
 		super.clickOnMenu("Lecturer", "List my lectures");
 		super.checkListingExists();
@@ -37,11 +37,9 @@ public class LecturerLecturePublishTest extends TestHarness {
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/sample-data/lecturer/lecture/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String title) {
-		// HINT: this test attempts to publish a job that cannot be published, yet.
-
-		super.signIn("lecturer1", "lecturer1");
+	@CsvFileSource(resources = "/lecturer/lecture/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test200Negative(final int recordIndex, final String title, final String Abstract, final String estimatedLearningTime, final String body, final String type, final String link) {
+		super.signIn("lecturer7", "lecturer7");
 
 		super.clickOnMenu("Lecturer", "List my lectures");
 		super.checkListingExists();
@@ -50,8 +48,15 @@ public class LecturerLecturePublishTest extends TestHarness {
 		super.checkColumnHasValue(recordIndex, 0, title);
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
+		super.fillInputBoxIn("title", title);
+		super.fillInputBoxIn("Abstract", Abstract);
+		super.fillInputBoxIn("estimatedLearningTime", estimatedLearningTime);
+		super.fillInputBoxIn("body", body);
+		super.fillInputBoxIn("type", type);
+		super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Publish");
-		super.checkAlertExists(false);
+
+		super.checkErrorsExist();
 
 		super.signOut();
 	}
@@ -99,7 +104,7 @@ public class LecturerLecturePublishTest extends TestHarness {
 
 	@Test
 	public void test301Hacking() {
-		//Curso ya publicado
+		//Clase ya publicada
 		Collection<Lecture> lectures;
 		String param;
 
@@ -115,7 +120,7 @@ public class LecturerLecturePublishTest extends TestHarness {
 
 	@Test
 	public void test302Hacking() {
-		//Quiere publicar un curso alguien que no lo ha creado
+		//Quiere publicar una clase alguien que no la ha creado
 		Collection<Lecture> lectures;
 		String param;
 

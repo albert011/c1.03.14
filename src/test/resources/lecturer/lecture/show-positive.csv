@@ -1,0 +1,11 @@
+recordIndex,title,Abstract,estimatedLearningTime,body,type,link
+0,Clase-A,Clase de Informatica,20.00,Esta es una clase de informatica,THEORETICAL,https://gmail.com/
+1,Clase-B,Clase de Matematicas,21.00,Esta es una clase de matematicas,THEORETICAL,https://gmail.com/
+2,Clase-C,Clase de Alemán,60.00,Esta es una clase de alemán,THEORETICAL,https://gmail.com/
+3,Clase-D-თხა თხა,Clase de Latin,54.50,Esta es una clase de latín,THEORETICAL,https://gmail.com/
+4,Clase-E-Λορεμ,Clase de Griego,20.00,Esta es una clase de griego,THEORETICAL,https://gmail.com/
+5,Clase-F-貸んい建濯よ芝弾テソ,Clase de chino,33.33,Esta es una clase de chino,THEORETICAL,https://gmail.com/
+6,Clase-G-коза коза,Clase de Ruso,0.01,Esta es una clase de Ruso,THEORETICAL,https://gmail.com/,true
+7,Clase-H-áéíóúùòìèà,Clase de tildes,180.30,Esta es una clase de tildes,THEORETICAL,https://gmail.com/
+8,Clase-I,Clase de car@cteres,61.98,Esta es una clase de informatica avanzada,THEORETICAL,https://gmail.com/
+9,Clase-J,Esta es la última clase del curso,"1,220.00",Ya hemos probado todas las restricciones,THEORETICAL,https://gmail.com/

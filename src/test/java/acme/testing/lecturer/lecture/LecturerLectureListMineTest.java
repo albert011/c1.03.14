@@ -10,10 +10,10 @@ import acme.testing.TestHarness;
 public class LecturerLectureListMineTest extends TestHarness {
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/sample-data/lecturer/lecture/list-mine-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/lecturer/lecture/list-mine-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title, final String type) {
 
-		super.signIn("lecturer1", "lecturer1");
+		super.signIn("lecturer7", "lecturer7");
 
 		super.clickOnMenu("Lecturer", "List my lectures");
 		super.checkListingExists();
