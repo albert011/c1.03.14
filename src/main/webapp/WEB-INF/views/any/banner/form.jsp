@@ -28,7 +28,7 @@
 		let enlace = document.getElementById('enlace');
 		let enlace2 = enlace.textContent;
 		
-		const url = 'http://localhost:8080/Acme-L3-D04/master/welcome';
+		const url = 'http://localhost:8080/Acme-L3-D03/master/welcome';
 		let encodedEnlace = encodeURIComponent(enlace2);
 		
 
