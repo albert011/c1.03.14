@@ -1,6 +1,0 @@
-recordIndex,title,message,instantiation,link,email,nickname
-0,A,A,2022/02/16 19:30,https://www.lipsum.com/,,A
-1,Morbi sed urna risus. Cras iaculis maximus ligula ut pellentesque eleifend.,Cras tempor vestibulum massa eget ornare. Nam venenatis tellus at ligula luctus eleifend porta ante.,2022/07/16 19:30,,example@mail.com,Morbi sed urna risus. Cras iaculis maximus ligula ut pellentesque eleifend.
-2,Prueba peep,Esto es un mensaje de prueba,2022/03/16 19:30,,,tester peep
-3,Prueba peep,Esto es un mensaje de prueba,2022/04/16 19:30,,,tester peep
-4,Prueba peep caracteres extraños,Caracteres extraños incluyen 'ñáéíóúàèìòùäëïöüâêîôç',2022/04/16 19:30,https://web.whatsapp.com/,example2@mail.com,tester peep con Ñ
