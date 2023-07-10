@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Activity;
 import acme.entities.enrolments.Activity.ActivityType;
+import acme.entities.enrolments.Enrolment;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -32,11 +33,13 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 		final boolean status;
 		final Principal principal;
 		final int masterId;
+		final Enrolment enrolment;
 
 		masterId = super.getRequest().getData("enrolment", int.class);
 		principal = super.getRequest().getPrincipal();
+		enrolment = this.repository.findOneEnrolmentById(masterId);
 
-		status = this.repository.findStudentByEnrolment(masterId).getId() == principal.getActiveRoleId();
+		status = this.repository.findStudentByEnrolment(masterId).getId() == principal.getActiveRoleId() && enrolment.getHolderName() != null && enrolment.getLowerNibble() != null;
 
 		super.getResponse().setAuthorised(status);
 	}

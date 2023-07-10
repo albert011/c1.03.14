@@ -33,4 +33,7 @@ public interface StudentActivityTestRepository extends AbstractRepository {
 	@Query("SELECT a FROM Activity a JOIN a.enrolment ae WHERE ae.id = :id")
 	List<Activity> findActivitiesByEnrolment(int id);
 
+	@Query("SELECT e FROM Enrolment e JOIN e.student es WHERE es.userAccount.username = :username")
+	List<Enrolment> findEnrolmentsByStudentUsername(String username);
+
 }
