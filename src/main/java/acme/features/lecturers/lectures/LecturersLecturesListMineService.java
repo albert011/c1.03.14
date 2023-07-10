@@ -26,7 +26,19 @@ public class LecturersLecturesListMineService extends AbstractService<Lecturer, 
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		if (super.getRequest().hasData("courseId", int.class)) {
+			boolean status;
+			int courseId;
+			int lecturerId;
+			int ownerCourseId;
+
+			courseId = super.getRequest().getData("courseId", int.class);
+			lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
+			ownerCourseId = this.repository.findCourseOwnerByCourseId(courseId).getId();
+			status = lecturerId == ownerCourseId;
+			super.getResponse().setAuthorised(status);
+		} else
+			super.getResponse().setAuthorised(true);
 	}
 
 	@Override
