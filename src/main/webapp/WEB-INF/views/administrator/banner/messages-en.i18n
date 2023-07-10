@@ -1,4 +1,4 @@
-administrator.banner.list.label.instantiationMoment = instantiationMoment
+administrator.banner.list.label.instantiationMoment = Instantiation Moment
 administrator.banner.list.label.slogan = Slogan
 
 administrator.banner.list.button.create = Create
@@ -16,4 +16,6 @@ administrator.banner.form.button.create = Create
 
 administrator.banner.form.error.display-period-start-before = You can't display before instantiating
 administrator.banner.form.error.display-period-end-before = You can't end display before instantiating
-administrator.banner.form.error.display-period-end-before-display = You can't end display before starting 
+administrator.banner.form.error.display-period-end-before-display = You can't end display before starting
+administrator.banner.form.error.display-period-time = Display must last at least for one week duration
+administrator.banner.form.error.display-period-start = You can't start display before instantiating 

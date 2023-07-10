@@ -5,7 +5,6 @@ lecturer.lecture.list.label.type = Type
 lecturer.lecture.list.button.create = Create
 
 lecturer.lecture.form.label.title = Title:
-lecturer.lecture.form.label.course = Course:
 lecturer.lecture.form.label.Abstract = Abstract:
 lecturer.lecture.form.label.estimatedLearningTime = EstimatedLearningTime:
 lecturer.lecture.form.label.body = Body:

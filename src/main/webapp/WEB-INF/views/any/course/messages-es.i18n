@@ -1,0 +1,9 @@
+any.course.list.label.code= Codigo del curso:
+any.course.list.label.title= Titulo del curso:
+
+any.course.form.label.code = Codigo
+any.course.form.label.title = Titulo
+any.course.form.label.Abstract = Resumen
+any.course.form.label.type = Tipo de curso
+any.course.form.label.link = Link
+any.course.form.label.retail-price = Precio del curso

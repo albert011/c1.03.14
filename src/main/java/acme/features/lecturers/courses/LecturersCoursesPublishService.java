@@ -34,10 +34,12 @@ public class LecturersCoursesPublishService extends AbstractService<Lecturer, Co
 		boolean status;
 		int masterId;
 		Course course;
+		Lecturer lecturer;
 
 		masterId = super.getRequest().getData("id", int.class);
 		course = this.repository.findOneCourseById(masterId);
-		status = course != null && course.isDraftMode();
+		lecturer = course == null ? null : course.getLecturer();
+		status = course != null && course.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecturer);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -46,21 +48,10 @@ public class LecturersCoursesPublishService extends AbstractService<Lecturer, Co
 	public void load() {
 		Course object;
 		int id;
-		Long theoreticalLectures;
-		Long handsOnLectures;
-		LectureType lectureType;
+
 		id = super.getRequest().getData("id", int.class);
 
-		handsOnLectures = this.repository.findManyNonTheoreticalLecturesByCourseId(id);
-		theoreticalLectures = this.repository.findManyTheoreticalLecturesByCourseId(id);
-
-		if (handsOnLectures > theoreticalLectures)
-			lectureType = LectureType.HANDS_ON;
-		else
-			lectureType = LectureType.THEORETICAL;
-
 		object = this.repository.findOneCourseById(id);
-		object.setType(lectureType);
 
 		super.getBuffer().setData(object);
 	}
@@ -93,13 +84,16 @@ public class LecturersCoursesPublishService extends AbstractService<Lecturer, Co
 			super.state(lectures.isEmpty(), "*", "lecturer.course.form.error.lectures-unpublished");
 		}
 		{
-			Long lectures;
-			final long var = 0;
+			Collection<Lecture> lecturesP;
+			Collection<Lecture> lectures;
 
-			lectures = this.repository.findManyNonTheoreticalLecturesByCourseId(object.getId());
-			super.state(!lectures.equals(var), "*", "lecturer.course.form.error.lectures-theoretical");
+			lecturesP = this.repository.findManyNonTheoreticalLecturesByCourseId(object.getId());
+			lectures = this.repository.findManyLecturesByCourseId(object.getId());
+			if (lectures.isEmpty())
+				super.state(!lectures.isEmpty(), "*", "lecturer.course.form.error.lectures-empty");
+			else if (lecturesP.isEmpty())
+				super.state(!lecturesP.isEmpty(), "*", "lecturer.course.form.error.lectures-theoretical");
 		}
-		object.setType(LectureType.HANDS_ON);
 	}
 
 	@Override
@@ -107,6 +101,7 @@ public class LecturersCoursesPublishService extends AbstractService<Lecturer, Co
 		assert object != null;
 
 		object.setDraftMode(false);
+
 		this.repository.save(object);
 	}
 
@@ -115,8 +110,22 @@ public class LecturersCoursesPublishService extends AbstractService<Lecturer, Co
 		assert object != null;
 
 		Tuple tuple;
+		Collection<Lecture> lectures;
+		int totalTheoretical = 0;
+		int totalHandsOn = 0;
 
+		lectures = this.repository.findManyLecturesByCourseId(object.getId());
+
+		for (final Lecture lecture : lectures)
+			if (lecture.getType().equals(LectureType.THEORETICAL))
+				totalTheoretical++;
+			else
+				totalHandsOn++;
+
+		final LectureType type = totalHandsOn == totalTheoretical ? LectureType.HANDS_ON : totalHandsOn > totalTheoretical ? LectureType.HANDS_ON : LectureType.THEORETICAL;
 		tuple = super.unbind(object, "code", "title", "Abstract", "retailPrice", "type", "link", "draftMode");
+		tuple.put("type", type);
+
 		super.getResponse().setData(tuple);
 	}
 

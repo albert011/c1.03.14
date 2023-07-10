@@ -13,8 +13,8 @@ import acme.roles.Lecturer;
 @Repository
 public interface StudentLectureRepository extends AbstractRepository {
 
-	@Query("SELECT l FROM Lecture l JOIN l.courses lc WHERE lc.id = :id")
-	List<Lecture> findLecturesByCourse(int id);
+	@Query("select cl.lecture from CourseLecture cl where cl.course.id = :courseId")
+	List<Lecture> findLecturesByCourse(int courseId);
 
 	@Query("SELECT ll FROM Lecture l JOIN l.lecturer ll WHERE l.id = :id")
 	Lecturer findOneLecturerByLectureId(int id);

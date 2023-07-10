@@ -29,6 +29,4 @@ auditor.audit.form.submit.delete = Borrar Inspección
 auditor.audit.form.submit.publish = Publicar Inspección
 auditor.audit.form.button.records = Registros de Inspección
 
-auditor.audit.form.error.duplicated = Ya existe una inspección para ese curso
-default.error.conversion = Formato de código erróneo, deben ser 1-3 letras, seguidas por 4 números
 auditor.audit.form.error.no-records = Esta Inspección no tiene Registros

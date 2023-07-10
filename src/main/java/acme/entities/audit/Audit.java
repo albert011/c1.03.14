@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -29,7 +28,7 @@ public class Audit extends AbstractEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}", message = "default.error.conversion")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
 	protected String			code;
 
 	@NotBlank
@@ -44,13 +43,13 @@ public class Audit extends AbstractEntity {
 	@Length(max = 100)
 	protected String			weakPoints;
 
-	@NotNull
+	//	@NotNull
 	@Enumerated(value = EnumType.STRING)
 	protected Mark				mark;
 
 	@NotNull
 	@Valid
-	@OneToOne(optional = false)
+	@ManyToOne(optional = false)
 	protected Course			course;
 
 	protected boolean			isPublished;
@@ -59,9 +58,4 @@ public class Audit extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Auditor			auditor;
-
-	/*
-	 * a mark (computed as the mode of the marks in the corresponding auditing records;
-	 * ties must be broken arbitrarily if necessary).
-	 */
 }
