@@ -13,8 +13,6 @@ public class CompanyPracticumCreateTest extends TestHarness {
 
 	@CsvFileSource(resources = "/company/practicum/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String title, final String abstractText, final String goals, final String course) {
-		// HINT: this test authenticates as an company and then lists his or her
-		// HINT: practica, creates a new one, and check that it's been created properly.
 
 		super.signIn("company1", "company1");
 
@@ -56,7 +54,6 @@ public class CompanyPracticumCreateTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/company/practicum/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String code, final String title, final String abstractText, final String goals, final String course) {
-		// HINT: this test attempts to create practica with incorrect data.
 
 		super.signIn("company1", "company1");
 
@@ -79,8 +76,6 @@ public class CompanyPracticumCreateTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to create a practicum using principals with
-		// HINT+ inappropriate roles.
 
 		super.checkLinkExists("Sign in");
 		super.request("/company/practicum/create");

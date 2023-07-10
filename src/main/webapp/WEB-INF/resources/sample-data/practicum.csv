@@ -8,4 +8,5 @@ practicum-06,A1234,aabcdefefflsfsf,iuuuuuuuuuuuuuuuuuuuuuuuuuooooooooooooooooooo
 practicum-07,FB5234,abasddddddddddasdc,cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc,ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd,true,company-01,course-05
 practicum-08,FBB2244,otro practicum,cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc,ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd,false,company-01,course-06
 practicum-09,XYZ1160,@áéíóú,#áéíóú,áéíóúáéíóúáéíóú¿?¡!,true,company-02,course-05
-practicum-10,XYZ1161,ññ&%@@@,Carácteres especiales,@@#ññññ,true,company-02,course-05
+practicum-10,XYZ1161,ññ&%@@@,Carácteres especiales,@@#ññññ,false,company-02,course-05
+practicum-11,XYZ1162,αυτό είναι ένα πρακτικό στα ελληνικά,αυτό είναι ένα πρακτικό στα ελληνικά,αυτό είναι ένα πρακτικό στα ελληνικά,true,company-02,course-06

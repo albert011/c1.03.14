@@ -24,8 +24,6 @@ public class CompanyPracticumSessionListTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/company/practicumSession/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int practicumRecordIndex, final String code, final String course, final String practicumTitle, final int practicumSessionRecordIndex, final String practicumSessionTitle, final String startDate, final String endDate) {
-		// HINT: this test authenticates as a company, then lists his or her practica,
-		// HINT+ selects one of them, and check that it has the expected practicumSessions.
 
 		super.signIn("company1", "company1");
 
@@ -51,14 +49,11 @@ public class CompanyPracticumSessionListTest extends TestHarness {
 
 	@Test
 	public void test200Negative() {
-		// HINT: there's no negative test case for this listing, since it doesn't
-		// HINT+ involve filling in any forms.
+
 	}
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to list the session of a practicum that is unpublished
-		// HINT+ using a principal that didn't create it.
 
 		Collection<Practicum> practica;
 		String param;

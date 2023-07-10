@@ -25,44 +25,6 @@ public class CompanyPracticumSessionCreateTest extends TestHarness {
 	@CsvFileSource(resources = "/company/practicumSession/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int practicumRecordIndex, final String code, final String course, final String practicumTitle, final int practicumSessionRecordIndex, final String practicumSessionTitle, final String abstractText,
 		final String startDate, final String endDate, final String link) {
-		// HINT: this test authenticates as a company, list his or her practica, navigates
-		// HINT+ to a practicum and lists its sessions. Then creates a new one, and check that it's 
-		// HINT+ been created properly.
-
-		//		super.signIn("company1", "company1");
-		//
-		//		super.clickOnMenu("Company", "List my practicums");
-		//		super.checkListingExists();
-		//		super.sortListing(0, "asc");
-		//
-		//		super.checkColumnHasValue(practicumRecordIndex, 0, code);
-		//		super.checkColumnHasValue(practicumRecordIndex, 1, course);
-		//		super.checkColumnHasValue(practicumRecordIndex, 2, practicumTitle);
-		//		super.clickOnListingRecord(practicumRecordIndex);
-		//		super.clickOnButton("Practicum sessions");
-		//
-		//		super.clickOnButton("Create");
-		//		super.fillInputBoxIn("title", practicumSessionTitle);
-		//		super.fillInputBoxIn("abstractText", abstractText);
-		//		super.fillInputBoxIn("startDate", startDate);
-		//		super.fillInputBoxIn("endDate", endDate);
-		//		super.fillInputBoxIn("link", link);
-		//		super.clickOnSubmit("Create");
-		//
-		//		super.checkListingExists();
-		//		super.sortListing(0, "asc");
-		//		super.checkColumnHasValue(practicumSessionRecordIndex, 0, practicumSessionTitle);
-		//		super.checkColumnHasValue(practicumSessionRecordIndex, 2, startDate);
-		//		super.checkColumnHasValue(practicumSessionRecordIndex, 3, endDate);
-		//
-		//		super.clickOnListingRecord(practicumSessionRecordIndex);
-		//		super.checkInputBoxHasValue("title", practicumSessionTitle);
-		//		super.checkInputBoxHasValue("abstractText", abstractText);
-		//		super.checkInputBoxHasValue("startDate", startDate);
-		//		super.checkInputBoxHasValue("endDate", endDate);
-		//		super.checkInputBoxHasValue("link", link);
-		//
-		//		super.signOut();
 
 		super.signIn("company1", "company1");
 
@@ -104,7 +66,6 @@ public class CompanyPracticumSessionCreateTest extends TestHarness {
 	@CsvFileSource(resources = "/company/practicumSession/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int practicumRecordIndex, final String code, final String course, final String practicumTitle, final int practicumSessionRecordIndex, final String practicumSessionTitle, final String abstractText,
 		final String startDate, final String endDate, final String link) {
-		// HINT: this test attempts to create practicum sessions using wrong data.
 
 		super.signIn("company1", "company1");
 
@@ -132,9 +93,6 @@ public class CompanyPracticumSessionCreateTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to create a practicumSession for a practicum as a principal without
-		// HINT: the "Company" role.
-		// HINT+ or using a company who is not the owner.
 
 		Collection<Practicum> practica;
 		String param;
@@ -181,8 +139,6 @@ public class CompanyPracticumSessionCreateTest extends TestHarness {
 
 	@Test
 	public void test301Hacking() {
-		// HINT: this test tries to create a practicumSession for a published practicum created by
-		// HINT+ the principal.
 
 		Collection<Practicum> practica;
 		String param;
