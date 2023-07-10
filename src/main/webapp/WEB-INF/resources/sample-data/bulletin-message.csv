@@ -1,2 +1,8 @@
 key,title,message,instantiation,link,isCritical
 bullet-01,Prueba bullet,Esto es una prueba de bullet message, 2022/03/16 19:30,null,true
+bullet-02,Mensaje con 1 caracter,A, 2021/03/16 10:30,null,true
+bullet-03,A,Titulo con 1 caracter, 2020/03/16 10:30,null,true
+bullet-04,თხათხა,Caracteres de otros alfabetos, 2022/01/01 11:30,null,false
+bullet-05,зазазазазаза,Mas caracteres de otros alfabetos заза,2002/07/08 16:00,https://google.com/,true
+bullet-06,HFPqTT0jD9jXYJA3yiBDbhcQcQc4fg0pmJ5NVDqAkeSZ3m9FD59Thm6Hpd8mDgS0iA1i2Kbhc5o,Titulo con 75 caracters,2002/07/08 16:00,https://google.com/,true
+bullet-07,Resumen con 100 caracteres,LPji9eypezhhJX1hQUw979kU3NqgatSi2d8zExX9Ub7pKPh3uUBBRTxVtieFXNW6A3qd7figkmjWgqSv9kaQfxLuVKFTKunfAfbl,2000/10/12 07:00,https://google.com/,false
