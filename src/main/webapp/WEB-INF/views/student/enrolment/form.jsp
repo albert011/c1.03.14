@@ -27,13 +27,19 @@
 	<acme:input-select code="student.enrolment.label.course" path="course"
 		choices="${courses}" />
 	<jstl:choose>
-		<jstl:when test="${_command != 'create'}">
+		<jstl:when test="${_command != 'create' && finalized == false}">
 			<acme:input-textbox code="student.enrolment.form.label.creditCard"
 				path="creditCard" placeholder="XXXX/XXXX/XXXX/XXXX" />
 			<acme:input-textbox code="student.enrolment.form.label.cvc"
 				path="cvc" placeholder="XXX" />
 			<acme:input-textbox code="student.enrolment.form.label.expiryDate"
 				path="expiryDate" placeholder="XX/XX" />
+			<acme:input-textbox code="student.enrolment.form.label.holderName"
+				path="holderName" />
+			<acme:input-textbox code="student.enrolment.form.label.lowerNibble"
+				path="lowerNibble" readonly="true" />
+		</jstl:when>
+		<jstl:when test="${_command != 'create && finalized == true'}">
 			<acme:input-textbox code="student.enrolment.form.label.holderName"
 				path="holderName" />
 			<acme:input-textbox code="student.enrolment.form.label.lowerNibble"

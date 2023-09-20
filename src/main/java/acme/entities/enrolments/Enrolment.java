@@ -44,6 +44,10 @@ public class Enrolment extends AbstractEntity {
 	//@NotEmpty
 	protected String			lowerNibble;
 
+	protected Double			workTime;
+
+	@Valid
+	@NotNull
 	@ManyToOne(optional = false)
 	protected Student			student;
 

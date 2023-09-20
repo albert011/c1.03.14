@@ -64,7 +64,7 @@ public class Activity extends AbstractEntity {
 
 
 	public Double getWorkTime() {
-		return (double) MomentHelper.computeDuration(this.startPeriod, this.endPeriod).toHours();
+		return (double) MomentHelper.computeDuration(this.startPeriod, this.endPeriod).toMinutes() / 60;
 	}
 
 }

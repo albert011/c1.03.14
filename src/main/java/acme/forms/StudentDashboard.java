@@ -11,7 +11,7 @@ public class StudentDashboard extends AbstractForm {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	Double						totalTheoryActivities;
+	Integer						totalTheoryActivities;
 	Double						averageTimePeriod;
 	Double						deviationTimePeriod;
 	Double						minimunTimePeriod;

@@ -38,5 +38,6 @@ student.enrolment.form.error.cvc = It must have 3 digits
 student.enrolment.form.error.expiryDate = Incorrect Format
 student.enrolment.form.error.month = Month must be higher than 0 and lower or equal than 12
 student.enrolment.form.error.limit = Date must be present or future
+student.enrolment.form.error.monthDigit = The month and year must be written with two digits
 
 student.enrolment.form.button.activity = Activities

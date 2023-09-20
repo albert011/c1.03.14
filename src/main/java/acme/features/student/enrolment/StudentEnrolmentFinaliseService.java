@@ -1,7 +1,6 @@
 
 package acme.features.student.enrolment;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collection;
@@ -87,32 +86,27 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
 		final Calendar calendar = Calendar.getInstance();
 		Date fechaFinal = new Date();
-		if (res != null && !res.isEmpty())
-			try {
-				Date date;
+		if (res != null && !res.isEmpty()) {
 
-				if (super.getRequest().getLocale().getLanguage().equals("es")) {
-					month = res.substring(0, 2);
-					year = res.substring(res.length() - 2);
-					date = format.parse(month + "/" + year);
-				} else {
-					year = res.substring(0, 2);
-					month = res.substring(res.length() - 2);
-					date = format.parse(year + "/" + month);
-				}
-				calendar.setTime(date);
-				// Obtener el último día del mes
-				final int lastDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-				calendar.set(Calendar.DAY_OF_MONTH, lastDay);
-
-				// Establecer la hora a las 23:59
-				calendar.set(Calendar.HOUR_OF_DAY, 23);
-				calendar.set(Calendar.MINUTE, 59);
-
-				fechaFinal = calendar.getTime();
-			} catch (final ParseException e) {
-				e.printStackTrace();
+			if (super.getRequest().getLocale().getLanguage().equals("es")) {
+				month = res.substring(0, 2);
+				year = res.substring(res.length() - 2);
+			} else {
+				year = res.substring(0, 2);
+				month = res.substring(res.length() - 2);
 			}
+			calendar.set(Calendar.MONTH, Integer.parseInt(month) - 1);
+			calendar.set(Calendar.YEAR, Integer.parseInt("20" + year));
+			// Obtener el último día del mes
+			final int lastDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+			calendar.set(Calendar.DAY_OF_MONTH, lastDay);
+
+			// Establecer la hora a las 23:59
+			calendar.set(Calendar.HOUR_OF_DAY, 23);
+			calendar.set(Calendar.MINUTE, 59);
+
+			fechaFinal = calendar.getTime();
+		}
 
 		final String card = super.getRequest().getData("creditCard", String.class);
 		if (!super.getBuffer().getErrors().hasErrors("creditCard"))
