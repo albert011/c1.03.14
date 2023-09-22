@@ -91,6 +91,12 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 		numberOfRecords = this.repository.countRecordsFromAuditById(object.getId());
 		super.state(numberOfRecords > 0, "isPublished", "auditor.audit.form.error.no-records");
 
+		if (!super.getBuffer().getErrors().hasErrors("course")) {
+			final String courseTitle = super.getRequest().getData("course", String.class);
+			final Course c = this.repository.findOneCourseByTitle(courseTitle);
+			super.state(c.isDraftMode(), "course", "auditor.audit.form.error.course-not-published");
+		}
+
 	}
 
 	@Override
@@ -117,7 +123,7 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 
 		marks = SelectChoices.from(Mark.class, object.getMark());
 
-		courseOptions = this.repository.findCourses();
+		courseOptions = this.repository.findCoursesPublished();
 
 		courses = SelectChoices.from(courseOptions, "title", object.getCourse());
 

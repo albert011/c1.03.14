@@ -106,6 +106,7 @@ master.menu.authenticated.offers.list = Ver ofertas
 master.menu.authenticated.bulletins = Boletines
 master.menu.authenticated.tutorials = Tutoriales
 master.menu.authenticated.practicum.list = Ver prácticas
+master.menu.authenticated.course-audit.list = Ver cursos con Inspecciones
 
 # master.menu.assistant ##############################################
 master.menu.assistant = Asistente

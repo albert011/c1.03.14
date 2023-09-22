@@ -81,6 +81,8 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 			minimumPeriod = MomentHelper.deltaFromMoment(object.getPeriodStart(), 1, ChronoUnit.HOURS);
 			super.state(MomentHelper.isAfterOrEqual(object.getPeriodEnd(), minimumPeriod), "periodEnd", "auditor.audit-record.form.error.period-too-short");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("auditCode"))
+			super.state(!object.getAudit().isPublished(), "auditCode", "auditor.audit-record.form.error.published-audit");
 	}
 
 	@Override

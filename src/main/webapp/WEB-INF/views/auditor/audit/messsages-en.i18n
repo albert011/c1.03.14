@@ -30,3 +30,4 @@ auditor.audit.form.submit.publish = Publish audit
 auditor.audit.form.button.records = Audit Records of this audit
 
 auditor.audit.form.error.no-records = This audit has no auditing records
+auditor.audit.form.error.course-not-published = This course has not been published

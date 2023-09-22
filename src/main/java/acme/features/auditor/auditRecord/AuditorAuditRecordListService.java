@@ -53,6 +53,7 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 		objects = this.repository.findAuditRecordsOfAuditByAuditId(auditId);
 
 		super.getBuffer().setData(objects);
+		super.getResponse().setGlobal("auditId", auditId);
 	}
 
 	@Override
@@ -64,7 +65,7 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 		tuple = super.unbind(object, "subject", "mark");
 
 		super.getResponse().setData(tuple);
-		super.getResponse().setGlobal("auditId", object.getAudit().getId());
+
 	}
 
 }

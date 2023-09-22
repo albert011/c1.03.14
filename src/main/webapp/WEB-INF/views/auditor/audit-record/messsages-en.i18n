@@ -29,3 +29,4 @@ auditor.audit-record.form.submit.delete = Delete audit record
 
 auditor.audit-record.form.error.period-too-short = The period must last for at least 1 hour
 auditor.audit-record.form.error.must-accept = Confirmation doesn't match
+auditor.audit-record.form.error.published-audit = Can't update or delete an audit record of an audit that has been published

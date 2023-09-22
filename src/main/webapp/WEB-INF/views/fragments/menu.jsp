@@ -88,6 +88,8 @@
 			<acme:menu-suboption code="master.menu.authenticated.offers.list" action="/authenticated/offer/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.practicum.list" action="/authenticated/practicum/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.authenticated.course-audit.list" action="/authenticated/course/list"/>
 
 		</acme:menu-option>
 		
