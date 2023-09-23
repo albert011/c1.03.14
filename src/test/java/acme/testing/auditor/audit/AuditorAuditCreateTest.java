@@ -4,17 +4,12 @@ package acme.testing.auditor.audit;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.testing.TestHarness;
 
 public class AuditorAuditCreateTest extends TestHarness {
 
 	// Internal state ---------------------------------------------------------
-
-	@Autowired
-	protected AuditorAuditTestRepository repository;
-
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/audit/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
