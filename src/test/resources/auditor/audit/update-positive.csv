@@ -1,1 +1,14 @@
-# No data required
+index,code,conclusion,strongPoints,weakPoints,courseTitle
+0,A2345,A,B,C,Curso de informatica
+0,AA1234,B,C,D,Curso de alemán
+0,AAA1234,C,D,E,Curso de latín
+0,AA1234,H,Conclusion de un caracter,Conclusion de un caracter,Curso de informatica
+0,AA1234,Lorem ipsum dolor sit amets consectetur porttitors,Conclusion de cincuenta caracteres,Conclusion de cincuenta caracteres,Curso de informatica
+0,AA1234,Lorem ipsum dolor sit amets consectetur adipiscing elits Nam tristique sagittis tincidunt massa nunc,Conclusion de cien caracteres,Conclusion de cien caracteres,Curso de informatica
+0,AA1234,Strong Points de un caracter,M,Strong Points de un caracter,Curso de informatica
+0,AA1234,Strong Points de cincuenta caracteres,Lorem ipsum dolor sit amets consectetur porttitors,Strong Points de cincuenta caracteres,Curso de informatica
+0,AA1234,Strong Points de cien caracteres,Lorem ipsum dolor sit amets consectetur adipiscing elits Nam tristique sagittis tincidunt massa nunc,Strong Points de cien caracteres,Curso de informatica
+0,AA1234,Weak Points de un caracter,Weak Points de un caracter,M,Curso de informatica
+0,AA1234,Weak Points de cincuenta caracteres,Weak Points de cincuenta caracteres,Lorem ipsum dolor sit amets consectetur porttitors,Curso de informatica
+0,AA1234,Weak Points de cien caracteres,Weak Points de cien caracteres,Lorem ipsum dolor sit amets consectetur adipiscing elits Nam tristique sagittis tincidunt massa nunc,Curso de informatica
+0,AA1234,Update con caracteres extraños,азазаз caracteres del alfabeto ruso,αυτό είναι caracteres griegos,Curso de informatica
