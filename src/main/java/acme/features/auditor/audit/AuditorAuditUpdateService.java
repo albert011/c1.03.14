@@ -73,7 +73,12 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 			object.setMark(finalMark);
 		}
 
-		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished", "course");
+		final int courseId = super.getRequest().getData("course", int.class);
+		final Course c = this.repository.findOneCourseById(courseId);
+
+		object.setCourse(c);
+
+		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished");
 
 	}
 
@@ -81,8 +86,8 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 	public void validate(final Audit object) {
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("course")) {
-			final String courseTitle = super.getRequest().getData("course", String.class);
-			final Course c = this.repository.findOneCourseByTitle(courseTitle);
+			final int courseid = super.getRequest().getData("course", int.class);
+			final Course c = this.repository.findOneCourseById(courseid);
 			super.state(c.isDraftMode(), "course", "auditor.audit.form.error.course-not-published");
 		}
 	}
@@ -102,15 +107,16 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 		SelectChoices marks, courses;
 		Tuple tuple;
 
-		marks = SelectChoices.from(Mark.class, object.getMark());
-
+		if (object.getMark() == null)
+			marks = SelectChoices.from(Mark.class, null);
+		else
+			marks = SelectChoices.from(Mark.class, object.getMark());
 		courseOptions = this.repository.findCoursesPublished();
 
 		courses = SelectChoices.from(courseOptions, "title", object.getCourse());
 
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished", "mark");
 		tuple.put("masterId", object.getAuditor().getId());
-		tuple.put("courseTitle", object.getCourse().getTitle());
 		tuple.put("marks", marks);
 		tuple.put("course", courses.getSelected().getKey());
 		tuple.put("courses", courses);
