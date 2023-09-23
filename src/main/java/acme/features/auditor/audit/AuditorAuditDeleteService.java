@@ -14,7 +14,6 @@ import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
-import acme.utils.MarkUtils;
 
 @Service
 public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
@@ -63,24 +62,7 @@ public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
 	public void bind(final Audit object) {
 		assert object != null;
 
-		String courseTitle;
-		Course course;
-		Collection<Mark> marksCollection;
-
-		courseTitle = super.getRequest().getData("courseTitle", String.class);
-		course = this.repository.findOneCourseByTitle(courseTitle);
-
-		marksCollection = this.repository.findMarksOfAuditByAuditId(object.getId());
-
-		if (!marksCollection.isEmpty()) {
-			Mark finalMark;
-			finalMark = MarkUtils.getNewMark(marksCollection);
-
-			object.setMark(finalMark);
-		}
-
 		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished", "mark");
-		object.setCourse(course);
 
 	}
 
@@ -88,11 +70,15 @@ public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
 	public void validate(final Audit object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("course")) {
-			final String courseTitle = super.getRequest().getData("course", String.class);
-			final Course c = this.repository.findOneCourseByTitle(courseTitle);
-			super.state(c.isDraftMode(), "course", "auditor.audit.form.error.course-not-published");
-		}
+		super.state(!object.isPublished(), "code", "auditor.audit.form.error.course-not-published");
+
+		//		boolean status;
+		//		int auditorId;
+		//		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
+		//
+		//		status = super.getRequest().getPrincipal().hasRole(object.getAuditor()) && object.getAuditor().getId() == auditorId;
+		//
+		//		super.state(status, "auditorUsername", "auditor.audit.form.error.not-owner-of-audit");
 	}
 
 	@Override

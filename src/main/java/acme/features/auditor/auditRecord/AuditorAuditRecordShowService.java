@@ -56,6 +56,9 @@ public class AuditorAuditRecordShowService extends AbstractService<Auditor, Audi
 		object = this.repository.findOneAuditRecordById(id);
 
 		super.getBuffer().setData(object);
+
+		super.getResponse().setGlobal("auditNotPublished", !object.getAudit().isPublished());
+
 	}
 
 	@Override
