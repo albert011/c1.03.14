@@ -58,7 +58,7 @@ master.menu.consumer.favourite-link = Enlace favorito
 # master.menu.auditor ##########################################################
 
 master.menu.auditor = Auditor
-master.menu.auditor.audit.list = Lista de auditorías
+master.menu.auditor.audit.list = Ver mis auditorías
 
 # master.menu.company ##########################################################
 

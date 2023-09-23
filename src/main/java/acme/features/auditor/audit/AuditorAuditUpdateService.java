@@ -114,6 +114,7 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 		tuple.put("marks", marks);
 		tuple.put("course", courses.getSelected().getKey());
 		tuple.put("courses", courses);
+		tuple.put("auditorUsername", object.getAuditor().getUserAccount().getUsername());
 
 		super.getResponse().setData(tuple);
 	}
