@@ -32,3 +32,4 @@ auditor.audit.form.button.records = Registros de Inspección
 auditor.audit.form.error.no-records = Esta Inspección no tiene Registros
 auditor.audit.form.error.course-not-published = Este curso no ha sido publicado
 auditor.audit.form.error.not-owner-of-audit = No puedes borrar una Inspección que no te pertenece
+auditor.audit.form.error.code-already-published = Esta Inspección ya ha sido publicada

@@ -97,6 +97,9 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 			super.state(c.isDraftMode(), "course", "auditor.audit.form.error.course-not-published");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("code"))
+			super.state(!object.isPublished(), "code", "auditor.audit.form.error.code-already-published");
+
 	}
 
 	@Override
