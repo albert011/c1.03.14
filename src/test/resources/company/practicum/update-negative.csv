@@ -1,13 +1,14 @@
 ﻿recordIndex,code,title,abstractText,goals,course
 0,,,,,---
-0,,Practicum sin codigo,Practicum sin codigo,Practicum sin codigo,GHJ 800
-0,ABCD123,Codigo incorrecto,Codigo incorrecto,Codigo incorrecto,GHJ 800
-0,AB12,Codigo incorrecto,Codigo incorrecto,Codigo incorrecto,GHJ 800
-0,AB1234,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Mas de 75 caracteres en el titulo,Mas de 75 caracteres en el titulo,GHJ 800
-0,AB1234,,Titulo vacio,Titulo vacio,GHJ 800
-0,AB1234,Abstract vacio,,Abstract vacio,GHJ 800
-0,AB1234,Mas de 100 caracteres en el abstract,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Mas de 100 caracteres en el abstract,GHJ 800
-0,AB1234,Objetivos vacios,Objetivos vacios,,GHJ 800
-0,AB1234,Mas de 100 caracteres en los objetivos,Mas de 100 caracteres en los objetivos,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,GHJ 800
-0,,Algunos campos faltantes,,,GHJ 800
+0,AB1234,Practicum sin curso,Practicum sin curso,Practicum sin curso,---
+0,,Practicum sin codigo,Practicum sin codigo,Practicum sin codigo,KAI 075
+0,ABCD123,Codigo incorrecto,Codigo incorrecto,Codigo incorrecto,KAI 075
+0,AB12,Codigo incorrecto,Codigo incorrecto,Codigo incorrecto,KAI 075
+0,AB1234,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Mas de 75 caracteres en el titulo,Mas de 75 caracteres en el titulo,KAI 075
+0,AB1234,,Titulo vacio,Titulo vacio,KAI 075
+0,AB1234,Abstract vacio,,Abstract vacio,KAI 075
+0,AB1234,Mas de 100 caracteres en el abstract,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Mas de 100 caracteres en el abstract,KAI 075
+0,AB1234,Objetivos vacios,Objetivos vacios,,KAI 075
+0,AB1234,Mas de 100 caracteres en los objetivos,Mas de 100 caracteres en los objetivos,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,KAI 075
+0,,Algunos campos faltantes,,,KAI 075
 0,ABC124,,,Algunos campos faltantes,---
