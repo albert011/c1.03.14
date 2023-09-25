@@ -72,13 +72,6 @@ public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
 
 		super.state(!object.isPublished(), "code", "auditor.audit.form.error.course-not-published");
 
-		//		boolean status;
-		//		int auditorId;
-		//		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
-		//
-		//		status = super.getRequest().getPrincipal().hasRole(object.getAuditor()) && object.getAuditor().getId() == auditorId;
-		//
-		//		super.state(status, "auditorUsername", "auditor.audit.form.error.not-owner-of-audit");
 	}
 
 	@Override

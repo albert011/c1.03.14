@@ -62,12 +62,12 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 	public void bind(final Audit object) {
 		assert object != null;
 
-		String courseTitle;
+		int courseId;
 		Course course;
 		Collection<Mark> marksCollection;
 
-		courseTitle = super.getRequest().getData("courseTitle", String.class);
-		course = this.repository.findOneCourseByTitle(courseTitle);
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findOneCourseById(courseId);
 
 		marksCollection = this.repository.findMarksOfAuditByAuditId(object.getId());
 
@@ -92,9 +92,9 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 		super.state(numberOfRecords > 0, "isPublished", "auditor.audit.form.error.no-records");
 
 		if (!super.getBuffer().getErrors().hasErrors("course")) {
-			final String courseTitle = super.getRequest().getData("course", String.class);
-			final Course c = this.repository.findOneCourseByTitle(courseTitle);
-			super.state(c.isDraftMode(), "course", "auditor.audit.form.error.course-not-published");
+			final int courseId = super.getRequest().getData("course", int.class);
+			final Course c = this.repository.findOneCourseById(courseId);
+			super.state(c != null && c.isDraftMode(), "course", "auditor.audit.form.error.course-not-published");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code"))
@@ -132,7 +132,6 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished", "mark");
 		tuple.put("masterId", object.getAuditor().getId());
-		tuple.put("courseTitle", object.getCourse().getTitle());
 		tuple.put("marks", marks);
 		tuple.put("course", courses.getSelected().getKey());
 		tuple.put("courses", courses);
