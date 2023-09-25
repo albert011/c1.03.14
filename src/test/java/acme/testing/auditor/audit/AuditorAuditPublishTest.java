@@ -37,9 +37,45 @@ public class AuditorAuditPublishTest extends TestHarness {
 		super.signOut();
 	}
 
-	@Test
-	public void test200Negative() {
+	@ParameterizedTest
+	@CsvFileSource(resources = "/auditor/audit/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test200Negative(final int index, final String code, final String conclusion, final String strongPoints, final String weakPoints, final String courseTitle, final String isPublished) {
+		super.signIn("auditor1", "auditor1");
+		super.clickOnMenu("Auditor", "List my audits");
+		super.checkListingExists();
 
+		super.clickOnButton("Create audit");
+		super.checkFormExists();
+		super.fillInputBoxIn("code", code);
+		super.fillInputBoxIn("conclusion", conclusion);
+		super.fillInputBoxIn("strongPoints", strongPoints);
+		super.fillInputBoxIn("weakPoints", weakPoints);
+		super.fillInputBoxIn("course", courseTitle);
+		super.clickOnSubmit("Create audit");
+
+		super.clickOnMenu("Auditor", "List my audits");
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+
+		super.checkColumnHasValue(index, 0, code);
+		super.checkColumnHasValue(index, 2, isPublished);
+		super.checkColumnHasValue(index, 3, courseTitle);
+
+		super.clickOnListingRecord(index);
+		super.checkFormExists();
+		super.checkInputBoxHasValue("code", code);
+		super.checkInputBoxHasValue("conclusion", conclusion);
+		super.checkInputBoxHasValue("strongPoints", strongPoints);
+		super.checkInputBoxHasValue("weakPoints", weakPoints);
+		super.checkInputBoxHasValue("course", courseTitle);
+		super.checkInputBoxHasValue("auditorUsername", "auditor1");
+
+		super.checkSubmitExists("Publish audit");
+		super.clickOnSubmit("Publish audit");
+
+		super.checkErrorsExist();
+
+		super.signOut();
 	}
 
 	@Test

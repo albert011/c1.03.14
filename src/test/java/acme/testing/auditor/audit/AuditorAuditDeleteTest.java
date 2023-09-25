@@ -49,6 +49,8 @@ public class AuditorAuditDeleteTest extends TestHarness {
 
 		super.clickOnSubmit("Delete audit");
 
+		super.checkNotErrorsExist();
+
 		super.signOut();
 	}
 
