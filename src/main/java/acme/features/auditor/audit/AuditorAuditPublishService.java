@@ -78,7 +78,7 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 			object.setMark(finalMark);
 		}
 
-		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished", "mark");
+		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished");
 		object.setCourse(course);
 
 	}
