@@ -67,9 +67,6 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 
 		courseOptions = this.repository.findCoursesPublished();
 
-		if (!courseOptions.contains(object.getCourse()))
-			courseOptions.add(object.getCourse());
-
 		courses = SelectChoices.from(courseOptions, "title", object.getCourse());
 
 		marks = SelectChoices.from(Mark.class, object.getMark());
