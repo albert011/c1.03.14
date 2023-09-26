@@ -91,9 +91,13 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 			if (super.getRequest().getLocale().getLanguage().equals("es")) {
 				month = res.substring(0, 2);
 				year = res.substring(res.length() - 2);
+				if (year.substring(0, 1).equals("/"))
+					year = res.substring(res.length() - 1);
 			} else {
 				year = res.substring(0, 2);
 				month = res.substring(res.length() - 2);
+				if (month.substring(0, 1).equals("/"))
+					month = res.substring(res.length() - 1);
 			}
 			calendar.set(Calendar.MONTH, Integer.parseInt(month) - 1);
 			calendar.set(Calendar.YEAR, Integer.parseInt("20" + year));
@@ -119,13 +123,12 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 		if (!super.getBuffer().getErrors().hasErrors("cvc"))
 			super.state(cvc.matches("^\\d{3}$"), "cvc", "student.enrolment.form.error.cvc");
 		final String expiryDate = super.getRequest().getData("expiryDate", String.class);
-		if (!super.getBuffer().getErrors().hasErrors("expiryDate")) {
+		if (!super.getBuffer().getErrors().hasErrors("expiryDate"))
 			if (res != null && !res.isEmpty()) {
 				super.state(Integer.parseInt(month) <= 12 && Integer.parseInt(month) != 00, "expiryDate", "student.enrolment.form.error.month");
 				super.state(!MomentHelper.isAfterOrEqual(moment, fechaFinal), "expiryDate", "student.enrolment.form.error.limit");
 			}
-			super.state(expiryDate.matches("^\\d{2}\\/\\d{2}$"), "expiryDate", "student.enrolment.form.error.expiryDate");
-		}
+		super.state(expiryDate.matches("^\\d{2}\\/\\d{2}$"), "expiryDate", "student.enrolment.form.error.expiryDate");
 	}
 
 	@Override
