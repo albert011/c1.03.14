@@ -25,10 +25,10 @@ public class AdministratorOfferController extends AbstractController<Administrat
 	protected AdministratorOfferCreateService	createService;
 
 	@Autowired
-	protected AdministratorOfferCreateService	updateService;
+	protected AdministratorOfferUpdateService	updateService;
 
 	@Autowired
-	protected AdministratorOfferCreateService	deleteService;
+	protected AdministratorOfferDeleteService	deleteService;
 
 	// Constructors -----------------------------------------------------------
 

@@ -21,15 +21,16 @@ administrator.offer.form.button.update = Update
 administrator.offer.form.button.delete = Delete
  
 administrator.offer.list.label.heading = Heading
-administrator.offer.list.label.summary = Summary
 administrator.offer.list.label.availabilityPeriodStart = Availability Period Start
 administrator.offer.list.label.availabilityPeriodEnd = Availability Period End
 administrator.offer.list.label.price = Price
-administrator.offer.list.label.link = Link
 
 administrator.offer.list.button.create = Create
 
-administrator.offer.form.error.price.negative-or-zero = The price must be equal or greater than zero
-administrator.offer.form.error.price.non-existent-currency = That currency is not allowed in the system
 administrator.offer.form.error.less-than-a-day-after-instantiation = The availability period must start at least one day after the instantation moment
-administrator.offer.form.error.period-too-short = The availability period must start before the end date and the duration of the offer must be at least one week
+administrator.offer.error.availabilityPeriodStart.start-before-instantiation = The availability period start must be after the instantiation moment
+administrator.offer.error.availabilityPeriodEnd.end-before-instantiation = The availability period end must be after the instantiation moment
+administrator.offer.form.error.end-before-start = The availability period end must be after the availability period start
+administrator.offer.form.error.period-too-short = The duration of the offer must be at least one week
+administrator.offer.form.error.price.negative-or-zero = The price must be greater or equal than zero
+administrator.offer.form.error.price.non-existent-currency = That currency is not allowed in the system

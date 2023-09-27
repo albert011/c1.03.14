@@ -110,10 +110,10 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 			super.state(MomentHelper.isAfterOrEqual(object.getAvailabilityPeriodEnd(), minimumPeriod), "availabilityPeriodEnd", "administrator.offer.form.error.period-too-short");
 		}
 
-		// comprueba que precio sea mayor a 0
+		// comprueba que precio sea mayor o igual a 0
 
 		if (!super.getBuffer().getErrors().hasErrors("price"))
-			super.state(object.getPrice().getAmount() > 0, "price", "administrator.offer.form.error.price.negative-or-zero");
+			super.state(object.getPrice().getAmount() >= 0, "price", "administrator.offer.form.error.price.negative-or-zero");
 
 		// comprueba que la moneda este entre las aceptadas en el sistema
 
