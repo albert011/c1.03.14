@@ -10,7 +10,7 @@ import acme.framework.repositories.AbstractRepository;
 
 public interface AuditorAuditRecordTestRepository extends AbstractRepository {
 
-	@Query("select a from Audit a where a.auditor.userAccount.username = :username")
-	Collection<Audit> findManyAuditsByAuditorUsername(String username);
+	@Query("select ar.audit from AuditRecord ar where ar.audit.auditor.userAccount.username = :username")
+	Collection<Audit> findManyAuditsWithAuditRecordByAuditorUsername(String username);
 
 }
