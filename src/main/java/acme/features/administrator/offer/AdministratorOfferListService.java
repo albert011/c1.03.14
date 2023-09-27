@@ -12,7 +12,7 @@ import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AdministratorOfferListAllService extends AbstractService<Administrator, Offer> {
+public class AdministratorOfferListService extends AbstractService<Administrator, Offer> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -29,7 +29,11 @@ public class AdministratorOfferListAllService extends AbstractService<Administra
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+
+		status = super.getRequest().getPrincipal().hasRole(Administrator.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -47,7 +51,7 @@ public class AdministratorOfferListAllService extends AbstractService<Administra
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "heading", "summary", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "link");
+		tuple = super.unbind(object, "heading", "availabilityPeriodStart", "availabilityPeriodEnd", "price");
 
 		super.getResponse().setData(tuple);
 	}
