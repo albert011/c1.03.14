@@ -18,7 +18,7 @@ public interface AdministratorOfferRepository extends AbstractRepository {
 	@Query("select o from Offer o")
 	Collection<Offer> findAllOffers();
 
-	@Query("select c.systemCurrency from Currency c")
-	Collection<String> findAllCurrencySystemConfiguration();
+	@Query("select c.acceptedCurrencies from Currency c")
+	String findAllCurrencySystemConfiguration();
 
 }

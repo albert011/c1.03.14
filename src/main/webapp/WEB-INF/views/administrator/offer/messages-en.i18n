@@ -10,6 +10,7 @@
 
 administrator.offer.form.label.heading = Heading:
 administrator.offer.form.label.summary = Summary:
+administrator.offer.form.label.instantiationMoment = Instantiation Moment:
 administrator.offer.form.label.availabilityPeriodStart = Availability Period Start:
 administrator.offer.form.label.availabilityPeriodEnd = Availability Period End:
 administrator.offer.form.label.price = Price:

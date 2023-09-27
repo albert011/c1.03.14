@@ -1,5 +1,8 @@
 key,instantiationMoment,heading,summary,availabilityPeriodStart,availabilityPeriodEnd,price,link
 offer-01,2022/02/03 08:16,Oferta1,aaaaaaaaaaaaaaaaaaaaaaa,2022/08/15 08:15,2022/09/19 08:15,USD 99.99,https://www.example.com
-offer-02,2022/05/17 09:30,Ofer,aaa,2022/10/18 09:30,2022/10/28 09:30,EUR 120.50,https://www.example.com
-offer-03,2022/01/19 15:20,Lorem ipsum, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2022/09/19 15:20,2022/11/19 15:20,GBP 10.00,https://www.example.com
-offer-04,2021/10/25 19:34,Lorem ipsum dolor sit amet, aaaaaaaauuuuuuuuuuuuuuuuuuuuuaaaaaa,2022/12/24 19:34,2023/01/30 19:34,EUR 300.75,https://www.example.com
+offer-02,2022/05/17 09:30,37aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,aaa,2022/10/18 09:30,2022/10/28 09:30,EUR 120.50,https://www.example.com
+offer-03,2022/01/19 15:20,a, a,2022/09/19 15:20,2022/11/19 15:20,GBP 10.00,https://www.example.com
+offer-04,2021/10/25 19:34,75aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, 75aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2022/12/24 19:34,2023/01/30 19:34,EUR 300.75,https://www.example.com
+offer-05,2020/10/25 19:00,otra oferta, 99aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2022/12/24 19:34,2023/01/30 19:34,EUR 5.75,
+offer-06,2020/10/25 19:00,una semana, aaaaaa,2020/11/01 00:00,2020/11/08 00:00,USD 5.75,
+offer-07,2021/09/30 00:00,un dia despues de instanciacion, aaaaaaaaa,2021/10/01 00:00,2021/10/08 00:00,USD 100.05,https://www.example.com
