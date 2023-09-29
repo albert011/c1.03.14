@@ -26,11 +26,11 @@
 	<acme:hidden-data path="auditId"/>
 	
 	<acme:input-textbox code="auditor.audit-record.form.label.audit-code" path="auditCode" readonly="True"/>
-	<jstl:if test="${ audit.isPublished }">
+	<jstl:if test="${_command== 'create' && edited }">
 		<acme:input-checkbox code="audit.audit-record.form.label.accept" path="accept"/>
 	</jstl:if>
 	<jstl:choose>
-		<jstl:when test="${_command == 'show' && auditNotPublished}">
+		<jstl:when test="${_command == 'show' && !edited}">
 			<acme:submit code="auditor.audit-record.form.button.update" action="/auditor/audit-record/update"/>
 			<acme:submit code="auditor.audit-record.form.submit.delete" action="/auditor/audit-record/delete"/>
 		</jstl:when>

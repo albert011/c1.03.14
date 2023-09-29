@@ -1,6 +1,7 @@
 
 package acme.utils;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Map;
@@ -21,5 +22,9 @@ public class MarkUtils {
 		} else
 			finalMark = Mark.A;
 		return finalMark;
+	}
+
+	public static Mark getMarkFromStringValue(final String s) {
+		return Arrays.stream(Mark.values()).filter(m -> m.value.equals(s)).findFirst().orElse(null);
 	}
 }

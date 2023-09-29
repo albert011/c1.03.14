@@ -76,7 +76,11 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		audit = this.repository.findOneAuditByCode(auditCode);
 		object.setEdited(audit.isPublished());
 
-		super.bind(object, "subject", "assessment", "periodStart", "periodEnd", "mark", "moreInfo");
+		final String markString = super.getRequest().getData("mark", String.class);
+
+		object.setMark(MarkUtils.getMarkFromStringValue(markString));
+
+		super.bind(object, "subject", "assessment", "periodStart", "periodEnd", "moreInfo");
 		object.setAudit(audit);
 	}
 
@@ -128,7 +132,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 
 		marks = SelectChoices.from(Mark.class, object.getMark());
 
-		tuple = super.unbind(object, "subject", "assessment", "periodStart", "periodEnd", "mark", "moreInfo");
+		tuple = super.unbind(object, "subject", "assessment", "periodStart", "periodEnd", "mark", "moreInfo", "edited");
 		tuple.put("marks", marks);
 		tuple.put("auditId", object.getAudit().getId());
 		tuple.put("auditCode", object.getAudit().getCode());
