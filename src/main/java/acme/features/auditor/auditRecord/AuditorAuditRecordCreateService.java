@@ -69,19 +69,21 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	public void bind(final AuditRecord object) {
 		assert object != null;
 
-		String auditCode;
+		String auditCode, markString;
 		Audit audit;
 
 		auditCode = super.getRequest().getData("auditCode", String.class);
 		audit = this.repository.findOneAuditByCode(auditCode);
 		object.setEdited(audit.isPublished());
 
-		final String markString = super.getRequest().getData("mark", String.class);
+		markString = super.getRequest().getData("mark", String.class);
 
 		object.setMark(MarkUtils.getMarkFromStringValue(markString));
 
-		super.bind(object, "subject", "assessment", "periodStart", "periodEnd", "moreInfo");
 		object.setAudit(audit);
+
+		super.bind(object, "subject", "assessment", "periodStart", "periodEnd", "moreInfo");
+
 	}
 
 	@Override
