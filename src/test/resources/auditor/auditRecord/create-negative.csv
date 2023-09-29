@@ -1,1 +1,9 @@
-# No data required
+indexAudit,codeAudit,indexAuditRecord,subjectAuditRecord,assessmentAuditRecord,periodStart,periodEnd,moreInfo,markAuditRecord,edited,clickAccept
+0,ABC1234,0,z,Crear un report nuevo para un audit publicado sin pinchar en el accept,2005/03/01 08:00,2005/03/02 09:00,https://www.example.com,A+,true,false
+4,MNO4567,0,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Subject con mas de 75 caracteres,2005/03/01 08:00,2005/03/02 09:00,https://www.example.com,A+,false,true
+4,MNO4567,0,Assessment con mas de 100 caracteres,aasdaeawdaswawdadadeq324weasdqwdawsase34344444444444444dsdfaseaaasdaeawdaswawdadadeq324weasdqwdawsase34344444444444444dsdfasea,2005/03/01 08:00,2005/03/02 09:00,https://www.example.com,A+,false,true
+4,MNO4567,0,Periodo en el futuro,Periodo en el futuro,2030/03/01 08:00,2030/03/02 09:00,https://www.example.com,A+,false,true
+4,MNO4567,0,PeriodStart en el futuro,PeriodStart en el futuro,2030/03/01 08:00,2000/03/02 09:00,https://www.example.com,A+,false,true
+4,MNO4567,0,PeriodEnd en el futuro,PeriodEnd en el futuro,2000/03/01 08:00,2030/03/02 09:00,https://www.example.com,A+,false,true
+4,MNO4567,0,Periodo de menos de 1 hora,Periodo de menos de 1 hora,2001/03/01 08:00,2001/03/01 08:30,https://www.example.com,A+,false,true
+4,MNO4567,0,PeriodEnd antes que PeriodStart,PeriodEnd antes que PeriodStart,2001/03/04 08:00,2001/03/01 08:30,https://www.example.com,A+,false,true
