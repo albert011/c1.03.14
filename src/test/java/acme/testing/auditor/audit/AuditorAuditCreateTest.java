@@ -9,8 +9,6 @@ import acme.testing.TestHarness;
 
 public class AuditorAuditCreateTest extends TestHarness {
 
-	// Internal state ---------------------------------------------------------
-
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/audit/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int index, final String code, final String conclusion, final String strongPoints, final String weakPoints, final String courseTitle, final String isPublished) {
@@ -79,32 +77,35 @@ public class AuditorAuditCreateTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
+
+		final String base = "/auditor/audit/create";
+
 		super.checkLinkExists("Sign in");
-		super.request("/auditor/audit/create");
+		super.request(base);
 		super.checkPanicExists();
 
 		super.signIn("administrator", "administrator");
-		super.request("/auditor/audit/create");
+		super.request(base);
 		super.checkPanicExists();
 		super.signOut();
 
 		super.signIn("lecturer1", "lecturer1");
-		super.request("/auditor/audit/create");
+		super.request(base);
 		super.checkPanicExists();
 		super.signOut();
 
 		super.signIn("student1", "student1");
-		super.request("/auditor/audit/create");
+		super.request(base);
 		super.checkPanicExists();
 		super.signOut();
 
 		super.signIn("assistant1", "assistant1");
-		super.request("/auditor/audit/create");
+		super.request(base);
 		super.checkPanicExists();
 		super.signOut();
 
 		super.signIn("company1", "company1");
-		super.request("/auditor/audit/create");
+		super.request(base);
 		super.checkPanicExists();
 		super.signOut();
 
