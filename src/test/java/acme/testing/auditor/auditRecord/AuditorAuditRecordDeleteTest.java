@@ -3,6 +3,8 @@ package acme.testing.auditor.auditRecord;
 
 import java.util.Collection;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -13,16 +15,106 @@ import acme.testing.TestHarness;
 
 public class AuditorAuditRecordDeleteTest extends TestHarness {
 
+	final String[]								auditData	= {
+		"A1234", "Testing conclusion", "Testing Strong Points", "Testing Weak Points", "Curso de ruso", "253"
+	};
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuditorAuditRecordTestRepository repository;
+	protected AuditorAuditRecordTestRepository	repository;
 
+
+	@BeforeAll
+	public void setup() {
+
+		final String[] testingCommons = {
+			"2005/03/01 08:00", "2005/03/02 09:00", "https://www.example.com/"
+		};
+
+		super.signIn("auditor1", "auditor1");
+		super.clickOnMenu("Auditor", "List my audits");
+
+		super.clickOnButton("Create audit");
+		super.fillInputBoxIn("code", this.auditData[0]);
+		super.fillInputBoxIn("conclusion", this.auditData[1]);
+		super.fillInputBoxIn("strongPoints", this.auditData[2]);
+		super.fillInputBoxIn("weakPoints", this.auditData[3]);
+		super.fillInputBoxIn("course", this.auditData[4]);
+		super.clickOnSubmit("Create audit");
+
+		//Añadir 2 veces el record con nota A y 3 veces el record con nota B
+		super.clickOnMenu("Auditor", "List my audits");
+		super.sortListing(0, "asc");
+		super.clickOnListingRecord(0);
+		super.clickOnButton("Audit Records of this audit");
+		super.clickOnButton("Create audit record");
+		super.fillInputBoxIn("subject", "Testing subject A 1");
+		super.fillInputBoxIn("assessment", "Testing assessment A 1");
+		super.fillInputBoxIn("periodStart", testingCommons[0]);
+		super.fillInputBoxIn("periodEnd", testingCommons[1]);
+		super.fillInputBoxIn("moreInfo", testingCommons[2]);
+		super.fillInputBoxIn("mark", "A");
+		super.clickOnSubmit("Create audit record");
+
+		super.clickOnMenu("Auditor", "List my audits");
+		super.sortListing(0, "asc");
+		super.clickOnListingRecord(0);
+		super.clickOnButton("Audit Records of this audit");
+		super.clickOnButton("Create audit record");
+		super.fillInputBoxIn("subject", "Testing subject A 2");
+		super.fillInputBoxIn("assessment", "Testing assessment A 2");
+		super.fillInputBoxIn("periodStart", testingCommons[0]);
+		super.fillInputBoxIn("periodEnd", testingCommons[1]);
+		super.fillInputBoxIn("moreInfo", testingCommons[2]);
+		super.fillInputBoxIn("mark", "A");
+		super.clickOnSubmit("Create audit record");
+
+		super.clickOnMenu("Auditor", "List my audits");
+		super.sortListing(0, "asc");
+		super.clickOnListingRecord(0);
+		super.clickOnButton("Audit Records of this audit");
+		super.clickOnButton("Create audit record");
+		super.fillInputBoxIn("subject", "Testing subject B 1");
+		super.fillInputBoxIn("assessment", "Testing assessment B 1");
+		super.fillInputBoxIn("periodStart", testingCommons[0]);
+		super.fillInputBoxIn("periodEnd", testingCommons[1]);
+		super.fillInputBoxIn("moreInfo", testingCommons[2]);
+		super.fillInputBoxIn("mark", "B");
+		super.clickOnSubmit("Create audit record");
+
+		super.clickOnMenu("Auditor", "List my audits");
+		super.sortListing(0, "asc");
+		super.clickOnListingRecord(0);
+		super.clickOnButton("Audit Records of this audit");
+		super.clickOnButton("Create audit record");
+		super.fillInputBoxIn("subject", "Testing subject B 2");
+		super.fillInputBoxIn("assessment", "Testing assessment B 2");
+		super.fillInputBoxIn("periodStart", testingCommons[0]);
+		super.fillInputBoxIn("periodEnd", testingCommons[1]);
+		super.fillInputBoxIn("moreInfo", testingCommons[2]);
+		super.fillInputBoxIn("mark", "B");
+		super.clickOnSubmit("Create audit record");
+
+		super.clickOnMenu("Auditor", "List my audits");
+		super.sortListing(0, "asc");
+		super.clickOnListingRecord(0);
+		super.clickOnButton("Audit Records of this audit");
+		super.clickOnButton("Create audit record");
+		super.fillInputBoxIn("subject", "Testing subject B 3");
+		super.fillInputBoxIn("assessment", "Testing assessment B 3");
+		super.fillInputBoxIn("periodStart", testingCommons[0]);
+		super.fillInputBoxIn("periodEnd", testingCommons[1]);
+		super.fillInputBoxIn("moreInfo", testingCommons[2]);
+		super.fillInputBoxIn("mark", "B");
+		super.clickOnSubmit("Create audit record");
+		super.signOut();
+	}
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/auditRecord/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int indexAudit, final String codeAudit, final int indexAuditRecord, final String subjectAuditRecord, final String assessmentAuditRecord, final String periodStart, final String periodEnd, final String moreInfo,
-		final String markAuditRecord, final int recordId) {
+	public void test100Positive(final int indexAudit, final int indexAuditRecord, final String subjectAuditRecord, final String assessmentAuditRecord, final String periodStart, final String periodEnd, final String moreInfo, final String markAuditRecord,
+		final int recordId, final String newMark) {
 
 		String base, param;
 
@@ -30,7 +122,7 @@ public class AuditorAuditRecordDeleteTest extends TestHarness {
 
 		super.clickOnMenu("Auditor", "List my audits");
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(indexAudit, 0, codeAudit);
+		super.checkColumnHasValue(indexAudit, 0, this.auditData[0]);
 
 		super.clickOnListingRecord(indexAudit);
 		super.checkFormExists();
@@ -54,11 +146,15 @@ public class AuditorAuditRecordDeleteTest extends TestHarness {
 		super.checkInputBoxHasValue("periodEnd", periodEnd);
 		super.checkInputBoxHasValue("moreInfo", moreInfo);
 		super.checkInputBoxHasValue("mark", markAuditRecord);
-		super.checkInputBoxHasValue("auditCode", codeAudit);
+		super.checkInputBoxHasValue("auditCode", this.auditData[0]);
 
 		super.checkSubmitExists("Delete audit record");
 		super.clickOnSubmit("Delete audit record");
 		super.checkNotErrorsExist();
+
+		super.clickOnMenu("Auditor", "List my audits");
+		super.sortListing(0, "asc");
+		super.checkColumnHasValue(indexAudit, 1, newMark);
 
 		//Comprobamos que de verdad se ha borrado
 		base = "/auditor/audit-record/show";
@@ -163,5 +259,19 @@ public class AuditorAuditRecordDeleteTest extends TestHarness {
 				super.signOut();
 			}
 		}
+	}
+
+	@AfterAll
+	public void cleanup() {
+		super.signIn("auditor1", "auditor1");
+		super.clickOnMenu("Auditor", "List my audits");
+		super.sortListing(0, "asc");
+
+		super.clickOnListingRecord(0);
+
+		super.clickOnSubmit("Delete audit");
+
+		super.signOut();
+
 	}
 }
