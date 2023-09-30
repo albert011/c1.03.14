@@ -14,6 +14,7 @@ import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
+import acme.utils.MarkUtils;
 
 @Service
 public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
@@ -62,7 +63,23 @@ public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
 	public void bind(final Audit object) {
 		assert object != null;
 
-		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished", "mark");
+		Collection<Mark> marksCollection;
+
+		marksCollection = this.repository.findMarksOfAuditByAuditId(object.getId());
+
+		if (!marksCollection.isEmpty()) {
+			Mark finalMark;
+			finalMark = MarkUtils.getNewMark(marksCollection);
+
+			object.setMark(finalMark);
+		}
+
+		final int courseId = super.getRequest().getData("course", int.class);
+		final Course c = this.repository.findOneCourseById(courseId);
+
+		object.setCourse(c);
+
+		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished");
 
 	}
 
