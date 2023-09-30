@@ -21,20 +21,39 @@ public class AuditorAuditDeleteTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/audit/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int index, final String code, final String conclusion, final String strongPoints, final String weakPoints, final String courseTitle, final String isPublished) {
+	public void test100Positive(final int index, final String code, final String conclusion, final String strongPoints, final String weakPoints, final String mark, final String courseTitle, final String auditorUsername, final String isPublished,
+		final int auditId, final int recordId, final int recordIndex, final String recordSubject, final String recordAssessment) {
+
+		String base, param;
 
 		super.signIn("auditor1", "auditor1");
+
 		super.clickOnMenu("Auditor", "List my audits");
 		super.checkListingExists();
+		super.sortListing(0, "asc");
 
-		super.clickOnButton("Create audit");
+		super.checkColumnHasValue(index, 0, code);
+		super.checkColumnHasValue(index, 2, isPublished);
+		super.checkColumnHasValue(index, 3, courseTitle);
+
+		//Comprobamos que tiene el record que despues vamos a comprobar que se ha borrado tambien
+		super.clickOnListingRecord(index);
 		super.checkFormExists();
-		super.fillInputBoxIn("code", code);
-		super.fillInputBoxIn("conclusion", conclusion);
-		super.fillInputBoxIn("strongPoints", strongPoints);
-		super.fillInputBoxIn("weakPoints", weakPoints);
-		super.fillInputBoxIn("course", courseTitle);
-		super.clickOnSubmit("Create audit");
+		super.checkButtonExists("Audit Records of this audit");
+		super.clickOnButton("Audit Records of this audit");
+
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+
+		super.checkColumnHasValue(recordIndex, 0, recordSubject);
+
+		super.clickOnListingRecord(recordIndex);
+
+		super.checkFormExists();
+
+		super.checkInputBoxHasValue("subject", recordSubject);
+		super.checkInputBoxHasValue("assessment", recordAssessment);
+		super.checkInputBoxHasValue("auditCode", code);
 
 		super.clickOnMenu("Auditor", "List my audits");
 		super.checkListingExists();
@@ -47,9 +66,26 @@ public class AuditorAuditDeleteTest extends TestHarness {
 		super.clickOnListingRecord(index);
 		super.checkFormExists();
 
+		super.checkSubmitExists("Delete audit");
 		super.clickOnSubmit("Delete audit");
 
 		super.checkNotErrorsExist();
+
+		//Comprobamos que de verdad se ha borrado
+		base = "/auditor/audit/show";
+		param = String.format("id=%d", auditId);
+
+		super.request(base, param);
+		super.checkPanicExists();
+
+		super.requestHome();
+
+		//Comprobamos que se ha borrado el record
+		base = "/auditor/audit-record/show";
+		param = String.format("id=%d", recordId);
+
+		super.request(base, param);
+		super.checkPanicExists();
 
 		super.signOut();
 	}

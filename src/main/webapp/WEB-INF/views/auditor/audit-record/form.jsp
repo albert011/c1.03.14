@@ -30,7 +30,7 @@
 		<acme:input-checkbox code="audit.audit-record.form.label.accept" path="accept"/>
 	</jstl:if>
 	<jstl:choose>
-		<jstl:when test="${_command == 'show' && !edited}">
+		<jstl:when test="${_command == 'show' && !edited && auditNotPublished}">
 			<acme:submit code="auditor.audit-record.form.button.update" action="/auditor/audit-record/update"/>
 			<acme:submit code="auditor.audit-record.form.submit.delete" action="/auditor/audit-record/delete"/>
 		</jstl:when>
