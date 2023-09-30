@@ -56,10 +56,9 @@ public class AuditorAuditRecordShowTest extends TestHarness {
 		super.signOut();
 	}
 
-	@ParameterizedTest
-	@CsvFileSource(resources = "/auditor/auditRecord/show-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Test
 	public void test200Negative() {
-		//TODO
+
 	}
 
 	@Test
