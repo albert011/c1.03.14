@@ -47,41 +47,41 @@ public class AuditorAuditShowTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-
 		Collection<Audit> audits;
-		String param;
+		String base, param;
 
 		audits = this.repository.findManyAuditsByAuditorUsername("auditor1");
+		base = "/auditor/audit/show";
 
 		for (final Audit audit : audits) {
 			param = String.format("id=%d", audit.getId());
 
 			super.checkLinkExists("Sign in");
-			super.request("/auditor/audit/show", param);
+			super.request(base, param);
 			super.checkPanicExists();
 
 			super.signIn("administrator", "administrator");
-			super.request("/auditor/audit/show", param);
+			super.request(base, param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("lecturer1", "lecturer1");
-			super.request("/auditor/audit/show", param);
+			super.request(base, param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("student1", "student1");
-			super.request("/auditor/audit/show", param);
+			super.request(base, param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("assistant1", "assistant1");
-			super.request("/auditor/audit/show", param);
+			super.request(base, param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("company1", "company1");
-			super.request("/auditor/audit/show", param);
+			super.request(base, param);
 			super.checkPanicExists();
 			super.signOut();
 		}

@@ -118,6 +118,7 @@ public class AuditorAuditDeleteTest extends TestHarness {
 
 		audits = this.repository.findManyAuditsByAuditorUsername("auditor1");
 		base = "/auditor/audit/delete";
+
 		for (final Audit audit : audits) {
 			param = String.format("id=%d", audit.getId());
 

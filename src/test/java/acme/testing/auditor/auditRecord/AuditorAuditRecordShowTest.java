@@ -65,7 +65,9 @@ public class AuditorAuditRecordShowTest extends TestHarness {
 	public void test300Hacking() {
 
 		Collection<AuditRecord> audits;
-		String param;
+		String base, param;
+
+		base = "/auditor/audit-record/show";
 
 		audits = this.repository.findManyAuditRecordsByAuditorUsername("auditor1");
 
@@ -73,36 +75,36 @@ public class AuditorAuditRecordShowTest extends TestHarness {
 			param = String.format("id=%d", record.getId());
 
 			super.checkLinkExists("Sign in");
-			super.request("/auditor/audit-record/show", param);
+			super.request(base, param);
 			super.checkPanicExists();
 
 			super.signIn("administrator", "administrator");
-			super.request("/auditor/audit-record/show", param);
+			super.request(base, param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("lecturer1", "lecturer1");
-			super.request("/auditor/audit-record/show", param);
+			super.request(base, param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("student1", "student1");
-			super.request("/auditor/audit-record/show", param);
+			super.request(base, param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("assistant1", "assistant1");
-			super.request("/auditor/audit-record/show", param);
+			super.request(base, param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("company1", "company1");
-			super.request("/auditor/audit-record/show", param);
+			super.request(base, param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("auditor2", "auditor2");
-			super.request("/auditor/audit-record/show", param);
+			super.request(base, param);
 			super.checkPanicExists();
 			super.signOut();
 		}
