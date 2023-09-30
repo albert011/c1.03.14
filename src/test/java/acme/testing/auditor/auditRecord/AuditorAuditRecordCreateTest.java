@@ -22,7 +22,7 @@ public class AuditorAuditRecordCreateTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/auditRecord/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int indexAudit, final String codeAudit, final int indexAuditRecord, final String subjectAuditRecord, final String assessmentAuditRecord, final String periodStart, final String periodEnd, final String moreInfo,
-		final String markAuditRecord, final String edited) {
+		final String markAuditRecord, final String edited, final String newMark) {
 		super.signIn("auditor1", "auditor1");
 
 		super.clickOnMenu("Auditor", "List my audits");
@@ -59,6 +59,7 @@ public class AuditorAuditRecordCreateTest extends TestHarness {
 
 		super.clickOnListingRecord(indexAudit);
 		super.checkFormExists();
+		super.checkInputBoxHasValue("mark", newMark);
 
 		super.checkButtonExists("Audit Records of this audit");
 		super.clickOnButton("Audit Records of this audit");

@@ -104,11 +104,20 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 		assert object != null;
 
 		Collection<Mark> marksCollection;
-		Mark finalMark;
+		Mark finalMark, oldMark;
 		Audit audit;
+
 		audit = object.getAudit();
 
-		marksCollection = this.repository.findMarksOfAuditByAuditId(audit.getId());
+		oldMark = this.repository.findOneAuditRecordById(object.getId()).getMark();
+
+		marksCollection = this.repository.findMarksOfAuditRecordsByAuditId(audit.getId());
+
+		if (!oldMark.equals(object.getMark())) {
+			marksCollection.remove(oldMark);
+			marksCollection.add(object.getMark());
+		}
+
 		finalMark = MarkUtils.getNewMark(marksCollection);
 		audit.setMark(finalMark);
 

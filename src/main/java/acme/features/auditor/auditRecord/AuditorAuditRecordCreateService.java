@@ -113,7 +113,11 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		Audit audit;
 		audit = object.getAudit();
 
-		marksCollection = this.repository.findMarksOfAuditByAuditId(audit.getId());
+		marksCollection = this.repository.findMarksOfAuditRecordsByAuditId(audit.getId());
+
+		//Añadimos la del auditReport nuevo porque todavia no se encuentra en la base de datos
+		marksCollection.add(object.getMark());
+
 		finalMark = MarkUtils.getNewMark(marksCollection);
 
 		audit.setMark(finalMark);

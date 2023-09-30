@@ -20,7 +20,7 @@ public class MarkUtils {
 			marksOfRecords = marksOfAudit.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 			finalMark = marksOfRecords.entrySet().stream().max(Comparator.comparing(Entry::getValue)).get().getKey();
 		} else
-			finalMark = Mark.A;
+			finalMark = null;
 		return finalMark;
 	}
 
