@@ -57,8 +57,6 @@ public class AuditorAuditRecordShowService extends AbstractService<Auditor, Audi
 
 		super.getBuffer().setData(object);
 
-		super.getResponse().setGlobal("auditNotPublished", !object.getAudit().isPublished());
-
 	}
 
 	@Override
@@ -74,6 +72,8 @@ public class AuditorAuditRecordShowService extends AbstractService<Auditor, Audi
 		tuple.put("marks", marks);
 		tuple.put("auditId", object.getAudit().getId());
 		tuple.put("auditCode", object.getAudit().getCode());
+
+		super.getResponse().setGlobal("auditNotPublished", !object.getAudit().isPublished());
 
 		super.getResponse().setData(tuple);
 	}
