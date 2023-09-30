@@ -1,6 +1,8 @@
 
 package acme.features.auditor.auditRecord;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,7 @@ import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
+import acme.utils.MarkUtils;
 
 @Service
 public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, AuditRecord> {
@@ -75,6 +78,23 @@ public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, Au
 	@Override
 	public void perform(final AuditRecord object) {
 		assert object != null;
+
+		Collection<Mark> marksCollection;
+		Mark finalMark, oldMark;
+		Audit audit;
+
+		audit = object.getAudit();
+
+		oldMark = this.repository.findOneAuditRecordById(object.getId()).getMark();
+
+		marksCollection = this.repository.findMarksOfAuditRecordsByAuditId(audit.getId());
+
+		marksCollection.remove(oldMark);
+
+		finalMark = MarkUtils.getNewMark(marksCollection);
+		audit.setMark(finalMark);
+
+		this.repository.save(audit);
 
 		this.repository.delete(object);
 	}
