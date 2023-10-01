@@ -7,8 +7,8 @@ indexAudit,codeAudit,indexAuditRecord,subjectAuditRecord,assessmentAuditRecord,p
 3,IJK9123,0,zzzAssessment con 100 caracteres,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2006/03/06 08:00,2006/03/07 09:00,,C,false,B
 3,IJK9123,0,zzzzCaracteres raros αυτό είναι caracteres griegos,зазазазаз caracteres de alfabeto ruso,2007/03/06 08:00,2007/03/07 09:00,,F,false,B
 0,ABC1234,0,zCambio de mark 1,Cambio de mark 1,2005/03/01 08:00,2005/03/02 09:00,https://www.example.com,F-,true,A+
-0,ABC1234,0,zzCambio de mark 2,Cambio de mark 2,2006/03/01 08:00,2006/03/02 09:00,https://www.example.com,F-,true,A+
+0,ABC1234,0,zzCambio de mark 2,Cambio de mark 2,2006/03/01 08:00,2006/03/02 09:00,https://www.example.com,F-,true,F-
 0,ABC1234,0,zzzCambio de mark 3,Cambio de mark 3,2007/03/01 08:00,2007/03/02 09:00,https://www.example.com,F-,true,F-
 3,IJK9123,0,zzzzzCambio de mark 1,Cambio de mark 1,2005/03/04 08:00,2005/03/05 09:00,,F-,false,B
-3,IJK9123,0,zzzzzzCambio de mark 2,Cambio de mark 2,2006/03/04 08:00,2006/03/05 09:00,,F-,false,B
+3,IJK9123,0,zzzzzzCambio de mark 2,Cambio de mark 2,2006/03/04 08:00,2006/03/05 09:00,,F-,false,F-
 3,IJK9123,0,zzzzzzzCambio de mark 3,Cambio de mark 3,2007/03/04 08:00,2007/03/05 09:00,,F-,false,F-
