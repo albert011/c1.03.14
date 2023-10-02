@@ -16,8 +16,6 @@ master.menu.sign-in = Sign in
 master.menu.sign-out = Sign out
 
 # master.menu.anonymous #######################################################
-master.menu.BannerChange = Banner Change
-master.menu.anonymous.foto = Perform Change
 master.menu.anonymous = Anonymous
 master.menu.anonymous.favourite-link = Favourite link
 master.menu.anonymous.vicgrabru.favourite-link = 32081530B: Gravan Bru, Victor
