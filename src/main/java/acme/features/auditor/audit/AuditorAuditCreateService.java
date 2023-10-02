@@ -48,12 +48,24 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 	public void bind(final Audit object) {
 		assert object != null;
 
-		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished", "mark", "course");
+		final int courseId = super.getRequest().getData("course", int.class);
+		final Course c = this.repository.findOneCourseById(courseId);
+
+		object.setCourse(c);
+
+		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished", "mark");
 	}
 
 	@Override
 	public void validate(final Audit object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("course")) {
+			final int courseId = super.getRequest().getData("course", int.class);
+			final Course c = this.repository.findOneCourseById(courseId);
+			super.state(c.isDraftMode(), "course", "auditor.audit.form.error.course-not-published");
+		}
+
 	}
 	@Override
 	public void perform(final Audit object) {
@@ -72,7 +84,7 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 
 		marks = SelectChoices.from(Mark.class, object.getMark());
 
-		courseOptions = this.repository.findCourses();
+		courseOptions = this.repository.findCoursesPublished();
 
 		courses = SelectChoices.from(courseOptions, "title", object.getCourse());
 

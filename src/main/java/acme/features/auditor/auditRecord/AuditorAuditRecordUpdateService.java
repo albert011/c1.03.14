@@ -68,7 +68,21 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 	public void bind(final AuditRecord object) {
 		assert object != null;
 
-		super.bind(object, "subject", "assessment", "periodStart", "periodEnd", "mark", "moreInfo");
+		String auditCode, markString;
+		Audit audit;
+
+		auditCode = super.getRequest().getData("auditCode", String.class);
+		audit = this.repository.findOneAuditByCode(auditCode);
+		object.setEdited(audit.isPublished());
+
+		markString = super.getRequest().getData("mark", String.class);
+
+		object.setMark(MarkUtils.getMarkFromStringValue(markString));
+
+		object.setAudit(audit);
+
+		super.bind(object, "subject", "assessment", "periodStart", "periodEnd", "moreInfo");
+
 	}
 
 	@Override
@@ -81,6 +95,8 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 			minimumPeriod = MomentHelper.deltaFromMoment(object.getPeriodStart(), 1, ChronoUnit.HOURS);
 			super.state(MomentHelper.isAfterOrEqual(object.getPeriodEnd(), minimumPeriod), "periodEnd", "auditor.audit-record.form.error.period-too-short");
 		}
+		//		if (!super.getBuffer().getErrors().hasErrors("auditCode"))
+		//			super.state(!object.getAudit().isPublished(), "auditCode", "auditor.audit-record.form.error.published-audit");
 	}
 
 	@Override
@@ -88,11 +104,20 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 		assert object != null;
 
 		Collection<Mark> marksCollection;
-		Mark finalMark;
+		Mark finalMark, oldMark;
 		Audit audit;
+
 		audit = object.getAudit();
 
-		marksCollection = this.repository.findMarksOfAuditByAuditId(audit.getId());
+		oldMark = this.repository.findOneAuditRecordById(object.getId()).getMark();
+
+		marksCollection = this.repository.findMarksOfAuditRecordsByAuditId(audit.getId());
+
+		if (!oldMark.equals(object.getMark())) {
+			marksCollection.remove(oldMark);
+			marksCollection.add(object.getMark());
+		}
+
 		finalMark = MarkUtils.getNewMark(marksCollection);
 		audit.setMark(finalMark);
 

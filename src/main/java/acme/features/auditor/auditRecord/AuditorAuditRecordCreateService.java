@@ -69,14 +69,21 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	public void bind(final AuditRecord object) {
 		assert object != null;
 
-		String auditCode;
+		String auditCode, markString;
 		Audit audit;
 
 		auditCode = super.getRequest().getData("auditCode", String.class);
 		audit = this.repository.findOneAuditByCode(auditCode);
+		object.setEdited(audit.isPublished());
 
-		super.bind(object, "subject", "assessment", "periodStart", "periodEnd", "mark", "moreInfo");
+		markString = super.getRequest().getData("mark", String.class);
+
+		object.setMark(MarkUtils.getMarkFromStringValue(markString));
+
 		object.setAudit(audit);
+
+		super.bind(object, "subject", "assessment", "periodStart", "periodEnd", "moreInfo");
+
 	}
 
 	@Override
@@ -106,7 +113,11 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		Audit audit;
 		audit = object.getAudit();
 
-		marksCollection = this.repository.findMarksOfAuditByAuditId(audit.getId());
+		marksCollection = this.repository.findMarksOfAuditRecordsByAuditId(audit.getId());
+
+		//Añadimos la del auditReport nuevo porque todavia no se encuentra en la base de datos
+		marksCollection.add(object.getMark());
+
 		finalMark = MarkUtils.getNewMark(marksCollection);
 
 		audit.setMark(finalMark);
@@ -127,7 +138,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 
 		marks = SelectChoices.from(Mark.class, object.getMark());
 
-		tuple = super.unbind(object, "subject", "assessment", "periodStart", "periodEnd", "mark", "moreInfo");
+		tuple = super.unbind(object, "subject", "assessment", "periodStart", "periodEnd", "mark", "moreInfo", "edited");
 		tuple.put("marks", marks);
 		tuple.put("auditId", object.getAudit().getId());
 		tuple.put("auditCode", object.getAudit().getCode());

@@ -29,3 +29,4 @@ auditor.audit-record.form.submit.delete = Borrar Registro de Inspección
 
 auditor.audit-record.form.error.period-too-short = El período debe durar como mínimo 1 hora
 auditor.audit-record.form.error.must-accept = La confirmación no cuadra
+auditor.audit-record.form.error.published-audit = No se pueden eliminar o actualizar registros de inspección cuya inspección ya se haya publicado

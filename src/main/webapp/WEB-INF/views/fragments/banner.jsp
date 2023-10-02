@@ -10,55 +10,16 @@
 - they accept any liabilities with respect to them.
 --%>
 
-<%@page language="java"%>
+<%@page language="java" import="java.util.concurrent.ThreadLocalRandom"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <div class="rounded"
 	style="background: <acme:message code='master.banner.background'/>">
-	<img src="images/banner.png" id="imagenBanner"
+	<img src="${bannerToDisplay.pictureLink}" id="imagenBanner"
 		style="width: 100% !important;max-height: 300px"
 		alt="<acme:message code='master.banner.alt'/>"
 		class="img-fluid mx-auto d-block rounded" />
+	<acme:message code="${bannerToDisplay.slogan}"/>
 </div>
-
-
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		    let cookie = document.cookie;
-		    
-		    
-		    if (cookie != null) {
-        
-                     // Reemplaza "imagenSrc" con el nombre de tu cookie
-				const cookieName = "imagenSrc=";
-				const cookieArray = document.cookie.split(";");
-				
-				let decodedCookieValue = null;
-				
-				for (let i = 0; i < cookieArray.length; i++) {
-				  let cookie = cookieArray[i];
-				  while (cookie.charAt(0) === " ") {
-				    cookie = cookie.substring(1);
-				  }
-				  if (cookie.indexOf(cookieName) === 0) {
-				    decodedCookieValue = decodeURIComponent(cookie.substring(cookieName.length));
-				    break;
-				  }
-				}
-				
-				if (decodedCookieValue) {
-				  const imagen = document.getElementById('imagenBanner');
-				  imagen.src = decodedCookieValue;
-				}                        
-
-                
-                 
-             
-            }
-	
-
-		});
-</script>

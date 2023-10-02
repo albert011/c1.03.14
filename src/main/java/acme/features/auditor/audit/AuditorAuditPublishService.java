@@ -62,12 +62,12 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 	public void bind(final Audit object) {
 		assert object != null;
 
-		String courseTitle;
+		int courseId;
 		Course course;
 		Collection<Mark> marksCollection;
 
-		courseTitle = super.getRequest().getData("courseTitle", String.class);
-		course = this.repository.findOneCourseByTitle(courseTitle);
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findOneCourseById(courseId);
 
 		marksCollection = this.repository.findMarksOfAuditByAuditId(object.getId());
 
@@ -78,7 +78,7 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 			object.setMark(finalMark);
 		}
 
-		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished", "mark");
+		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished");
 		object.setCourse(course);
 
 	}
@@ -90,6 +90,15 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 		Long numberOfRecords;
 		numberOfRecords = this.repository.countRecordsFromAuditById(object.getId());
 		super.state(numberOfRecords > 0, "isPublished", "auditor.audit.form.error.no-records");
+
+		if (!super.getBuffer().getErrors().hasErrors("course")) {
+			final int courseId = super.getRequest().getData("course", int.class);
+			final Course c = this.repository.findOneCourseById(courseId);
+			super.state(c != null && c.isDraftMode(), "course", "auditor.audit.form.error.course-not-published");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("code"))
+			super.state(!object.isPublished(), "code", "auditor.audit.form.error.code-already-published");
 
 	}
 
@@ -117,13 +126,12 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 
 		marks = SelectChoices.from(Mark.class, object.getMark());
 
-		courseOptions = this.repository.findCourses();
+		courseOptions = this.repository.findCoursesPublished();
 
 		courses = SelectChoices.from(courseOptions, "title", object.getCourse());
 
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished", "mark");
 		tuple.put("masterId", object.getAuditor().getId());
-		tuple.put("courseTitle", object.getCourse().getTitle());
 		tuple.put("marks", marks);
 		tuple.put("course", courses.getSelected().getKey());
 		tuple.put("courses", courses);

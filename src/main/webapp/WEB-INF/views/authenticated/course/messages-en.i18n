@@ -1,0 +1,12 @@
+authenticated.course.list.label.code = Code
+authenticated.course.list.label.title = Title
+authenticated.course.list.label.type = Type
+
+authenticated.course.form.label.code = Code
+authenticated.course.form.label.title = Title
+authenticated.course.form.label.Abstract = Abstract
+authenticated.course.form.label.retailPrice = Retail Price
+authenticated.course.form.label.type = Type
+authenticated.course.form.label.link = Link
+
+authenticated.course.form.button.audit-list = Audits of this course

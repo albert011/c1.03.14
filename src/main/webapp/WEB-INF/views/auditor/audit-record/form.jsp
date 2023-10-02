@@ -22,15 +22,20 @@
 	<acme:input-moment code="auditor.audit-record.form.label.period-end" path="periodEnd"/>
 	<acme:input-url code="auditor.audit-record.form.label.more-info" path="moreInfo"/>
 	<acme:input-select code="auditor.audit-record.form.label.mark" path="mark" choices="${marks}"/>
-	<acme:input-checkbox code="auditor.audit-record.form.label.edited" path="edited" readonly="True"/>
+	<jstl:if test="${_command!= 'create'}">
+		<acme:input-checkbox code="auditor.audit-record.form.label.edited" path="edited" readonly="True"/>
+	</jstl:if>
+	<jstl:if test="${_command== 'create'}">
+		<acme:hidden-data path="edited"/>
+	</jstl:if>
 	<acme:hidden-data path="auditId"/>
 	
 	<acme:input-textbox code="auditor.audit-record.form.label.audit-code" path="auditCode" readonly="True"/>
-	<jstl:if test="${ audit.isPublished }">
+	<jstl:if test="${_command== 'create' && edited }">
 		<acme:input-checkbox code="audit.audit-record.form.label.accept" path="accept"/>
 	</jstl:if>
 	<jstl:choose>
-		<jstl:when test="${_command == 'show' && !audit.isPublished}">
+		<jstl:when test="${_command == 'show' && !edited && auditNotPublished}">
 			<acme:submit code="auditor.audit-record.form.button.update" action="/auditor/audit-record/update"/>
 			<acme:submit code="auditor.audit-record.form.submit.delete" action="/auditor/audit-record/delete"/>
 		</jstl:when>
