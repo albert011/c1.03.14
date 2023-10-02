@@ -52,7 +52,7 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/populate-sample"/>			
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.administrator.offer.list-all" action="/administrator/offer/list-all"/>
+			<acme:menu-suboption code="master.menu.administrator.offer.list" action="/administrator/offer/list"/>
 			<acme:menu-suboption code="master.menu.administrator.banner.list-all" action="/administrator/banner/list-all"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.currency" action="/administrator/currency/show"/>

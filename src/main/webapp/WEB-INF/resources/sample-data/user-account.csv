@@ -17,3 +17,5 @@ user-account-auditor-03,true,"UserIdentity{name: 'Mortadelo', surname: 'Sanchez'
 user-account-auditor-04,true,"UserIdentity{name: 'Filemon', surname: 'Perez', email: 'auditor4@acme.com'}",auditor4,auditor4
 user-account-student-01,true,"UserIdentity{name: 'Student', surname: 'Student', email: 'student1@acme.com'}",student1,student1
 user-account-student-02,true,"UserIdentity{name: 'Student', surname: 'Student', email: 'student2@acme.com'}",student2,student2
+user-account-administrator-02,true,"UserIdentity{name: 'administrator1', surname: 'administrator1', email: 'administrator1@acme.com'}",administrator1,administrator1
+user-account-administrator-03,true,"UserIdentity{name: 'administrator2', surname: 'administrator2', email: 'administrator2@acme.com'}",administrator2,administrator2
