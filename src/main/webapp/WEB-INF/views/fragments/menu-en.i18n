@@ -66,7 +66,7 @@ master.menu.lecturer.my-courses = List my courses
 
 master.menu.company = Company
 master.menu.company.practicum.list-mine = List my practicums
-master.menu.company.practicum-session.list-mine = List my practicum sessions
+master.menu.company.dashboard = Company dashboard
 
 # master.menu.user-account ####################################################
 

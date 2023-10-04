@@ -63,7 +63,7 @@ master.menu.auditor.dashboard = Panel de indicadores
 
 master.menu.company = Compañía
 master.menu.company.practicum.list-mine = Ver mis prácticas
-master.menu.company.practicum-session.list-mine = Ver mis sesiones de prácticas
+master.menu.company.dashboard = Panel de control de la compañía
 
 # master.menu.user-account ####################################################
 

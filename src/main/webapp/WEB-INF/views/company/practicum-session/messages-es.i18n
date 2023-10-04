@@ -30,5 +30,6 @@ company.practicumSession.form.button.update = Actualizar
 company.practicumSession.form.button.delete = Eliminar
 company.practicumSession.form.button.create = Crear
 
-company.practicumSession.form.error.period-too-short = El plazo debe ser de al menos una semana de antelación y la duración debe ser de al menos una semana
+company.practicumSession.form.error.start-date = La fecha de inicio debe ser al menos una semana posterior de la fecha actual
+company.practicumSession.form.error.end-date = La fecha de fin debe ser al menos una semana posterior de la fecha de inicio
 company.addendumSession.form.error.must-accept = Debe aceptar esta casilla para crear una sesión apéndice 
