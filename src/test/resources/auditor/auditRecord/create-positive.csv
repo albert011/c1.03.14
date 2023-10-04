@@ -1,4 +1,5 @@
 indexAudit,codeAudit,indexAuditRecord,subjectAuditRecord,assessmentAuditRecord,periodStart,periodEnd,moreInfo,markAuditRecord,edited,newMark
+0,ABC1234,0,Periodo en la fecha limite,Periodo en la fecha limite,2022/07/28 08:00,2022/07/29 23:59,https://www.example.com,F,true,A+
 0,ABC1234,0,z,Subject con un caracter,2005/03/01 08:00,2005/03/02 09:00,https://www.example.com,A,true,A+
 0,ABC1234,0,zaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Subject con cincuenta caracteres,2005/03/03 08:00,2005/03/04 09:00,https://www.example.com,B,true,A+
 0,ABC1234,0,zbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Subject con 75 caracteres,2005/03/04 08:00,2005/03/05 09:00,https://www.example.com,C,true,A+

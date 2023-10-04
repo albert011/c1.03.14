@@ -6,5 +6,6 @@ indexAudit,indexAuditRecord,subjectAuditRecord,assessmentAuditRecord,periodStart
 0,0,Assessment con 50 caracteres,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,1999/02/03 08:00,1999/02/04 09:00,https://www.example2.com,B,false
 0,0,Assessment con 100 caracteres,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,1999/02/03 08:00,1999/02/04 09:00,https://www.example2.com,B,false
 0,0,Record de 1 hora,Record de 1 hora,1999/02/03 08:00,1999/02/03 09:00,https://www.example2.com,B,false
+0,0,Periodo en la fecha limite,Periodo en la fecha limite,2022/07/28 08:00,2022/07/29 23:59,https://www.example2.com,B,false
 0,0,αυτό είναι caracteres de alfabeto griego,зазазазаз caracteres de alfabeto ruso,1999/02/03 08:00,1999/02/05 09:00,https://www.example2.com,B,false
 0,0,Cambio de mark,Cambio de mark,1999/02/03 08:00,1999/02/04 09:00,https://www.example2.com,A+,false
