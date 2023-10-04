@@ -17,7 +17,7 @@ public class CompanyDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	protected Map<String, Long>	numPracticumByMonth; //Last year
+	protected Map<String, Long>	numPracticumByMonthLastYear;
 	protected Double			averageSessionLength;
 	protected Double			deviationSessionLength;
 	protected Double			minimumSessionLength;

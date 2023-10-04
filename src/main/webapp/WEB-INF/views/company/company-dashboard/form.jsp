@@ -94,7 +94,13 @@
 
 <table class="table table-sm">
 	<tr>
-				<th scope="row">
+		<th scope="row">
+			<acme:message code="company.dashboard.form.label.practicum-number"/>
+		</th>
+		<td>
+			<acme:print value="${numPracticum}"/>
+		</td>
+		<th scope="row">
 			<acme:message code="company.dashboard.form.label.practicum-statistics.average"/>
 		</th>
 		<td>
@@ -132,6 +138,12 @@
 <table class="table table-sm">
 	<tr>
 		<th scope="row">
+			<acme:message code="company.dashboard.form.label.session-number"/>
+		</th>
+		<td>
+			<acme:print value="${numSession}"/>
+		</td>
+		<th scope="row">
 			<acme:message code="company.dashboard.form.label.session-statistics.average"/>
 		</th>
 		<td>
@@ -159,20 +171,3 @@
 	</tr>
 </table>
 
-
-<table class="table table-sm">
-	<tr>
-		<th scope="row">
-			<acme:message code="company.dashboard.form.label.practicum-number"/>
-		</th>
-		<td>
-			<acme:print value="${numPracticum}"/>
-		</td>
-		<th scope="row">
-			<acme:message code="company.dashboard.form.label.session-number"/>
-		</th>
-		<td>
-			<acme:print value="${numSession}"/>
-		</td>
-	</tr>
-</table>

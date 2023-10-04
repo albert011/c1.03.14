@@ -32,10 +32,11 @@ public interface CompanyDashboardRepository extends AbstractRepository {
 	@Query("SELECT COALESCE(max((SELECT SUM(DATEDIFF(ps.endDate, ps.startDate)) FROM PracticumSession ps WHERE ps.practicum.company.id = :companyId AND ps.practicum.id = p.id)), '') FROM Practicum p WHERE p.company.id = :companyId")
 	double maximumPracticumLength(int companyId);
 
-	@Query("SELECT COALESCE(FUNCTION('MONTH', ps.startDate), ''), COALESCE(COUNT(ps), '') FROM PracticumSession ps WHERE ps.practicum.company.id = :companyId GROUP BY FUNCTION('MONTH', ps.startDate) ORDER BY COUNT(ps) DESC")
-	List<Object[]> numPracticumByMonth(int companyId);
+	@Query("SELECT COALESCE(FUNCTION('MONTH', ps.startDate), ''), COALESCE(COUNT(ps), '') FROM PracticumSession ps WHERE ps.practicum.company.id = :companyId AND FUNCTION('YEAR', ps.startDate) = :year GROUP BY FUNCTION('MONTH', ps.startDate) ORDER BY COUNT(ps) DESC")
+	List<Object[]> numPracticumByMonth(int companyId, int year);
 
 	// PracticumSession
+
 	@Query("SELECT COALESCE(count(ps), '') FROM PracticumSession ps WHERE ps.practicum.company.id = :companyId")
 	int numSession(int companyId);
 

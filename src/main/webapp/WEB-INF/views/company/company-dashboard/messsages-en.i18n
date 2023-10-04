@@ -1,6 +1,7 @@
-company.dashboard.form.title.num-practicum-by-month = Total number of practicum per month
+company.dashboard.form.title.num-practicum-by-month = Total number of practicum by month during the last year
 
 company.dashboard.form.title.practicum-statistics = Practicum Statistics
+company.dashboard.form.label.practicum-number = Total practicums created
 company.dashboard.form.label.practicum-statistics.count = Total number of practicum
 company.dashboard.form.label.practicum-statistics.average = Average length
 company.dashboard.form.label.practicum-statistics.stDev = Deviation
@@ -9,14 +10,12 @@ company.dashboard.form.label.practicum-statistics.maximum = Maximum length
 
 
 company.dashboard.form.title.session-statistics = Practicum Session Statistics
+company.dashboard.form.label.session-number = Total sessions created
 company.dashboard.form.label.session-statistics.count = Total number of practicum sessions
 company.dashboard.form.label.session-statistics.average = Average length
 company.dashboard.form.label.session-statistics.stDev = Deviation
 company.dashboard.form.label.session-statistics.minimum = Minimum length
 company.dashboard.form.label.session-statistics.maximum = Maximum length
-
-company.dashboard.form.label.practicum-number = Practicum created
-company.dashboard.form.label.session-number = Sessions created
 
 
 company.dashboard.form.label.january = JANUARY

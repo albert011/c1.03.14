@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import acme.forms.CompanyDashboard;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
@@ -80,13 +81,17 @@ public class CompanyDashboardShowService extends AbstractService<Company, Compan
 		maximumPracticumLength = this.repository.maximumPracticumLength(companyId);
 		numPracticum = this.repository.numPracticum(companyId);
 
-		numPracticumByMonth = this.repository.numPracticumByMonth(companyId).stream().collect(Collectors.toMap(key -> Month.of((int) key[0]).toString(), value -> (long) value[1]));
+		final String momentActual = MomentHelper.getCurrentMoment().toString();
+		final String[] split = momentActual.split("CEST ");
+		final Integer lastYear = Integer.valueOf(split[1].trim()) - 1;
+
+		numPracticumByMonth = this.repository.numPracticumByMonth(companyId, lastYear).stream().collect(Collectors.toMap(key -> Month.of((int) key[0]).toString(), value -> (long) value[1]));
 
 		for (final Month month : Month.values())
 			if (!numPracticumByMonth.containsKey(month.toString()))
 				numPracticumByMonth.put(month.toString(), (long) 0);
 
-		companyDashboard.setNumPracticumByMonth(numPracticumByMonth);
+		companyDashboard.setNumPracticumByMonthLastYear(numPracticumByMonth);
 		companyDashboard.setAveragePracticumLength(averagePracticumLength);
 		companyDashboard.setDeviationPracticumLength(deviationPracticumLength);
 		companyDashboard.setMinimumPracticumLength(minimumPracticumLength);
