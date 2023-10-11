@@ -13,7 +13,6 @@ import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.URL;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
@@ -24,9 +23,6 @@ import lombok.Setter;
 @Setter
 public class PeepMessage extends AbstractEntity {
 
-	/**
-	 * 
-	 */
 	private static final long	serialVersionUID	= 1L;
 
 	@NotBlank
@@ -39,7 +35,6 @@ public class PeepMessage extends AbstractEntity {
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	@PastOrPresent
 	protected Date				instantiation;
 

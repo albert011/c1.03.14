@@ -20,14 +20,14 @@
 	<acme:input-textbox code="any.peep.form.label.title" path="title" />
 	<acme:input-textbox code="any.peep.form.label.message" path="message" />
 	<acme:input-moment code="any.peep.form.label.instantiation"
-		path="instantiation" />
+		path="instantiation" readonly="true"/>
 	<acme:input-url code="any.peep.form.label.link" path="link" />
 	<acme:input-email code="any.peep.form.label.email" path="email" />
 	<acme:input-textbox code="any.peep.form.label.nickname" path="nickname" />
 	<jstl:choose>
-		<jstl:when test="${_command == 'create' }">
+		<jstl:when test="${_command == 'publish' }">
 			<acme:submit code="any.peep.form.button.apply"
-				action="/any/peep-message/create" />
+				action="/any/peep-message/publish" />
 		</jstl:when>
 	</jstl:choose>
 </acme:form>

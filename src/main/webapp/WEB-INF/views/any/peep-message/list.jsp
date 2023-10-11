@@ -21,4 +21,4 @@
 	<acme:list-column code="any.peep.list.label.title" path="title" width="35%"/>
 </acme:list>
 
-<acme:button code="any.peep.create" action="/any/peep-message/create"/>
+<acme:button code="any.peep.publish" action="/any/peep-message/publish"/>

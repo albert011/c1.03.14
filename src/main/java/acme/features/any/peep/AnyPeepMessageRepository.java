@@ -10,7 +10,7 @@ import acme.entities.peep.PeepMessage;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface PeepMessageRepository extends AbstractRepository {
+public interface AnyPeepMessageRepository extends AbstractRepository {
 
 	@Query("select peep from PeepMessage peep")
 	Collection<PeepMessage> findAllPeeps();
