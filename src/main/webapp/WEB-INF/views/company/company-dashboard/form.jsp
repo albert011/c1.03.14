@@ -13,73 +13,73 @@
 			<acme:message code="company.dashboard.form.label.january"/>
 		</th>
 		<td>
-			<acme:print value="${numPracticumByMonth.get('JANUARY')}"/>
+			<acme:print value="${numPracticumByMonthLastYear.get('JANUARY')}"/>
 		</td>
 		<th scope="row">
 			<acme:message code="company.dashboard.form.label.february"/>
 		</th>
 		<td>
-			<acme:print value="${numPracticumByMonth.get('FEBRUARY')}"/>
+			<acme:print value="${numPracticumByMonthLastYear.get('FEBRUARY')}"/>
 		</td>
 		<th scope="row">
 			<acme:message code="company.dashboard.form.label.march"/>
 		</th>
 		<td>
-			<acme:print value="${numPracticumByMonth.get('MARCH')}"/>
+			<acme:print value="${numPracticumByMonthLastYear.get('MARCH')}"/>
 		</td>
 		<th scope="row">
 			<acme:message code="company.dashboard.form.label.april"/>
 		</th>
 		<td>
-			<acme:print value="${numPracticumByMonth.get('APRIL')}"/>
+			<acme:print value="${numPracticumByMonthLastYear.get('APRIL')}"/>
 		</td>
 		<th scope="row">
 			<acme:message code="company.dashboard.form.label.may"/>
 		</th>
 		<td>
-			<acme:print value="${numPracticumByMonth.get('MAY')}"/>
+			<acme:print value="${numPracticumByMonthLastYear.get('MAY')}"/>
 		</td>	
 		<th scope="row">
 			<acme:message code="company.dashboard.form.label.june"/>
 		</th>
 		<td>
-			<acme:print value="${numPracticumByMonth.get('JUNE')}"/>
+			<acme:print value="${numPracticumByMonthLastYear.get('JUNE')}"/>
 		</td>
 		<th scope="row">
 			<acme:message code="company.dashboard.form.label.july"/>
 		</th>
 		<td>
-			<acme:print value="${numPracticumByMonth.get('JULY')}"/>
+			<acme:print value="${numPracticumByMonthLastYear.get('JULY')}"/>
 		</td>
 		<th scope="row">
 			<acme:message code="company.dashboard.form.label.august"/>
 		</th>
 		<td>
-			<acme:print value="${numPracticumByMonth.get('AUGUST')}"/>
+			<acme:print value="${numPracticumByMonthLastYear.get('AUGUST')}"/>
 		</td>
 		<th scope="row">
 			<acme:message code="company.dashboard.form.label.september"/>
 		</th>
 		<td>
-			<acme:print value="${numPracticumByMonth.get('SEPTEMBER')}"/>
+			<acme:print value="${numPracticumByMonthLastYear.get('SEPTEMBER')}"/>
 		</td>
 		<th scope="row">
 			<acme:message code="company.dashboard.form.label.october"/>
 		</th>
 		<td>
-			<acme:print value="${numPracticumByMonth.get('OCTOBER')}"/>
+			<acme:print value="${numPracticumByMonthLastYear.get('OCTOBER')}"/>
 		</td>
 		<th scope="row">
 			<acme:message code="company.dashboard.form.label.november"/>
 		</th>
 		<td>
-			<acme:print value="${numPracticumByMonth.get('NOVEMBER')}"/>
+			<acme:print value="${numPracticumByMonthLastYear.get('NOVEMBER')}"/>
 		</td>
 		<th scope="row">
 			<acme:message code="company.dashboard.form.label.december"/>
 		</th>
 		<td>
-			<acme:print value="${numPracticumByMonth.get('DECEMBER')}"/>
+			<acme:print value="${numPracticumByMonthLastYear.get('DECEMBER')}"/>
 		</td>
 				
 	</tr>

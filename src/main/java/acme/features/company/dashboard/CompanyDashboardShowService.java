@@ -54,7 +54,7 @@ public class CompanyDashboardShowService extends AbstractService<Company, Compan
 		Company company;
 
 		final Integer numPracticum;
-		final Map<String, Long> numPracticumByMonth;
+		final Map<String, Long> numPracticumByMonthLastYear;
 		final Double averagePracticumLength;
 		final Double deviationPracticumLength;
 		final Double minimumPracticumLength;
@@ -85,13 +85,13 @@ public class CompanyDashboardShowService extends AbstractService<Company, Compan
 		final String[] split = momentActual.split("CEST ");
 		final Integer lastYear = Integer.valueOf(split[1].trim()) - 1;
 
-		numPracticumByMonth = this.repository.numPracticumByMonth(companyId, lastYear).stream().collect(Collectors.toMap(key -> Month.of((int) key[0]).toString(), value -> (long) value[1]));
+		numPracticumByMonthLastYear = this.repository.numPracticumByMonthLastYear(companyId, lastYear).stream().collect(Collectors.toMap(key -> Month.of((int) key[0]).toString(), value -> (long) value[1]));
 
 		for (final Month month : Month.values())
-			if (!numPracticumByMonth.containsKey(month.toString()))
-				numPracticumByMonth.put(month.toString(), (long) 0);
+			if (!numPracticumByMonthLastYear.containsKey(month.toString()))
+				numPracticumByMonthLastYear.put(month.toString(), (long) 0);
 
-		companyDashboard.setNumPracticumByMonthLastYear(numPracticumByMonth);
+		companyDashboard.setNumPracticumByMonthLastYear(numPracticumByMonthLastYear);
 		companyDashboard.setAveragePracticumLength(averagePracticumLength);
 		companyDashboard.setDeviationPracticumLength(deviationPracticumLength);
 		companyDashboard.setMinimumPracticumLength(minimumPracticumLength);
@@ -119,7 +119,7 @@ public class CompanyDashboardShowService extends AbstractService<Company, Compan
 	public void unbind(final CompanyDashboard companyDashboard) {
 		Tuple tuple;
 
-		tuple = super.unbind(companyDashboard, "numPracticumByMonth", "averagePracticumLength", "deviationPracticumLength", "minimumPracticumLength", "maximumPracticumLength", "numPracticum", "averageSessionLength", "deviationPracticumLength",
+		tuple = super.unbind(companyDashboard, "numPracticumByMonthLastYear", "averagePracticumLength", "deviationPracticumLength", "minimumPracticumLength", "maximumPracticumLength", "numPracticum", "averageSessionLength", "deviationPracticumLength",
 			"minimumSessionLength", "maximumSessionLength", "numSession");
 
 		super.getResponse().setData(tuple);

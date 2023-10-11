@@ -33,7 +33,7 @@ public interface CompanyDashboardRepository extends AbstractRepository {
 	double maximumPracticumLength(int companyId);
 
 	@Query("SELECT COALESCE(FUNCTION('MONTH', ps.startDate), ''), COALESCE(COUNT(ps), '') FROM PracticumSession ps WHERE ps.practicum.company.id = :companyId AND FUNCTION('YEAR', ps.startDate) = :year GROUP BY FUNCTION('MONTH', ps.startDate) ORDER BY COUNT(ps) DESC")
-	List<Object[]> numPracticumByMonth(int companyId, int year);
+	List<Object[]> numPracticumByMonthLastYear(int companyId, int year);
 
 	// PracticumSession
 
