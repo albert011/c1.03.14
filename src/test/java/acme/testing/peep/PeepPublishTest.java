@@ -10,8 +10,8 @@ import acme.testing.TestHarness;
 public class PeepPublishTest extends TestHarness {
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/peep/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String title, final String message, final String instantiation, final String link, final String email, final String nickName) {
+	@CsvFileSource(resources = "/peep/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test100Positive(final int recordIndex, final String title, final String message, final String link, final String email, final String nickName) {
 
 		super.clickOnMenu("Anonymous", "Peep messages");
 		super.checkListingExists();
@@ -19,7 +19,6 @@ public class PeepPublishTest extends TestHarness {
 		super.clickOnButton("Publish New Message");
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("message", message);
-		super.fillInputBoxIn("instantiation", instantiation);
 		super.fillInputBoxIn("link", link);
 		super.fillInputBoxIn("email", email);
 		super.fillInputBoxIn("nickname", nickName);
@@ -29,14 +28,12 @@ public class PeepPublishTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, nickName);
-		super.checkColumnHasValue(recordIndex, 1, instantiation);
 		super.checkColumnHasValue(recordIndex, 2, title);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("title", title);
 		super.checkInputBoxHasValue("message", message);
-		super.checkInputBoxHasValue("instantiation", instantiation);
 		super.checkInputBoxHasValue("link", link);
 		super.checkInputBoxHasValue("email", email);
 		super.checkInputBoxHasValue("nickname", nickName);
@@ -44,8 +41,8 @@ public class PeepPublishTest extends TestHarness {
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/peep/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String title, final String message, final String instantiation, final String link, final String email, final String nickName) {
+	@CsvFileSource(resources = "/peep/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test200Negative(final int recordIndex, final String title, final String message, final String link, final String email, final String nickName) {
 		// HINT: this test attempts to create jobs with incorrect data.
 
 		super.clickOnMenu("Anonymous", "Peep messages");
@@ -54,7 +51,6 @@ public class PeepPublishTest extends TestHarness {
 
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("message", message);
-		super.fillInputBoxIn("instantiation", instantiation);
 		super.fillInputBoxIn("link", link);
 		super.fillInputBoxIn("email", email);
 		super.fillInputBoxIn("nickname", nickName);

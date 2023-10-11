@@ -17,7 +17,7 @@ any.peep.list.label.link = Link
 any.peep.list.label.email = Email
 any.peep.list.label.message = Message
 
-any.peep.create = Publish New Message
+any.peep.publish = Publish New Message
 
 
 any.peep.form.label.title = Title

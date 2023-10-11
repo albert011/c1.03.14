@@ -1,6 +1,8 @@
 
 package acme.features.any.peep;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +12,12 @@ import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class PeepMessageShowService extends AbstractService<Any, PeepMessage> {
+public class AnyPeepMessageListService extends AbstractService<Any, PeepMessage> {
+
+	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected PeepMessageRepository repository;
+	protected AnyPeepMessageRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -25,33 +29,21 @@ public class PeepMessageShowService extends AbstractService<Any, PeepMessage> {
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int id;
-		PeepMessage peep;
-
-		id = super.getRequest().getData("id", int.class);
-		peep = this.repository.findOnePeepById(id);
-		status = peep != null;
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		PeepMessage peep;
-		int id;
-
-		id = super.getRequest().getData("id", int.class);
-		peep = this.repository.findOnePeepById(id);
-
-		super.getBuffer().setData(peep);
+		Collection<PeepMessage> peeps;
+		peeps = this.repository.findAllPeeps();
+		super.getBuffer().setData(peeps);
 	}
 
 	@Override
 	public void unbind(final PeepMessage peep) {
 		assert peep != null;
 		Tuple tuple;
-		tuple = super.unbind(peep, "title", "message", "instantiation", "nickname", "email", "link");
+		tuple = super.unbind(peep, "title", "instantiation", "nickname", "link", "email", "message");
 		super.getResponse().setData(tuple);
 	}
 
