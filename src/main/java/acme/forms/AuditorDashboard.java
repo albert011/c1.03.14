@@ -13,7 +13,7 @@ public class AuditorDashboard extends AbstractForm {
 
 	int							totalAuditsTheory, totalAuditsHandOn;
 	int							minimumAuditRecords, maximumAuditRecords;
-	int							minimumPeriodLengthAuditRecords, maximumPeriodLengthAuditRecords;
+	double						minimumPeriodLengthAuditRecords, maximumPeriodLengthAuditRecords;
 	double						averageAuditRecords, standardDeviationAuditRecords;
 	double						averagePeriodLengthAuditRecords, standardPeriodLengthDeviationAuditRecords;
 }

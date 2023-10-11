@@ -1,0 +1,5 @@
+indexAudit,indexAuditRecord,subjectAuditRecord,assessmentAuditRecord,periodStart,periodEnd,moreInfo,markAuditRecord,recordId,newMark
+0,0,Testing subject A 1,Testing assessment A 1,2005/03/01 08:00,2005/03/02 09:00,https://www.example.com/,A,254,B
+0,1,Testing subject B 1,Testing assessment B 1,2005/03/01 08:00,2005/03/02 09:00,https://www.example.com/,B,256,B
+0,1,Testing subject B 2,Testing assessment B 2,2005/03/01 08:00,2005/03/02 09:00,https://www.example.com/,B,257,B
+0,1,Testing subject B 3,Testing assessment B 3,2005/03/01 08:00,2005/03/02 09:00,https://www.example.com/,B,258,A

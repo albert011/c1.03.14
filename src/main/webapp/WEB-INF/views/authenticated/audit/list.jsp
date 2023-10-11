@@ -1,5 +1,5 @@
 <%--
-- form.jsp
+- list.jsp
 -
 - Copyright (C) 2012-2023 Rafael Corchuelo.
 -
@@ -15,26 +15,12 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
-<table class="table table-sm">
-	<tr>
-		<td>
-			<a id="enlace"><acme:print value="${pictureLink}"/></a>
-		</td>
-	</tr>
-</table>
+<acme:list>
+	<acme:list-column code="authenticated.audit.list.label.code" path="code" width="10%"/>
+	<acme:list-column code="authenticated.audit.list.label.mark" path="mark" width="10%"/>
+	<acme:list-column code="authenticated.audit.list.label.published" path="isPublished" width="10%"/>
+	<acme:list-column code="authenticated.audit.list.label.auditor" path="auditor" width="20%"/>
+	<acme:list-column code="authenticated.audit.list.label.course" path="course.title" width="50%"/>
+</acme:list>
+	
 
-<script type="text/javascript">
-	$(document).ready(function(){
-		let enlace = document.getElementById('enlace');
-		let enlace2 = enlace.textContent;
-		
-		const url = 'http://localhost:8080/Acme-L3-D04/master/welcome';
-		let encodedEnlace = encodeURIComponent(enlace2);
-		
-
-
-		document.cookie = "imagenSrc="+encodedEnlace+"; path=/";
-
-		window.location.href=url;
-	});
-</script>

@@ -63,12 +63,7 @@ public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
 	public void bind(final Audit object) {
 		assert object != null;
 
-		String courseTitle;
-		Course course;
 		Collection<Mark> marksCollection;
-
-		courseTitle = super.getRequest().getData("courseTitle", String.class);
-		course = this.repository.findOneCourseByTitle(courseTitle);
 
 		marksCollection = this.repository.findMarksOfAuditByAuditId(object.getId());
 
@@ -79,14 +74,21 @@ public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
 			object.setMark(finalMark);
 		}
 
-		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished", "mark");
-		object.setCourse(course);
+		final int courseId = super.getRequest().getData("course", int.class);
+		final Course c = this.repository.findOneCourseById(courseId);
+
+		object.setCourse(c);
+
+		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished");
 
 	}
 
 	@Override
 	public void validate(final Audit object) {
 		assert object != null;
+
+		super.state(!object.isPublished(), "code", "auditor.audit.form.error.course-not-published");
+
 	}
 
 	@Override
@@ -111,7 +113,7 @@ public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
 
 		marks = SelectChoices.from(Mark.class, object.getMark());
 
-		courseOptions = this.repository.findCourses();
+		courseOptions = this.repository.findCoursesPublished();
 
 		courses = SelectChoices.from(courseOptions, "title", object.getCourse());
 
@@ -121,6 +123,7 @@ public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
 		tuple.put("marks", marks);
 		tuple.put("course", courses.getSelected().getKey());
 		tuple.put("courses", courses);
+		tuple.put("auditorUsername", object.getAuditor().getUserAccount().getUsername());
 
 		super.getResponse().setData(tuple);
 	}

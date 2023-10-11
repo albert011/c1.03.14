@@ -16,8 +16,6 @@ master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
 
 # master.menu.anonymous #######################################################
-master.menu.BannerChange = Cambio de Banner
-master.menu.anonymous.foto = Hacer el cambio
 master.menu.anonymous = Anónimo
 master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.vicgrabru.favourite-link = 32081530B: Gravan Bru, Victor
@@ -35,7 +33,7 @@ master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.currency = Configuración del sistema
-master.menu.administrator.offer.list-all = Mostrar ofertas
+master.menu.administrator.offer.list = Mostrar ofertas
 master.menu.administrator.banner.list-all = Mostrar Banners
 
 # master.menu.provider ########################################################
@@ -58,7 +56,8 @@ master.menu.consumer.favourite-link = Enlace favorito
 # master.menu.auditor ##########################################################
 
 master.menu.auditor = Auditor
-master.menu.auditor.audit.list = Lista de auditorías
+master.menu.auditor.audit.list = Ver mis auditorías
+master.menu.auditor.dashboard = Panel de indicadores
 
 # master.menu.company ##########################################################
 
@@ -106,6 +105,7 @@ master.menu.authenticated.offers.list = Ver ofertas
 master.menu.authenticated.bulletins = Boletines
 master.menu.authenticated.tutorials = Tutoriales
 master.menu.authenticated.practicum.list = Ver prácticas
+master.menu.authenticated.course-audit.list = Ver cursos con Inspecciones
 
 # master.menu.assistant ##############################################
 master.menu.assistant = Asistente

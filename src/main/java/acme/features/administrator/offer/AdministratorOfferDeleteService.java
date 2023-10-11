@@ -17,8 +17,9 @@ public class AdministratorOfferDeleteService extends AbstractService<Administrat
 	@Autowired
 	protected AdministratorOfferRepository repository;
 
-
 	// AbstractService interface ----------------------------------------------
+
+
 	@Override
 	public void check() {
 		boolean status;
@@ -30,16 +31,9 @@ public class AdministratorOfferDeleteService extends AbstractService<Administrat
 
 	@Override
 	public void authorise() {
-
-		//super.getResponse().setAuthorised(true);
-
 		boolean status;
-		int masterId;
-		Offer offer;
 
-		masterId = super.getRequest().getData("id", int.class);
-		offer = this.repository.findOneOfferById(masterId);
-		status = offer != null && super.getRequest().getPrincipal().isAuthenticated();
+		status = super.getRequest().getPrincipal().hasRole(Administrator.class);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -65,6 +59,7 @@ public class AdministratorOfferDeleteService extends AbstractService<Administrat
 	@Override
 	public void validate(final Offer object) {
 		assert object != null;
+
 	}
 
 	@Override
@@ -81,7 +76,7 @@ public class AdministratorOfferDeleteService extends AbstractService<Administrat
 		Tuple tuple;
 
 		tuple = super.unbind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "link");
+
 		super.getResponse().setData(tuple);
 	}
-
 }
