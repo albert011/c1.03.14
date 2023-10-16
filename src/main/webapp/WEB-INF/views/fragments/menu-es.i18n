@@ -98,6 +98,7 @@ master.menu.student.enrolment = Matrícula
 master.menu.student.course = Cursos
 master.menu.user-account.company = Datos de compañía
 master.menu.user-account.become-company = Hazte compañía
+master.menu.student.dashboard = Dashboard
 
 # master.menu.authenticated #######################################################
 

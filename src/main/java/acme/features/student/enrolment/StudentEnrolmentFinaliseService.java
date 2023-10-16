@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -153,7 +153,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
 		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
-		final Optional<Double> workTime = this.repository.findManyActivitiesById(object.getId()).stream().map(Activity::getWorkTime).reduce(Double::sum);
+		final List<Activity> list = this.repository.findManyActivitiesById(object.getId());
 
 		if (object.getHolderName() != null && !object.getHolderName().isEmpty() && object.getLowerNibble() != null && !object.getLowerNibble().isEmpty())
 			finalized = true;
@@ -164,8 +164,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 		tuple.put("cvc", cvc);
 		tuple.put("creditCard", creditCard);
 		tuple.put("expiryDate", expiryDate);
-		if (workTime.isPresent())
-			tuple.put("workTime", workTime.get());
+		tuple.put("workTime", object.workTime(list));
 		tuple.put("finalized", finalized);
 		super.getResponse().setData(tuple);
 	}

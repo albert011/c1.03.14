@@ -67,20 +67,18 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 		SelectChoices choices;
 		Tuple tuple;
 		boolean finalized = false;
-		double workTime = 0.;
+		final double workTime = 0.;
 
 		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 		final List<Activity> list = this.repository.findManyActivitiesById(object.getId());
-		for (int i = 0; i < list.size(); i++)
-			workTime = list.get(i).getWorkTime();
 		if (object.getHolderName() != null)
 			finalized = true;
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "holderName", "lowerNibble");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
-		tuple.put("workTime", workTime);
+		tuple.put("workTime", object.workTime(list));
 		tuple.put("finalized", finalized);
 		super.getResponse().setData(tuple);
 	}

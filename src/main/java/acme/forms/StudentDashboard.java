@@ -17,9 +17,9 @@ public class StudentDashboard extends AbstractForm {
 	Double						deviationTimePeriod;
 	Double						minimumTimePeriod;
 	Double						maximumTimePeriod;
-	Double						averageWorkTime;
-	Double						deviationWorkTime;
-	Double						minimumWorkTime;
-	Double						maximumWorkTime;
+	Double						averageLearningTime;
+	Double						deviationLearningTime;
+	Double						minimumLearningTime;
+	Double						maximumLearningTime;
 
 }

@@ -46,3 +46,28 @@
 	</tr>
 </table>
 
+<h3>
+	<acme:message code="student.dashboard.form.title.learning" />
+</h3>
+
+<table class="table table-sm">
+	<tr>
+		<th scope="row"><acme:message
+				code="student.dashboard.form.label.learningTime.average" /></th>
+		<td><acme:print value="${averageLearningTime}" /></td>
+		<th scope="row"><acme:message
+				code="student.dashboard.form.label.learningTime.deviation" /></th>
+		<td><acme:print value="${deviationLearningTime}" /></td>
+		<th scope="row"><acme:message
+				code="student.dashboard.form.label.learningTime.minimum" />
+		</th>
+		<td><acme:print value="${minimumLearningTime}" /></td>
+		<th scope="row"><acme:message
+				code="student.dashboard.form.label.learningTime.maximum" />
+		</th>
+		<td><acme:print value="${maximumLearningTime}" /></td>
+
+	</tr>
+</table>
+
+

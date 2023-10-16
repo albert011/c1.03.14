@@ -15,3 +15,9 @@ student.dashboard.form.label.periodTime.deviation = Desviación del periodo de t
 student.dashboard.form.label.periodTime.minimum = Periodo de tiempo mínimo
 student.dashboard.form.label.periodTime.maximum = Periodo de tiempo máximo
 student.dashboard.form.title.workbook = Estadísticas Workbook
+
+student.dashboard.form.label.learningTime.average = Tiempo de aprendizaje medio
+student.dashboard.form.label.learningTime.deviation = Desviación T.A. medio
+student.dashboard.form.label.learningTime.minimum = Mínimo T.A
+student.dashboard.form.label.learningTime.maximum = Máximo T.A
+student.dashboard.form.title.learning = Tiempo de Estudio en cursos

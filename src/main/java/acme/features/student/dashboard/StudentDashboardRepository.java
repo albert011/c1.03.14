@@ -30,4 +30,16 @@ public interface StudentDashboardRepository extends AbstractRepository {
 
 	@Query("SELECT COALESCE(max((SELECT SUM(DATEDIFF(a.endPeriod, a.startPeriod)) FROM Activity a JOIN a.enrolment e WHERE e.student.id = :studentId)), '') FROM Enrolment e WHERE e.student.id = :studentId")
 	double maximumPeriodTime(int studentId);
+
+	@Query("SELECT COALESCE(avg((SELECT SUM(cl.lecture.estimatedLearningTime) FROM CourseLecture cl JOIN cl.course c WHERE e.course.id = c.id)), '') FROM Enrolment e WHERE e.student.id = :studentId")
+	double averageLearningTime(int studentId);
+
+	@Query("SELECT COALESCE(stddev((SELECT SUM(cl.lecture.estimatedLearningTime) FROM CourseLecture cl JOIN cl.course c WHERE e.course.id = c.id)), '') FROM Enrolment e WHERE e.student.id = :studentId")
+	double deviationLearningTime(int studentId);
+
+	@Query("SELECT COALESCE(min((SELECT SUM(cl.lecture.estimatedLearningTime) FROM CourseLecture cl JOIN cl.course c WHERE e.course.id = c.id)), '') FROM Enrolment e WHERE e.student.id = :studentId")
+	double minimumLearningTime(int studentId);
+
+	@Query("SELECT COALESCE(max((SELECT SUM(cl.lecture.estimatedLearningTime) FROM CourseLecture cl JOIN cl.course c WHERE e.course.id = c.id)), '') FROM Enrolment e WHERE e.student.id = :studentId")
+	double maximumLearningTime(int studentId);
 }

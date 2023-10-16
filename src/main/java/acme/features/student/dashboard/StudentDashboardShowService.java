@@ -55,10 +55,10 @@ public class StudentDashboardShowService extends AbstractService<Student, Studen
 		final Double minimumTimePeriod;
 		final Double maximumTimePeriod;
 
-		final Double averageWorkTime;
-		final Double deviationWorkTime;
-		final Double minimumWorkTime;
-		final Double maximumWorkTime;
+		final Double averageLearningTime;
+		final Double deviationLearningTime;
+		final Double minimumLearningTime;
+		final Double maximumLearningTime;
 
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
@@ -81,18 +81,15 @@ public class StudentDashboardShowService extends AbstractService<Student, Studen
 		studentDashboard.setMaximumTimePeriod(minimumTimePeriod);
 		studentDashboard.setMinimumTimePeriod(maximumTimePeriod);
 
-		/*
-		 * averageWorkTime = this.repository.averageWorkTime(studentId);
-		 * deviationWorkTime = this.repository.deviationWorkTime(studentId);
-		 * minimumWorkTime = this.repository.minimumWorkTime(studentId);
-		 * maximumWorkTime = this.repository.maximumWorkTime(studentId);
-		 * 
-		 * 
-		 * studentDashboard.setAverageWorkTime(averageWorkTime);
-		 * studentDashboard.setDeviationWorkTime(deviationWorkTime);
-		 * studentDashboard.setMinimumWorkTime(minimumWorkTime);
-		 * studentDashboard.setMaximumWorkTime(maximumWorkTime);
-		 */
+		averageLearningTime = this.repository.averageLearningTime(studentId);
+		deviationLearningTime = this.repository.deviationLearningTime(studentId);
+		minimumLearningTime = this.repository.minimumLearningTime(studentId);
+		maximumLearningTime = this.repository.maximumLearningTime(studentId);
+
+		studentDashboard.setAverageLearningTime(averageLearningTime);
+		studentDashboard.setDeviationLearningTime(deviationLearningTime);
+		studentDashboard.setMinimumLearningTime(minimumLearningTime);
+		studentDashboard.setMaximumLearningTime(maximumLearningTime);
 
 		super.getBuffer().setData(studentDashboard);
 	}

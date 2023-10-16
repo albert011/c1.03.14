@@ -15,3 +15,9 @@ student.dashboard.form.label.periodTime.deviation = Deviation Time Period
 student.dashboard.form.label.periodTime.minimum = Minimum Time Period
 student.dashboard.form.label.periodTime.maximum = Maximum Time Period
 student.dashboard.form.title.workbook = Workbook Stadistics
+
+student.dashboard.form.label.learningTime.average = Average Learning Time
+student.dashboard.form.label.learningTime.deviation = Learning Time Deviation
+student.dashboard.form.label.learningTime.minimum = Minimum Learning Time
+student.dashboard.form.label.learningTime.maximum = Maximum Learning Time
+student.dashboard.form.title.learning = Courses Learning Time
