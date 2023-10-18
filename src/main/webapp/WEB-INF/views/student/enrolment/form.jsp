@@ -17,11 +17,11 @@
 
 <acme:form>
 	<acme:input-textbox code="student.enrolment.form.label.code"
-		path="code" />
+		path="code" placeholder="XXX123"/>
 	<acme:input-textbox code="student.enrolment.form.label.motivation"
-		path="motivation" />
+		path="motivation" placeholder=""/>
 	<acme:input-textbox code="student.enrolment.form.label.goals"
-		path="goals" />
+		path="goals" placeholder=""/>
 	<acme:input-select code="student.enrolment.label.course" path="course"
 		choices="${courses}" />
 	<jstl:choose>
@@ -29,21 +29,19 @@
 			<acme:input-textbox code="student.enrolment.form.label.workTime"
 				path="workTime" readonly="true" />
 			<acme:input-textbox code="student.enrolment.form.label.creditCard"
-				path="creditCard" placeholder="XXXX/XXXX/XXXX/XXXX" />
+				path="creditCard" placeholder="XXXXXXXXXXXXXXXX" />
 			<acme:input-textbox code="student.enrolment.form.label.cvc"
 				path="cvc" placeholder="XXX" />
 			<acme:input-textbox code="student.enrolment.form.label.expiryDate"
 				path="expiryDate" placeholder="XX/XX" />
 			<acme:input-textbox code="student.enrolment.form.label.holderName"
-				path="holderName" />
-			<acme:input-textbox code="student.enrolment.form.label.lowerNibble"
-				path="lowerNibble" readonly="true" />
+				path="holderName" placeholder="" />
 		</jstl:when>
 		<jstl:when test="${_command != 'create' && finalized == true}">
 			<acme:input-textbox code="student.enrolment.form.label.workTime"
 				path="workTime" readonly="true" />
 			<acme:input-textbox code="student.enrolment.form.label.holderName"
-				path="holderName" />
+				path="holderName" readonly="true" />
 			<acme:input-textbox code="student.enrolment.form.label.lowerNibble"
 				path="lowerNibble" readonly="true" />
 		</jstl:when>

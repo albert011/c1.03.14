@@ -86,7 +86,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
 		final Calendar calendar = Calendar.getInstance();
 		Date fechaFinal = new Date();
-		if (res.length() == 5 && res.substring(2, 3).equals("/")) {
+		if (res.length() == 5 && res.substring(2, 3).equals("/") && res.substring(0, 2).matches("\\d+") && res.substring(res.length() - 2).matches("\\d+")) {
 
 			if (super.getRequest().getLocale().getLanguage().equals("es")) {
 				month = res.substring(0, 2);
@@ -112,9 +112,10 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 			fechaFinal = calendar.getTime();
 		}
 
-		final String card = super.getRequest().getData("creditCard", String.class);
-		if (!super.getBuffer().getErrors().hasErrors("creditCard"))
-			super.state(card.matches("^\\d{4}\\/\\d{4}\\/\\d{4}\\/\\d{4}$"), "creditCard", "student.enrolment.form.error.card");
+		String creditCard = super.getRequest().getData("creditCard", String.class);
+		creditCard = creditCard.replaceAll("\\D", "");
+		if (!StudentEnrolmentFinaliseService.validateCreditCard(creditCard) || !creditCard.matches("\\d+") || creditCard.isEmpty())
+			super.state(false, "creditCard", "student.enrolment.form.error.card");
 
 		final String holderName = super.getRequest().getData("holderName", String.class);
 		if (!super.getBuffer().getErrors().hasErrors("holderName"))
@@ -124,7 +125,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 			super.state(cvc.matches("^\\d{3}$"), "cvc", "student.enrolment.form.error.cvc");
 		final String expiryDate = super.getRequest().getData("expiryDate", String.class);
 		if (!super.getBuffer().getErrors().hasErrors("expiryDate"))
-			if (res.length() == 5 && res.substring(2, 3).equals("/")) {
+			if (res.length() == 5 && res.substring(2, 3).equals("/") && res.substring(0, 2).matches("\\d+") && res.substring(res.length() - 2).matches("\\d+")) {
 				super.state(Integer.parseInt(month) <= 12 && Integer.parseInt(month) != 00, "expiryDate", "student.enrolment.form.error.month");
 				super.state(!MomentHelper.isAfterOrEqual(moment, fechaFinal), "expiryDate", "student.enrolment.form.error.limit");
 			}
@@ -167,6 +168,29 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 		tuple.put("workTime", object.workTime(list));
 		tuple.put("finalized", finalized);
 		super.getResponse().setData(tuple);
+	}
+
+	//Metodos auxiliares ----------------------------------------------------
+	private static boolean validateCreditCard(final String creditCard) {
+		int sum = 0;
+		boolean doubleDigit = false;
+
+		// Iterar sobre los dígitos de derecha a izquierda
+		for (int i = creditCard.length() - 1; i >= 0; i--) {
+			int digit = Integer.parseInt(creditCard.substring(i, i + 1));
+
+			if (doubleDigit) {
+				digit *= 2;
+				if (digit > 9)
+					digit = digit % 10 + 1;
+			}
+
+			sum += digit;
+			doubleDigit = !doubleDigit;
+		}
+
+		// La suma total debe ser divisible por 10 para que el número sea válido
+		return sum % 10 == 0;
 	}
 
 }

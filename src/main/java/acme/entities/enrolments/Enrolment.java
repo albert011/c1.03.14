@@ -39,12 +39,8 @@ public class Enrolment extends AbstractEntity {
 	@Size(max = 100)
 	protected String			goals;
 
-	//@Column(nullable = true)
-	//@NotEmpty
 	protected String			holderName;
 
-	//@Column(nullable = true)
-	//@NotEmpty
 	protected String			lowerNibble;
 
 	@Valid
