@@ -86,7 +86,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
 		final Calendar calendar = Calendar.getInstance();
 		Date fechaFinal = new Date();
-		if (res != null && !res.isEmpty()) {
+		if (res.length() == 5 && res.substring(2, 3).equals("/")) {
 
 			if (super.getRequest().getLocale().getLanguage().equals("es")) {
 				month = res.substring(0, 2);
@@ -124,7 +124,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 			super.state(cvc.matches("^\\d{3}$"), "cvc", "student.enrolment.form.error.cvc");
 		final String expiryDate = super.getRequest().getData("expiryDate", String.class);
 		if (!super.getBuffer().getErrors().hasErrors("expiryDate"))
-			if (res != null && !res.isEmpty()) {
+			if (res.length() == 5 && res.substring(2, 3).equals("/")) {
 				super.state(Integer.parseInt(month) <= 12 && Integer.parseInt(month) != 00, "expiryDate", "student.enrolment.form.error.month");
 				super.state(!MomentHelper.isAfterOrEqual(moment, fechaFinal), "expiryDate", "student.enrolment.form.error.limit");
 			}
