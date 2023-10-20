@@ -114,7 +114,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
 		String creditCard = super.getRequest().getData("creditCard", String.class);
 		creditCard = creditCard.replaceAll("\\D", "");
-		if (!StudentEnrolmentFinaliseService.validateCreditCard(creditCard) || !creditCard.matches("\\d+") || creditCard.isEmpty())
+		if (!StudentEnrolmentFinaliseService.validateCreditCard(creditCard) || !creditCard.matches("\\d+") || creditCard.isEmpty() || creditCard.length() != 16)
 			super.state(false, "creditCard", "student.enrolment.form.error.card");
 
 		final String holderName = super.getRequest().getData("holderName", String.class);
