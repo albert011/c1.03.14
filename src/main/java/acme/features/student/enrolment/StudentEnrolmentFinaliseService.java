@@ -153,7 +153,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 		final String cvc = this.getRequest().getData("cvc", String.class);
 
 		courses = this.repository.findAllCourses();
-		choices = SelectChoices.from(courses, "title", object.getCourse());
+		choices = SelectChoices.from(courses, "code", object.getCourse());
 		final List<Activity> list = this.repository.findManyActivitiesById(object.getId());
 
 		if (object.getHolderName() != null && !object.getHolderName().isEmpty() && object.getLowerNibble() != null && !object.getLowerNibble().isEmpty())

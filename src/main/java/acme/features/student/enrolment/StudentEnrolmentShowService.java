@@ -70,7 +70,7 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 		final double workTime = 0.;
 
 		courses = this.repository.findAllCourses();
-		choices = SelectChoices.from(courses, "title", object.getCourse());
+		choices = SelectChoices.from(courses, "code", object.getCourse());
 		final List<Activity> list = this.repository.findManyActivitiesById(object.getId());
 		if (object.getHolderName() != null)
 			finalized = true;

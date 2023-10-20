@@ -119,7 +119,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 
 		//studentId = super.getRequest().getPrincipal().getActiveRoleId();
 		courses = this.repository.findAllCourses();
-		choices = SelectChoices.from(courses, "title", object.getCourse());
+		choices = SelectChoices.from(courses, "code", object.getCourse());
 		final List<Activity> list = this.repository.findManyActivitiesById(object.getId());
 
 		if (object.getHolderName() != null && object.getLowerNibble() != null)

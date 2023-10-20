@@ -72,20 +72,6 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 			existing = this.repository.findOneEnrolmentByCode(object.getCode());
 			super.state(existing == null, "code", "student.enrolment.form.error.duplicated");
 		}
-
-		/*
-		 * if (!super.getBuffer().getErrors().hasErrors("deadline")) {
-		 * Date minimumDeadline;
-		 * 
-		 * minimumDeadline = MomentHelper.deltaFromCurrentMoment(7, ChronoUnit.DAYS);
-		 * super.state(MomentHelper.isAfter(object.getDeadline(), minimumDeadline), "deadline", "employer.job.form.error.too-close");
-		 * }
-		 */
-
-		/*
-		 * if (!super.getBuffer().getErrors().hasErrors("salary"))
-		 * super.state(object.getSalary().getAmount() > 0, "salary", "employer.job.form.error.negative-salary");
-		 */
 	}
 
 	@Override
@@ -108,7 +94,7 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 
 		//studentId = super.getRequest().getPrincipal().getActiveRoleId();
 		courses = this.repository.findAllCourses();
-		choices = SelectChoices.from(courses, "title", object.getCourse());
+		choices = SelectChoices.from(courses, "code", object.getCourse());
 		final List<Activity> list = this.repository.findManyActivitiesById(object.getId());
 
 		if (object.getHolderName() != null && object.getLowerNibble() != null)
