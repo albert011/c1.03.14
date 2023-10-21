@@ -21,3 +21,6 @@ student.dashboard.form.label.learningTime.deviation = Learning Time Deviation
 student.dashboard.form.label.learningTime.minimum = Minimum Learning Time
 student.dashboard.form.label.learningTime.maximum = Maximum Learning Time
 student.dashboard.form.title.learning = Courses Learning Time
+
+student.dashboard.form.label.periodTime.days = Days
+student.dashboard.form.label.periodTime.hour = Hours

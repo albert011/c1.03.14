@@ -30,18 +30,22 @@
 		<td><acme:print value="${totalHandsOnActivities}" /></td>
 		<th scope="row"><acme:message
 				code="student.dashboard.form.label.periodTime.average" /></th>
-		<td><acme:print value="${averageTimePeriod}" /></td>
+		<td><acme:print value="${averageTimePeriod}" /> <acme:message
+				code="student.dashboard.form.label.periodTime.days" /></td>
 		<th scope="row"><acme:message
 				code="student.dashboard.form.label.periodTime.deviation" /></th>
-		<td><acme:print value="${deviationTimePeriod}" /></td>
+		<td><acme:print value="${deviationTimePeriod}" /> <acme:message
+				code="student.dashboard.form.label.periodTime.days" /></td>
 		<th scope="row"><acme:message
 				code="student.dashboard.form.label.periodTime.minimum" />
 		</th>
-		<td><acme:print value="${minimumTimePeriod}" /></td>
+		<td><acme:print value="${minimumTimePeriod}" /> <acme:message
+				code="student.dashboard.form.label.periodTime.days" /></td>
 		<th scope="row"><acme:message
 				code="student.dashboard.form.label.periodTime.maximum" />
 		</th>
-		<td><acme:print value="${maximumTimePeriod}" /></td>
+		<td><acme:print value="${maximumTimePeriod}" /> <acme:message
+				code="student.dashboard.form.label.periodTime.days" /></td>
 
 	</tr>
 </table>
@@ -54,18 +58,22 @@
 	<tr>
 		<th scope="row"><acme:message
 				code="student.dashboard.form.label.learningTime.average" /></th>
-		<td><acme:print value="${averageLearningTime}" /></td>
+		<td><acme:print value="${averageLearningTime}" /> <acme:message
+				code="student.dashboard.form.label.periodTime.hour" /></td>
 		<th scope="row"><acme:message
 				code="student.dashboard.form.label.learningTime.deviation" /></th>
-		<td><acme:print value="${deviationLearningTime}" /></td>
+		<td><acme:print value="${deviationLearningTime}" /> <acme:message
+				code="student.dashboard.form.label.periodTime.hour" /></td>
 		<th scope="row"><acme:message
 				code="student.dashboard.form.label.learningTime.minimum" />
 		</th>
-		<td><acme:print value="${minimumLearningTime}" /></td>
+		<td><acme:print value="${minimumLearningTime}" /> <acme:message
+				code="student.dashboard.form.label.periodTime.hour" /></td>
 		<th scope="row"><acme:message
 				code="student.dashboard.form.label.learningTime.maximum" />
 		</th>
-		<td><acme:print value="${maximumLearningTime}" /></td>
+		<td><acme:print value="${maximumLearningTime}" /> <acme:message
+				code="student.dashboard.form.label.periodTime.hour" /></td>
 
 	</tr>
 </table>
