@@ -41,6 +41,7 @@ public class Enrolment extends AbstractEntity {
 
 	protected String			holderName;
 
+	@Size(max = 4)
 	protected String			lowerNibble;
 
 	@Valid
