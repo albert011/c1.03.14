@@ -44,4 +44,7 @@ public interface LecturersCoursesLecturesRepository extends AbstractRepository {
 
 	@Query("select c.lecturer from Course c where c.id = :courseId")
 	Lecturer findCourseOwnerByCourseId(int courseId);
+
+	@Query("select c from Course c where c.id =:courseId AND c.draftMode='true'")
+	Course findUnpublishedCourse(int courseId);
 }
