@@ -29,5 +29,7 @@ company.practicumSession.form.button.update = Update
 company.practicumSession.form.button.delete = Delete
 company.practicumSession.form.button.create = Create
 
-company.practicumSession.form.error.period-too-short = The timeframe must be at least one week in advance and the duration must be at least one week
+
+company.practicumSession.form.error.start-date = The start date must be at least one week ahead from the current date
+company.practicumSession.form.error.end-date = The end date must be at least one week ahead of the start date
 company.addendumSession.form.error.must-accept = You must check this box to create an addendum session

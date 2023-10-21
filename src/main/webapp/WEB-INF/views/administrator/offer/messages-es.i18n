@@ -10,6 +10,7 @@
 
 administrator.offer.form.label.heading = Cabecera:
 administrator.offer.form.label.summary = Resumen:
+administrator.offer.form.label.instantiationMoment = Momento de instanciación:
 administrator.offer.form.label.availabilityPeriodStart = Periodo de inicio de disponibilidad:
 administrator.offer.form.label.availabilityPeriodEnd = Periodo de final de disponibilidad:
 administrator.offer.form.label.price = Precio:
@@ -20,15 +21,16 @@ administrator.offer.form.button.update = Actualizar
 administrator.offer.form.button.delete = Borrar
  
 administrator.offer.list.label.heading = Cabecera
-administrator.offer.list.label.summary = Resumen
 administrator.offer.list.label.availabilityPeriodStart = Periodo de inicio de disponibilidad
 administrator.offer.list.label.availabilityPeriodEnd = Periodo de final de disponibilidad
 administrator.offer.list.label.price = Precio
-administrator.offer.list.label.link = Enlace
 
 administrator.offer.list.button.create = Crear
 
-administrator.offer.form.error.price.negative-or-zero = El precio debe ser igual o mayor que cero
-administrator.offer.form.error.price.non-existent-currency = Esa moneda no está permitida en el sistema
-administrator.offer.form.error.less-than-a-day-after-instantiation = El período de disponibilidad debe comenzar al menos un día después del momento de la instanciación
+administrator.offer.form.error.less-than-a-day-after-instantiation = El período de disponibilidad debe comenzar al menos un día después del momento de instanciación
+administrator.offer.error.availabilityPeriodStart.start-before-instantiation = El inicio del periodo de disponibilidad debe ser después del momento de instanciación
+administrator.offer.error.availabilityPeriodEnd.end-before-instantiation = El fin del periodo de disponibilidad debe ser después del momento de instanciación
+administrator.offer.form.error.end-before-start = El fin del periodo de disponibilidad debe ser después del inicio del periodo
 administrator.offer.form.error.period-too-short = La duración de la oferta debe ser de al menos una semana
+administrator.offer.form.error.price.negative-or-zero = El precio debe ser mayor o igual que cero
+administrator.offer.form.error.price.non-existent-currency = Esa moneda no está permitida en el sistema

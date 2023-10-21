@@ -19,11 +19,6 @@
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
-		<acme:menu-option code="master.menu.BannerChange" access="true">
-			<acme:menu-suboption code="master.menu.anonymous.foto"
-				action="/any/banner/show" />
-		</acme:menu-option>
-
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.any.peeps"
 				action="/any/peep-message/list" />
@@ -52,7 +47,7 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/populate-sample"/>			
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.administrator.offer.list-all" action="/administrator/offer/list-all"/>
+			<acme:menu-suboption code="master.menu.administrator.offer.list" action="/administrator/offer/list"/>
 			<acme:menu-suboption code="master.menu.administrator.banner.list-all" action="/administrator/banner/list-all"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.currency" action="/administrator/currency/show"/>
@@ -69,10 +64,14 @@
 			<acme:menu-separator />
 			<acme:menu-suboption code="master.menu.student.course"
 				action="/student/course/list-all" />
+				<acme:menu-separator />
+				<acme:menu-suboption code="master.menu.student.dashboard"
+				action="/student/student-dashboard/show" />
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 			<acme:menu-suboption code="master.menu.auditor.audit.list" action="/auditor/audit/list/"/>
+			<acme:menu-suboption code="master.menu.auditor.dashboard" action="/auditor/auditor-dashboard/show"/>
 		</acme:menu-option>		
 
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
@@ -88,6 +87,8 @@
 			<acme:menu-suboption code="master.menu.authenticated.offers.list" action="/authenticated/offer/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.practicum.list" action="/authenticated/practicum/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.authenticated.course-audit.list" action="/authenticated/course/list"/>
 
 		</acme:menu-option>
 		
@@ -108,7 +109,7 @@
 
 		<acme:menu-option code="master.menu.company" access="hasRole('Company')">			
 			<acme:menu-suboption code="master.menu.company.practicum.list-mine" action="/company/practicum/list-mine"/>			
-
+			<acme:menu-suboption code="master.menu.company.dashboard" action="/company/company-dashboard/show"/>
 		</acme:menu-option>
 
 

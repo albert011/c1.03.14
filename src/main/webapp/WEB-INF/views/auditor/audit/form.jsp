@@ -23,7 +23,7 @@
 	<acme:input-select code="auditor.audit.form.label.mark" path="mark" choices="${marks}" readonly="True"/>
 	<acme:input-select code="auditor.audit.form.label.course" path="course" choices="${courses}"/>
 	<jstl:if test="${_command != 'create'}">
-		<acme:input-textbox code="auditor.audit.form.label.auditor" path="code" readonly="True"/>
+		<acme:input-textbox code="auditor.audit.form.label.auditor" path="auditorUsername" readonly="True"/>
 		<acme:input-checkbox code="auditor.audit.form.label.published" path="isPublished" readonly="True"/>
 	</jstl:if>
 	

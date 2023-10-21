@@ -28,7 +28,7 @@ public class LecturersLecturesListMineService extends AbstractService<Lecturer, 
 	public void authorise() {
 		boolean status;
 		int lecturerId;
-		final int ownerCourseId;
+		int ownerCourseId;
 		int courseId;
 
 		if (super.getRequest().hasData("courseId", int.class)) {
@@ -39,6 +39,7 @@ public class LecturersLecturesListMineService extends AbstractService<Lecturer, 
 		} else
 			status = true;
 		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override

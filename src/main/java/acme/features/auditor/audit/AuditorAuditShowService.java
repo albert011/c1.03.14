@@ -1,11 +1,14 @@
 
 package acme.features.auditor.audit;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.audit.Audit;
 import acme.entities.audit.Mark;
+import acme.entities.course.Course;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -58,15 +61,23 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 	public void unbind(final Audit object) {
 		assert object != null;
 
-		SelectChoices marks;
+		Collection<Course> courseOptions;
+		SelectChoices marks, courses;
 		Tuple tuple;
+
+		courseOptions = this.repository.findCoursesPublished();
+
+		courses = SelectChoices.from(courseOptions, "title", object.getCourse());
 
 		marks = SelectChoices.from(Mark.class, object.getMark());
 
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "isPublished", "mark");
 		tuple.put("masterId", object.getAuditor().getId());
+		tuple.put("courses", courses);
 		tuple.put("courseTitle", object.getCourse().getTitle());
 		tuple.put("marks", marks);
+
+		tuple.put("auditorUsername", object.getAuditor().getUserAccount().getUsername());
 
 		super.getResponse().setData(tuple);
 	}

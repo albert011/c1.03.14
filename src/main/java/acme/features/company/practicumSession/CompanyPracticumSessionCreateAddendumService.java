@@ -93,11 +93,16 @@ public class CompanyPracticumSessionCreateAddendumService extends AbstractServic
 		isAccepted = this.getRequest().getData("accept", boolean.class);
 		super.state(isAccepted, "accept", "company.addendumSession.form.error.must-accept");
 
-		if (!super.getBuffer().getErrors().hasErrors("startDate") && !super.getBuffer().getErrors().hasErrors("endDate")) {
-			Date minimumPeriod;
+		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
+			Date minimumStartDate;
+			minimumStartDate = MomentHelper.deltaFromCurrentMoment(7, ChronoUnit.DAYS);
+			super.state(MomentHelper.isAfterOrEqual(object.getStartDate(), minimumStartDate), "startDate", "company.practicumSession.form.error.start-date");
 
-			minimumPeriod = MomentHelper.deltaFromMoment(object.getStartDate(), 7, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfterOrEqual(object.getEndDate(), minimumPeriod), "endDate", "company.practicumSession.form.error.period-too-short");
+			if (!super.getBuffer().getErrors().hasErrors("endDate")) {
+				Date minimumEndDate;
+				minimumEndDate = MomentHelper.deltaFromMoment(object.getStartDate(), 7, ChronoUnit.DAYS);
+				super.state(MomentHelper.isAfterOrEqual(object.getEndDate(), minimumEndDate), "endDate", "company.practicumSession.form.error.end-date");
+			}
 		}
 	}
 

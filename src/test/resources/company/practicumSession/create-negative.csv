@@ -1,11 +1,23 @@
 practicumRecordIndex,code,course,practicumTitle,practicumSessionRecordIndex,practicumSessionTitle,abstractText,startDate,endDate,link
-0,ABC1234,GHJ 800,Desarrollo de aplicaciones web,0,,,,,
-0,ABC1234,GHJ 800,Desarrollo de aplicaciones web,0,fecha incorrecta,fecha incorrecta,2023/06/10 12:00,2023/06/10 17:00,
-0,ABC1234,GHJ 800,Desarrollo de aplicaciones web,0,fecha incorrecta,fecha incorrecta,2023/06/10 12:00,2022/06/10 17:00,
-0,ABC1234,GHJ 800,Desarrollo de aplicaciones web,0,fecha incorrecta,fecha incorrecta,2021/06/10 12:00,2021/06/10 17:00,
-0,ABC1234,GHJ 800,Desarrollo de aplicaciones web,0,,titulo vacio,2023/06/10 12:00,2023/06/19 17:00,https://www.ejemplo.com
-0,ABC1234,GHJ 800,Desarrollo de aplicaciones web,0,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,titulo con 76 caracteres,2023/06/10 12:00,2023/06/19 17:00,https://www.ejemplo.com
-0,ABC1234,GHJ 800,Desarrollo de aplicaciones web,0,abstract vacio,,2023/06/10 12:00,2023/06/19 17:00,https://www.ejemplo.com
-0,ABC1234,GHJ 800,Desarrollo de aplicaciones web,0,abstract con 101 caracteres,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2023/06/10 12:00,2023/06/19 17:00,https://www.ejemplo.com
-2,FB5234,GHJ 800,abasddddddddddasdc,0,,,,,
-2,FB5234,GHJ 800,abasddddddddddasdc,0,Algunos campos faltantes,,2022/08/05 10:00,,
+0,ABC1234,KAI 075,Desarrollo de aplicaciones web,0,,,,,
+0,ABC1234,KAI 075,Desarrollo de aplicaciones web,0,fecha incorrecta,duracion de menos de una semana,2023/06/10 12:00,2023/06/10 17:00,
+0,ABC1234,KAI 075,Desarrollo de aplicaciones web,0,fecha incorrecta,fin antes que comienzo,2023/06/10 12:00,2022/06/10 17:00,
+0,ABC1234,KAI 075,Desarrollo de aplicaciones web,0,fecha incorrecta,fechas en pasado,2021/06/10 12:00,2021/07/10 17:00,
+0,ABC1234,KAI 075,Desarrollo de aplicaciones web,0,fecha incorrecta,inicia antes de que haya pasado una semana de la fecha del sistema,2022/08/01 12:00,2021/08/10 17:00,
+0,ABC1234,KAI 075,Desarrollo de aplicaciones web,0,,titulo vacio,2023/06/10 12:00,2023/06/19 17:00,https://www.ejemplo.com
+0,ABC1234,KAI 075,Desarrollo de aplicaciones web,0,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,titulo con 76 caracteres,2023/06/10 12:00,2023/06/19 17:00,https://www.ejemplo.com
+0,ABC1234,KAI 075,Desarrollo de aplicaciones web,0,abstract vacio,,2023/06/10 12:00,2023/06/19 17:00,https://www.ejemplo.com
+0,ABC1234,KAI 075,Desarrollo de aplicaciones web,0,abstract con 101 caracteres,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2023/06/10 12:00,2023/06/19 17:00,https://www.ejemplo.com
+0,ABC1234,KAI 075,Desarrollo de aplicaciones web,0,fechas en pasado,aaa,2021/06/10 12:00,2021/06/19 17:00,https://www.ejemplo.com
+0,ABC1234,KAI 075,Desarrollo de aplicaciones web,0,fecha de inicio en pasado,a,2021/06/10 12:00,2023/06/19 17:00,https://www.ejemplo.com
+0,ABC1234,KAI 075,Desarrollo de aplicaciones web,0,fecha de fin en pasado,a,2023/06/10 12:00,2021/06/19 17:00,https://www.ejemplo.com
+0,ABC1234,KAI 075,Desarrollo de aplicaciones web,0,link mal escrito,a,2023/06/10 12:00,2023/06/19 17:00,ejemplo.com
+1,CBA3456,OLK 865,abc,2,,,,,,false
+1,CBA3456,OLK 865,abc,2,aaaaaa,,,,,false
+1,CBA3456,OLK 865,abc,2,,aaaaaaa,,,,false
+1,CBA3456,OLK 865,abc,2,,,2022/08/10 17:00,,,false
+1,CBA3456,OLK 865,abc,2,,,,2022/08/10 17:00,,false
+1,CBA3456,OLK 865,abc,2,,,,,http://www.ejemplo.com,false
+1,CBA3456,OLK 865,abc,2,,,,,,true
+2,FB5234,KAI 075,abasddddddddddasdc,0,,,,,
+2,FB5234,KAI 075,abasddddddddddasdc,0,Algunos campos faltantes,,2022/08/05 10:00,,

@@ -31,7 +31,15 @@ public class AdministratorOfferShowService extends AbstractService<Administrator
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		Offer offer;
+		int offerId;
+
+		offerId = super.getRequest().getData("id", int.class);
+		offer = this.repository.findOneOfferById(offerId);
+		status = offer != null && super.getRequest().getPrincipal().hasRole(Administrator.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -51,7 +59,7 @@ public class AdministratorOfferShowService extends AbstractService<Administrator
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "instantiationMoment", "heading", "summary", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "link");
+		tuple = super.unbind(object, "heading", "summary", "instantiationMoment", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "link");
 
 		super.getResponse().setData(tuple);
 	}

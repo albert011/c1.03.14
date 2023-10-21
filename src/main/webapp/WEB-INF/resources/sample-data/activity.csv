@@ -1,5 +1,18 @@
 key,title,abstract-field,activity-type,start-period,end-period,link,key:enrolment
 activity-01,prueba-activity-01,Lorem ipsum dolor sit amet,THEORY,2022/03/16 19:30,2022/05/16 19:30,null,enrolment-01
 activity-02,prueba-activity-02,Lorem ipsum dolor sit amet,THEORY,2022/03/16 19:30,2022/05/16 19:30,null,enrolment-01
-activity-03,prueba-activity-03,Lorem ipsum dolor sit amet,THEORY,2022/03/16 19:30,2022/05/16 19:30,null,enrolment-01
-activity-04,prueba-activity-04,Lorem ipsum dolor sit amet,THEORY,2022/03/16 19:30,2022/05/16 19:30,null,enrolment-01
+activity-03,prueba-activity-03,Lorem ipsum dolor sit amet,HANDS_ON,2022/03/16 19:30,2022/05/16 19:30,null,enrolment-01
+activity-04,prueba-activity-04,Lorem ipsum dolor sit amet,HANDS_ON,2022/03/16 19:30,2022/05/16 19:30,https://www.google.es/,enrolment-01
+activity-05,a,Test minimum character,THEORY,2022/03/16 19:30,2022/05/16 19:30,https://www.google.es/,enrolment-18
+activity-06,Test minimum character,a,HANDS_ON,2022/03/16 19:30,2022/05/16 19:30,https://www.google.es/,enrolment-19
+activity-07,lorem ipsumlorem ipsumlor,Test 25 characters,HANDS_ON,2022/03/16 19:30,2022/05/16 19:30,https://www.google.es/,enrolment-19
+activity-08,lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ,Test 50 charecters,HANDS_ON,2022/03/16 19:30,2022/05/16 19:30,https://www.google.es/,enrolment-19
+activity-09,Test 25 characters,lorem ipsumlorem ipsumlor,HANDS_ON,2022/03/16 19:30,2022/05/16 19:30,https://www.google.es/,enrolment-19
+activity-10,Test 50 characters,lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorlor,HANDS_ON,2022/03/16 19:30,2022/05/16 19:30,https://www.google.es/,enrolment-19
+activity-11,Test 75 characters,lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorlorlorem ipsumlorem ipsumlor,HANDS_ON,2022/03/16 19:30,2022/05/16 19:30,https://www.google.es/,enrolment-19
+activity-12,Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ips,Test maximum charater,THEORY,2022/03/16 19:30,2022/05/16 19:30,https://www.google.es/,enrolment-19
+activity-13,Test maximum charater,Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumL,HANDS_ON,2022/03/16 19:30,2022/05/16 19:30,https://www.google.es/,enrolment-19
+activity-14,貸んい建濯よ芝弾テソ,Λορεμ ιπσθμ δολορ σιτ αμετ,HANDS_ON,2022/03/16 19:30,2022/05/16 19:30,https://www.google.es/,enrolment-19
+activity-15,коза коза,თხა თხა,HANDS_ON,2022/03/16 19:30,2022/05/16 19:30,https://www.google.es/,enrolment-19
+activity-16,@áéíóú,áéíóúáéíóúáéíóú¿?¡!,HANDS_ON,2022/03/16 19:30,2022/05/16 19:30,https://www.google.es/,enrolment-19
+activity-17,prueba-activity-04,Lorem ipsum dolor sit amet,HANDS_ON,2022/03/16 19:30,2022/05/16 19:30,https://www.google.es/,enrolment-19

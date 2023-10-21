@@ -1,2 +1,4 @@
 practicumRecordIndex,code,course,practicumTitle,practicumSessionRecordIndex,practicumSessionTitle,abstractText,startDate,endDate,link,accept
-4,GHI9012,GHJ 800,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2,Una sesión de prácticas muy interesante,abstracto,2022/08/15 15:00,2022/09/25 17:00,https://www.ejemplo.com,true
+4,GHI9012,KAI 075,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2,Una sesión de prácticas adicional,Una sesión de prácticas adicional,2022/08/15 15:00,2022/09/25 17:00,https://www.ejemplo.com,true
+5,XYZ9000,KAI 075,Practicum en el año pasado,0,75aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,100aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2022/08/15 15:00,2022/10/25 17:00,https://www.ejemplo.com,true
+6,XYZ9001,OLK 865,Otro practicum en el año pasado,0,37aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,50aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2023/08/15 15:00,2023/09/25 17:00,,true

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.course.Course;
 import acme.entities.practicumSessions.PracticumSession;
 import acme.entities.practicums.Practicum;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -36,17 +37,30 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 
 	@Override
 	public void authorise() {
+
 		boolean status;
 		int practicumId;
 		Practicum practicum;
-		Company company;
+		Principal principal;
 
 		practicumId = super.getRequest().getData("id", int.class);
 		practicum = this.repository.findOnePracticumById(practicumId);
-		company = practicum == null ? null : practicum.getCompany();
-		status = practicum != null && practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(company);
+		principal = super.getRequest().getPrincipal();
+		status = practicum != null && practicum.isDraftMode() && practicum.getCompany().getId() == principal.getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
+
+		//		boolean status;
+		//		int practicumId;
+		//		Practicum practicum;
+		//		Company company;
+		//
+		//		practicumId = super.getRequest().getData("id", int.class);
+		//		practicum = this.repository.findOnePracticumById(practicumId);
+		//		company = practicum == null ? null : practicum.getCompany();
+		//		status = practicum != null && practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(company);
+		//
+		//		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

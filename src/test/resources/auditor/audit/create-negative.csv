@@ -1,0 +1,14 @@
+index,code,conclusion,strongPoints,weakPoints,courseTitle
+0,,,,,---
+0,,Audit sin codigo,Audit sin codigo,Audit sin codigo,Curso de ruso
+0,1234,Audit con codigo sin letras,Audit con codigo sin letras,Audit con codigo sin letras,Curso de ruso
+0,AAAA1234,Audit con codigo de 4 letras,Audit con codigo de 4 letras,Audit con codigo de 4 letras,Curso de ruso
+0,AAA,Audit con codigo sin numeros,Audit con codigo sin numeros,Audit con codigo sin numeros,Curso de ruso
+0,AAA123,Audit con codigo de 3 numeros,Audit con codigo de 3 numeros,Audit con codigo de 3 numeros,Curso de ruso
+0,AAA12345,Audit con codigo de 5 numeros,Audit con codigo de 5 numeros,Audit con codigo de 5 numeros,Curso de ruso
+0,ZZZ1234,,Audit sin conclusion,Audit sin conclusion,Curso de ruso
+0,ZAB1234,Lorem ipsum dolor sit amets consectetur adipiscing elits Nam tristique sagittis tincidunt massa nuncs,Audit con conclusion de 101 caracteres,Audit con conclusion de 101 caracteres,Curso de ruso
+0,ZBC1234,Audit sin Strong Points,,Audit sin Strong Points,Curso de ruso
+0,ZCD1234,Audit con Strong Points de 101 caracteres,Lorem ipsum dolor sit amets consectetur adipiscing elits Nam tristique sagittis tincidunt massa nuncs,Audit con Strong Points de 101 caracteres,Curso de ruso
+0,ZDE1234,Audit sin Weak Points,Audit sin Weak Points,,Curso de ruso
+0,ZEF1234,Audit con Weak Points de 101 caracteres,Audit con Weak Points de 101 caracteres,Lorem ipsum dolor sit amets consectetur adipiscing elits Nam tristique sagittis tincidunt massa nuncs,Curso de ruso

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Activity;
 import acme.entities.enrolments.Enrolment;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -30,7 +31,16 @@ public class StudentActivityListMineService extends AbstractService<Student, Act
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		final boolean status;
+		final Principal principal;
+		final int masterId;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+		principal = super.getRequest().getPrincipal();
+
+		status = this.repository.findStudentByEnrolment(masterId).getId() == principal.getActiveRoleId();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

@@ -37,10 +37,16 @@ public interface AuditorAuditRepository extends AbstractRepository {
 	@Query("select c from Course c where c.title like :title")
 	Course findOneCourseByTitle(String title);
 
+	@Query("select c from Course c where c.id =:id")
+	Course findOneCourseById(int id);
+
 	@Query("select a from Audit a where a.course.title = :title")
 	Audit findOneAuditByCourseTitle(String title);
 
 	@Query("select c from Course c")
 	Collection<Course> findCourses();
+
+	@Query("select c from Course c where c.draftMode=true")
+	Collection<Course> findCoursesPublished();
 
 }

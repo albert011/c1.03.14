@@ -1,7 +1,6 @@
 
 package acme.features.student.enrolment;
 
-import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
@@ -35,6 +34,6 @@ public interface StudentEnrolmentRepository extends AbstractRepository {
 	Course findOneCourseById(int id);
 
 	@Query("select a from Activity a where a.enrolment.id = :id")
-	Collection<Activity> findManyActivitiesById(int id);
+	List<Activity> findManyActivitiesById(int id);
 
 }

@@ -1,15 +1,19 @@
 key,title,abstract-text,start-date,end-date,link,is-addendum,key:practicum
-practicum-session-01,sesion 1, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2030/12/11 23:00,2030/12/12 23:00,http://www.example.com,false,practicum-02
-practicum-session-02,sesion 2, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbb,2030/12/11 23:00,2030/12/12 23:00,,true,practicum-02
+practicum-session-01,sesion 1,tiene una duración de una semana,2023/12/11 23:00,2023/12/18 23:00,http://www.example.com,false,practicum-02
+practicum-session-02,sesion 2,comienza un día después de la fecha del sistema,2022/07/31 00:00,2022/09/12 23:00,,true,practicum-02
 practicum-session-03,ses3,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2023/07/11 17:00,2023/12/12 23:00,http://www.example.com,false,practicum-03
 practicum-session-04,s,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2023/07/11 17:00,2023/12/12 23:00,http://www.example.com,false,practicum-04
 practicum-session-05,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa75,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2023/07/11 17:00,2023/12/12 23:00,,false,practicum-05
-practicum-session-06,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa75,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2024/08/11 17:00,2024/08/12 13:00,,false,practicum-06
-practicum-session-07,sesion 4,sesion 4,2024/08/11 17:00,2024/08/12 13:00,,false,practicum-03
-practicum-session-08,otra sesion 1,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2024/08/11 17:00,2024/08/12 13:00,,false,practicum-06
-practicum-session-09,otra sesion 2,bbbbbbbbbb,2024/08/11 17:00,2024/08/12 13:00,,true,practicum-06
-practicum-session-10,practicum session1,bbbbbbbbbb,2024/08/11 17:00,2024/08/12 13:00,,false,practicum-08
-practicum-session-11,practicum session2,bbbbbbbbbb,2024/09/11 17:00,2024/09/12 13:00,,true,practicum-08
-practicum-session-12,@áéíóú,@áéíóú,2025/09/11 17:00,2025/09/12 13:00,,false,practicum-09
-practicum-session-13,ññ&%@@@,Carácteres especiales,2022/09/11 17:00,2022/09/12 13:00,,false,practicum-10
-practicum-session-14,αυτή είναι μια συνεδρία στα ελληνικά,αυτή είναι μια συνεδρία στα ελληνικά,2020/09/11 17:00,2020/09/12 13:00,,false,practicum-11
+practicum-session-06,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa75,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2024/08/11 17:00,2024/08/18 17:00,,false,practicum-06
+practicum-session-07,sesion 4,sesion 4,2024/08/11 17:00,2024/08/20 13:00,,false,practicum-03
+practicum-session-08,otra sesion 1,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,2024/08/11 17:00,2024/08/22 13:00,,false,practicum-06
+practicum-session-09,otra sesion 2,bbbbbbbbbb,2024/07/10 20:00,2024/08/12 13:00,,true,practicum-06
+practicum-session-10,practicum session1,bbbbbbbbbb,2024/08/11 17:00,2024/10/12 13:00,,false,practicum-08
+practicum-session-11,practicum session2,bbbbbbbbbb,2024/09/04 10:00,2024/09/12 13:00,,true,practicum-08
+practicum-session-12,@áéíóú,@áéíóú,2025/08/11 23:00,2025/09/12 13:00,,false,practicum-09
+practicum-session-13,ññ&%@@@,Carácteres especiales,2022/09/11 17:00,2022/12/12 13:00,,false,practicum-10
+practicum-session-14,αυτή είναι μια συνεδρία στα ελληνικά,αυτή είναι μια συνεδρία στα ελληνικά,2022/08/30 19:00,2022/09/12 13:00,http://www.greek.com,false,practicum-11
+practicum-session-15,Sesion del año pasado,Sesion del año pasado,2021/01/01 10:00,2021/02/01 22:00,,false,practicum-12
+practicum-session-16,Sesion 2 del año pasado,Sesion 2 del año pasado,2021/03/01 12:00,2021/03/10 22:00,,false,practicum-12
+practicum-session-17,Sesion 3 del año pasado,Sesion 3 del año pasado,2021/06/01 11:00,2021/07/01 16:00,http://www.example.com,false,practicum-12
+practicum-session-18,Otra sesion del año pasado,Otra sesion del año pasado,2021/01/01 14:00,2021/02/01 18:00,http://www.example.com,false,practicum-13
