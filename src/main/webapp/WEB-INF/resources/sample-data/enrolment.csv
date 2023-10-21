@@ -4,3 +4,17 @@ enrolment-02,TGH231,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,null,n
 enrolment-03,JUG675,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,null,null,student-01,course-06
 enrolment-04,APL234,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,null,null,student-02,course-07
 enrolment-05,JUG999,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,null,null,student-01,course-06
+enrolment-06,JJJ001,a,Test minimum character,null,null,student-02,course-05
+enrolment-07,JJJ002,Test minimum character,a,null,null,student-02,course-07
+enrolment-08,JJJ003,lorem ipsumlorem ipsumlor,Test 25 characters,null,null,student-02,course-07
+enrolment-09,JJJ004,lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem,Test 50 charecters,null,null,student-02,course-07
+enrolment-10,JJJ005,Test 25 characters,lorem ipsumlorem ipsumlor,null,null,student-02,course-07
+enrolment-11,JJJ006,Test 50 characters,lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorlor,null,null,student-02,course-07
+enrolment-12,JJJ007,Test 75 characters,lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorlorlorem ipsumlorem ipsumlor,null,null,student-02,course-07
+enrolment-13,JJJ008,Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ips,Test maximum character,null,null,student-02,course-05
+enrolment-14,JJJ009,Test maximum character,Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumL,null,null,student-02,course-07
+enrolment-15,JJJ010,貸んい建濯よ芝弾テソ,Λορεμ ιπσθμ δολορ σιτ αμετ,null,null,student-02,course-05
+enrolment-16,JJJ011,коза коза,თხა თხა,null,null,student-02,course-07
+enrolment-17,JJJ012,@áéíóú,áéíóúáéíóúáéíóú¿?¡!,null,null,student-02,course-05
+enrolment-18,JJJ013,ññ&%@@@,@@#ññññ,student2,5623,student-02,course-07
+enrolment-19,JJJ014,ññ&%@@@,@@#ññññ,student2,8823,student-02,course-08

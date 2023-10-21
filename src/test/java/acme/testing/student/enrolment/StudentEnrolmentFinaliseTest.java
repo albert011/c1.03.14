@@ -13,7 +13,7 @@ public class StudentEnrolmentFinaliseTest extends TestHarness {
 	@CsvFileSource(resources = "/student/enrolment/finalise-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String creditCard, final String cvc, final String expiryDate, final String holderName, final String lowerNibble) {
 
-		super.signIn("student1", "student1");
+		super.signIn("student2", "student2");
 
 		super.clickOnMenu("Student", "Enrolment");
 		super.checkListingExists();

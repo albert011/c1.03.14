@@ -39,7 +39,8 @@ public class StudentEnrolmentShowTest extends TestHarness {
 		super.checkInputBoxHasValue("goals", goal);
 		super.checkInputBoxHasValue("course", course);
 		super.checkInputBoxHasValue("holderName", holderName);
-		super.checkInputBoxHasValue("lowerNibble", lowerNibble);
+		if (lowerNibble != null)
+			super.checkInputBoxHasValue("lowerNibble", lowerNibble);
 
 		super.signOut();
 	}

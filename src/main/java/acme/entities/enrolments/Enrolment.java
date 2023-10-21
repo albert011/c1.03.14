@@ -1,6 +1,8 @@
 
 package acme.entities.enrolments;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -12,6 +14,7 @@ import javax.validation.constraints.Size;
 
 import acme.entities.course.Course;
 import acme.framework.data.AbstractEntity;
+import acme.framework.helpers.MomentHelper;
 import acme.roles.Student;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,14 +39,12 @@ public class Enrolment extends AbstractEntity {
 	@Size(max = 100)
 	protected String			goals;
 
-	//@Column(nullable = true)
-	//@NotEmpty
 	protected String			holderName;
 
-	//@Column(nullable = true)
-	//@NotEmpty
 	protected String			lowerNibble;
 
+	@Valid
+	@NotNull
 	@ManyToOne(optional = false)
 	protected Student			student;
 
@@ -51,4 +52,13 @@ public class Enrolment extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Course			course;
+
+
+	public Double workTime(final List<Activity> activities) {
+		double hours = 0.;
+		if (!activities.isEmpty())
+			for (int i = 0; i < activities.size(); i++)
+				hours += (double) MomentHelper.computeDuration(activities.get(i).startPeriod, activities.get(i).endPeriod).toMinutes() / 60;
+		return hours;
+	}
 }

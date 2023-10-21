@@ -95,6 +95,7 @@ master.menu.any.course = Courses Published
 master.menu.student = Student
 master.menu.student.enrolment = Enrolment
 master.menu.student.course = Course
+master.menu.student.dashboard = Dashboard
 
 # master.menu.authenticated #######################################################
 
