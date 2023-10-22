@@ -21,3 +21,6 @@ student.dashboard.form.label.learningTime.deviation = Desviación T.A. medio
 student.dashboard.form.label.learningTime.minimum = Mínimo T.A
 student.dashboard.form.label.learningTime.maximum = Máximo T.A
 student.dashboard.form.title.learning = Tiempo de Estudio en cursos
+
+student.dashboard.form.label.periodTime.days = Días
+student.dashboard.form.label.periodTime.hour = Horas

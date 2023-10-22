@@ -19,16 +19,16 @@ public interface StudentDashboardRepository extends AbstractRepository {
 	@Query("SELECT COALESCE(count(a), '') FROM Activity a JOIN a.enrolment e WHERE e.student.id = :studentId AND a.activityType = 'HANDS_ON'")
 	int numHandsOn(int studentId);
 
-	@Query("SELECT COALESCE(avg((SELECT SUM(DATEDIFF(a.endPeriod, a.startPeriod)) FROM Activity a JOIN a.enrolment e WHERE e.student.id = :studentId)), '') FROM Enrolment e WHERE e.student.id = :studentId")
+	@Query("SELECT SUM((SELECT avg(DATEDIFF(a.endPeriod, a.startPeriod)) FROM Activity a WHERE a.enrolment.id = e.id)) FROM Enrolment e WHERE e.student.id = :studentId")
 	double averagePeriodTime(int studentId);
 
-	@Query("SELECT COALESCE(stddev((SELECT SUM(DATEDIFF(a.endPeriod, a.startPeriod)) FROM Activity a JOIN a.enrolment e WHERE e.student.id = :studentId)), '') FROM Enrolment e WHERE e.student.id = :studentId")
+	@Query("SELECT SUM((SELECT stddev(DATEDIFF(a.endPeriod, a.startPeriod)) FROM Activity a WHERE a.enrolment.id = e.id)) FROM Enrolment e WHERE e.student.id = :studentId")
 	double deviationPeriodTime(int studentId);
 
-	@Query("SELECT COALESCE(min((SELECT SUM(DATEDIFF(a.endPeriod, a.startPeriod)) FROM Activity a JOIN a.enrolment e WHERE e.student.id = :studentId)), '') FROM Enrolment e WHERE e.student.id = :studentId")
+	@Query("SELECT SUM((SELECT min(DATEDIFF(a.endPeriod, a.startPeriod)) FROM Activity a WHERE a.enrolment.id = e.id)) FROM Enrolment e WHERE e.student.id = :studentId")
 	double minimumPeriodTime(int studentId);
 
-	@Query("SELECT COALESCE(max((SELECT SUM(DATEDIFF(a.endPeriod, a.startPeriod)) FROM Activity a JOIN a.enrolment e WHERE e.student.id = :studentId)), '') FROM Enrolment e WHERE e.student.id = :studentId")
+	@Query("SELECT SUM((SELECT max(DATEDIFF(a.endPeriod, a.startPeriod)) FROM Activity a WHERE a.enrolment.id = e.id)) FROM Enrolment e WHERE e.student.id = :studentId")
 	double maximumPeriodTime(int studentId);
 
 	@Query("SELECT COALESCE(avg((SELECT SUM(cl.lecture.estimatedLearningTime) FROM CourseLecture cl JOIN cl.course c WHERE e.course.id = c.id)), '') FROM Enrolment e WHERE e.student.id = :studentId")

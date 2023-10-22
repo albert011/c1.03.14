@@ -98,7 +98,8 @@ public class StudentDashboardShowService extends AbstractService<Student, Studen
 	public void unbind(final StudentDashboard studentDashboard) {
 		Tuple tuple;
 
-		tuple = super.unbind(studentDashboard, "totalTheoryActivities", "totalHandsOnActivities", "averageTimePeriod", "deviationTimePeriod", "minimumTimePeriod", "maximumTimePeriod");
+		tuple = super.unbind(studentDashboard, "totalTheoryActivities", "totalHandsOnActivities", "averageTimePeriod", "deviationTimePeriod", "minimumTimePeriod", "maximumTimePeriod", "averageLearningTime", "deviationLearningTime", "minimumLearningTime",
+			"maximumLearningTime");
 
 		super.getResponse().setData(tuple);
 	}
