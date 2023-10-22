@@ -1096,8 +1096,8 @@ bg=white
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>432</x>
-      <y>1704</y>
+      <x>192</x>
+      <y>1744</y>
       <w>368</w>
       <h>176</h>
     </coordinates>
@@ -1145,8 +1145,8 @@ bg=white
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>552</x>
-      <y>1632</y>
+      <x>312</x>
+      <y>1672</y>
       <w>112</w>
       <h>40</h>
     </coordinates>
@@ -1159,12 +1159,61 @@ bg=white
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>600</x>
-      <y>1664</y>
+      <x>360</x>
+      <y>1704</y>
       <w>24</w>
       <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>824</x>
+      <y>1672</y>
+      <w>112</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Serializable
+bg=white
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>872</x>
+      <y>1704</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>704</x>
+      <y>1744</y>
+      <w>368</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+StudentDashboard
+bg=yellow
+--
++ totalTheoryActivities: Integer
++ totalHandsOnActivities: Integer
++ averageTimePeriod: Double
++ deviationTimePeriod: Double
++ minimumTimePeriod: Double 
++ maximumTimePeriod: Double
++ averageLearningTime: Double
++ deviationLearningTime: Double
++ minimumLearningTime: Double
++ maximumLearningTime: Double</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
