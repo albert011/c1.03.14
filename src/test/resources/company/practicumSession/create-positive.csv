@@ -8,5 +8,5 @@ practicumRecordIndex,code,course,practicumTitle,practicumSessionRecordIndex,prac
 1,CBA3456,OLK 865,abc,2,otra sesion1,aaaaaa,2023/06/10 12:00,2023/06/20 10:00,https://www.ejemplo.com
 1,CBA3456,OLK 865,abc,3,otra sesion2,aaaaaaaaaaaaaaaaaaaaaaaaaa,2023/09/10 12:00,2023/09/19 17:00,
 1,CBA3456,OLK 865,abc,4,otra sesion3,bbbbbbbbbbbbbbb,2022/08/10 12:00,2022/08/19 17:00,https://www.ejemplo.com
-1,CBA3456,OLK 865,abc,5,otra sesion4,comienza una semana despues de la fecha del sistema,2022/08/06 00:00,2022/08/19 17:00,https://www.ejemplo.com
-1,CBA3456,OLK 865,abc,6,otra sesion5,comienza una semana despues de la fecha del sistema y tiene una duracion de una semana,2022/08/06 00:00,2022/08/13 00:00,https://www.ejemplo.com
+1,CBA3456,OLK 865,abc,5,otra sesion4,comienza una semana despues de la fecha del sistema,2022/08/06 00:01,2022/08/19 17:00,https://www.ejemplo.com
+1,CBA3456,OLK 865,abc,6,otra sesion5,tiene una duracion de una semana,2022/09/06 00:00,2022/09/13 00:00,https://www.ejemplo.com
