@@ -64,6 +64,9 @@
 			<acme:menu-separator />
 			<acme:menu-suboption code="master.menu.student.course"
 				action="/student/course/list-all" />
+				<acme:menu-separator />
+				<acme:menu-suboption code="master.menu.student.dashboard"
+				action="/student/student-dashboard/show" />
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">

@@ -35,11 +35,13 @@ public class LecturersCoursesLecturesCreateService extends AbstractService<Lectu
 		int courseId;
 		int lecturerId;
 		int ownerCourseId;
+		Course course;
 
 		courseId = super.getRequest().getData("courseId", int.class);
 		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
 		ownerCourseId = this.repository.findCourseOwnerByCourseId(courseId).getId();
-		status = lecturerId == ownerCourseId;
+		course = this.repository.findCourseById(courseId);
+		status = lecturerId == ownerCourseId && course.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}

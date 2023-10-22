@@ -11,18 +11,18 @@ import acme.framework.components.accounts.Any;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-public class PeepMessageController extends AbstractController<Any, PeepMessage> {
+public class AnyPeepMessageController extends AbstractController<Any, PeepMessage> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected PeepMessageListService	listService;
+	protected AnyPeepMessageListService		listService;
 
 	@Autowired
-	protected PeepMessageShowService	showService;
+	protected AnyPeepMessageShowService		showService;
 
 	@Autowired
-	protected PeepMessageCreateService	createService;
+	protected AnyPeepMessagePublishService	publishService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -31,7 +31,7 @@ public class PeepMessageController extends AbstractController<Any, PeepMessage> 
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
-		super.addBasicCommand("create", this.createService);
+		super.addCustomCommand("publish", "create", this.publishService);
 	}
 
 }

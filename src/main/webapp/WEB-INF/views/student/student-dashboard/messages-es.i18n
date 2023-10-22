@@ -1,0 +1,26 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+student.dashboard.form.label.periodTime.average = Periodo de tiempo medio
+student.dashboard.form.label.periodTime.numTheory = Actividades teóricas totales
+student.dashboard.form.label.periodTime.numHandsOn = Actividades prácticas totales
+student.dashboard.form.label.periodTime.deviation = Desviación del periodo de tiempo
+student.dashboard.form.label.periodTime.minimum = Periodo de tiempo mínimo
+student.dashboard.form.label.periodTime.maximum = Periodo de tiempo máximo
+student.dashboard.form.title.workbook = Estadísticas Workbook
+
+student.dashboard.form.label.learningTime.average = Tiempo de aprendizaje medio
+student.dashboard.form.label.learningTime.deviation = Desviación T.A. medio
+student.dashboard.form.label.learningTime.minimum = Mínimo T.A
+student.dashboard.form.label.learningTime.maximum = Máximo T.A
+student.dashboard.form.title.learning = Tiempo de Estudio en cursos
+
+student.dashboard.form.label.periodTime.days = Días
+student.dashboard.form.label.periodTime.hour = Horas

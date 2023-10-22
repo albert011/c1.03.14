@@ -1,19 +1,22 @@
 
 package acme.features.any.peep;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.peep.PeepMessage;
 import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
-public class PeepMessageCreateService extends AbstractService<Any, PeepMessage> {
+public class AnyPeepMessagePublishService extends AbstractService<Any, PeepMessage> {
 
 	@Autowired
-	protected PeepMessageRepository repository;
+	protected AnyPeepMessageRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -31,8 +34,11 @@ public class PeepMessageCreateService extends AbstractService<Any, PeepMessage> 
 	@Override
 	public void load() {
 		PeepMessage peep;
+		Date moment;
 
 		peep = new PeepMessage();
+		moment = MomentHelper.getCurrentMoment();
+		peep.setInstantiation(moment);
 
 		if (super.getRequest().getPrincipal().isAuthenticated())
 			peep.setNickname(super.getRequest().getPrincipal().getUsername());

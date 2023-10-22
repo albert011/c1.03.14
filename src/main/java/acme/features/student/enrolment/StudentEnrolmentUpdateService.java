@@ -2,6 +2,7 @@
 package acme.features.student.enrolment;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -113,14 +114,13 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		Collection<Course> courses;
 		SelectChoices choices;
 		Tuple tuple;
-		Double workTime = 0.;
+		final double workTime = 0.;
 		boolean finalized = false;
 
 		//studentId = super.getRequest().getPrincipal().getActiveRoleId();
 		courses = this.repository.findAllCourses();
-		choices = SelectChoices.from(courses, "title", object.getCourse());
-		if (!this.repository.findManyActivitiesById(object.getId()).isEmpty())
-			workTime = this.repository.findManyActivitiesById(object.getId()).stream().map(Activity::getWorkTime).reduce(Double::sum).get();
+		choices = SelectChoices.from(courses, "code", object.getCourse());
+		final List<Activity> list = this.repository.findManyActivitiesById(object.getId());
 
 		if (object.getHolderName() != null && object.getLowerNibble() != null)
 			finalized = true;
@@ -128,7 +128,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		tuple = super.unbind(object, "code", "motivation", "goals", "holderName", "lowerNibble");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
-		tuple.put("workTime", workTime);
+		tuple.put("workTime", object.workTime(list));
 		super.getResponse().setData(tuple);
 		tuple.put("finalized", finalized);
 	}

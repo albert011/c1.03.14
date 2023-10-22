@@ -11,13 +11,13 @@
 
 
 any.peep.list.label.nickname = Pseudónimo
-any.peep.list.label.instantiation = Instancia
+any.peep.list.label.instantiation = Instanciación
 any.peep.list.label.title = Título
 any.peep.list.label.link = Enlace
 any.peep.list.label.email = Correo Electrónico
 any.peep.list.label.message = Mensaje
 
-any.peep.create = Publicar Nuevo Mensaje
+any.peep.publish = Publicar Nuevo Mensaje
 
 any.peep.form.label.title = Título
 any.peep.form.label.message = Mensaje

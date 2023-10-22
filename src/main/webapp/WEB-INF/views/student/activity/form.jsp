@@ -17,17 +17,17 @@
 
 <acme:form>
 	<acme:input-textbox code="student.activity.form.label.title"
-		path="title" />
+		path="title" placeholder=""/>
 		<acme:input-textbox code="student.activity.form.label.abstractField"
-		path="abstractField" />
+		path="abstractField" placeholder=""/>
 		<acme:input-select code="student.activity.form.label.activityType" path="activityType"
 		choices="${activityTypes}" />
 		<acme:input-moment code="student.activity.form.label.startPeriod"
-		path="startPeriod" />
+		path="startPeriod" placeholder=""/>
 		<acme:input-moment code="student.activity.form.label.endPeriod"
-		path="endPeriod" />
+		path="endPeriod" placeholder=""/>
 	<acme:input-textbox code="student.activity.form.label.link"
-		path="link" />
+		path="link" placeholder="https://ejemplo.com"/>
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && finalised == true}">
 			<acme:submit code="student.activity.form.button.update"
